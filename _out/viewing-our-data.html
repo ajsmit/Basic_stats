@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Basic Statistics</title>
+  <meta name="description" content="This is a book about basic statistics: theory and practice.">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Basic Statistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figures/NSFW.jpg" />
+  <meta property="og:description" content="This is a book about basic statistics: theory and practice." />
+  <meta name="github-repo" content="ajsmit/basic_statistics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Basic Statistics" />
+  
+  <meta name="twitter:description" content="This is a book about basic statistics: theory and practice." />
+  <meta name="twitter:image" content="figures/NSFW.jpg" />
+
+<meta name="author" content="AJ Smit">
+
+
+<meta name="date" content="2018-02-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-classes.html">
+<link rel="next" href="descriptive-statistics.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i><b>1.1</b> Preliminaries</a></li>
+<li class="chapter" data-level="1.2" data-path="venue-date-and-time.html"><a href="venue-date-and-time.html"><i class="fa fa-check"></i><b>1.2</b> Venue, date and time</a></li>
+<li class="chapter" data-level="1.3" data-path="course-outline.html"><a href="course-outline.html"><i class="fa fa-check"></i><b>1.3</b> Course outline</a></li>
+<li class="chapter" data-level="1.4" data-path="about-this-workshop.html"><a href="about-this-workshop.html"><i class="fa fa-check"></i><b>1.4</b> About this Workshop</a></li>
+<li class="chapter" data-level="1.5" data-path="this-is-biology-why-more-r-coding.html"><a href="this-is-biology-why-more-r-coding.html"><i class="fa fa-check"></i><b>1.5</b> This is biology: why more R coding?</a></li>
+<li class="chapter" data-level="1.6" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1.6</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>1.7</b> Resources</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="resources.html"><a href="resources.html#required-reading"><i class="fa fa-check"></i><b>1.7.1</b> Required reading</a></li>
+<li class="chapter" data-level="1.7.2" data-path="resources.html"><a href="resources.html#resources-about-multivatiate-ecological-methods"><i class="fa fa-check"></i><b>1.7.2</b> Resources about multivatiate ecological methods</a></li>
+<li class="chapter" data-level="1.7.3" data-path="resources.html"><a href="resources.html#general-resources-about-r"><i class="fa fa-check"></i><b>1.7.3</b> General resources about R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="style-and-code-conventions.html"><a href="style-and-code-conventions.html"><i class="fa fa-check"></i><b>1.8</b> Style and code conventions</a></li>
+<li class="chapter" data-level="1.9" data-path="assessment-and-teaching-philosophy.html"><a href="assessment-and-teaching-philosophy.html"><i class="fa fa-check"></i><b>1.9</b> Assessment and teaching philosophy:</a></li>
+<li class="chapter" data-level="1.10" data-path="about-this-document.html"><a href="about-this-document.html"><i class="fa fa-check"></i><b>1.10</b> About this document</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="types-of-data.html"><a href="types-of-data.html"><i class="fa fa-check"></i><b>2</b> Types of data</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-classes.html"><a href="data-classes.html"><i class="fa fa-check"></i><b>2.1</b> Data classes</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-classes.html"><a href="data-classes.html#numerical-data"><i class="fa fa-check"></i><b>2.1.1</b> Numerical data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data-classes.html"><a href="data-classes.html#qualitative-data"><i class="fa fa-check"></i><b>2.1.2</b> Qualitative data</a></li>
+<li class="chapter" data-level="2.1.3" data-path="data-classes.html"><a href="data-classes.html#binary-data"><i class="fa fa-check"></i><b>2.1.3</b> Binary data</a></li>
+<li class="chapter" data-level="2.1.4" data-path="data-classes.html"><a href="data-classes.html#complex-numbers"><i class="fa fa-check"></i><b>2.1.4</b> Complex numbers</a></li>
+<li class="chapter" data-level="2.1.5" data-path="data-classes.html"><a href="data-classes.html#character-values"><i class="fa fa-check"></i><b>2.1.5</b> Character values</a></li>
+<li class="chapter" data-level="2.1.6" data-path="data-classes.html"><a href="data-classes.html#missing-values"><i class="fa fa-check"></i><b>2.1.6</b> Missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="viewing-our-data.html"><a href="viewing-our-data.html"><i class="fa fa-check"></i><b>2.2</b> Viewing our data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="viewing-our-data.html"><a href="viewing-our-data.html#from-the-environment-pane"><i class="fa fa-check"></i><b>2.2.1</b> From the Environment pane</a></li>
+<li class="chapter" data-level="2.2.2" data-path="viewing-our-data.html"><a href="viewing-our-data.html#head-and-tail"><i class="fa fa-check"></i><b>2.2.2</b> <code>head()</code> and <code>tail()</code></a></li>
+<li class="chapter" data-level="2.2.3" data-path="viewing-our-data.html"><a href="viewing-our-data.html#colnames"><i class="fa fa-check"></i><b>2.2.3</b> <code>colnames()</code></a></li>
+<li class="chapter" data-level="2.2.4" data-path="viewing-our-data.html"><a href="viewing-our-data.html#summary"><i class="fa fa-check"></i><b>2.2.4</b> <code>summary()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="3.1" data-path="samples-and-populations.html"><a href="samples-and-populations.html"><i class="fa fa-check"></i><b>3.1</b> Samples and populations</a></li>
+<li class="chapter" data-level="3.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>3.2</b> Measures of central tendency</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean"><i class="fa fa-check"></i><b>3.2.1</b> The mean</a></li>
+<li class="chapter" data-level="3.2.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median"><i class="fa fa-check"></i><b>3.2.2</b> The median</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html"><i class="fa fa-check"></i><b>3.3</b> Measures of variation and spread</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html#the-variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.3.1</b> The variance and standard deviation</a></li>
+<li class="chapter" data-level="3.3.2" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html#quantiles"><i class="fa fa-check"></i><b>3.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="3.3.3" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html#the-minimum-maximum-and-range"><i class="fa fa-check"></i><b>3.3.3</b> The minimum, maximum and range</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="missing-values-1.html"><a href="missing-values-1.html"><i class="fa fa-check"></i><b>3.4</b> Missing values</a></li>
+<li class="chapter" data-level="3.5" data-path="descriptive-statistics-by-group.html"><a href="descriptive-statistics-by-group.html"><i class="fa fa-check"></i><b>3.5</b> Descriptive statistics by group</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="descriptive-statistics-by-group.html"><a href="descriptive-statistics-by-group.html#groupwise-summary-statistics"><i class="fa fa-check"></i><b>3.5.1</b> Groupwise summary statistics</a></li>
+<li class="chapter" data-level="3.5.2" data-path="descriptive-statistics-by-group.html"><a href="descriptive-statistics-by-group.html#displays-of-group-summaries"><i class="fa fa-check"></i><b>3.5.2</b> Displays of group summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises.html"><a href="exercises.html#exercise-1"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Basic Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="viewing-our-data" class="section level2">
+<h2><span class="header-section-number">2.2</span> Viewing our data</h2>
+<p>There are many ways of finding broad views of our data in R. The first few functions that we will look at were designed to simply scrutinise the contents of the tibbles, which is the ‘tidyverse’ name for the general ‘container’ that holds our data in the software’s environment (i.e. in a block of the computer’s memory dedicated to the R software). Whatever data are in R’s environment will be seen in the ‘Environment’ tab in the top right of RStudio’s four panes.</p>
+<div id="from-the-environment-pane" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> From the Environment pane</h3>
+<p>The first way to see what’s in the tibble is not really a function at all, but a convenient (and lazy) way of quickly seeing a few basic things about our data. Let us look at the <code>ChickWeight</code> data. Load it like so (you’ll remember from the Intro R Workshop):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># loads the tidyverse functions; it contains the &#39;as_tibble()&#39; function</span>
+<span class="kw">library</span>(tidyverse)
+<span class="co"># the &#39;ChickWeight&#39; data are built into R;</span>
+<span class="co"># here we assign it as a tibble to an object named &#39;chicks&#39;</span>
+chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</code></pre></div>
+<p>In the Environment pane, the object named <code>chicks</code> will now appear under the panel named Data. To the left of it is a small white arrow in a blue circular background. By default the arrow points to the right. Clicking on it causes it to point down, which denotes that the data contained within the tibble have become expanded. The names of the columns (more correctly called ‘variables’) can now be seen. There you can see the variables <code>weight</code>, <code>Time</code>, <code>Chick</code> and <code>Diet</code>. The class of data they represent can be seen too: there’s continuous data of class <code>num</code>, a variable of <code>Ord.factor</code>, and a categorical variable of class <code>Factor</code>. Beneath these there’s a lot of attributes that denote some meta-data, which you may safely ignore for now.</p>
+<div class="figure">
+<img src="figures/chicks_1.png" alt="What is in the Chicks data?" width="997" />
+<p class="caption">
+(#fig:chicks_1)What is in the Chicks data?
+</p>
+</div>
+<div class="figure">
+<img src="figures/chicks_2.png" alt="This is what is in the Chicks data" width="997" />
+<p class="caption">
+(#fig:chicks_2)This is what is in the Chicks data
+</p>
+</div>
+</div>
+<div id="head-and-tail" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> <code>head()</code> and <code>tail()</code></h3>
+<p>The <code>head()</code> and <code>tail()</code> functions simply display top and bottom portions of the tibble, and you may add the <code>n</code> argument and an integer to request that only a certain number of rows is returned; by default the top of bottom six rows are displayed.</p>
+<p>There are various bits of additional information printed out. The display will change somewhat if there are many more variables than that which can comfortably fit within the width of the window (typically the Console). The same kinds of information as was returned with the Environment pane expansion arrow are displayed, but the data class is now accompanied by an angle bracket (i.e. <code>&lt;...&gt;</code>) notation. For example, <code>num</code> in the Environment pane and <code>&lt;dbl&gt;</code> as per the <code>head()</code> or <code>tail()</code> methods are exactly the same: both denote continuous (or ‘double precision’) data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(chicks)</code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   weight  Time Chick Diet 
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;ord&gt; &lt;fct&gt;
+## 1   42.0  0    1     1    
+## 2   51.0  2.00 1     1    
+## 3   59.0  4.00 1     1    
+## 4   64.0  6.00 1     1    
+## 5   76.0  8.00 1     1    
+## 6   93.0 10.0  1     1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(chicks, <span class="dt">n =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## # A tibble: 2 x 4
+##   weight  Time Chick Diet 
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;ord&gt; &lt;fct&gt;
+## 1    264  20.0 50    4    
+## 2    264  21.0 50    4</code></pre>
+<p>As an alternative to <code>head()</code>, you may also simply type the name of the object (here <code>chicks</code>) in the Console (or write it in the Source Editor if it is necessary to retain the function for future use) and the top portion of the tibble will be displayed, again trimmed to account for the width of the display.</p>
+</div>
+<div id="colnames" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> <code>colnames()</code></h3>
+<p>This function simply returns a listing of the variable (column) names.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(chicks)</code></pre></div>
+<pre><code>## [1] &quot;weight&quot; &quot;Time&quot;   &quot;Chick&quot;  &quot;Diet&quot;</code></pre>
+<p>There is an equivalent function called <code>rownames()</code> that may be used to show the names of rows in your tibble, if these are present. Row names are generally discouraged, and we will refrain from using them here.</p>
+</div>
+<div id="summary" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> <code>summary()</code></h3>
+<p>The next way to see the contents of the tibble is to apply the <code>summary()</code> function. Here we see something else. Some descriptive statistics that describe properties of the full set of data are now visible. These summary statistics condense each of the variables into numbers that describe some properties of set of data within each column. You will already know the concepts of the ‘minimum,’ ‘median,’ ‘mean,’ and ‘maximum.’ These are displayed here.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(chicks)</code></pre></div>
+<pre><code>##      weight           Time           Chick     Diet   
+##  Min.   : 35.0   Min.   : 0.00   13     : 12   1:220  
+##  1st Qu.: 63.0   1st Qu.: 4.00   9      : 12   2:120  
+##  Median :103.0   Median :10.00   20     : 12   3:120  
+##  Mean   :121.8   Mean   :10.72   10     : 12   4:118  
+##  3rd Qu.:163.8   3rd Qu.:16.00   17     : 12          
+##  Max.   :373.0   Max.   :21.00   19     : 12          
+##                                  (Other):506</code></pre>
+<p>This will serve well as an introduction to the next chapter, which is about the descriptive stastics. What are they, and how do we calculate them?</p>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-classes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="descriptive-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
