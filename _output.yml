@@ -1,0 +1,33 @@
+bookdown::tufte_book2:
+  latex_engine: xelatex
+  citation_package: natbib
+  toc: yes
+  fig_caption: yes
+bookdown::gitbook:
+  css: css/style.css
+  split_by: section
+  toolbar:
+    position: fixed
+  edit: null
+  download: null
+  search: yes
+  fontsettings:
+    theme: sepia
+    family: serif
+    size: 2
+  sharing:
+    facebook: yes
+    twitter: yes
+    google: yes
+    weibo: no
+    instapper: no
+    vk: no
+    all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper']
+bookdown::html_chapters:
+  css: [css/style.css, css/toc.css]
+tufte::tufte_html:
+  css: [css/style.css, css/toc.css]
+bookdown::tufte_html2:
+  css: [css/style.css, css/toc.css]
+bookdown::tufte_html_book:
+  css: [css/style.css, css/toc.css]

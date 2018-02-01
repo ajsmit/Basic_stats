@@ -1,0 +1,8 @@
+book_filename: "Basic_Statistics"
+chapter_name: "Chapter "
+repo: https://github.com/ajsmit/Basic_Statistics
+rmd_files: ["index.Rmd", "01-intro.Rmd", "02-data.Rmd", "03-discriptive.Rmd"]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
+output_dir: "_out"
+delete_merged_file: true
