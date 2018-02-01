@@ -365,12 +365,22 @@ plt3 <- chicks %>%
 
 
 ```r
-ggarrange(plt1, plt2, plt3, ncol = 2, nrow = 2, labels = "AUTO")
+plt4 <- chicks %>%
+  filter(Time %in% c(10, 21)) %>% 
+  ggplot(aes(x = Diet, y = weight, fill = as.factor(Time))) +
+  geom_boxplot() +
+  geom_jitter(shape = 21, width = 0.1) +
+  labs(y = "Chicken mass (g)", fill = "Time") + theme_pubr()
+```
+
+
+```r
+ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="03-discriptive_files/figure-html/unnamed-chunk-14-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-14)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
+<img src="03-discriptive_files/figure-html/unnamed-chunk-15-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-15)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
 </div>
 
 
