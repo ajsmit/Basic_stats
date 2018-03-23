@@ -245,7 +245,7 @@ plt4 <- chicks %>%
   ggplot(aes(x = Diet, y = weight, fill = as.factor(Time))) +
   geom_boxplot() +
   geom_jitter(shape = 21, width = 0.1) +
-  labs(y = "Chicken mass (g)", fill = "Time") + theme_pubr()
+  labs(y = "Chicken mass (g)", fill = "Time")
 ```
 
 ```{r, message = FALSE, fig.cap = "A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean."}

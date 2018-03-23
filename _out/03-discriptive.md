@@ -370,7 +370,7 @@ plt4 <- chicks %>%
   ggplot(aes(x = Diet, y = weight, fill = as.factor(Time))) +
   geom_boxplot() +
   geom_jitter(shape = 21, width = 0.1) +
-  labs(y = "Chicken mass (g)", fill = "Time") + theme_pubr()
+  labs(y = "Chicken mass (g)", fill = "Time")
 ```
 
 

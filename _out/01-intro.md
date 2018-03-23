@@ -73,8 +73,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1] 20.740313 33.228179 22.949770 21.776450 25.027786 10.426938  2.456074
-R>  [8] -2.101046  7.080193 11.606892
+R>  [1]  -1.382894   6.623550  10.016745   4.001517 -14.205712   5.993953
+R>  [7]  -2.819659  18.533080  -7.519011  16.895566
 ```
 
 Consult these resources for more about R code style :
@@ -128,14 +128,14 @@ R> locale:
 R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 R> 
 R> attached base packages:
-R> [1] stats     graphics  grDevices utils     datasets  base     
+R> [1] stats     grDevices utils     datasets  graphics  base     
 R> 
 R> loaded via a namespace (and not attached):
 R>  [1] Rcpp_0.12.15    bookdown_0.6    png_0.1-7       digest_0.6.14  
 R>  [5] rprojroot_1.3-2 backports_1.1.2 magrittr_1.5    evaluate_0.10.1
 R>  [9] highr_0.6       stringi_1.1.6   rmarkdown_1.8   tools_3.4.3    
 R> [13] stringr_1.2.0   xfun_0.1        yaml_2.1.16     compiler_3.4.3 
-R> [17] htmltools_0.3.6 knitr_1.18      methods_3.4.3
+R> [17] htmltools_0.3.6 knitr_1.19      methods_3.4.3
 ```
 
 
