@@ -1,4 +1,4 @@
-# Descriptive statistics
+# Descriptive versus inferential statistics
 
 > *"I think it is much more interesting to live with uncertainty than to live with answers that might be wrong."*
 >
