@@ -8,7 +8,7 @@
 >
 > --– Niels Bohr
 
-## Preliminaries
+<!-- ## Preliminaries -->
 
 ```{r prelim-opts, echo=FALSE}
 knitr::opts_chunk$set(

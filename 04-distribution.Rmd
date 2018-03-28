@@ -1,0 +1,5 @@
+# Distributions
+
+Therefore, we must next learn about the different types of data distributions we are likely to encounter in the wild.
+
+## Polygon plots
