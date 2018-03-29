@@ -1,5 +1,13 @@
 # Testing assumptions or: How I learned to stop worrying and transform the data
 
+```{r prelim-opts, echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "R>", 
+  warning = FALSE, 
+  message = FALSE
+)
+```
+
 In this chapter we will learn how to test for the two most common assumptions we will make in the biological sciences.
 
 Our tests for these two assumptions fail often with real data. Therefore, we must often identify the way in which our data are distributed so we may better decide how to transform them in an attempt to coerce them into a format that will pass the assumptions.
@@ -45,9 +53,18 @@ chicks %>%
 
 Well, do these data pass the two main assumptions?
 
+## Transforming data
+
+### Log transform 
+
+###
+
 ## Exercises
 
 ### Exercise 1
 
 Find one of the days of measurement where the chicken weights do not pass the assumptions of normality, and another day (not day 21!) in which they do.
 
+### Exercise 2
+
+Transform the data so that they may pass the assumptions.
