@@ -1,5 +1,6 @@
 # Introduction
 
+
 > *"A scientist worthy of a lab coat should be able to make original discoveries while wearing a clown suit, or give a lecture in a high squeaky voice from inhaling helium. It is written nowhere in the math of probability theory that one may have no fun."*
 >
 > --- Eliezer Yudkowsky

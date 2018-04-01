@@ -1,5 +1,6 @@
 # Types of data
 
+
 > *“The plural of anecdote is not data.”*
 >
 > --- Roger Brinner

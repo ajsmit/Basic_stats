@@ -1,6 +1,6 @@
 --- 
 title: "Basic Statistics"
-author: "AJ Smit"
+author: "AJ Smit and Robert Schlegel"
 date: "`r Sys.Date()`"
 bibliography:
 - LaTeX/bibliography.bib
