@@ -1,0 +1,20 @@
+# Generalised linear models
+
+
+```{r prelim-opts, echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "R>", 
+  warning = FALSE, 
+  message = FALSE
+)
+```
+
+## Sign Test
+
+## Wilcoxon Signed-Rank Test
+
+## Mann-Whitney-Wilcoxon Test
+
+## Kruskal-Wallis Test
+
+## Generalised linear models (GLM)

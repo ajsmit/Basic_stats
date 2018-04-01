@@ -1,0 +1,31 @@
+# Simple linear regressions
+
+
+```{r prelim-opts, echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "R>", 
+  warning = FALSE, 
+  message = FALSE
+)
+```
+
+## Estimated simple regression equation
+
+## Coefficient of determination
+
+## Significance test for linear regression
+
+## Confidence interval for linear regression
+
+## Prediction interval for linear regression
+
+## Residual plot
+
+## Standardised residual
+
+## Normal probability plot of residuals
+
+```{r}
+
+```
+
