@@ -6,8 +6,6 @@
 
 
 
-<!-- Maybe the nature of descriptive and inferential stats must be covered earlier, in Chpt 1 maybe -->
-
 In this Chapter we will focus on basic descriptions of the data, and these initial forrays are built around measures of the central tendency of the data (the mean, median, mode) and the dispersion and variability of the data (standard deviations and their ilk). The materials covered in this and the next two chapters concern a broad discussion that will aid us in understanding our data better prior to analysing it, and before we can draw inference from it. In this work flow it emerges that descriptive statistics generally precede inferential statistics.
 
 Let us now turn to some of the most commonly used descriptive statistics, and learn about how to calculate them.
@@ -49,13 +47,19 @@ R> [1] 578
 
 Table: Measures of central tendency.
 
----------------------------
-Statistic     Function
-------------- -------------
-Mean          `mean()`
+-----------------------------------------------
+Statistic           Function      Package
+------------------- ------------- -------------
+Mean                `mean()`      **base**
 
-Median        `median()`
----------------------------
+Median              `median()`    **base**
+
+Central moment      `moment()`    **e1071**
+
+Skewness            `skewness()`  **e1071**
+
+Kurtosis            `kurtosis()`  **e1071**
+-----------------------------------------------
 
 The measures of central tendency are also sometimes called 'location' statistics. We have already seen summaries of the mean and the median when we called to `summary()` function on the `chicks` data in Chapter 2. Here we shall show you how they can be calculated using some built-in R functions.
 
@@ -165,6 +169,18 @@ R> 1   103.
 
 The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the *1st and 3rd quartiles*, which, respectively, separate the first quarter of the data from the last quarter --- see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).
 
+### Central moment
+
+<!-- insert some stuff here -->
+
+### Skewness
+
+<!-- insert some stuff here -->
+
+### Kurtosis
+
+<!-- insert some stuff here -->
+
 ## Measures of variation and spread
 
 Since the mean or median does not tell us everything there is to know about data, we will also have to determine some statistics that inform us about the variation (or spread) around the central/mean value.
@@ -183,6 +199,10 @@ Minimum               `min()`
 Maximum               `max()`
 
 Range                 `range()`
+
+Quantile              `quantile()`
+
+Covariance            `cov()`
 -------------------------------------------
 
 ### The variance and standard deviation
@@ -225,7 +245,6 @@ knitr::include_graphics("figures/Standard_deviation_diagram.svg")
 Like the mean, $S$ is affected by extreme values and outliers, so before we attach $S$ as a summary statistic to describe some data, we need to ensure that the data are in fact normally distributed. We will talk about how to do this in Chapter 6, where we will go over the numerous ways to check the assumption of normality. When the data are found to be non-normal, we need to find appropriate ways to express the spread of the data. Enter the quartiles.
 
 ### Quantiles
-
 A more forgiving approach (forgiving of the extremes, often called 'robust') is to divide the distribution of ordered data into quarters, and find the points below which 25% (0.25, the first quartile), 50% (0.50, the median) and 75% (0.75, the third quartile) of the data are distributed. These are called *quartiles* (for 'quarter;' not to be confused with *quantile*, which is a more general form of the function that can be used to divide the distribution into any arbitrary proportion from 0 to 1). In R we use the `quantile()` function to provide the quartiles; we demonstrate two approaches:
 
 
@@ -262,7 +281,6 @@ R> 1    35.     63.   103.    103.   373.
 > *Question:* What is different about the `quantile()` function that caused us to specify the calculation in the way in which we have done so above? You will have to consult the help file, read it, understand it, think about it, and experiment with the ideas. Take 15 minutes to figure it out and report back to the class.
 
 ### The minimum, maximum and range
-
 A description of the extent of the data can also be provided by the functions `min()`, `max()` and `range()`. 
 
 These statistics apply to data of any distribution, and not only to normal data. This if often the first place you want to start when looking at the data for the first time. We've seen above how to use `min()` and `max()`, so below we will quickly look at how to use `range()` in both the base R and tidy methods:
@@ -311,6 +329,16 @@ R>   range_wt
 R>      <dbl>
 R> 1     338.
 ```
+
+### Covariance
+
+### Correlation
+The correlation coefficient of two matched (paired) variables is equal to their covariance divided by the product of their individual standard deviations. It is a normalised measurement of how linearly related the two variables are.
+
+<!-- include the equation -->
+<!-- include example here -->
+
+Graphical displays of correlations are provided by scatter plots as can be seen in Section X.
 
 ## Missing values
 
@@ -380,6 +408,8 @@ R> # ... with 1 more variable: n_wt <int>
 ```
 
 ### Displays of group summaries
+
+<!-- probably can be moved to the section 'Graphical data displays' -->
 
 There are several kinds of graphical displays for your data. We will show some which are able to display the spread of the raw data, the mean or median, as well as the appropriate accompanying indicators of variation around the mean or median.
 

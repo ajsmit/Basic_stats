@@ -28,6 +28,15 @@ Integer data (discrete numbers or whole numbers), such as counts. For example, f
 #### Continuous data
 These usually represent measured 'things,' such as something's heat content (temperature, measured in degrees Celsius) or distance (measured in metres or similar), etc. They can be rational numbers including integers and fractions, but typically they have an infinite number of 'steps' that depends on rounding (they can even be rounded to whole integers) or considerations such as measurement precision and accuracy. Often, continuous data have upper and lower bounds that depend on the characteristics of the phenomenon being studied or the measurement being taken. In R, continuous data are denoted `num` or `<dbl>`.
 
+The kinds of summaries that lend themselves to continuous data are:
+
+* Frequency distributions
+* Relative frequency distributions
+* Cumulative frequency distributions
+* Bar graphs
+* Box plots
+* Scatter plots
+
 #### Dates
 Dates are a special class of continuous data, and there are many different representations of the date classes. This is a complex group of data, and we will not cover much of it in this course.
 
@@ -35,7 +44,15 @@ Dates are a special class of continuous data, and there are many different repre
 Qualitative data may be well-defined categories or they may be subjective, and generally include descriptive words for classes (e.g. mineral, animal , plant) or rankings (e.g. good, better, best).
 
 #### Categorical data
-Also known as qualitative data. Because there are categories, the number of members belonging to each of the categories can be counted. For example, there are three red flowers, 66 purple flowers, and 13 yellow flowers. The categories cannot be ranked relative to each other; in the example just provided, for instance, no value judgement can be assigned to the different colours. It is not better to be red than it is to be purple. There are just fewer red flowers than purple ones. Contrast this to another kind of categorical data called 'ordinal data' (see next). This class of data in an R dataframe (or in a 'tibble') is indicated by `Factor` or `<fctr>`.
+Because there are categories, the number of members belonging to each of the categories can be counted. For example, there are three red flowers, 66 purple flowers, and 13 yellow flowers. The categories cannot be ranked relative to each other; in the example just provided, for instance, no value judgement can be assigned to the different colours. It is not better to be red than it is to be purple. There are just fewer red flowers than purple ones. Contrast this to another kind of categorical data called 'ordinal data' (see next). This class of data in an R dataframe (or in a 'tibble') is indicated by `Factor` or `<fctr>`.
+
+The kinds of summaries that lend themselves to categorical data are:
+
+* Frequency distributions
+* Relative frequency distributions
+* Bar graphs
+* Pie graphs (!!!)
+* Category statistics
 
 #### Ordinal data
 This is a type of categorical data where the classes are ordered (a synonym is "ranked"), typically from low to high (or vice versa), but where the magnitude between the ordered classes cannot be precisely measured or quantified. In other words, the difference between them is somewhat subjective (i.e. it is qualitative rather than quantitative). These data are on an ordinal scale. The data may be entered as descriptive character strings (i.e. as words), or they may have been translated to an ordered vector of integers; for example, "1" for terrible, "2" for so-so, "3" for average, "4" for good and "5" for brilliant. Irrespective of how the data are present in the dataframe, computationally (for some calculations) they are treated as an ordered sequence of integers, but they are simultaneously treated as categories (say, where the number of responses that report "so-so" can be counted). Ordinal data usually answer questions such as, "how many categories can the phenomenon be divided into, and how does each category rank with respect to the others?" Columns containing this kind of data are named `Ord.factor` or `<ord>`.

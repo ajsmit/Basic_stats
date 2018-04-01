@@ -166,11 +166,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>3.2</b> Measures of central tendency</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean"><i class="fa fa-check"></i><b>3.2.1</b> The mean</a></li>
 <li class="chapter" data-level="3.2.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median"><i class="fa fa-check"></i><b>3.2.2</b> The median</a></li>
+<li class="chapter" data-level="3.2.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#central-moment"><i class="fa fa-check"></i><b>3.2.3</b> Central moment</a></li>
+<li class="chapter" data-level="3.2.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewness"><i class="fa fa-check"></i><b>3.2.4</b> Skewness</a></li>
+<li class="chapter" data-level="3.2.5" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#kurtosis"><i class="fa fa-check"></i><b>3.2.5</b> Kurtosis</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html"><i class="fa fa-check"></i><b>3.3</b> Measures of variation and spread</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html#the-variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.3.1</b> The variance and standard deviation</a></li>
 <li class="chapter" data-level="3.3.2" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html#quantiles"><i class="fa fa-check"></i><b>3.3.2</b> Quantiles</a></li>
 <li class="chapter" data-level="3.3.3" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html#the-minimum-maximum-and-range"><i class="fa fa-check"></i><b>3.3.3</b> The minimum, maximum and range</a></li>
+<li class="chapter" data-level="3.3.4" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html#covariance"><i class="fa fa-check"></i><b>3.3.4</b> Covariance</a></li>
+<li class="chapter" data-level="3.3.5" data-path="measures-of-variation-and-spread.html"><a href="measures-of-variation-and-spread.html#correlation"><i class="fa fa-check"></i><b>3.3.5</b> Correlation</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="missing-values-1.html"><a href="missing-values-1.html"><i class="fa fa-check"></i><b>3.4</b> Missing values</a></li>
 <li class="chapter" data-level="3.5" data-path="descriptive-statistics-by-group.html"><a href="descriptive-statistics-by-group.html"><i class="fa fa-check"></i><b>3.5</b> Descriptive statistics by group</a><ul>
@@ -181,7 +186,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.1" data-path="exercises.html"><a href="exercises.html#exercise-1"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html"><i class="fa fa-check"></i><b>4</b> Graphical data displays</a></li>
+<li class="chapter" data-level="4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html"><i class="fa fa-check"></i><b>4</b> Graphical data displays</a><ul>
+<li class="chapter" data-level="4.1" data-path="frequency-distributions.html"><a href="frequency-distributions.html"><i class="fa fa-check"></i><b>4.1</b> Frequency distributions</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="frequency-distributions.html"><a href="frequency-distributions.html#qualitative-data-1"><i class="fa fa-check"></i><b>4.1.1</b> Qualitative data</a></li>
+<li class="chapter" data-level="4.1.2" data-path="frequency-distributions.html"><a href="frequency-distributions.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.2</b> Continuous data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="bar-graphs.html"><a href="bar-graphs.html"><i class="fa fa-check"></i><b>4.2</b> Bar graphs</a></li>
+<li class="chapter" data-level="4.3" data-path="pie-graphs.html"><a href="pie-graphs.html"><i class="fa fa-check"></i><b>4.3</b> Pie graphs (!!!)</a></li>
+<li class="chapter" data-level="4.4" data-path="category-statistics.html"><a href="category-statistics.html"><i class="fa fa-check"></i><b>4.4</b> Category statistics</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Distributions</a><ul>
 <li class="chapter" data-level="5.1" data-path="polygon-plots.html"><a href="polygon-plots.html"><i class="fa fa-check"></i><b>5.1</b> Polygon plots</a></li>
 </ul></li>
@@ -288,6 +301,7 @@ R&gt; # ... with 1 more variable: n_wt &lt;int&gt;</code></pre>
 </div>
 <div id="displays-of-group-summaries" class="section level3">
 <h3><span class="header-section-number">3.5.2</span> Displays of group summaries</h3>
+<!-- probably can be moved to the section 'Graphical data displays' -->
 <p>There are several kinds of graphical displays for your data. We will show some which are able to display the spread of the raw data, the mean or median, as well as the appropriate accompanying indicators of variation around the mean or median.</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">library</span>(ggpubr) <span class="co"># needed for arranging multi-panel plots</span></a>
 <a class="sourceLine" id="cb53-2" data-line-number="2">plt1 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
