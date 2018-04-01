@@ -203,11 +203,13 @@ Range                 `range()`
 Quantile              `quantile()`
 
 Covariance            `cov()`
+
+Correlation           `cor()`
 -------------------------------------------
 
 ### The variance and standard deviation
 
-The *sample variance*, $S^{2}$, may be calculated according to the following formula:
+The variance and standard deviation are examples of interval estimates. The *sample variance*, $S^{2}$, may be calculated according to the following formula:
 
 $$S^{2} = \frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}$$
 
