@@ -1,5 +1,6 @@
 # Introduction
 
+
 > *"A scientist worthy of a lab coat should be able to make original discoveries while wearing a clown suit, or give a lecture in a high squeaky voice from inhaling helium. It is written nowhere in the math of probability theory that one may have no fun."*
 >
 > --- Eliezer Yudkowsky
@@ -78,8 +79,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]  -3.230505   3.276895  17.098771 -20.397865  -1.458125 -19.753510
-R>  [7]  11.417156   9.923480  10.444076 -10.414707
+R>  [1]  -6.5226575   3.3778771   5.9128394   6.0416968 -23.0557281
+R>  [6]  35.3000462  -4.2571641  20.8494549  -0.3649749 -16.8965022
 ```
 
 Consult these resources for more about R code style :

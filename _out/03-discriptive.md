@@ -1,5 +1,6 @@
 # Descriptive statistics: A focus on measures of central tendency and dispersion
 
+
 > *"I think it is much more interesting to live with uncertainty than to live with answers that might be wrong."*
 >
 > --– Richard Feynman
