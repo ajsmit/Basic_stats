@@ -24,21 +24,27 @@ Quantitative Ecology is scheduled to replace Plant Ecophysiology, and will run b
 
 ## Course outline
 
-* Descriptive versus inferential statistics
-* Measures of central tendency
-* Measures of dispersion and variability
-* Distributions
-* Graphical data displays
-* Testing assumptions; transformations
-* Confidence intervals
-* T-tests (one- and two-sample, etc.)
-* ANOVA (one- and two-way)
-* Non-parametric tests (Mann-Whitney, Kruskal-Wallis)
-* Chi-square tests
-* Correlation
-* Linear models (linear regression)
-* Generalised linear models
-* Linear mixed models
+1. Introduction (this chapter)
+2. Types of data
+3. Descriptive statistics: Measures of location and dispersion
+4. The Normal distribution and probability determination using the normal curve
+5. Representing data graphically
+6. T-tests (one-sample, two-sample and paired)
+7. Confidence intervals
+8. One-way ANOVA
+9. Introduction to univariate and multivariate ANOVA models
+10. Repeated measures ANOVA (or rather lme?)
+11. Testing data for normality and transforming data
+12. Non-parametric tests---Mann-Whitney, Kruskal-Wallis (or rather glm?)
+13. Chi square tests
+14. Correlation
+15. Linear regression
+
+The course content can broadly be classified into two parts: *Descriptive Statistics* and *Inferential Statistics*.
+
+Descriptive statistics and their associated statistical and graphical data summaries will be covered in Chapters 3 and Chapter 4. In Chapter 5 we will introduce the concepts of data distributions, knowledge of which is required to select the most appropriate inferential statistical methods. 
+
+Chapters 6-15 are about inferential statistics. Inferential tests allow us to evaluate hypotheses within a framework of probabalistic theory, which helps us infer the nature of a 'population' based on a smaller represenative set of samples. In partiucular, we can infer whether the property under scrutiny (arrived at by means of a designed experiment or a directed sampling programme) occured as a result of deterministic influences, or whether it is as a result of chance. 
 
 ## About this Workshop
 

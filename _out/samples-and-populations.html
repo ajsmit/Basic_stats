@@ -7,14 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Basic Statistics</title>
   <meta name="description" content="This is a book about basic statistics: theory and practice.">
-  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Basic Statistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="figures/NSFW.jpg" />
   <meta property="og:description" content="This is a book about basic statistics: theory and practice." />
-  <meta name="github-repo" content="ajsmit/basic_statistics" />
+  <meta name="github-repo" content="ajsmit/Basic_stats" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Basic Statistics" />
@@ -25,14 +25,14 @@
 <meta name="author" content="AJ Smit">
 
 
-<meta name="date" content="2018-02-01">
+<meta name="date" content="2018-04-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="descriptive-statistics.html">
+<link rel="prev" href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html">
 <link rel="next" href="measures-of-central-tendency.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -103,29 +131,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i><b>1.1</b> Preliminaries</a></li>
-<li class="chapter" data-level="1.2" data-path="venue-date-and-time.html"><a href="venue-date-and-time.html"><i class="fa fa-check"></i><b>1.2</b> Venue, date and time</a></li>
-<li class="chapter" data-level="1.3" data-path="course-outline.html"><a href="course-outline.html"><i class="fa fa-check"></i><b>1.3</b> Course outline</a></li>
-<li class="chapter" data-level="1.4" data-path="about-this-workshop.html"><a href="about-this-workshop.html"><i class="fa fa-check"></i><b>1.4</b> About this Workshop</a></li>
-<li class="chapter" data-level="1.5" data-path="this-is-biology-why-more-r-coding.html"><a href="this-is-biology-why-more-r-coding.html"><i class="fa fa-check"></i><b>1.5</b> This is biology: why more R coding?</a></li>
-<li class="chapter" data-level="1.6" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1.6</b> Installing R and RStudio</a></li>
-<li class="chapter" data-level="1.7" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>1.7</b> Resources</a><ul>
-<li class="chapter" data-level="1.7.1" data-path="resources.html"><a href="resources.html#required-reading"><i class="fa fa-check"></i><b>1.7.1</b> Required reading</a></li>
-<li class="chapter" data-level="1.7.2" data-path="resources.html"><a href="resources.html#resources-about-multivatiate-ecological-methods"><i class="fa fa-check"></i><b>1.7.2</b> Resources about multivatiate ecological methods</a></li>
-<li class="chapter" data-level="1.7.3" data-path="resources.html"><a href="resources.html#general-resources-about-r"><i class="fa fa-check"></i><b>1.7.3</b> General resources about R</a></li>
+<li class="chapter" data-level="1.1" data-path="venue-date-and-time.html"><a href="venue-date-and-time.html"><i class="fa fa-check"></i><b>1.1</b> Venue, date and time</a></li>
+<li class="chapter" data-level="1.2" data-path="course-outline.html"><a href="course-outline.html"><i class="fa fa-check"></i><b>1.2</b> Course outline</a></li>
+<li class="chapter" data-level="1.3" data-path="about-this-workshop.html"><a href="about-this-workshop.html"><i class="fa fa-check"></i><b>1.3</b> About this Workshop</a></li>
+<li class="chapter" data-level="1.4" data-path="this-is-biology-why-more-r-coding.html"><a href="this-is-biology-why-more-r-coding.html"><i class="fa fa-check"></i><b>1.4</b> This is biology: why more R coding?</a></li>
+<li class="chapter" data-level="1.5" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1.5</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>1.6</b> Resources</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="resources.html"><a href="resources.html#required-reading"><i class="fa fa-check"></i><b>1.6.1</b> Required reading</a></li>
+<li class="chapter" data-level="1.6.2" data-path="resources.html"><a href="resources.html#resources-about-multivatiate-ecological-methods"><i class="fa fa-check"></i><b>1.6.2</b> Resources about multivatiate ecological methods</a></li>
+<li class="chapter" data-level="1.6.3" data-path="resources.html"><a href="resources.html#general-resources-about-r"><i class="fa fa-check"></i><b>1.6.3</b> General resources about R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="style-and-code-conventions.html"><a href="style-and-code-conventions.html"><i class="fa fa-check"></i><b>1.8</b> Style and code conventions</a></li>
-<li class="chapter" data-level="1.9" data-path="assessment-and-teaching-philosophy.html"><a href="assessment-and-teaching-philosophy.html"><i class="fa fa-check"></i><b>1.9</b> Assessment and teaching philosophy:</a></li>
-<li class="chapter" data-level="1.10" data-path="about-this-document.html"><a href="about-this-document.html"><i class="fa fa-check"></i><b>1.10</b> About this document</a></li>
+<li class="chapter" data-level="1.7" data-path="style-and-code-conventions.html"><a href="style-and-code-conventions.html"><i class="fa fa-check"></i><b>1.7</b> Style and code conventions</a></li>
+<li class="chapter" data-level="1.8" data-path="assessment-and-teaching-philosophy.html"><a href="assessment-and-teaching-philosophy.html"><i class="fa fa-check"></i><b>1.8</b> Assessment and teaching philosophy:</a></li>
+<li class="chapter" data-level="1.9" data-path="about-this-document.html"><a href="about-this-document.html"><i class="fa fa-check"></i><b>1.9</b> About this document</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="types-of-data.html"><a href="types-of-data.html"><i class="fa fa-check"></i><b>2</b> Types of data</a><ul>
 <li class="chapter" data-level="2.1" data-path="data-classes.html"><a href="data-classes.html"><i class="fa fa-check"></i><b>2.1</b> Data classes</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="data-classes.html"><a href="data-classes.html#numerical-data"><i class="fa fa-check"></i><b>2.1.1</b> Numerical data</a></li>
 <li class="chapter" data-level="2.1.2" data-path="data-classes.html"><a href="data-classes.html#qualitative-data"><i class="fa fa-check"></i><b>2.1.2</b> Qualitative data</a></li>
 <li class="chapter" data-level="2.1.3" data-path="data-classes.html"><a href="data-classes.html#binary-data"><i class="fa fa-check"></i><b>2.1.3</b> Binary data</a></li>
-<li class="chapter" data-level="2.1.4" data-path="data-classes.html"><a href="data-classes.html#complex-numbers"><i class="fa fa-check"></i><b>2.1.4</b> Complex numbers</a></li>
-<li class="chapter" data-level="2.1.5" data-path="data-classes.html"><a href="data-classes.html#character-values"><i class="fa fa-check"></i><b>2.1.5</b> Character values</a></li>
-<li class="chapter" data-level="2.1.6" data-path="data-classes.html"><a href="data-classes.html#missing-values"><i class="fa fa-check"></i><b>2.1.6</b> Missing values</a></li>
+<li class="chapter" data-level="2.1.4" data-path="data-classes.html"><a href="data-classes.html#character-values"><i class="fa fa-check"></i><b>2.1.4</b> Character values</a></li>
+<li class="chapter" data-level="2.1.5" data-path="data-classes.html"><a href="data-classes.html#missing-values"><i class="fa fa-check"></i><b>2.1.5</b> Missing values</a></li>
+<li class="chapter" data-level="2.1.6" data-path="data-classes.html"><a href="data-classes.html#complex-numbers"><i class="fa fa-check"></i><b>2.1.6</b> Complex numbers</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="viewing-our-data.html"><a href="viewing-our-data.html"><i class="fa fa-check"></i><b>2.2</b> Viewing our data</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="viewing-our-data.html"><a href="viewing-our-data.html#from-the-environment-pane"><i class="fa fa-check"></i><b>2.2.1</b> From the Environment pane</a></li>
@@ -134,7 +161,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.4" data-path="viewing-our-data.html"><a href="viewing-our-data.html#summary"><i class="fa fa-check"></i><b>2.2.4</b> <code>summary()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics: A focus on measures of central tendency and dispersion</a><ul>
 <li class="chapter" data-level="3.1" data-path="samples-and-populations.html"><a href="samples-and-populations.html"><i class="fa fa-check"></i><b>3.1</b> Samples and populations</a></li>
 <li class="chapter" data-level="3.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>3.2</b> Measures of central tendency</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean"><i class="fa fa-check"></i><b>3.2.1</b> The mean</a></li>
@@ -154,6 +181,63 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.1" data-path="exercises.html"><a href="exercises.html#exercise-1"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html"><i class="fa fa-check"></i><b>4</b> Graphical data displays</a></li>
+<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Distributions</a><ul>
+<li class="chapter" data-level="5.1" data-path="polygon-plots.html"><a href="polygon-plots.html"><i class="fa fa-check"></i><b>5.1</b> Polygon plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="students-t-tests.html"><a href="students-t-tests.html"><i class="fa fa-check"></i><b>6</b> Student’s t-tests</a></li>
+<li class="chapter" data-level="7" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>7</b> Confidence intervals</a></li>
+<li class="chapter" data-level="8" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>8</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="8.1" data-path="t-test.html"><a href="t-test.html"><i class="fa fa-check"></i><b>8.1</b> t-test</a></li>
+<li class="chapter" data-level="8.2" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>8.2</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="anova.html"><a href="anova.html#single-factor"><i class="fa fa-check"></i><b>8.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="8.2.2" data-path="anova.html"><a href="anova.html#multiple-factors"><i class="fa fa-check"></i><b>8.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i><b>8.3</b> Exercises</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="exercises-1.html"><a href="exercises-1.html#exercise-1-1"><i class="fa fa-check"></i><b>8.3.1</b> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html"><i class="fa fa-check"></i><b>9</b> Deeper into ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="wilcox-rank-sum-test.html"><a href="wilcox-rank-sum-test.html"><i class="fa fa-check"></i><b>9.1</b> Wilcox rank sum test</a></li>
+<li class="chapter" data-level="9.2" data-path="kruskall-wallis-rank-sum-test.html"><a href="kruskall-wallis-rank-sum-test.html"><i class="fa fa-check"></i><b>9.2</b> Kruskall-Wallis rank sum test</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="kruskall-wallis-rank-sum-test.html"><a href="kruskall-wallis-rank-sum-test.html#single-factor-1"><i class="fa fa-check"></i><b>9.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="9.2.2" data-path="kruskall-wallis-rank-sum-test.html"><a href="kruskall-wallis-rank-sum-test.html#multiple-factors-1"><i class="fa fa-check"></i><b>9.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>9.3</b> Exercises</a></li>
+<li class="chapter" data-level="9.4" data-path="exercise-1-2.html"><a href="exercise-1-2.html"><i class="fa fa-check"></i><b>9.4</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>10</b> Linear mixed models</a><ul>
+<li class="chapter" data-level="10.1" data-path="wilcox-rank-sum-test-1.html"><a href="wilcox-rank-sum-test-1.html"><i class="fa fa-check"></i><b>10.1</b> Wilcox rank sum test</a></li>
+<li class="chapter" data-level="10.2" data-path="kruskall-wallis-rank-sum-test-1.html"><a href="kruskall-wallis-rank-sum-test-1.html"><i class="fa fa-check"></i><b>10.2</b> Kruskall-Wallis rank sum test</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="kruskall-wallis-rank-sum-test-1.html"><a href="kruskall-wallis-rank-sum-test-1.html#single-factor-2"><i class="fa fa-check"></i><b>10.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="10.2.2" data-path="kruskall-wallis-rank-sum-test-1.html"><a href="kruskall-wallis-rank-sum-test-1.html#multiple-factors-2"><i class="fa fa-check"></i><b>10.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i><b>10.3</b> Exercises</a></li>
+<li class="chapter" data-level="10.4" data-path="exercise-1-3.html"><a href="exercise-1-3.html"><i class="fa fa-check"></i><b>10.4</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
+<li class="chapter" data-level="11.1" data-path="the-two-main-assumptions.html"><a href="the-two-main-assumptions.html"><i class="fa fa-check"></i><b>11.1</b> The two main assumptions</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="the-two-main-assumptions.html"><a href="the-two-main-assumptions.html#normality"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
+<li class="chapter" data-level="11.1.2" data-path="the-two-main-assumptions.html"><a href="the-two-main-assumptions.html#homoscedasticity"><i class="fa fa-check"></i><b>11.1.2</b> Homoscedasticity</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>11.2</b> Transforming data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="transforming-data.html"><a href="transforming-data.html#log-transform"><i class="fa fa-check"></i><b>11.2.1</b> Log transform</a></li>
+<li class="chapter" data-level="11.2.2" data-path="transforming-data.html"><a href="transforming-data.html#section"><i class="fa fa-check"></i><b>11.2.2</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="exercises-4.html"><a href="exercises-4.html"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="exercises-4.html"><a href="exercises-4.html#exercise-1-4"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="11.3.2" data-path="exercises-4.html"><a href="exercises-4.html#exercise-2"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>12</b> Generalised linear models</a><ul>
+<li class="chapter" data-level="12.1" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>12.1</b> Linear models</a></li>
+<li class="chapter" data-level="12.2" data-path="generalise-linear-models.html"><a href="generalise-linear-models.html"><i class="fa fa-check"></i><b>12.2</b> Generalise linear models</a></li>
+<li class="chapter" data-level="12.3" data-path="linear-mixed-models-1.html"><a href="linear-mixed-models-1.html"><i class="fa fa-check"></i><b>12.3</b> Linear mixed models</a></li>
+<li class="chapter" data-level="12.4" data-path="non-linear-models.html"><a href="non-linear-models.html"><i class="fa fa-check"></i><b>12.4</b> Non-linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chi-squared.html"><a href="chi-squared.html"><i class="fa fa-check"></i><b>13</b> Chi-squared</a></li>
+<li class="chapter" data-level="14" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>14</b> Correlations</a></li>
+<li class="chapter" data-level="15" data-path="regressions.html"><a href="regressions.html"><i class="fa fa-check"></i><b>15</b> Regressions</a></li>
 </ul>
 
       </nav>
@@ -173,28 +257,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="samples-and-populations" class="section level2">
 <h2><span class="header-section-number">3.1</span> Samples and populations</h2>
-<p>This is a simple toy example. In real life, however, our data will be available in a tibble (initially perhaps captured in MS Excel before importing it as a <code>.csv</code> file into R, where the tibble is created). To see how this can be done more realistically using actual data, let us turn to the ChickenWeight data, which, as before, place in the object <code>chicks</code>. Recall the pipe operator (<code>%&gt;%</code>, pronounced ‘then’) that we introduced in the Intro R Workshop — we will use that here, throughout. Let us calculate the sample size:</p>
+<p>This is a simple toy example. In real life, however, our data will be available in a tibble (initially perhaps captured in MS Excel before importing it as a <code>.csv</code> file into R, where the tibble is created). To see how this can be done more realistically using actual data, let us turn to the ChickenWeight data, which, as before, we place in the object <code>chicks</code>. Recall the pipe operator (<code>%&gt;%</code>, pronounced ‘then’) that we introduced in the Intro R Workshop — we will use that here, throughout. Let us calculate the sample size:</p>
 <p>To determine the sample size we can use the <code>length()</code> or <code>n()</code> functions; the latter is for use within <strong>dplyr</strong>’s <code>summarise()</code> method, and it is applied without writing anything inside of the <code>()</code>, like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first load the tidyverse packages that has the pipe operator, %&gt;%</span>
-<span class="kw">library</span>(tidyverse)
-chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)
-<span class="co"># how many weights are available across all Diets and Times?</span>
-chicks <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">length =</span> <span class="kw">n</span>())</code></pre></div>
-<pre><code>## # A tibble: 1 x 1
-##   length
-##    &lt;int&gt;
-## 1    578</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the same as</span>
-<span class="kw">length</span>(chicks<span class="op">$</span>weight)</code></pre></div>
-<pre><code>## [1] 578</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># first load the tidyverse packages that has the pipe operator, %&gt;%</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co"># how many weights are available across all Diets and Times?</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">length =</span> <span class="kw">n</span>())</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 1
+R&gt;   length
+R&gt;    &lt;int&gt;
+R&gt; 1    578</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># the same as</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw">length</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<pre><code>R&gt; [1] 578</code></pre>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="descriptive-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="measures-of-central-tendency.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -213,10 +298,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -240,7 +326,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

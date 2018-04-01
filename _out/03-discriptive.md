@@ -1,18 +1,20 @@
-# Descriptive statistics
+# Descriptive statistics: A focus on measures of central tendency and dispersion
 
 > *"I think it is much more interesting to live with uncertainty than to live with answers that might be wrong."*
 >
 > --– Richard Feynman
 
-Talk about inferential and descriptive statistics, and the distinction between the two...
 
-Decriptive statistics and the associated statistical and graphical data summaries will be covered in Chapters 3 (this one) and 5. In Chapter 4 we will introduce the concepts of data distributions, knowledge of which is required to select the most appropriate inferential statistical methods. So, the materials covered in the next three chapters concern a broad discussion that will aid us in understanding our data better prior to analysing it. In this work flow it emerges that descriptive statistics generally precedes the inferential statistics.
 
-Let us now turn to some of the most commonly used discriptive statistics, and learn about how to calculate them.
+<!-- Maybe the nature of descriptive and inferential stats must be covered earlier, in Chpt 1 maybe -->
+
+In this Chapter we will focus on basic descriptions of the data, and these initial forrays are built around measures of the central tendency of the data (the mean, median, mode) and the dispersion and variability of the data (standard deviations and their ilk). The materials covered in this and the next two chapters concern a broad discussion that will aid us in understanding our data better prior to analysing it, and before we can draw inference from it. In this work flow it emerges that descriptive statistics generally precede inferential statistics.
+
+Let us now turn to some of the most commonly used descriptive statistics, and learn about how to calculate them.
 
 ## Samples and populations
 
-This is a simple toy example. In real life, however, our data will be available in a tibble (initially perhaps captured in MS Excel before importing it as a `.csv` file into R, where the tibble is created). To see how this can be done more realistically using actual data, let us turn to the ChickenWeight data, which, as before, place in the object `chicks`. Recall the pipe operator (`%>%`, pronounced 'then') that we introduced in the Intro R Workshop --- we will use that here, throughout. Let us calculate the sample size:
+This is a simple toy example. In real life, however, our data will be available in a tibble (initially perhaps captured in MS Excel before importing it as a `.csv` file into R, where the tibble is created). To see how this can be done more realistically using actual data, let us turn to the ChickenWeight data, which, as before, we place in the object `chicks`. Recall the pipe operator (`%>%`, pronounced 'then') that we introduced in the Intro R Workshop --- we will use that here, throughout. Let us calculate the sample size:
 
 To determine the sample size we can use the `length()` or `n()` functions; the latter is for use within **dplyr**'s `summarise()` method, and it is applied without writing anything inside of the `()`, like this:
 
@@ -21,16 +23,17 @@ To determine the sample size we can use the `length()` or `n()` functions; the l
 # first load the tidyverse packages that has the pipe operator, %>%
 library(tidyverse)
 chicks <- as_tibble(ChickWeight)
+
 # how many weights are available across all Diets and Times?
 chicks %>% 
   summarise(length = n())
 ```
 
 ```
-## # A tibble: 1 x 1
-##   length
-##    <int>
-## 1    578
+R> # A tibble: 1 x 1
+R>   length
+R>    <int>
+R> 1    578
 ```
 
 ```r
@@ -39,7 +42,7 @@ length(chicks$weight)
 ```
 
 ```
-## [1] 578
+R> [1] 578
 ```
 
 ## Measures of central tendency
@@ -75,8 +78,10 @@ mean(dat1)
 ```
 
 ```
-## [1] 34
+R> [1] 34
 ```
+
+Below, we use another tidyverse package, **`dplyr`** and its `summarise()` function, whose purpose it is to *summarise* the entire column into one summary statistic, in this case the mean:
 
 
 ```r
@@ -85,13 +90,13 @@ chicks %>%
 ```
 
 ```
-## # A tibble: 1 x 1
-##   mean_wt
-##     <dbl>
-## 1     122
+R> # A tibble: 1 x 1
+R>   mean_wt
+R>     <dbl>
+R> 1    122.
 ```
 
-Above, we use another tidyverse package, **`dplyr`** and its `summarise()` function, whose purpose it is to *summarise* the entire column into one summary statistic, in this case the mean. We can achieve the same using the more traditional syntax, which in some instances may be slightly less verbose, but less user-friendly, especially when multiple summary statistics are required (we shall later on how we can summarise a vector of data into multiple statistics). The traditional syntax is:
+We can achieve the same using the more traditional syntax, which in some instances may be slightly less verbose, but less user-friendly, especially when multiple summary statistics are required (we shall later on how we can summarise a vector of data into multiple statistics). The traditional syntax is:
 
 
 ```r
@@ -100,7 +105,7 @@ mean(chicks$weight)
 ```
 
 ```
-## [1] 121.8183
+R> [1] 121.8183
 ```
 
 Notice above how the two approaches display the result differently: in the first instance, using `summarise()`, the answer is rounded to zero decimal places; in the second, it is displayed (here) at full precision. The precision of the answer that you require depends on the context of your study, so make sure that you use the appropriate number of significant digits. Using the `summarise()` approach again, here is how you can adjust the number of decimal places of the answer:
@@ -114,15 +119,15 @@ chicks %>%
 ```
 
 ```
-## # A tibble: 1 x 1
-##   mean_wt
-##     <dbl>
-## 1     122
+R> # A tibble: 1 x 1
+R>   mean_wt
+R>     <dbl>
+R> 1    122.
 ```
 
 > **Question:** What happens when there are missing values (`NA`)? Consult the help file for the `mean()` function, discuss amongst yourselves, and then provide a demonstration to the class of how you would handle missing values. Hint: use the `c()` function to capture a series of data that you can then use to demonstrate your understanding.
 
-At this point it might be useful to point that the mean (or any function for that matter, even one that does not yet exist) can be programatically calculated. Let us demonstrate the principle using the mean:
+At this point it might be useful to point out that the mean (or any function for that matter, even one that does not yet exist) can be programatically calculated. Let us demonstrate the principle by reproducing the mean function from the constituent parts:
 
 
 ```r
@@ -131,10 +136,10 @@ chicks %>%
 ```
 
 ```
-## # A tibble: 1 x 1
-##   mean_wt
-##     <dbl>
-## 1     122
+R> # A tibble: 1 x 1
+R>   mean_wt
+R>     <dbl>
+R> 1    122.
 ```
 
 The mean is quite sensitive to the presence of outliers or extreme values in the data, and it is advised that its use be reserved for normally distributed data from which the extremes/outliers have been removed. When extreme values are indeed part of our data and not simply 'noise,' then we have to resort to a different measure of central tendency: the median.
@@ -152,13 +157,13 @@ chicks %>%
 ```
 
 ```
-## # A tibble: 1 x 1
-##   med_wt
-##    <dbl>
-## 1    103
+R> # A tibble: 1 x 1
+R>   med_wt
+R>    <dbl>
+R> 1   103.
 ```
 
-The median is therefore the value that separates the lower half of the sample data from the higher half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the *1st and 3rd quartiles*, which, respectively, separate the first quarter of the data from the last quarter --- see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter X for a discussion on normal data and other data distributions).
+The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the *1st and 3rd quartiles*, which, respectively, separate the first quarter of the data from the last quarter --- see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).
 
 ## Measures of variation and spread
 
@@ -171,7 +176,7 @@ Statistic             Function
 --------------------- ---------------------
 Variance              `var()`
 
-Standard deviation    `median()`
+Standard deviation    `sd()`
 
 Minimum               `min()`
 
@@ -199,13 +204,13 @@ chicks %>%
 ```
 
 ```
-## # A tibble: 1 x 1
-##   sd_wt
-##   <dbl>
-## 1  71.1
+R> # A tibble: 1 x 1
+R>   sd_wt
+R>   <dbl>
+R> 1  71.1
 ```
 
-The interpretation of the concepts mean and median is fairly straight forward and intuitive. Not so for the measures of variance. What does $S$ represent? Firstly, the unit of measurement of $S$ is the same as that of $\bar{x}$ (but the variance doesn't share this characteric). If temperature is measured in °C, then $S$ also takes a unit of °C. Since $S$ measures the dispersion *around* the mean, we write it as $\bar{x} \pm S$ (note that often the mean and standard deviation are written with the letters *mu* and *sigma*, respectively; i.e. $\mu \pm \sigma$). The smaller $S$ the closer the sample data are to $\bar{x}$, and the larger the value is the further away they will spread out from $\bar{x}$. So, it tells us about the proportion of observations above and below $\bar{x}$. But what proportion? We invoke the the 68-95-99.7 rule: ~68% of the population (as represented by a random sample of $n$ observations taken from the population) falls within 1$S$ of $\bar{x}$ (i.e. ~34% below $\bar{x}$ and ~34% above $\bar{x}$); ~95% of the population falls within 2$S$; and ~99.7% falls within 3$S$.
+The interpretation of the concepts of mean and median are fairly straight forward and intuitive. Not so for the measures of variance. What does $S$ represent? Firstly, the unit of measurement of $S$ is the same as that of $\bar{x}$ (but the variance doesn't share this characteristic). If temperature is measured in °C, then $S$ also takes a unit of °C. Since $S$ measures the dispersion *around* the mean, we write it as $\bar{x} \pm S$ (note that often the mean and standard deviation are written with the letters *mu* and *sigma*, respectively; i.e. $\mu \pm \sigma$). The smaller $S$ the closer the sample data are to $\bar{x}$, and the larger the value is the further away they will spread out from $\bar{x}$. So, it tells us about the proportion of observations above and below $\bar{x}$. But what proportion? We invoke the the 68-95-99.7 rule: ~68% of the population (as represented by a random sample of $n$ observations taken from the population) falls within 1$S$ of $\bar{x}$ (i.e. ~34% below $\bar{x}$ and ~34% above $\bar{x}$); ~95% of the population falls within 2$S$; and ~99.7% falls within 3$S$.
 
 
 ```r
@@ -217,7 +222,7 @@ knitr::include_graphics("figures/Standard_deviation_diagram.svg")
 <p class="caption">(\#fig:rmarkdown)The proportions of data representation by the standard deviation. Credit: [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)</p>
 </div>
 
-Like the mean, $S$ is affected by extreme values and outliers, so before we attach $S$ as a summary statistic to describe some data, we need to ensure that the data are in fact normally distributed. We will talk about how to do this in a later section (Section X), where we will go over the numerous ways to check the assumption of normality. When the data are found to be non-normal, we need to find appropriate ways to express the spread of the data. Enter the quartiles.
+Like the mean, $S$ is affected by extreme values and outliers, so before we attach $S$ as a summary statistic to describe some data, we need to ensure that the data are in fact normally distributed. We will talk about how to do this in Chapter 6, where we will go over the numerous ways to check the assumption of normality. When the data are found to be non-normal, we need to find appropriate ways to express the spread of the data. Enter the quartiles.
 
 ### Quantiles
 
@@ -229,46 +234,117 @@ quantile(chicks$weight)
 ```
 
 ```
-##     0%    25%    50%    75%   100% 
-##  35.00  63.00 103.00 163.75 373.00
+R>     0%    25%    50%    75%   100% 
+R>  35.00  63.00 103.00 163.75 373.00
 ```
 
 ```r
-wt_summary <- chicks %>% 
+chicks %>% 
   summarise(min_wt = min(weight),
             qrt1_wt = quantile(weight, p = 0.25),
             med_wt = median(weight),
             qrt3_wt = median(weight, p = 0.75),
             max_wt = max(weight))
+```
+
+```
+R> # A tibble: 1 x 5
+R>   min_wt qrt1_wt med_wt qrt3_wt max_wt
+R>    <dbl>   <dbl>  <dbl>   <dbl>  <dbl>
+R> 1    35.     63.   103.    103.   373.
+```
+
+```r
 # note median(weight) is the same as quantile(weight, p = 0.5) 
 # in the summarise() implementation, above
-wt_summary
 ```
 
-```
-## # A tibble: 1 x 5
-##   min_wt qrt1_wt med_wt qrt3_wt max_wt
-##    <dbl>   <dbl>  <dbl>   <dbl>  <dbl>
-## 1   35.0    63.0    103     103    373
-```
-
-> *Question:* What is different about the `quantile()` function that caused us to specify the calculation in the way in we we have done so, above? You will have to consult the help file, read it, understand it, think about it, and experiment with the ideas. Take 15 minutes to figure it out and report back to the class.
+> *Question:* What is different about the `quantile()` function that caused us to specify the calculation in the way in which we have done so above? You will have to consult the help file, read it, understand it, think about it, and experiment with the ideas. Take 15 minutes to figure it out and report back to the class.
 
 ### The minimum, maximum and range
 
 A description of the extent of the data can also be provided by the functions `min()`, `max()` and `range()`. 
 
-These statistics apply to data of any distribution, and not only to normal data. This if often the first place you want to start when looking at the data for the first time.
+These statistics apply to data of any distribution, and not only to normal data. This if often the first place you want to start when looking at the data for the first time. We've seen above how to use `min()` and `max()`, so below we will quickly look at how to use `range()` in both the base R and tidy methods:
+
+
+```r
+range(chicks$weight)
+```
+
+```
+R> [1]  35 373
+```
+
+```r
+chicks %>% 
+  summarise(lower_wt = range(weight)[1],
+            upper_wt = range(weight)[2])
+```
+
+```
+R> # A tibble: 1 x 2
+R>   lower_wt upper_wt
+R>      <dbl>    <dbl>
+R> 1      35.     373.
+```
+
+Note that `range()` actually gives us the minimum and maximum values, and not the difference between them. To find the range value properly we must be a bit more clever:
+
+
+```r
+range(chicks$weight)[2] - range(chicks$weight)[1]
+```
+
+```
+R> [1] 338
+```
+
+```r
+chicks %>% 
+  summarise(range_wt = range(weight)[2] - range(weight)[1])
+```
+
+```
+R> # A tibble: 1 x 1
+R>   range_wt
+R>      <dbl>
+R> 1     338.
+```
 
 ## Missing values
 
-Put some text here.
+As mentioned in Chapter 2, missing data are pervaise in the biological sciences. Happily for us, R is designed to handle these data easily. It is important to note here explicitly that all of the basic functions in R will by default *NOT* ignore missing data. This has been done so as to prevent the user from accidentally forgetting about the missing data and potentially making errors in later stages in an analysis. Therefore, we must explicitly tell R when we want it to ommit missing values from a calculation. Let's create a small vector of data to demonstrate this:
+
+
+```r
+dat1 <- c(NA, 12, 76, 34, 23)
+
+# Without telling R to ommit missing data
+mean(dat1)
+```
+
+```
+R> [1] NA
+```
+
+```r
+# Ommitting the missing data
+mean(dat1, na.rm = TRUE)
+```
+
+```
+R> [1] 36.25
+```
+
+Note that this argument, `na.rm = TRUE` may be used in all of the functions we have seen thus far in this chapter.
 
 ## Descriptive statistics by group
 
-Above we have revised the basic kinds of summary statistics, and how to calculate them. This is nice. But it can be more useful. The real reason why we might want to see the desriptive statistics is to facilitate comparisons between groups. In the chicks data we calculated the mean (etc.) for all the chickens, over all the diet groups to which they had been assigned (there are four factors, i.e. Diets 1 to 4), and over the entire duration of the experiment (the experiment lasted 21 days). It would be more useful to see what the weights are of the chickens in each of the four groups at the end of the experiment --- we can compare means (± SD) and medians (± interquartile ranges, etc.), for instance. You'll notice now how the measures of central tendency is being combined with the measures of variability/range. Further, we can augment this statistical summary with many kinds of graphical summaries, which will be far more revealing of differences (if any) amongst groups. We will revise how to produce the group statistics and show a range of the graphical displays.
+Above we have revised the basic kinds of summary statistics, and how to calculate them. This is nice. But it can be more useful. The real reason why we might want to see the descriptive statistics is to facilitate comparisons between groups. In the chicks data we calculated the mean (etc.) for all the chickens, over all the diet groups to which they had been assigned (there are four factors, i.e. Diets 1 to 4), and over the entire duration of the experiment (the experiment lasted 21 days). It would be more useful to see what the weights are of the chickens in each of the four groups at the end of the experiment --- we can compare means (± SD) and medians (± interquartile ranges, etc.), for instance. You'll notice now how the measures of central tendency is being combined with the measures of variability/range. Further, we can augment this statistical summary with many kinds of graphical summaries, which will be far more revealing of differences (if any) amongst groups. We will revise how to produce the group statistics and show a range of graphical displays.
 
 ### Groupwise summary statistics
+
 At this point you need to refer to [Chapter 10](https://robwschlegel.github.io/Intro_R_Workshop/tidy.html) (Tidy data) and [Chapter 11](https://robwschlegel.github.io/Intro_R_Workshop/tidier.html) (Tidier data) in the **Intro R Workshop** to remind yourself about in what format the data need to be before we can efficiently work with it. A hint: one observation in a row, and one variable per column. From this point, it is trivial to do the various data descriptions, visualisations, and analyses. Thankfully, the `chicks` data are already in this format.
 
 So, what are the summary statistics for the chickens for each diet group at day 21?
@@ -279,8 +355,9 @@ grp_stat <- chicks %>%
   filter(Time == 21) %>% 
   group_by(Diet, Time) %>% 
   summarise(mean_wt = round(mean(weight, na.rm = TRUE), 2),
-            sd_wt = round(sd(weight, na.rm = TRUE), 2),
             med_wt = median(weight, na.rm = TRUE),
+            sd_wt = round(sd(weight, na.rm = TRUE), 2),
+            sum_wt = sum(weight),
             min_wt = min(weight),
             qrt1_wt = quantile(weight, p = 0.25),
             med_wt = median(weight),
@@ -291,54 +368,32 @@ grp_stat
 ```
 
 ```
-## # A tibble: 4 x 10
-## # Groups:   Diet [?]
-##   Diet   Time mean_wt sd_wt med_wt min_wt qrt1_wt qrt3_wt max_wt  n_wt
-##   <fct> <dbl>   <dbl> <dbl>  <dbl>  <dbl>   <dbl>   <dbl>  <dbl> <int>
-## 1 1      21.0     178  58.7    166   96.0     138     166    305    16
-## 2 2      21.0     215  78.1    212   74.0     169     212    331    10
-## 3 3      21.0     270  71.6    281  147       229     281    373    10
-## 4 4      21.0     239  43.4    237  196       204     237    322     9
+R> # A tibble: 4 x 11
+R> # Groups:   Diet [?]
+R>   Diet   Time mean_wt med_wt sd_wt sum_wt min_wt qrt1_wt qrt3_wt max_wt
+R>   <fct> <dbl>   <dbl>  <dbl> <dbl>  <dbl>  <dbl>   <dbl>   <dbl>  <dbl>
+R> 1 1       21.    178.   166.  58.7  2844.    96.    138.    166.   305.
+R> 2 2       21.    215.   212.  78.1  2147.    74.    169.    212.   331.
+R> 3 3       21.    270.   281.  71.6  2703.   147.    229.    281.   373.
+R> 4 4       21.    239.   237.  43.4  2147.   196.    204.    237.   322.
+R> # ... with 1 more variable: n_wt <int>
 ```
 
 ### Displays of group summaries
+
 There are several kinds of graphical displays for your data. We will show some which are able to display the spread of the raw data, the mean or median, as well as the appropriate accompanying indicators of variation around the mean or median.
 
 
 ```r
-library(ggplot2)
 library(ggpubr) # needed for arranging multi-panel plots
-```
-
-```
-## Loading required package: magrittr
-```
-
-```
-## 
-## Attaching package: 'magrittr'
-```
-
-```
-## The following object is masked from 'package:purrr':
-## 
-##     set_names
-```
-
-```
-## The following object is masked from 'package:tidyr':
-## 
-##     extract
-```
-
-```r
 plt1 <- chicks %>%
   filter(Time == 21) %>% 
   ggplot(aes(x = Diet, y = weight)) +
   geom_point(data = grp_stat, aes(x = Diet, y = mean_wt), 
              col = "black", fill = "red", shape = 23, size = 3) +
   geom_jitter(width = 0.05) + # geom_point() if jitter not required
-  labs(y = "Chicken mass (g)") + theme_pubr()
+  labs(y = "Chicken mass (g)") + 
+  theme_pubr()
 ```
 
 
@@ -348,7 +403,8 @@ plt2 <- ggplot(data = grp_stat, aes(x = Diet, y = mean_wt)) +
            col = NA, fill = "salmon") +
   geom_errorbar(aes(ymin = mean_wt - sd_wt, ymax = mean_wt + sd_wt),
                 width = .2) +
-  labs(y = "Chicken mass (g)") + theme_pubr()
+  labs(y = "Chicken mass (g)") + 
+  theme_pubr()
 # position_dodge() places bars side-by-side
 # stat = "identity" prevents the default count from being plotted
 ```
@@ -360,7 +416,8 @@ plt3 <- chicks %>%
   ggplot(aes(x = Diet, y = weight)) +
   geom_boxplot(fill = "salmon") +
   geom_jitter(width = 0.05, fill = "white", col = "blue", shape = 21) +
-  labs(y = "Chicken mass (g)") + theme_pubr()
+  labs(y = "Chicken mass (g)") + 
+  theme_pubr()
 ```
 
 
@@ -370,7 +427,8 @@ plt4 <- chicks %>%
   ggplot(aes(x = Diet, y = weight, fill = as.factor(Time))) +
   geom_boxplot() +
   geom_jitter(shape = 21, width = 0.1) +
-  labs(y = "Chicken mass (g)", fill = "Time")
+  labs(y = "Chicken mass (g)", fill = "Time") +
+  theme_pubr()
 ```
 
 
@@ -379,12 +437,11 @@ ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="03-discriptive_files/figure-html/unnamed-chunk-15-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-15)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
+<img src="03-discriptive_files/figure-html/unnamed-chunk-18-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-18)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
 </div>
-
 
 ## Exercises
 
 ### Exercise 1
-Notice how the data summary for chicken weights contained within `wt_summary` is very similar to the summary returned for `weight` when we apply `summary(chicks)`. Please use the `summarise()` approach and construct a data summary with exactly the same summary statistics for `weight` as which `summary()` returns.
+Notice how the data summary for chicken weights contained within `wt_summary` is very similar to the summary returned for `weight` when we apply `summary(chicks)`. Please use the `summarise()` approach and construct a data summary with exactly the same summary statistics for `weight` as that which `summary()` returns.

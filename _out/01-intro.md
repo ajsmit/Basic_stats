@@ -1,4 +1,3 @@
-
 # Introduction
 
 > *"A scientist worthy of a lab coat should be able to make original discoveries while wearing a clown suit, or give a lecture in a high squeaky voice from inhaling helium. It is written nowhere in the math of probability theory that one may have no fun."*
@@ -9,41 +8,47 @@
 >
 > --– Niels Bohr
 
-## Preliminaries
+<!-- ## Preliminaries -->
 
 
 
 ## Venue, date and time
 
-Quantitative Ecology is scheduled to replace Plant Ecophysiology, and will run between May 14th and June 29th, 2018. This workshop will take place from **9:00--16:00** on one day in each week during this period. There will also be a field component, where you will be taught about ecological field sampling in marine and terrestrial environments; this will also offer an opportunity to collect real data using actual ecological field methods (these will also be covered in the course), which we will then analyse using the multivariate methods used in this workshop.
+Quantitative Ecology is scheduled to replace Plant Ecophysiology, and will run between May 14th and June 29th, 2018. This workshop will take place from **9:00--16:00** on one day in each week during this period. There will also be a field component, where you will be taught about ecological field sampling in marine and terrestrial environments; this will also offer an opportunity to collect real data using actual ecological field methods (these will also be covered in the course), which we will then analyse using the multivariate methods learned in this workshop.
 
 ## Course outline
 
-* Descriptive versus inferential statistics
-* Measures of central tendency
-* Measures of dispersion and variability
-* Distributions
-* Graphical data displays
-* T-tests (one- and two-sample, etc.)
-* Confidence intervals
-* ANOVA (one- and two-way)
-* Linear mixed models
-* Testing assumptions; transformations
-* Non-parametric tests (Mann-Whitney, Kruskal-Wallis)
-* Chi-square tests
-* Correlation
-* Linear models (linear regression)
-* Generalised linear models
+1. Introduction (this chapter)
+2. Types of data
+3. Descriptive statistics: Measures of location and dispersion
+4. The Normal distribution and probability determination using the normal curve
+5. Representing data graphically
+6. T-tests (one-sample, two-sample and paired)
+7. Confidence intervals
+8. One-way ANOVA
+9. Introduction to univariate and multivariate ANOVA models
+10. Repeated measures ANOVA (or rather lme?)
+11. Testing data for normality and transforming data
+12. Non-parametric tests---Mann-Whitney, Kruskal-Wallis (or rather glm?)
+13. Chi square tests
+14. Correlation
+15. Linear regression
+
+The course content can broadly be classified into two parts: *Descriptive Statistics* and *Inferential Statistics*.
+
+Descriptive statistics and their associated statistical and graphical data summaries will be covered in Chapters 3 and Chapter 4. In Chapter 5 we will introduce the concepts of data distributions, knowledge of which is required to select the most appropriate inferential statistical methods. 
+
+Chapters 6-15 are about inferential statistics. Inferential tests allow us to evaluate hypotheses within a framework of probabalistic theory, which helps us infer the nature of a 'population' based on a smaller represenative set of samples. In partiucular, we can infer whether the property under scrutiny (arrived at by means of a designed experiment or a directed sampling programme) occured as a result of deterministic influences, or whether it is as a result of chance. 
 
 ## About this Workshop
 
-The aim of this five-day introductory workshop is to guide you through...
+The aim of this five-day introductory workshop is to guide you through the outline given above.
 
 ## This is biology: why more R coding?
 
 Please refer to the [Intro R Workshop: Data Manipulation, Analysis and Graphing](https://robwschlegel.github.io/Intro_R_Workshop/) for why we feel strongly that you use R [@R2017] for the analyses that we will perform here. All of the reasons provided there are valid here too, but one reason perhaps more so than others --- R and RStudio promote the principles of *reproducible research*, and in fact make it very easy to implement. We will focus on some of these principles throughout the workshop, and the assignments will in fact require that you submit a fully functional working script, complete with all the notes, memos, examples, data, executable code, and output that will result from completing the course material. 
 
-What other oprions are there for analysing the kinds of data that we will encounter in biological research? Software packages like the ones you may be familiar with, such as Statistica and SPSS, are often used to perform many of the analyses we will encounter. They are rather limited with regards to the full scope of modern statistical methods in use by biologists today, but many people still use these kinds of software as the provide the basic kinds analyses that still form the staple of the biological and medical sciewnces. For the many reasons provided above, we prefer to use R as the *engine* within which to do our biological data analysis. R is used by academic statisticians the world over, and it is therefore an excellent choice for our purpose here...
+What other options are there for analysing the kinds of data that we will encounter in biological research? Software packages like the ones you may be familiar with, such as Statistica and SPSS, are often used to perform many of these analyses. They are rather limited with regards to the full scope of modern statistical methods in use by biologists today, but many people still use these kinds of software as they provide the basic kinds analyses that still form the staple of the biological and medical sciences. For the many reasons provided above, we prefer to use R as the *engine* within which to do our biological data analysis. R is used by academic statisticians the world over, and it is therefore an excellent choice for our purpose here.
 
 ## Installing R and RStudio
 
@@ -59,7 +64,7 @@ We assume that you already have R installed on your computer, as all of you will
 
 ## Style and code conventions
 
-Early on, develop the habit of unambiguous and consistent style and formatting when writing your code, or anything else for that matter. Pay attention to detail and be pedantic. This will benefit your scientific writing in general. Although many R commands rely on precisely formatted statements (code blocks), style can nevertheless to *some extent* have a personal flavour to it. The key is *consistency*. In this book we use certain conventions to improve readability. We use a consistent set of conventions to refer to code, and in particular to typed commands and package names.
+Early on, develop the habit of unambiguous and consistent style and formatting when writing your code, or anything else for that matter. Pay attention to detail and be pedantic. This will benefit your scientific writing in general. Although many R commands rely on precisely formatted statements (code blocks), style can nevertheless to *some extent* have a personal flavour to it. The key is *consistency*. In this book we use certain conventions to improve readability. We also use a consistent set of conventions to refer to code, and in particular to typed commands and package names.
 
   * Package names are shown in a bold font over a grey box, *e.g.* __`tidyr`__.
   * Functions are shown in normal font followed by parentheses and also over a grey box , *e.g.* `plot()`, or `summary()`.
@@ -73,8 +78,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]  -1.382894   6.623550  10.016745   4.001517 -14.205712   5.993953
-R>  [7]  -2.819659  18.533080  -7.519011  16.895566
+R>  [1] -12.826768   7.969622   2.477568  -5.471194 -19.640128 -16.334624
+R>  [7]   8.049760  -5.224038  -6.134567  -2.244049
 ```
 
 Consult these resources for more about R code style :
@@ -83,7 +88,7 @@ Consult these resources for more about R code style :
   * [The tidyverse style guide](http://style.tidyverse.org)
   * [Hadley Wickham's advanced R style guide](http://adv-r.had.co.nz/Style.html)
 
-We can also insert maths expressions, like this $f(k) = {n \choose k} p^{k} (1-p)^{n-k}$ or this: $$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
+We may also insert maths expressions within the text, like this $f(k) = {n \choose k} p^{k} (1-p)^{n-k}$ or on their own, like this: $$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
 
 ## Assessment and teaching philosophy:
 
@@ -95,7 +100,7 @@ Whereas plagiarism will not be tolerated, students ARE encouraged to work togeth
 
 ## About this document
 
-This document, which as available as a HTML file that's viewable on a web browser of your choice (anything will do, but we discourage using Internet Explorer) and as a PDF (accessible from the link at the top of any of the website's pages) that may be printed, was prepared by the software tools available to R via RStudio. We use the package called `bookdown` that may be accessed and read about [here](https://bookdown.org/yihui/bookdown/) to produce this documentation. The entire source code to reproduce this book is available from my [GitHub account](https://github.com/ajsmit/).
+This document, which as available as an HTML file that's viewable on a web browser of your choice (anything will do, but we discourage using Internet Explorer) and as a PDF (accessible from the link at the top of any of the website's pages) that may be printed, was prepared by the software tools available to R via RStudio. We use the package called `bookdown` that may be accessed and read about [here](https://bookdown.org/yihui/bookdown/) to produce this documentation. The entire source code to reproduce this book is available from my [GitHub repo](https://github.com/ajsmit/Basic_stats).
 
 
 ```r
@@ -116,9 +121,9 @@ sessionInfo()
 ```
 
 ```
-R> R version 3.4.3 (2017-11-30)
+R> R version 3.4.4 (2018-03-15)
 R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
-R> Running under: macOS Sierra 10.12.6
+R> Running under: macOS High Sierra 10.13.3
 R> 
 R> Matrix products: default
 R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
@@ -128,14 +133,14 @@ R> locale:
 R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 R> 
 R> attached base packages:
-R> [1] stats     grDevices utils     datasets  graphics  base     
+R> [1] stats     graphics  grDevices utils     datasets  base     
 R> 
 R> loaded via a namespace (and not attached):
-R>  [1] Rcpp_0.12.15    bookdown_0.6    png_0.1-7       digest_0.6.14  
+R>  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  
 R>  [5] rprojroot_1.3-2 backports_1.1.2 magrittr_1.5    evaluate_0.10.1
-R>  [9] highr_0.6       stringi_1.1.6   rmarkdown_1.8   tools_3.4.3    
-R> [13] stringr_1.2.0   xfun_0.1        yaml_2.1.16     compiler_3.4.3 
-R> [17] htmltools_0.3.6 knitr_1.19      methods_3.4.3
+R>  [9] highr_0.6       stringi_1.1.7   rmarkdown_1.9   tools_3.4.4    
+R> [13] stringr_1.3.0   xfun_0.1        yaml_2.1.18     compiler_3.4.4 
+R> [17] htmltools_0.3.6 knitr_1.20      methods_3.4.4
 ```
 
 

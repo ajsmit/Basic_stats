@@ -1,9 +1,0 @@
-# Correlation
-
-```{r prelim-opts, echo=FALSE}
-knitr::opts_chunk$set(
-  comment = "R>", 
-  warning = FALSE, 
-  message = FALSE
-)
-```
