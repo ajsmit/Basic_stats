@@ -9,21 +9,74 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Estimated simple regression equation
+## The simple regression equation
 
-## Coefficient of determination
+The linear regression equation is already known to you. It is:
 
-## Significance test for linear regression
+$$y_{n}=\beta \cdot x_{n}+\alpha+\epsilon$$
 
-## Confidence interval for linear regression
+Coefficients are parameters (statistics) that describe two properties of the linear line that best fit a scatter plot between a dependent variable and the independent variable. The dependent variable, $y_{n}$, may also be called the response variable, and the independent variable, $x_{n}$, the predictor. The regression model consists of an intercept term, $\alpha$, that describes where the fitted line starts and intercepts with the *y*-axis, and the *coefficient of determination*, $\beta$, for the line. The amount of variation not explained by a linear relationship of $y$ on $x$ is termed the residual variation, or simply the residual or the error term, and in the above equation it is indicated by $\epsilon$.
 
-## Prediction interval for linear regression
+The parameters $\alpha$ and $\beta$ are determined by minimising the sum of squares of the error term, $\epsilon$. It allows us to predict new fitted values of $y$ based on values of $x$.
 
-## Residual plot
+We will demonstrate the principle behind a simple linear regression by using the built-in dataset `faithful`. According to the R help file for the data, the dataset describes the "Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA."
 
-## Standardised residual
+```{r faithful-head, echo=TRUE, include=TRUE}
+head(faithful)
+```
 
-## Normal probability plot of residuals
+In this dataset there are two columns: the first, `eruptions`, denotes the duration of the eruption (in seconds), and the second, `waiting`, is the waiting time (also in seconds) until the next eruptions. Its linear regression model can be expressed as:
+
+$$eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$$
+
+Here we fit the model in R. When we perform a linear regression in R, it’ll output the model and the coefficients:
+
+```{r faithful, echo=TRUE, include=TRUE}
+eruption.lm = lm(eruptions ~ waiting, data = faithful)
+summary(eruption.lm)
+```
+
+### The intercept
+The intercept is the best estimate of the starting point of the fitted line on the lefthand side of the graph. You will notice that there is also an estimate for the standard error of the estimate for the intercept.
+
+### The coefficient of determination
+This is also sometimes called the regression coefficient. The interpretation of the regression coefficient is simple. For every one unit of change in the independent variable (here waiting time) there is a corresponding change in the dependent variable (here the duration of the eruption). This is the slope or gradient, and it may be positive or negative. In the example the coefficient of determination of the line is denoted by the value `r round(eruption.lm$coef[2], 3)` sec.sec^{-1} in the column termed `Estimate` and in the row called `waiting` (the latter name will of course depend on the name of the response column in your dataset). The coefficient of determination multiplies the response variable to produce a prediction of the response based on the slope of the relationship between the response and the predictor. It tells us how much one unit in change of the independent variable *determines* (hence coefficient of determination) the corresponding change in the response variable. There is also a standard error for the estimate. 
+
+### Predicting from the linear model
+Knowing $\alpha$ and $\beta$ allows us to predict what the erruption durination will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the slope). Then we use these values to reassemble the regression equation that we have written out above (i.e., $eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$). Here's how:
+
+```{r predict-eruption}
+# use the accessor function to grab the coefficients:
+erupt.coef <- coefficients(eruption.lm)
+erupt.coef
+
+# how long would an eruption last of we waited, say, 80 seconds?
+waiting <- 80 
+ 
+# the first and second coef. can be accessed using the 
+# square bracket notation:
+erupt.pred <- erupt.coef[1] + (erupt.coef[2] * waiting)
+erupt.pred # the unit is seconds
+```
+
+
+* When you use a categorical variable, in R the intercept represents the default position for a given value in the categorical column. Every other value then gets a modifier to the base prediction.
+
+### Significance test for linear regression
+
+### Confidence interval for linear regression
+
+### Prediction interval for linear regression
+
+### Residual plot
+
+### Standardised residual
+
+### Normal probability plot of residuals
+
+## Using an additional categorical variable
+
+<!-- for example the iris data set -->
 
 ```{r}
 
