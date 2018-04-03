@@ -16,6 +16,13 @@ knitr::include_app("https://robert-schlegel.shinyapps.io/binomial_dist/", height
 
 ## Poisson distribution
 
+
+```r
+knitr::include_app("https://robert-schlegel.shinyapps.io/poisson_dist/", height = "600px")
+```
+
+<iframe src="https://robert-schlegel.shinyapps.io/poisson_dist/?showcase=0" width="672" height="600px"></iframe>
+
 ## Continuous uniform distribution
 
 ## Exponential distribution
