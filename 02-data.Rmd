@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 In this chapter we will, firstly, look at the different kinds of biological and environmental data that are typically encountered by most biologists. The data seen here are not an exhaustive list of all the various types of data out there, but it should represent the bulk of our needs.
 
-After we have become familiar with the different kinds of data, we will look at summaries of these data, which is generally required as the starting point for our analyses. After summarising the data in tables and so forth, we may want to produce graphical summaries to see broad patterns and trends; visual data representations, which complement the tabulated data, will be covered in a later chapter (Chapter 7). Both of these approaches form the basis of 'exploratory data analysis.'
+After we have become familiar with the different kinds of data, we will look at summaries of these data, which is generally required as the starting point for our analyses. After summarising the data in tables and so forth, we may want to produce graphical summaries to see broad patterns and trends; visual data representations, which complement the tabulated data, will be covered in a later chapter (Chapter 4). Both of these approaches form the basis of 'exploratory data analysis.'
 
 ## Data classes
 In biology we will encounter many kinds of data, and depending on which kind, the type of statistical analysis will be decided.

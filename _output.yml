@@ -5,7 +5,7 @@ bookdown::tufte_book2:
   fig_caption: yes
 bookdown::gitbook:
   css: css/style.css
-  split_by: section
+  split_by: chapter
   toolbar:
     position: fixed
   edit: null

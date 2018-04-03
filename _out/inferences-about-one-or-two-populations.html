@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="introduction.html">
+<link rel="prev" href="distributions.html">
+<link rel="next" href="confidence-intervals.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -301,15 +301,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
-<p>A prerequisite for this course is a basic proficiency in using R <span class="citation">(R Core Team <a href="#ref-R2017">2017</a>)</span>. The necessary experience will have been gained from completing the <a href="https://robwschlegel.github.io/Intro_R_Workshop/">Intro R Workshop: Data Manipulation, Analysis, and Graphing</a> Workshop that was part of your BCB Core Honours module (i.e. Biostatistics). You will also need a laptop with R and RStudio installed as per the instructions provided in that workshop. If you do not have a personal laptop, most computers in the 5th floor lab will be correctly set up for this purpose.</p>
-
+<div id="inferences-about-one-or-two-populations" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Inferences about one or two populations</h1>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
+<p>Assumption of t-tests…</p>
+<ul>
+<li>Normal distribution</li>
+</ul>
+<div id="one-sample-t-tests" class="section level2">
+<h2><span class="header-section-number">6.1</span> One-sample t-tests</h2>
+<p><code>prop.test()</code></p>
+<div id="one-sided-one-sample-t-tests" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> One-sided one-sample t-tests</h3>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R2017">
-<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<div id="two-sided-one-sample-t-tests" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Two-sided one-sample t-tests</h3>
+</div>
+</div>
+<div id="two-sample-t-tests" class="section level2">
+<h2><span class="header-section-number">6.2</span> Two-sample t-tests</h2>
+<!-- example of formula interface and the classical one -->
+<div id="one-sided-two-sample-t-tests" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> One-sided two-sample t-tests</h3>
+</div>
+<div id="two-sided-two-sample-t-tests" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Two-sided two-sample t-tests</h3>
+</div>
+</div>
+<div id="paired-t-tests" class="section level2">
+<h2><span class="header-section-number">6.3</span> Paired t-tests</h2>
+</div>
+<div id="comparison-of-two-population-proportions" class="section level2">
+<h2><span class="header-section-number">6.4</span> Comparison of Two Population Proportions</h2>
+<p>…also <code>prop.test()</code></p>
+
 </div>
 </div>
             </section>
@@ -317,8 +342,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="confidence-intervals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

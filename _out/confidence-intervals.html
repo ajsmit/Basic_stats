@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="introduction.html">
+<link rel="prev" href="inferences-about-one-or-two-populations.html">
+<link rel="next" href="one-way-anova.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -301,24 +301,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
-<p>A prerequisite for this course is a basic proficiency in using R <span class="citation">(R Core Team <a href="#ref-R2017">2017</a>)</span>. The necessary experience will have been gained from completing the <a href="https://robwschlegel.github.io/Intro_R_Workshop/">Intro R Workshop: Data Manipulation, Analysis, and Graphing</a> Workshop that was part of your BCB Core Honours module (i.e. Biostatistics). You will also need a laptop with R and RStudio installed as per the instructions provided in that workshop. If you do not have a personal laptop, most computers in the 5th floor lab will be correctly set up for this purpose.</p>
+<div id="confidence-intervals" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Confidence intervals</h1>
+<p>A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. To calculate a confidence interval requires three things:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># First we set the sample mean</span></a>
+<a class="sourceLine" id="cb60-2" data-line-number="2">sample_mean &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb60-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb60-4" data-line-number="4"><span class="co"># Then the sample standard deviation</span></a>
+<a class="sourceLine" id="cb60-5" data-line-number="5">sample_sd &lt;-<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb60-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb60-7" data-line-number="7"><span class="co"># Then the number of samples</span></a>
+<a class="sourceLine" id="cb60-8" data-line-number="8">sample_n &lt;-<span class="st"> </span><span class="dv">20</span></a></code></pre></div>
+<p>Once we know these things we must then use the following formula to calculate th CI:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">error &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>sample_sd<span class="op">/</span><span class="kw">sqrt</span>(sample_n)</a></code></pre></div>
+<p>With the CI known, we then substract/add it from the sample mean in order to find the upper and lower limits:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">lower &lt;-<span class="st"> </span>sample_mean<span class="op">-</span>error</a>
+<a class="sourceLine" id="cb62-2" data-line-number="2">upper &lt;-<span class="st"> </span>sample_mean<span class="op">+</span>error</a>
+<a class="sourceLine" id="cb62-3" data-line-number="3">lower</a></code></pre></div>
+<pre><code>R&gt; [1] 9.123477</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">upper</a></code></pre></div>
+<pre><code>R&gt; [1] 10.87652</code></pre>
 
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R2017">
-<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inferences-about-one-or-two-populations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="one-way-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

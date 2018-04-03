@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="introduction.html">
+<link rel="prev" href="one-way-anova.html">
+<link rel="next" href="linear-mixed-models.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -301,15 +301,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
-<p>A prerequisite for this course is a basic proficiency in using R <span class="citation">(R Core Team <a href="#ref-R2017">2017</a>)</span>. The necessary experience will have been gained from completing the <a href="https://robwschlegel.github.io/Intro_R_Workshop/">Intro R Workshop: Data Manipulation, Analysis, and Graphing</a> Workshop that was part of your BCB Core Honours module (i.e. Biostatistics). You will also need a laptop with R and RStudio installed as per the instructions provided in that workshop. If you do not have a personal laptop, most computers in the 5th floor lab will be correctly set up for this purpose.</p>
-
+<div id="deeper-into-anova" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Deeper into ANOVA</h1>
+<p>In the previous chapter we learned how to test hypotheses based on the comparions of means between sets of data when we were able to meet our two base assumptions. These parametric tests are preferred over non-parametric tests because they are more robust. However, when we simply aren’t able to meet these assumptions we must not despair. Non-parametric tests are still useful. In this chapter we will learn how to run non-parametirc tests for two sample and multiple sample datasets. To start, let’s load our libraries and <code>chicks</code> data if we have not already.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="co"># First activate libraries</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="kw">library</span>(ggpubr)</a>
+<a class="sourceLine" id="cb86-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb86-5" data-line-number="5"><span class="co"># Then load data</span></a>
+<a class="sourceLine" id="cb86-6" data-line-number="6">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a></code></pre></div>
+<p>With our libraries and data loaded, let’s find a day in which at least one of our assumptions are violated.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="co"># Then check for failing assumptions</span></a>
+<a class="sourceLine" id="cb87-2" data-line-number="2">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_wt =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(weight)[<span class="dv">2</span>]),</a>
+<a class="sourceLine" id="cb87-6" data-line-number="6">            <span class="dt">var_wt =</span> <span class="kw">var</span>(weight))</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 4 x 3
+R&gt;   Diet  norm_wt var_wt
+R&gt;   &lt;fct&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+R&gt; 1 1     0.0138   0.989
+R&gt; 2 2     0.138    2.23 
+R&gt; 3 3     0.00527  1.07 
+R&gt; 4 4     0.0739   1.11</code></pre>
+<div id="wilcox-rank-sum-test" class="section level2">
+<h2><span class="header-section-number">9.1</span> Wilcox rank sum test</h2>
+<p>The non-parametric version of a t-test is a Wilcox rank sum test. To perform this test in R we may again use <code>compare_means()</code> and specify the test we want:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, Diet <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)), <span class="dt">method =</span> <span class="st">&quot;wilcox.test&quot;</span>)</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 8
+R&gt;   .y.    group1 group2     p p.adj p.format p.signif method  
+R&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;   
+R&gt; 1 weight 1      2      0.235 0.235 0.23     ns       Wilcoxon</code></pre>
+<p>What do our results show?</p>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R2017">
-<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<div id="kruskall-wallis-rank-sum-test" class="section level2">
+<h2><span class="header-section-number">9.2</span> Kruskall-Wallis rank sum test</h2>
+<div id="single-factor-1" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Single factor</h3>
+<p>The non-parametric version of an ANOVA is a Kruskall-Wallis rank sum test. As you may have by now surmised, this may be done with <code>compare_means()</code> as seen below:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>), <span class="dt">method =</span> <span class="st">&quot;kruskal.test&quot;</span>)</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 6
+R&gt;   .y.        p p.adj p.format p.signif method        
+R&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;         
+R&gt; 1 weight 0.475 0.475 0.48     ns       Kruskal-Wallis</code></pre>
+<p>As with the ANOVA, this first step with the Kruskall-Wallis test is not the last. We must again run a post-hoc test on our results. This time we will need to use <code>pgirmess::kruskalmc()</code>, which means we will need to load a new library.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="kw">library</span>(pgirmess)</a>
+<a class="sourceLine" id="cb93-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb93-3" data-line-number="3"><span class="kw">kruskalmc</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>))</a></code></pre></div>
+<pre><code>R&gt; Multiple comparison test after Kruskal-Wallis 
+R&gt; p.value: 0.05 
+R&gt; Comparisons
+R&gt;     obs.dif critical.dif difference
+R&gt; 1-2    6.95     14.89506      FALSE
+R&gt; 1-3    6.90     14.89506      FALSE
+R&gt; 1-4    4.15     14.89506      FALSE
+R&gt; 2-3    0.05     17.19933      FALSE
+R&gt; 2-4    2.80     17.19933      FALSE
+R&gt; 3-4    2.75     17.19933      FALSE</code></pre>
+<p>Let’s consult the help file for <code>kruskalmc()</code> to understand what this print-out means.</p>
+</div>
+<div id="multiple-factors-1" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Multiple factors</h3>
+<p>The water becomes murky quickly when one wants to perform mutliple factor non-parametric comparison of means tests. TO that end, we will not cover the few existing methods here. Rather, one should avoid the necessity for these types of tests when designing an experiment.</p>
+</div>
+</div>
+<div id="exercises-2" class="section level2">
+<h2><span class="header-section-number">9.3</span> Exercises</h2>
+</div>
+<div id="exercise-1-2" class="section level2">
+<h2><span class="header-section-number">9.4</span> Exercise 1</h2>
+<p>Write out the hypotheses that we tested for in this chapter and answer them based on the results we produced in class.</p>
+
 </div>
 </div>
             </section>
@@ -317,8 +379,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="one-way-anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-mixed-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

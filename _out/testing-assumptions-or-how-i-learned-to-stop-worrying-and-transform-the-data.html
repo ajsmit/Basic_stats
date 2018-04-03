@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="introduction.html">
+<link rel="prev" href="linear-mixed-models.html">
+<link rel="next" href="generalised-linear-models.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -301,15 +301,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
-<p>A prerequisite for this course is a basic proficiency in using R <span class="citation">(R Core Team <a href="#ref-R2017">2017</a>)</span>. The necessary experience will have been gained from completing the <a href="https://robwschlegel.github.io/Intro_R_Workshop/">Intro R Workshop: Data Manipulation, Analysis, and Graphing</a> Workshop that was part of your BCB Core Honours module (i.e. Biostatistics). You will also need a laptop with R and RStudio installed as per the instructions provided in that workshop. If you do not have a personal laptop, most computers in the 5th floor lab will be correctly set up for this purpose.</p>
+<div id="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Testing assumptions or: How I learned to stop worrying and transform the data</h1>
+<p>In this chapter we will learn how to test for the two most common assumptions we will make in the biological sciences.</p>
+<p>Our tests for these two assumptions fail often with real data. Therefore, we must often identify the way in which our data are distributed so we may better decide how to transform them in an attempt to coerce them into a format that will pass the assumptions.</p>
+<p>Before we begin, let’s go ahead and activate our packages and load our data.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a></code></pre></div>
+<div id="the-two-main-assumptions" class="section level2">
+<h2><span class="header-section-number">11.1</span> The two main assumptions</h2>
+<div id="normality" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> Normality</h3>
+<p>The quickest method of testing the normality of a variable is with the Shapiro-Wilk normality test. This will return two values, a W score and a <em>p</em>-value. FOr the purposes of this course we may safely ignore the W score and focus on the <em>p</em>-value. When <em>p</em> &gt;= 0.05 we may assume that the data are normally distributed. If <em>p</em> &lt; 0.05 then the data are not normally distrubted. Let’s look at all of the <code>chicks</code> data without filtering it:</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">shapiro.test</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<pre><code>R&gt; 
+R&gt;  Shapiro-Wilk normality test
+R&gt; 
+R&gt; data:  chicks$weight
+R&gt; W = 0.90866, p-value &lt; 2.2e-16</code></pre>
+<p>Are these data normally distributed? How do we know? Now let’s filter the data based on the different diets for only the weights taken on the last day (21):</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb107-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb107-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_wt =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(weight)[<span class="dv">2</span>]))</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 4 x 2
+R&gt;   Diet  norm_wt
+R&gt;   &lt;fct&gt;   &lt;dbl&gt;
+R&gt; 1 1       0.591
+R&gt; 2 2       0.949
+R&gt; 3 3       0.895
+R&gt; 4 4       0.186</code></pre>
+<p>How about now?</p>
+</div>
+<div id="homoscedasticity" class="section level3">
+<h3><span class="header-section-number">11.1.2</span> Homoscedasticity</h3>
+<p>Here we need no fancy test. We must simply calculate the variance of the variables we want to use and see that they are not more than 3 – 4 times greater than one another.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb109-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">var_wt =</span> <span class="kw">var</span>(weight))</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 4 x 2
+R&gt;   Diet  var_wt
+R&gt;   &lt;fct&gt;  &lt;dbl&gt;
+R&gt; 1 1      3446.
+R&gt; 2 2      6106.
+R&gt; 3 3      5130.
+R&gt; 4 4      1879.</code></pre>
+<p>Well, do these data pass the two main assumptions?</p>
+</div>
+</div>
+<div id="transforming-data" class="section level2">
+<h2><span class="header-section-number">11.2</span> Transforming data</h2>
+<div id="log-transform" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> Log transform</h3>
+</div>
+<div id="section" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> </h3>
+</div>
+</div>
+<div id="exercises-4" class="section level2">
+<h2><span class="header-section-number">11.3</span> Exercises</h2>
+<div id="exercise-1-4" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Exercise 1</h3>
+<p>Find one of the days of measurement where the chicken weights do not pass the assumptions of normality, and another day (not day 21!) in which they do.</p>
+</div>
+<div id="exercise-2" class="section level3">
+<h3><span class="header-section-number">11.3.2</span> Exercise 2</h3>
+<p>Transform the data so that they may pass the assumptions.</p>
 
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R2017">
-<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
 </div>
             </section>
@@ -317,8 +377,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linear-mixed-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="generalised-linear-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

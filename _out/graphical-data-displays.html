@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="introduction.html">
+<link rel="prev" href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html">
+<link rel="next" href="distributions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -301,15 +301,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
-<p>A prerequisite for this course is a basic proficiency in using R <span class="citation">(R Core Team <a href="#ref-R2017">2017</a>)</span>. The necessary experience will have been gained from completing the <a href="https://robwschlegel.github.io/Intro_R_Workshop/">Intro R Workshop: Data Manipulation, Analysis, and Graphing</a> Workshop that was part of your BCB Core Honours module (i.e. Biostatistics). You will also need a laptop with R and RStudio installed as per the instructions provided in that workshop. If you do not have a personal laptop, most computers in the 5th floor lab will be correctly set up for this purpose.</p>
-
+<div id="graphical-data-displays" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Graphical data displays</h1>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
+<div id="frequency-distributions" class="section level2">
+<h2><span class="header-section-number">4.1</span> Frequency distributions</h2>
+<div id="qualitative-data-1" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Qualitative data</h3>
+<div id="frequency-distribution" class="section level4">
+<h4><span class="header-section-number">4.1.1.1</span> Frequency distribution</h4>
+<p>This kind of graph applies to categorical data. Although it can also be presented numerically in tabular form, one may also create a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both approaches will be demonstrated here.</p>
+<!-- show example of numerical summary -->
+<!-- show example of frequency distribution bar graph -->
+<!-- show example of pie graph -->
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R2017">
-<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<div id="relative-frequency-distributions" class="section level4">
+<h4><span class="header-section-number">4.1.1.2</span> Relative frequency distributions</h4>
+<p>This is similar to the frequency distribution of qualitative data, except that now we show the frequency proportion in a collection of non-overlapping categories. An example:</p>
+<p>We have a sample size of 12 (<span class="math inline">\(n=12\)</span>). In this sample, two are coloured blue, six red, and five purple. The relative proportions are <span class="math inline">\(2/12=0.1666667\)</span> blue, <span class="math inline">\(6/12=0.5\)</span> red, and <span class="math inline">\(5/12=0.4166667\)</span> purple. The important thing to note here is that the relative proportions sum to 1, i.e. <span class="math inline">\(0.1666667+0.5+0.4166667=1\)</span>. These data may be presented as a table or as a graph.</p>
+<!-- show example of numerical summary -->
+<!-- show example of frequency distribution bar graph -->
+<!-- show example of pie graph -->
+</div>
+</div>
+<div id="continuous-data-1" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Continuous data</h3>
+<div id="frequency-distribution-1" class="section level4">
+<h4><span class="header-section-number">4.1.2.1</span> Frequency distribution</h4>
+<!-- show example of numerical summary -->
+<!-- show example of a histogram -->
+</div>
+<div id="relative-frequency-distributions-1" class="section level4">
+<h4><span class="header-section-number">4.1.2.2</span> Relative frequency distributions</h4>
+<!-- show example of numerical summary -->
+<!-- show example of a histogram (desnity/probability) -->
+</div>
+<div id="cumulative-frequency-distributions" class="section level4">
+<h4><span class="header-section-number">4.1.2.3</span> Cumulative frequency distributions</h4>
+<!-- show example of numerical summary -->
+<!-- show example of a cumulative frequency graph -->
+</div>
+<div id="cumulative-relative-frequency-distributions" class="section level4">
+<h4><span class="header-section-number">4.1.2.4</span> Cumulative relative frequency distributions</h4>
+<!-- show example of numerical summary -->
+<!-- show example of a cumulative relative frequency graph -->
+</div>
+<div id="scatter-plots" class="section level4">
+<h4><span class="header-section-number">4.1.2.5</span> Scatter plots</h4>
+<p>Relationship between two (matched) continuous variables.</p>
+<!-- show example of a scatter plot -->
+<!-- show example of correlation -->
+</div>
+<div id="box-plots" class="section level4">
+<h4><span class="header-section-number">4.1.2.6</span> Box plots</h4>
+<p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution.</p>
+<!-- show example of a box plot -->
+</div>
+</div>
+</div>
+<div id="bar-graphs" class="section level2">
+<h2><span class="header-section-number">4.2</span> Bar graphs</h2>
+</div>
+<div id="pie-graphs" class="section level2">
+<h2><span class="header-section-number">4.3</span> Pie graphs (!!!)</h2>
+</div>
+<div id="category-statistics" class="section level2">
+<h2><span class="header-section-number">4.4</span> Category statistics</h2>
+
 </div>
 </div>
             </section>
@@ -317,8 +375,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

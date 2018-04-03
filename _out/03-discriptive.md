@@ -13,7 +13,7 @@ Let us now turn to some of the most commonly used descriptive statistics, and le
 
 ## Samples and populations
 
-This is a simple toy example. In real life, however, our data will be available in a tibble (initially perhaps captured in MS Excel before importing it as a `.csv` file into R, where the tibble is created). To see how this can be done more realistically using actual data, let us turn to the ChickenWeight data, which, as before, we place in the object `chicks`. Recall the pipe operator (`%>%`, pronounced 'then') that we introduced in the Intro R Workshop --- we will use that here, throughout. Let us calculate the sample size:
+This is a simple toy example. In real life, however, our data will be available in a tibble (initially perhaps captured in MS Excel before importing it as a `.csv` file into R, where the tibble is created). To see how this can be done more realistically using actual data, let us turn to the ChickenWeight data, which, as before, we place in the object `chicks`. Recall the pipe operator (`%>%`, pronounced 'then') that we introduced in the Intro R Workshop---we will use that here, throughout. Let us calculate the sample size:
 
 To determine the sample size we can use the `length()` or `n()` functions; the latter is for use within **dplyr**'s `summarise()` method, and it is applied without writing anything inside of the `()`, like this:
 
@@ -112,6 +112,8 @@ mean(chicks$weight)
 ```
 R> [1] 121.8183
 ```
+
+> **Question:** How would you manually calculate the mean mass for the chicks? Do it now!
 
 Notice above how the two approaches display the result differently: in the first instance, using `summarise()`, the answer is rounded to zero decimal places; in the second, it is displayed (here) at full precision. The precision of the answer that you require depends on the context of your study, so make sure that you use the appropriate number of significant digits. Using the `summarise()` approach again, here is how you can adjust the number of decimal places of the answer:
 
