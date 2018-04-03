@@ -51,6 +51,8 @@ Chapters 6-15 are about inferential statistics. Inferential tests allow us to ev
 
 The aim of this five-day introductory workshop is to guide you through the outline given above.
 
+<!-- AJS to update -->
+
 ## This is biology: why more R coding?
 
 Please refer to the [Intro R Workshop: Data Manipulation, Analysis and Graphing](https://robwschlegel.github.io/Intro_R_Workshop/) for why we feel strongly that you use R [@R2017] for the analyses that we will perform here. All of the reasons provided there are valid here too, but one reason perhaps more so than others---R and RStudio promote the principles of *reproducible research*, and in fact make it very easy to implement. We will focus on some of these principles throughout the workshop, and the assignments will require that you submit a fully functional working script, complete with all the notes, memos, examples, data, executable code, and output that will result from completing the course material. 
@@ -62,6 +64,8 @@ What other options are there for analysing the kinds of data that we will encoun
 We assume that you already have R installed on your computer, as all of you will have already completed the the Intro R Workshop. If you need a refresher, please refer to [Intro R Workshop: Data Manipulation, Analysis and Graphing](https://robwschlegel.github.io/Intro_R_Workshop/) for the installation instructions.
 
 ## Resources
+
+<!-- AJS to update -->
 
 ### Required reading
 
