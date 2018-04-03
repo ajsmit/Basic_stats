@@ -5,6 +5,7 @@
 
 
 ```r
+library(tidyverse)
 library(ggpubr)
 ```
 
@@ -30,13 +31,38 @@ We have a sample size of 12 ($n=12$). In this sample, two are coloured blue, six
 
 ### Continuous data
 
-#### Frequency distribution
+#### Frequency distribution (histograms)
+
+
+```r
+ggplot(data = faithful, aes(x = eruptions)) +
+  geom_histogram()
+```
+
+<img src="04-graphics_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+
 
 <!-- show example of numerical summary -->
 <!-- show example of a histogram -->
 
 #### Relative frequency distributions
 
+
+```r
+faithful %>% 
+  mutate(eruptions = eruptions / length(eruptions)) %>%
+  ggplot(aes(x = eruptions)) +
+  geom_histogram(aes(y = ..ndensity..))
+```
+
+<img src="04-graphics_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+```r
+# ggplot(data = faithful, aes(x = eruptions)) +
+#   geom_density(fill = "salmon", aes(y = ..density..)) +
+#   scale_x_continuous(expand = c(0, 0)) +
+#   scale_y_continuous(expand = c(0, 0))
+```
 <!-- show example of numerical summary -->
 <!-- show example of a histogram (desnity/probability) -->
 

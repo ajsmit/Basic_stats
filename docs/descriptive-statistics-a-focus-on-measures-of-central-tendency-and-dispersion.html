@@ -434,15 +434,15 @@ R&gt; 1   103.</code></pre>
 </div>
 <div id="central-moment" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Central moment</h3>
-<!-- insert some stuff here -->
+<!-- AJS to update -->
 </div>
 <div id="skewness" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Skewness</h3>
-<!-- insert some stuff here -->
+<!-- AJS to update -->
 </div>
 <div id="kurtosis" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Kurtosis</h3>
-<!-- insert some stuff here -->
+<!-- AJS to update -->
 </div>
 </div>
 <div id="measures-of-variation-and-spread" class="section level2">
@@ -509,7 +509,6 @@ R&gt;   sd_wt
 R&gt;   &lt;dbl&gt;
 R&gt; 1  71.1</code></pre>
 <p>The interpretation of the concepts of mean and median are fairly straight forward and intuitive. Not so for the measures of variance. What does <span class="math inline">\(S\)</span> represent? Firstly, the unit of measurement of <span class="math inline">\(S\)</span> is the same as that of <span class="math inline">\(\bar{x}\)</span> (but the variance doesn’t share this characteristic). If temperature is measured in °C, then <span class="math inline">\(S\)</span> also takes a unit of °C. Since <span class="math inline">\(S\)</span> measures the dispersion <em>around</em> the mean, we write it as <span class="math inline">\(\bar{x} \pm S\)</span> (note that often the mean and standard deviation are written with the letters <em>mu</em> and <em>sigma</em>, respectively; i.e. <span class="math inline">\(\mu \pm \sigma\)</span>). The smaller <span class="math inline">\(S\)</span> the closer the sample data are to <span class="math inline">\(\bar{x}\)</span>, and the larger the value is the further away they will spread out from <span class="math inline">\(\bar{x}\)</span>. So, it tells us about the proportion of observations above and below <span class="math inline">\(\bar{x}\)</span>. But what proportion? We invoke the the 68-95-99.7 rule: ~68% of the population (as represented by a random sample of <span class="math inline">\(n\)</span> observations taken from the population) falls within 1<span class="math inline">\(S\)</span> of <span class="math inline">\(\bar{x}\)</span> (i.e. ~34% below <span class="math inline">\(\bar{x}\)</span> and ~34% above <span class="math inline">\(\bar{x}\)</span>); ~95% of the population falls within 2<span class="math inline">\(S\)</span>; and ~99.7% falls within 3<span class="math inline">\(S\)</span>.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/Standard_deviation_diagram.svg&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:rmarkdown"></span>
 <img src="figures/Standard_deviation_diagram.svg" alt="The proportions of data representation by the standard deviation. Credit: [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)"  />
 <p class="caption">
@@ -521,21 +520,21 @@ Figure 1.1: The proportions of data representation by the standard deviation. Cr
 <div id="quantiles" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Quantiles</h3>
 <p>A more forgiving approach (forgiving of the extremes, often called ‘robust’) is to divide the distribution of ordered data into quarters, and find the points below which 25% (0.25, the first quartile), 50% (0.50, the median) and 75% (0.75, the third quartile) of the data are distributed. These are called <em>quartiles</em> (for ‘quarter;’ not to be confused with <em>quantile</em>, which is a more general form of the function that can be used to divide the distribution into any arbitrary proportion from 0 to 1). In R we use the <code>quantile()</code> function to provide the quartiles; we demonstrate two approaches:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">quantile</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">quantile</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
 <pre><code>R&gt;     0%    25%    50%    75%   100% 
 R&gt;  35.00  63.00 103.00 163.75 373.00</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">min_wt =</span> <span class="kw">min</span>(weight),</a>
-<a class="sourceLine" id="cb36-3" data-line-number="3">            <span class="dt">qrt1_wt =</span> <span class="kw">quantile</span>(weight, <span class="dt">p =</span> <span class="fl">0.25</span>),</a>
-<a class="sourceLine" id="cb36-4" data-line-number="4">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight),</a>
-<a class="sourceLine" id="cb36-5" data-line-number="5">            <span class="dt">qrt3_wt =</span> <span class="kw">median</span>(weight, <span class="dt">p =</span> <span class="fl">0.75</span>),</a>
-<a class="sourceLine" id="cb36-6" data-line-number="6">            <span class="dt">max_wt =</span> <span class="kw">max</span>(weight))</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">min_wt =</span> <span class="kw">min</span>(weight),</a>
+<a class="sourceLine" id="cb35-3" data-line-number="3">            <span class="dt">qrt1_wt =</span> <span class="kw">quantile</span>(weight, <span class="dt">p =</span> <span class="fl">0.25</span>),</a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight),</a>
+<a class="sourceLine" id="cb35-5" data-line-number="5">            <span class="dt">qrt3_wt =</span> <span class="kw">median</span>(weight, <span class="dt">p =</span> <span class="fl">0.75</span>),</a>
+<a class="sourceLine" id="cb35-6" data-line-number="6">            <span class="dt">max_wt =</span> <span class="kw">max</span>(weight))</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 5
 R&gt;   min_wt qrt1_wt med_wt qrt3_wt max_wt
 R&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
 R&gt; 1    35.     63.   103.    103.   373.</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># note median(weight) is the same as quantile(weight, p = 0.5) </span></a>
-<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="co"># in the summarise() implementation, above</span></a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># note median(weight) is the same as quantile(weight, p = 0.5) </span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="co"># in the summarise() implementation, above</span></a></code></pre></div>
 <blockquote>
 <p><em>Question:</em> What is different about the <code>quantile()</code> function that caused us to specify the calculation in the way in which we have done so above? You will have to consult the help file, read it, understand it, think about it, and experiment with the ideas. Take 15 minutes to figure it out and report back to the class.</p>
 </blockquote>
@@ -544,20 +543,20 @@ R&gt; 1    35.     63.   103.    103.   373.</code></pre>
 <h3><span class="header-section-number">3.3.3</span> The minimum, maximum and range</h3>
 <p>A description of the extent of the data can also be provided by the functions <code>min()</code>, <code>max()</code> and <code>range()</code>.</p>
 <p>These statistics apply to data of any distribution, and not only to normal data. This if often the first place you want to start when looking at the data for the first time. We’ve seen above how to use <code>min()</code> and <code>max()</code>, so below we will quickly look at how to use <code>range()</code> in both the base R and tidy methods:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">range</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">range</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
 <pre><code>R&gt; [1]  35 373</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">lower_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb41-3" data-line-number="3">            <span class="dt">upper_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">2</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">lower_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">            <span class="dt">upper_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">2</span>])</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 2
 R&gt;   lower_wt upper_wt
 R&gt;      &lt;dbl&gt;    &lt;dbl&gt;
 R&gt; 1      35.     373.</code></pre>
 <p>Note that <code>range()</code> actually gives us the minimum and maximum values, and not the difference between them. To find the range value properly we must be a bit more clever:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">range</span>(chicks<span class="op">$</span>weight)[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span><span class="kw">range</span>(chicks<span class="op">$</span>weight)[<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">range</span>(chicks<span class="op">$</span>weight)[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span><span class="kw">range</span>(chicks<span class="op">$</span>weight)[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>R&gt; [1] 338</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb45-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">range_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span><span class="kw">range</span>(weight)[<span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb44-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">range_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span><span class="kw">range</span>(weight)[<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 1
 R&gt;   range_wt
 R&gt;      &lt;dbl&gt;
@@ -577,13 +576,13 @@ R&gt; 1     338.</code></pre>
 <div id="missing-values-1" class="section level2">
 <h2><span class="header-section-number">3.4</span> Missing values</h2>
 <p>As mentioned in Chapter 2, missing data are pervaise in the biological sciences. Happily for us, R is designed to handle these data easily. It is important to note here explicitly that all of the basic functions in R will by default <em>NOT</em> ignore missing data. This has been done so as to prevent the user from accidentally forgetting about the missing data and potentially making errors in later stages in an analysis. Therefore, we must explicitly tell R when we want it to ommit missing values from a calculation. Let’s create a small vector of data to demonstrate this:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">dat1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">12</span>, <span class="dv">76</span>, <span class="dv">34</span>, <span class="dv">23</span>)</a>
-<a class="sourceLine" id="cb47-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb47-3" data-line-number="3"><span class="co"># Without telling R to ommit missing data</span></a>
-<a class="sourceLine" id="cb47-4" data-line-number="4"><span class="kw">mean</span>(dat1)</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">dat1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">12</span>, <span class="dv">76</span>, <span class="dv">34</span>, <span class="dv">23</span>)</a>
+<a class="sourceLine" id="cb46-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb46-3" data-line-number="3"><span class="co"># Without telling R to ommit missing data</span></a>
+<a class="sourceLine" id="cb46-4" data-line-number="4"><span class="kw">mean</span>(dat1)</a></code></pre></div>
 <pre><code>R&gt; [1] NA</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># Ommitting the missing data</span></a>
-<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="kw">mean</span>(dat1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># Ommitting the missing data</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">mean</span>(dat1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>R&gt; [1] 36.25</code></pre>
 <p>Note that this argument, <code>na.rm = TRUE</code> may be used in all of the functions we have seen thus far in this chapter.</p>
 </div>
@@ -594,20 +593,20 @@ R&gt; 1     338.</code></pre>
 <h3><span class="header-section-number">3.5.1</span> Groupwise summary statistics</h3>
 <p>At this point you need to refer to <a href="https://robwschlegel.github.io/Intro_R_Workshop/tidy.html">Chapter 10</a> (Tidy data) and <a href="https://robwschlegel.github.io/Intro_R_Workshop/tidier.html">Chapter 11</a> (Tidier data) in the <strong>Intro R Workshop</strong> to remind yourself about in what format the data need to be before we can efficiently work with it. A hint: one observation in a row, and one variable per column. From this point, it is trivial to do the various data descriptions, visualisations, and analyses. Thankfully, the <code>chicks</code> data are already in this format.</p>
 <p>So, what are the summary statistics for the chickens for each diet group at day 21?</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">grp_stat &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb51-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb51-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet, Time) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb51-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wt =</span> <span class="kw">round</span>(<span class="kw">mean</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb51-5" data-line-number="5">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb51-6" data-line-number="6">            <span class="dt">sd_wt =</span> <span class="kw">round</span>(<span class="kw">sd</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb51-7" data-line-number="7">            <span class="dt">sum_wt =</span> <span class="kw">sum</span>(weight),</a>
-<a class="sourceLine" id="cb51-8" data-line-number="8">            <span class="dt">min_wt =</span> <span class="kw">min</span>(weight),</a>
-<a class="sourceLine" id="cb51-9" data-line-number="9">            <span class="dt">qrt1_wt =</span> <span class="kw">quantile</span>(weight, <span class="dt">p =</span> <span class="fl">0.25</span>),</a>
-<a class="sourceLine" id="cb51-10" data-line-number="10">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight),</a>
-<a class="sourceLine" id="cb51-11" data-line-number="11">            <span class="dt">qrt3_wt =</span> <span class="kw">median</span>(weight, <span class="dt">p =</span> <span class="fl">0.75</span>),</a>
-<a class="sourceLine" id="cb51-12" data-line-number="12">            <span class="dt">max_wt =</span> <span class="kw">max</span>(weight),</a>
-<a class="sourceLine" id="cb51-13" data-line-number="13">            <span class="dt">n_wt =</span> <span class="kw">n</span>())</a>
-<a class="sourceLine" id="cb51-14" data-line-number="14">grp_stat</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">grp_stat &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb50-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet, Time) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb50-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wt =</span> <span class="kw">round</span>(<span class="kw">mean</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb50-5" data-line-number="5">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb50-6" data-line-number="6">            <span class="dt">sd_wt =</span> <span class="kw">round</span>(<span class="kw">sd</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb50-7" data-line-number="7">            <span class="dt">sum_wt =</span> <span class="kw">sum</span>(weight),</a>
+<a class="sourceLine" id="cb50-8" data-line-number="8">            <span class="dt">min_wt =</span> <span class="kw">min</span>(weight),</a>
+<a class="sourceLine" id="cb50-9" data-line-number="9">            <span class="dt">qrt1_wt =</span> <span class="kw">quantile</span>(weight, <span class="dt">p =</span> <span class="fl">0.25</span>),</a>
+<a class="sourceLine" id="cb50-10" data-line-number="10">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight),</a>
+<a class="sourceLine" id="cb50-11" data-line-number="11">            <span class="dt">qrt3_wt =</span> <span class="kw">median</span>(weight, <span class="dt">p =</span> <span class="fl">0.75</span>),</a>
+<a class="sourceLine" id="cb50-12" data-line-number="12">            <span class="dt">max_wt =</span> <span class="kw">max</span>(weight),</a>
+<a class="sourceLine" id="cb50-13" data-line-number="13">            <span class="dt">n_wt =</span> <span class="kw">n</span>())</a>
+<a class="sourceLine" id="cb50-14" data-line-number="14">grp_stat</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 4 x 11
 R&gt; # Groups:   Diet [?]
 R&gt;   Diet   Time mean_wt med_wt sd_wt sum_wt min_wt qrt1_wt qrt3_wt max_wt
@@ -622,39 +621,39 @@ R&gt; # ... with 1 more variable: n_wt &lt;int&gt;</code></pre>
 <h3><span class="header-section-number">3.5.2</span> Displays of group summaries</h3>
 <!-- probably can be moved to the section 'Graphical data displays' -->
 <p>There are several kinds of graphical displays for your data. We will show some which are able to display the spread of the raw data, the mean or median, as well as the appropriate accompanying indicators of variation around the mean or median.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">library</span>(ggpubr) <span class="co"># needed for arranging multi-panel plots</span></a>
-<a class="sourceLine" id="cb53-2" data-line-number="2">plt1 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb53-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb53-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> grp_stat, <span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> mean_wt), </a>
-<a class="sourceLine" id="cb53-6" data-line-number="6">             <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">shape =</span> <span class="dv">23</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb53-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.05</span>) <span class="op">+</span><span class="st"> </span><span class="co"># geom_point() if jitter not required</span></a>
-<a class="sourceLine" id="cb53-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb53-9" data-line-number="9"><span class="st">  </span><span class="kw">theme_pubr</span>()</a></code></pre></div>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> grp_stat, <span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> mean_wt)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(), <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, </a>
-<a class="sourceLine" id="cb54-3" data-line-number="3">           <span class="dt">col =</span> <span class="ot">NA</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb54-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean_wt <span class="op">-</span><span class="st"> </span>sd_wt, <span class="dt">ymax =</span> mean_wt <span class="op">+</span><span class="st"> </span>sd_wt),</a>
-<a class="sourceLine" id="cb54-5" data-line-number="5">                <span class="dt">width =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">library</span>(ggpubr) <span class="co"># needed for arranging multi-panel plots</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">plt1 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb52-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> grp_stat, <span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> mean_wt), </a>
+<a class="sourceLine" id="cb52-6" data-line-number="6">             <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">shape =</span> <span class="dv">23</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.05</span>) <span class="op">+</span><span class="st"> </span><span class="co"># geom_point() if jitter not required</span></a>
+<a class="sourceLine" id="cb52-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb52-9" data-line-number="9"><span class="st">  </span><span class="kw">theme_pubr</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> grp_stat, <span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> mean_wt)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(), <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, </a>
+<a class="sourceLine" id="cb53-3" data-line-number="3">           <span class="dt">col =</span> <span class="ot">NA</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean_wt <span class="op">-</span><span class="st"> </span>sd_wt, <span class="dt">ymax =</span> mean_wt <span class="op">+</span><span class="st"> </span>sd_wt),</a>
+<a class="sourceLine" id="cb53-5" data-line-number="5">                <span class="dt">width =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb53-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubr</span>()</a>
+<a class="sourceLine" id="cb53-8" data-line-number="8"><span class="co"># position_dodge() places bars side-by-side</span></a>
+<a class="sourceLine" id="cb53-9" data-line-number="9"><span class="co"># stat = &quot;identity&quot; prevents the default count from being plotted</span></a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">plt3 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb54-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.05</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb54-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb54-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubr</span>()</a>
-<a class="sourceLine" id="cb54-8" data-line-number="8"><span class="co"># position_dodge() places bars side-by-side</span></a>
-<a class="sourceLine" id="cb54-9" data-line-number="9"><span class="co"># stat = &quot;identity&quot; prevents the default count from being plotted</span></a></code></pre></div>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">plt3 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb55-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb55-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.05</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb55-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubr</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">plt4 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">21</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight, <span class="dt">fill =</span> <span class="kw">as.factor</span>(Time))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb55-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb55-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">width =</span> <span class="fl">0.1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb55-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Time&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb55-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubr</span>()</a></code></pre></div>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1">plt4 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">21</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb56-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight, <span class="dt">fill =</span> <span class="kw">as.factor</span>(Time))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb56-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb56-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">width =</span> <span class="fl">0.1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb56-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Time&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb56-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubr</span>()</a></code></pre></div>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="kw">ggarrange</span>(plt1, plt2, plt3, plt4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">ggarrange</span>(plt1, plt2, plt3, plt4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-18"></span>
 <img src="03-discriptive_files/figure-html/unnamed-chunk-18-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
 <p class="caption">

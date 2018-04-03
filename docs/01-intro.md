@@ -45,6 +45,8 @@ Chapters 6-15 are about inferential statistics. Inferential tests allow us to ev
 
 The aim of this five-day introductory workshop is to guide you through the outline given above.
 
+<!-- AJS to update -->
+
 ## This is biology: why more R coding?
 
 Please refer to the [Intro R Workshop: Data Manipulation, Analysis and Graphing](https://robwschlegel.github.io/Intro_R_Workshop/) for why we feel strongly that you use R [@R2017] for the analyses that we will perform here. All of the reasons provided there are valid here too, but one reason perhaps more so than others---R and RStudio promote the principles of *reproducible research*, and in fact make it very easy to implement. We will focus on some of these principles throughout the workshop, and the assignments will require that you submit a fully functional working script, complete with all the notes, memos, examples, data, executable code, and output that will result from completing the course material. 
@@ -56,6 +58,8 @@ What other options are there for analysing the kinds of data that we will encoun
 We assume that you already have R installed on your computer, as all of you will have already completed the the Intro R Workshop. If you need a refresher, please refer to [Intro R Workshop: Data Manipulation, Analysis and Graphing](https://robwschlegel.github.io/Intro_R_Workshop/) for the installation instructions.
 
 ## Resources
+
+<!-- AJS to update -->
 
 ### Required reading
 
@@ -77,8 +81,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]  -4.551883  12.387381   7.837277   2.751916 -21.057769 -23.621969
-R>  [7]  -3.666951  12.661023   8.067444   1.879542
+R>  [1]   1.401443  19.176201   6.309915  -7.152587  -1.721008   4.693936
+R>  [7]  -5.468898 -18.367937 -17.195130  17.432872
 ```
 
 Consult these resources for more about R code style :
@@ -121,7 +125,7 @@ sessionInfo()
 ```
 R> R version 3.4.4 (2018-03-15)
 R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
-R> Running under: macOS Sierra 10.12.6
+R> Running under: macOS High Sierra 10.13.3
 R> 
 R> Matrix products: default
 R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
@@ -131,7 +135,7 @@ R> locale:
 R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 R> 
 R> attached base packages:
-R> [1] stats     grDevices utils     datasets  graphics  base     
+R> [1] stats     graphics  grDevices utils     datasets  base     
 R> 
 R> loaded via a namespace (and not attached):
 R>  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  

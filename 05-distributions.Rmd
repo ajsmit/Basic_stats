@@ -21,6 +21,10 @@ Therefore, we must next learn about the different types of data distributions we
 
 ## Normal distribution
 
+```{r PDF, echo = FALSE, fig.margin = TRUE, fig.cap = "Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)"}
+knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
+```
+
 ## Chi-squared distribution
 
 ## Student t distribution
