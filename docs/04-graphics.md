@@ -10,6 +10,26 @@ library(ggpubr)
 
 ## Frequency distributions
 
+### Test 1
+
+```r
+knitr::include_app("https://yihui.shinyapps.io/miniUI/", 
+  height = "600px")
+```
+
+<iframe src="https://yihui.shinyapps.io/miniUI/?showcase=0" width="672" height="600px"></iframe>
+
+### Test 2
+
+
+```r
+knitr::include_app("https://robert-schlegel.shinyapps.io/SACTN/", 
+  height = "600px")
+```
+
+<iframe src="https://robert-schlegel.shinyapps.io/SACTN/?showcase=0" width="672" height="600px"></iframe>
+
+
 ### Qualitative data
 
 #### Frequency distribution
