@@ -81,8 +81,16 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
+<<<<<<< HEAD
 R>  [1]   1.401443  19.176201   6.309915  -7.152587  -1.721008   4.693936
 R>  [7]  -5.468898 -18.367937 -17.195130  17.432872
+||||||| merged common ancestors
+R>  [1]  -4.551883  12.387381   7.837277   2.751916 -21.057769 -23.621969
+R>  [7]  -3.666951  12.661023   8.067444   1.879542
+=======
+R>  [1]  14.5736945  13.2949072   2.5882301   3.5417503 -10.8128372
+R>  [6]   3.4413672  14.4426073  14.7682894 -19.8346191  -0.6859997
+>>>>>>> 9b298a523f2559b43706e09ac1d9ca80fcc5f7b1
 ```
 
 Consult these resources for more about R code style :
@@ -124,15 +132,28 @@ sessionInfo()
 
 ```
 R> R version 3.4.4 (2018-03-15)
+<<<<<<< HEAD
 R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
 R> Running under: macOS High Sierra 10.13.3
+||||||| merged common ancestors
+R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
+R> Running under: macOS Sierra 10.12.6
+=======
+R> Platform: x86_64-pc-linux-gnu (64-bit)
+R> Running under: Ubuntu 16.04.4 LTS
+>>>>>>> 9b298a523f2559b43706e09ac1d9ca80fcc5f7b1
 R> 
 R> Matrix products: default
-R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
-R> LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+R> BLAS: /usr/lib/libblas/libblas.so.3.6.0
+R> LAPACK: /usr/lib/lapack/liblapack.so.3.6.0
 R> 
 R> locale:
-R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+R>  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C              
+R>  [3] LC_TIME=en_ZA.UTF-8        LC_COLLATE=en_ZA.UTF-8    
+R>  [5] LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
+R>  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                 
+R>  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+R> [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
 R> 
 R> attached base packages:
 R> [1] stats     graphics  grDevices utils     datasets  base     

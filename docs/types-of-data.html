@@ -50,69 +50,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -187,8 +159,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html"><i class="fa fa-check"></i><b>4</b> Graphical data displays</a><ul>
 <li class="chapter" data-level="4.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#frequency-distributions"><i class="fa fa-check"></i><b>4.1</b> Frequency distributions</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#qualitative-data-1"><i class="fa fa-check"></i><b>4.1.1</b> Qualitative data</a></li>
-<li class="chapter" data-level="4.1.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.2</b> Continuous data</a></li>
+<li class="chapter" data-level="4.1.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#test-1"><i class="fa fa-check"></i><b>4.1.1</b> Test 1</a></li>
+<li class="chapter" data-level="4.1.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#test-2"><i class="fa fa-check"></i><b>4.1.2</b> Test 2</a></li>
+<li class="chapter" data-level="4.1.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#qualitative-data-1"><i class="fa fa-check"></i><b>4.1.3</b> Qualitative data</a></li>
+<li class="chapter" data-level="4.1.4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.4</b> Continuous data</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#bar-graphs"><i class="fa fa-check"></i><b>4.2</b> Bar graphs</a></li>
 <li class="chapter" data-level="4.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#pie-graphs"><i class="fa fa-check"></i><b>4.3</b> Pie graphs (!!!)</a></li>
@@ -384,11 +358,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="from-the-environment-pane" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> From the Environment pane</h3>
 <p>The first way to see what’s in the tibble is not really a function at all, but a convenient (and lazy) way of quickly seeing a few basic things about our data. Let us look at the <code>ChickWeight</code> data. Load it like so (you’ll remember from the Intro R Workshop):</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># loads the tidyverse functions; it contains the &#39;as_tibble()&#39; function</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># the &#39;ChickWeight&#39; data are built into R;</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># here we assign it as a tibble to an object named &#39;chicks&#39;</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># loads the tidyverse functions; it contains the &#39;as_tibble()&#39; function</span>
+<span class="kw">library</span>(tidyverse)
+<span class="co"># the &#39;ChickWeight&#39; data are built into R;</span>
+<span class="co"># here we assign it as a tibble to an object named &#39;chicks&#39;</span>
+chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</code></pre></div>
 <p>In the Environment pane, the object named <code>chicks</code> will now appear under the panel named Data. To the left of it is a small white arrow in a blue circular background. By default the arrow points to the right. Clicking on it causes it to point down, which denotes that the data contained within the tibble have become expanded. The names of the columns (more correctly called ‘variables’) can now be seen. There you can see the variables <code>weight</code>, <code>Time</code>, <code>Chick</code> and <code>Diet</code>. The class of data they represent can be seen too: there’s continuous data of class <code>num</code>, a variable of <code>Ord.factor</code>, and a categorical variable of class <code>Factor</code>. Beneath these there’s a lot of attributes that denote some meta-data, which you may safely ignore for now.</p>
 <div class="figure">
 <img src="figures/chicks_1.png" alt="What is in the Chicks data?" width="997" />
@@ -407,7 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.2.2</span> <code>head()</code> and <code>tail()</code></h3>
 <p>The <code>head()</code> and <code>tail()</code> functions simply display top and bottom portions of the tibble, and you may add the <code>n</code> argument and an integer to request that only a certain number of rows are returned; by default the top or bottom six rows are displayed.</p>
 <p>There are various bits of additional information printed out. The display will change somewhat if there are many more variables than that which can comfortably fit within the width of the output window (typically the Console). The same kinds of information as was returned with the Environment pane expansion arrow are displayed, but the data class is now accompanied by an angle bracket (i.e. <code>&lt;...&gt;</code>) notation. For example, <code>num</code> in the Environment pane and <code>&lt;dbl&gt;</code> as per the <code>head()</code> or <code>tail()</code> methods are exactly the same: both denote continuous (or ‘double precision’) data.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">head</span>(chicks)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(chicks)</code></pre></div>
 <pre><code>R&gt; # A tibble: 6 x 4
 R&gt;   weight  Time Chick Diet 
 R&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;ord&gt; &lt;fct&gt;
@@ -417,7 +391,7 @@ R&gt; 3    59.    4. 1     1
 R&gt; 4    64.    6. 1     1    
 R&gt; 5    76.    8. 1     1    
 R&gt; 6    93.   10. 1     1</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">tail</span>(chicks, <span class="dt">n =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(chicks, <span class="dt">n =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 2 x 4
 R&gt;   weight  Time Chick Diet 
 R&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;ord&gt; &lt;fct&gt;
@@ -428,14 +402,14 @@ R&gt; 2   264.   21. 50    4</code></pre>
 <div id="colnames" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> <code>colnames()</code></h3>
 <p>This function simply returns a listing of the variable (column) names.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">colnames</span>(chicks)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(chicks)</code></pre></div>
 <pre><code>R&gt; [1] &quot;weight&quot; &quot;Time&quot;   &quot;Chick&quot;  &quot;Diet&quot;</code></pre>
 <p>There is an equivalent function called <code>rownames()</code> that may be used to show the names of rows in your tibble, if these are present. Row names are generally discouraged, and we will refrain from using them here.</p>
 </div>
 <div id="summary" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> <code>summary()</code></h3>
 <p>The next way to see the contents of the tibble is to apply the <code>summary()</code> function. Here we see something else. Some descriptive statistics that describe properties of the full set of data are now visible. These summary statistics condense each of the variables into numbers that describe some properties of the data within each column. You will already know the concepts of the ‘minimum,’ ‘median,’ ‘mean,’ and ‘maximum.’ These are displayed here.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">summary</span>(chicks)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(chicks)</code></pre></div>
 <pre><code>R&gt;      weight           Time           Chick     Diet   
 R&gt;  Min.   : 35.0   Min.   : 0.00   13     : 12   1:220  
 R&gt;  1st Qu.: 63.0   1st Qu.: 4.00   9      : 12   2:120  
@@ -501,7 +475,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
