@@ -159,10 +159,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html"><i class="fa fa-check"></i><b>4</b> Graphical data displays</a><ul>
 <li class="chapter" data-level="4.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#frequency-distributions"><i class="fa fa-check"></i><b>4.1</b> Frequency distributions</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#test-1"><i class="fa fa-check"></i><b>4.1.1</b> Test 1</a></li>
-<li class="chapter" data-level="4.1.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#test-2"><i class="fa fa-check"></i><b>4.1.2</b> Test 2</a></li>
-<li class="chapter" data-level="4.1.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#qualitative-data-1"><i class="fa fa-check"></i><b>4.1.3</b> Qualitative data</a></li>
-<li class="chapter" data-level="4.1.4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.4</b> Continuous data</a></li>
+<li class="chapter" data-level="4.1.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#qualitative-data-1"><i class="fa fa-check"></i><b>4.1.1</b> Qualitative data</a></li>
+<li class="chapter" data-level="4.1.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.2</b> Continuous data</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#bar-graphs"><i class="fa fa-check"></i><b>4.2</b> Bar graphs</a></li>
 <li class="chapter" data-level="4.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#pie-graphs"><i class="fa fa-check"></i><b>4.3</b> Pie graphs (!!!)</a></li>
@@ -280,31 +278,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggpubr)</code></pre></div>
 <div id="frequency-distributions" class="section level2">
 <h2><span class="header-section-number">4.1</span> Frequency distributions</h2>
-<div id="test-1" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> Test 1</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&quot;https://yihui.shinyapps.io/miniUI/&quot;</span>, 
-  <span class="dt">height =</span> <span class="st">&quot;600px&quot;</span>)</code></pre></div>
-<iframe src="https://yihui.shinyapps.io/miniUI/?showcase=0" width="672" height="600px">
-</iframe>
-</div>
-<div id="test-2" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> Test 2</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&quot;https://robert-schlegel.shinyapps.io/SACTN/&quot;</span>, 
-  <span class="dt">height =</span> <span class="st">&quot;600px&quot;</span>)</code></pre></div>
-<iframe src="https://robert-schlegel.shinyapps.io/SACTN/?showcase=0" width="672" height="600px">
-</iframe>
-</div>
 <div id="qualitative-data-1" class="section level3">
-<h3><span class="header-section-number">4.1.3</span> Qualitative data</h3>
+<h3><span class="header-section-number">4.1.1</span> Qualitative data</h3>
 <div id="frequency-distribution" class="section level4">
-<h4><span class="header-section-number">4.1.3.1</span> Frequency distribution</h4>
+<h4><span class="header-section-number">4.1.1.1</span> Frequency distribution</h4>
 <p>This kind of graph applies to categorical data. Although it can also be presented numerically in tabular form, one may also create a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both approaches will be demonstrated here.</p>
 <!-- show example of numerical summary -->
 <!-- show example of frequency distribution bar graph -->
 <!-- show example of pie graph -->
 </div>
 <div id="relative-frequency-distributions" class="section level4">
-<h4><span class="header-section-number">4.1.3.2</span> Relative frequency distributions</h4>
+<h4><span class="header-section-number">4.1.1.2</span> Relative frequency distributions</h4>
 <p>This is similar to the frequency distribution of qualitative data, except that now we show the frequency proportion in a collection of non-overlapping categories. An example:</p>
 <p>We have a sample size of 12 (<span class="math inline">\(n=12\)</span>). In this sample, two are coloured blue, six red, and five purple. The relative proportions are <span class="math inline">\(2/12=0.1666667\)</span> blue, <span class="math inline">\(6/12=0.5\)</span> red, and <span class="math inline">\(5/12=0.4166667\)</span> purple. The important thing to note here is that the relative proportions sum to 1, i.e. <span class="math inline">\(0.1666667+0.5+0.4166667=1\)</span>. These data may be presented as a table or as a graph.</p>
 <!-- show example of numerical summary -->
@@ -313,35 +297,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="continuous-data-1" class="section level3">
-<h3><span class="header-section-number">4.1.4</span> Continuous data</h3>
+<h3><span class="header-section-number">4.1.2</span> Continuous data</h3>
 <div id="frequency-distribution-1" class="section level4">
-<h4><span class="header-section-number">4.1.4.1</span> Frequency distribution</h4>
+<h4><span class="header-section-number">4.1.2.1</span> Frequency distribution</h4>
 <!-- show example of numerical summary -->
 <!-- show example of a histogram -->
 </div>
 <div id="relative-frequency-distributions-1" class="section level4">
-<h4><span class="header-section-number">4.1.4.2</span> Relative frequency distributions</h4>
+<h4><span class="header-section-number">4.1.2.2</span> Relative frequency distributions</h4>
 <!-- show example of numerical summary -->
 <!-- show example of a histogram (desnity/probability) -->
 </div>
 <div id="cumulative-frequency-distributions" class="section level4">
-<h4><span class="header-section-number">4.1.4.3</span> Cumulative frequency distributions</h4>
+<h4><span class="header-section-number">4.1.2.3</span> Cumulative frequency distributions</h4>
 <!-- show example of numerical summary -->
 <!-- show example of a cumulative frequency graph -->
 </div>
 <div id="cumulative-relative-frequency-distributions" class="section level4">
-<h4><span class="header-section-number">4.1.4.4</span> Cumulative relative frequency distributions</h4>
+<h4><span class="header-section-number">4.1.2.4</span> Cumulative relative frequency distributions</h4>
 <!-- show example of numerical summary -->
 <!-- show example of a cumulative relative frequency graph -->
 </div>
 <div id="scatter-plots" class="section level4">
-<h4><span class="header-section-number">4.1.4.5</span> Scatter plots</h4>
+<h4><span class="header-section-number">4.1.2.5</span> Scatter plots</h4>
 <p>Relationship between two (matched) continuous variables.</p>
 <!-- show example of a scatter plot -->
 <!-- show example of correlation -->
 </div>
 <div id="box-plots" class="section level4">
-<h4><span class="header-section-number">4.1.4.6</span> Box plots</h4>
+<h4><span class="header-section-number">4.1.2.6</span> Box plots</h4>
 <p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution.</p>
 <!-- show example of a box plot -->
 </div>

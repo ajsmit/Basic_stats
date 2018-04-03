@@ -45,6 +45,8 @@ Chapters 6-15 are about inferential statistics. Inferential tests allow us to ev
 
 The aim of this five-day introductory workshop is to guide you through the outline given above.
 
+<!-- AJS to update -->
+
 ## This is biology: why more R coding?
 
 Please refer to the [Intro R Workshop: Data Manipulation, Analysis and Graphing](https://robwschlegel.github.io/Intro_R_Workshop/) for why we feel strongly that you use R [@R2017] for the analyses that we will perform here. All of the reasons provided there are valid here too, but one reason perhaps more so than others---R and RStudio promote the principles of *reproducible research*, and in fact make it very easy to implement. We will focus on some of these principles throughout the workshop, and the assignments will require that you submit a fully functional working script, complete with all the notes, memos, examples, data, executable code, and output that will result from completing the course material. 
@@ -56,6 +58,8 @@ What other options are there for analysing the kinds of data that we will encoun
 We assume that you already have R installed on your computer, as all of you will have already completed the the Intro R Workshop. If you need a refresher, please refer to [Intro R Workshop: Data Manipulation, Analysis and Graphing](https://robwschlegel.github.io/Intro_R_Workshop/) for the installation instructions.
 
 ## Resources
+
+<!-- AJS to update -->
 
 ### Required reading
 
@@ -77,8 +81,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]  14.5736945  13.2949072   2.5882301   3.5417503 -10.8128372
-R>  [6]   3.4413672  14.4426073  14.7682894 -19.8346191  -0.6859997
+R>  [1]  3.4281680 24.4155736 13.5858307  7.4540397 30.6481446  5.7173819
+R>  [7] -4.9263206 -6.9500139 10.7553698 -0.7304277
 ```
 
 Consult these resources for more about R code style :

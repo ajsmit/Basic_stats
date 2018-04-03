@@ -174,15 +174,15 @@ The median is therefore the value that separates the lower half of the sample da
 
 ### Central moment
 
-<!-- insert some stuff here -->
+<!-- AJS to update -->
 
 ### Skewness
 
-<!-- insert some stuff here -->
+<!-- AJS to update -->
 
 ### Kurtosis
 
-<!-- insert some stuff here -->
+<!-- AJS to update -->
 
 ## Measures of variation and spread
 

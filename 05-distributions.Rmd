@@ -13,6 +13,10 @@ Therefore, we must next learn about the different types of data distributions we
 
 ## Binomial distribution
 
+```{r}
+knitr::include_app("https://robert-schlegel.shinyapps.io/binomial_dist/", height = "600px")
+```
+
 ## Poisson distribution
 
 ## Continuous uniform distribution
