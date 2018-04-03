@@ -237,11 +237,6 @@ R> 1  71.1
 
 The interpretation of the concepts of mean and median are fairly straight forward and intuitive. Not so for the measures of variance. What does $S$ represent? Firstly, the unit of measurement of $S$ is the same as that of $\bar{x}$ (but the variance doesn't share this characteristic). If temperature is measured in °C, then $S$ also takes a unit of °C. Since $S$ measures the dispersion *around* the mean, we write it as $\bar{x} \pm S$ (note that often the mean and standard deviation are written with the letters *mu* and *sigma*, respectively; i.e. $\mu \pm \sigma$). The smaller $S$ the closer the sample data are to $\bar{x}$, and the larger the value is the further away they will spread out from $\bar{x}$. So, it tells us about the proportion of observations above and below $\bar{x}$. But what proportion? We invoke the the 68-95-99.7 rule: ~68% of the population (as represented by a random sample of $n$ observations taken from the population) falls within 1$S$ of $\bar{x}$ (i.e. ~34% below $\bar{x}$ and ~34% above $\bar{x}$); ~95% of the population falls within 2$S$; and ~99.7% falls within 3$S$.
 
-
-```r
-knitr::include_graphics("figures/Standard_deviation_diagram.svg")
-```
-
 <div class="figure">
 <img src="figures/Standard_deviation_diagram.svg" alt="The proportions of data representation by the standard deviation. Credit: [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)"  />
 <p class="caption">(\#fig:rmarkdown)The proportions of data representation by the standard deviation. Credit: [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)</p>
