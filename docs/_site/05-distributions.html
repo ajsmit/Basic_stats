@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=03751ccfa51e97b314a4c01a87a9b1b5598c90c5" media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Distributions | Basic_stats</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Distributions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic Statistics Workshop" />
+<meta property="og:description" content="Basic Statistics Workshop" />
+<link rel="canonical" href="http://localhost:4000/05-distributions.html" />
+<meta property="og:url" content="http://localhost:4000/05-distributions.html" />
+<meta property="og:site_name" content="Basic_stats" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/05-distributions.html","headline":"Distributions","description":"Basic Statistics Workshop","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <a href="http://localhost:4000/">
+          <h1>Basic_stats</h1>
+        </a>
+        <h2>Basic Statistics Workshop</h2>
+        
+          <a href="http://github.com/ajsmit/Basic_stats" class="button"><small>View project on</small> GitHub</a>
+        
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1 id="distributions">Distributions</h1>
+
+<p>Therefore, we must next learn about the different types of data distributions we are likely to encounter in the wild.</p>
+
+<h2 id="binomial-distribution">Binomial distribution</h2>
+
+<iframe src="https://robert-schlegel.shinyapps.io/binomial_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h2 id="poisson-distribution">Poisson distribution</h2>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">knitr</span><span class="o">::</span><span class="n">include_app</span><span class="p">(</span><span class="s2">"https://robert-schlegel.shinyapps.io/poisson_dist/"</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"600px"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<iframe src="https://robert-schlegel.shinyapps.io/poisson_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h2 id="continuous-uniform-distribution">Continuous uniform distribution</h2>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">knitr</span><span class="o">::</span><span class="n">include_app</span><span class="p">(</span><span class="s2">"https://robert-schlegel.shinyapps.io/uniform_dist/"</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"600px"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<iframe src="https://robert-schlegel.shinyapps.io/uniform_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h2 id="exponential-distribution">Exponential distribution</h2>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">knitr</span><span class="o">::</span><span class="n">include_app</span><span class="p">(</span><span class="s2">"https://robert-schlegel.shinyapps.io/exponential_dist/"</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"600px"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<iframe src="https://robert-schlegel.shinyapps.io/exponential_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h2 id="normal-distribution">Normal distribution</h2>
+
+<div class="figure">
+<img src="figures/Boxplot_vs_PDF.svg" alt="Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)" />
+<p class="caption">(\#fig:PDF)Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)</p>
+</div>
+
+<h2 id="chi-squared-distribution">Chi-squared distribution</h2>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">knitr</span><span class="o">::</span><span class="n">include_app</span><span class="p">(</span><span class="s2">"https://robert-schlegel.shinyapps.io/chi_squared_dist/"</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"600px"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<iframe src="https://robert-schlegel.shinyapps.io/chi_squared_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h2 id="student-t-distribution">Student t distribution</h2>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">knitr</span><span class="o">::</span><span class="n">include_app</span><span class="p">(</span><span class="s2">"https://robert-schlegel.shinyapps.io/student_t_dist/"</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"600px"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<iframe src="https://robert-schlegel.shinyapps.io/student_t_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h2 id="f-distribution">F distribution</h2>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">knitr</span><span class="o">::</span><span class="n">include_app</span><span class="p">(</span><span class="s2">"https://robert-schlegel.shinyapps.io/f_dist/"</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"600px"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<iframe src="https://robert-schlegel.shinyapps.io/f_dist/?showcase=0" width="672" height="600px"></iframe>
+
+        </section>
+
+        <aside id="sidebar">
+          
+
+          
+            <p class="repo-owner"><a href="http://github.com/ajsmit/Basic_stats">Basic_stats</a> is maintained by <a href="http://github.com/ajsmit">ajsmit</a>.</p>
+          
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+    
+  </body>
+</html>

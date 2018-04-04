@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=03751ccfa51e97b314a4c01a87a9b1b5598c90c5" media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Graphical data displays | Basic_stats</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Graphical data displays" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic Statistics Workshop" />
+<meta property="og:description" content="Basic Statistics Workshop" />
+<link rel="canonical" href="http://localhost:4000/04-graphics.html" />
+<meta property="og:url" content="http://localhost:4000/04-graphics.html" />
+<meta property="og:site_name" content="Basic_stats" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/04-graphics.html","headline":"Graphical data displays","description":"Basic Statistics Workshop","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <a href="http://localhost:4000/">
+          <h1>Basic_stats</h1>
+        </a>
+        <h2>Basic Statistics Workshop</h2>
+        
+          <a href="http://github.com/ajsmit/Basic_stats" class="button"><small>View project on</small> GitHub</a>
+        
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1 id="graphical-data-displays">Graphical data displays</h1>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggpubr</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="frequency-distributions">Frequency distributions</h2>
+
+<h3 id="qualitative-data">Qualitative data</h3>
+
+<h4 id="frequency-distribution">Frequency distribution</h4>
+<p>This kind of graph applies to categorical data. Although it can also be presented numerically in tabular form, one may also create a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both approaches will be demonstrated here.</p>
+
+<!-- show example of numerical summary -->
+<!-- show example of frequency distribution bar graph -->
+<!-- show example of pie graph -->
+
+<h4 id="relative-frequency-distributions">Relative frequency distributions</h4>
+<p>This is similar to the frequency distribution of qualitative data, except that now we show the frequency proportion in a collection of non-overlapping categories. An example:</p>
+
+<p>We have a sample size of 12 ($n=12$). In this sample, two are coloured blue, six red, and five purple. The relative proportions are $2/12=0.1666667$ blue, $6/12=0.5$ red, and $5/12=0.4166667$ purple. The important thing to note here is that the relative proportions sum to 1, i.e. $0.1666667+0.5+0.4166667=1$. These data may be presented as a table or as a graph.</p>
+
+<!-- show example of numerical summary -->
+<!-- show example of frequency distribution bar graph -->
+<!-- show example of pie graph -->
+
+<h3 id="continuous-data">Continuous data</h3>
+
+<h4 id="frequency-distribution-histograms">Frequency distribution (histograms)</h4>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">faithful</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eruptions</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_histogram</span><span class="p">()</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="04-graphics_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+
+<!-- show example of numerical summary -->
+<!-- show example of a histogram -->
+
+<h4 id="relative-frequency-distributions-1">Relative frequency distributions</h4>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">faithful</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">eruptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eruptions</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">eruptions</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eruptions</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">..ndensity..</span><span class="p">))</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="04-graphics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ggplot(data = faithful, aes(x = eruptions)) +</span><span class="w">
+</span><span class="c1">#   geom_density(fill = "salmon", aes(y = ..density..)) +</span><span class="w">
+</span><span class="c1">#   scale_x_continuous(expand = c(0, 0)) +</span><span class="w">
+</span><span class="c1">#   scale_y_continuous(expand = c(0, 0))</span><span class="w">
+</span></code></pre></div></div>
+<!-- show example of numerical summary -->
+<!-- show example of a histogram (desnity/probability) -->
+
+<h4 id="cumulative-frequency-distributions">Cumulative frequency distributions</h4>
+
+<!-- show example of numerical summary -->
+<!-- show example of a cumulative frequency graph -->
+
+<h4 id="cumulative-relative-frequency-distributions">Cumulative relative frequency distributions</h4>
+
+<!-- show example of numerical summary -->
+<!-- show example of a cumulative relative frequency graph -->
+
+<h4 id="scatter-plots">Scatter plots</h4>
+<p>Relationship between two (matched) continuous variables.</p>
+
+<!-- show example of a scatter plot -->
+<!-- show example of correlation -->
+
+<h4 id="box-plots">Box plots</h4>
+<p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution.</p>
+
+<!-- show example of a box plot -->
+
+<h2 id="bar-graphs">Bar graphs</h2>
+
+<h2 id="pie-graphs-">Pie graphs (!!!)</h2>
+
+<h2 id="category-statistics">Category statistics</h2>
+
+        </section>
+
+        <aside id="sidebar">
+          
+
+          
+            <p class="repo-owner"><a href="http://github.com/ajsmit/Basic_stats">Basic_stats</a> is maintained by <a href="http://github.com/ajsmit">ajsmit</a>.</p>
+          
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+    
+  </body>
+</html>

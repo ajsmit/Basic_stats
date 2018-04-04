@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=03751ccfa51e97b314a4c01a87a9b1b5598c90c5" media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Testing assumptions or: How I learned to stop worrying and transform the data | Basic_stats</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Testing assumptions or: How I learned to stop worrying and transform the data" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic Statistics Workshop" />
+<meta property="og:description" content="Basic Statistics Workshop" />
+<link rel="canonical" href="http://localhost:4000/11-transformations.html" />
+<meta property="og:url" content="http://localhost:4000/11-transformations.html" />
+<meta property="og:site_name" content="Basic_stats" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/11-transformations.html","headline":"Testing assumptions or: How I learned to stop worrying and transform the data","description":"Basic Statistics Workshop","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <a href="http://localhost:4000/">
+          <h1>Basic_stats</h1>
+        </a>
+        <h2>Basic Statistics Workshop</h2>
+        
+          <a href="http://github.com/ajsmit/Basic_stats" class="button"><small>View project on</small> GitHub</a>
+        
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1 id="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data">Testing assumptions or: How I learned to stop worrying and transform the data</h1>
+
+<p>In this chapter we will learn how to test for the two most common assumptions we will make in the biological sciences.</p>
+
+<p>Our tests for these two assumptions fail often with real data. Therefore, we must often identify the way in which our data are distributed so we may better decide how to transform them in an attempt to coerce them into a format that will pass the assumptions.</p>
+
+<p>Before we begin, let’s go ahead and activate our packages and load our data.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">
+</span><span class="n">chicks</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as_tibble</span><span class="p">(</span><span class="n">ChickWeight</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="the-two-main-assumptions">The two main assumptions</h2>
+
+<h3 id="normality">Normality</h3>
+
+<p>The quickest method of testing the normality of a variable is with the Shapiro-Wilk normality test. This will return two values, a W score and a <em>p</em>-value. FOr the purposes of this course we may safely ignore the W score and focus on the <em>p</em>-value. When <em>p</em> &gt;= 0.05 we may assume that the data are normally distributed. If <em>p</em> &lt; 0.05 then the data are not normally distrubted. Let’s look at all of the <code class="highlighter-rouge">chicks</code> data without filtering it:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shapiro.test</span><span class="p">(</span><span class="n">chicks</span><span class="o">$</span><span class="n">weight</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; 
+R&gt; 	Shapiro-Wilk normality test
+R&gt; 
+R&gt; data:  chicks$weight
+R&gt; W = 0.90866, p-value &lt; 2.2e-16
+</code></pre></div></div>
+
+<p>Are these data normally distributed? How do we know? Now let’s filter the data based on the different diets for only the weights taken on the last day (21):</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">chicks</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">Time</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">21</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">Diet</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">summarise</span><span class="p">(</span><span class="n">norm_wt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">weight</span><span class="p">)[</span><span class="m">2</span><span class="p">]))</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; # A tibble: 4 x 2
+R&gt;   Diet  norm_wt
+R&gt;   &lt;fct&gt;   &lt;dbl&gt;
+R&gt; 1 1       0.591
+R&gt; 2 2       0.949
+R&gt; 3 3       0.895
+R&gt; 4 4       0.186
+</code></pre></div></div>
+
+<p>How about now?</p>
+
+<h3 id="homoscedasticity">Homoscedasticity</h3>
+
+<p>Here we need no fancy test. We must simply calculate the variance of the variables we want to use and see that they are not more than 3 – 4 times greater than one another.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">chicks</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">Time</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">21</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">Diet</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">summarise</span><span class="p">(</span><span class="n">var_wt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">weight</span><span class="p">))</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; # A tibble: 4 x 2
+R&gt;   Diet  var_wt
+R&gt;   &lt;fct&gt;  &lt;dbl&gt;
+R&gt; 1 1      3446.
+R&gt; 2 2      6106.
+R&gt; 3 3      5130.
+R&gt; 4 4      1879.
+</code></pre></div></div>
+
+<p>Well, do these data pass the two main assumptions?</p>
+
+<h2 id="transforming-data">Transforming data</h2>
+
+<h3 id="log-transform">Log transform</h3>
+
+<h2>#</h2>
+
+<h2 id="exercises">Exercises</h2>
+
+<h3 id="exercise-1">Exercise 1</h3>
+
+<p>Find one of the days of measurement where the chicken weights do not pass the assumptions of normality, and another day (not day 21!) in which they do.</p>
+
+<h3 id="exercise-2">Exercise 2</h3>
+
+<p>Transform the data so that they may pass the assumptions.</p>
+
+        </section>
+
+        <aside id="sidebar">
+          
+
+          
+            <p class="repo-owner"><a href="http://github.com/ajsmit/Basic_stats">Basic_stats</a> is maintained by <a href="http://github.com/ajsmit">ajsmit</a>.</p>
+          
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+    
+  </body>
+</html>
