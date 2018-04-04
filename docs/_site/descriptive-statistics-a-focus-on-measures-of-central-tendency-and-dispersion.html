@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Basic Statistics</title>
+  <meta name="description" content="This is a book about basic statistics: theory and practice.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Basic Statistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figures/NSFW.jpg" />
+  <meta property="og:description" content="This is a book about basic statistics: theory and practice." />
+  <meta name="github-repo" content="ajsmit/Basic_stats" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Basic Statistics" />
+  
+  <meta name="twitter:description" content="This is a book about basic statistics: theory and practice." />
+  <meta name="twitter:image" content="figures/NSFW.jpg" />
+
+<meta name="author" content="AJ Smit and Robert Schlegel">
+
+
+<meta name="date" content="2018-04-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="types-of-data.html">
+<link rel="next" href="graphical-data-displays.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#venue-date-and-time"><i class="fa fa-check"></i><b>1.1</b> Venue, date and time</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#course-outline"><i class="fa fa-check"></i><b>1.2</b> Course outline</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#about-this-workshop"><i class="fa fa-check"></i><b>1.3</b> About this Workshop</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#this-is-biology-why-more-r-coding"><i class="fa fa-check"></i><b>1.4</b> This is biology: why more R coding?</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.5</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#resources"><i class="fa fa-check"></i><b>1.6</b> Resources</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#required-reading"><i class="fa fa-check"></i><b>1.6.1</b> Required reading</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#general-resources-about-r"><i class="fa fa-check"></i><b>1.6.2</b> General resources about R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#style-and-code-conventions"><i class="fa fa-check"></i><b>1.7</b> Style and code conventions</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#assessment-and-teaching-philosophy"><i class="fa fa-check"></i><b>1.8</b> Assessment and teaching philosophy</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#about-this-document"><i class="fa fa-check"></i><b>1.9</b> About this document</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="types-of-data.html"><a href="types-of-data.html"><i class="fa fa-check"></i><b>2</b> Types of data</a><ul>
+<li class="chapter" data-level="2.1" data-path="types-of-data.html"><a href="types-of-data.html#data-classes"><i class="fa fa-check"></i><b>2.1</b> Data classes</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="types-of-data.html"><a href="types-of-data.html#numerical-data"><i class="fa fa-check"></i><b>2.1.1</b> Numerical data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="types-of-data.html"><a href="types-of-data.html#qualitative-data"><i class="fa fa-check"></i><b>2.1.2</b> Qualitative data</a></li>
+<li class="chapter" data-level="2.1.3" data-path="types-of-data.html"><a href="types-of-data.html#binary-data"><i class="fa fa-check"></i><b>2.1.3</b> Binary data</a></li>
+<li class="chapter" data-level="2.1.4" data-path="types-of-data.html"><a href="types-of-data.html#character-values"><i class="fa fa-check"></i><b>2.1.4</b> Character values</a></li>
+<li class="chapter" data-level="2.1.5" data-path="types-of-data.html"><a href="types-of-data.html#missing-values"><i class="fa fa-check"></i><b>2.1.5</b> Missing values</a></li>
+<li class="chapter" data-level="2.1.6" data-path="types-of-data.html"><a href="types-of-data.html#complex-numbers"><i class="fa fa-check"></i><b>2.1.6</b> Complex numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="types-of-data.html"><a href="types-of-data.html#viewing-our-data"><i class="fa fa-check"></i><b>2.2</b> Viewing our data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="types-of-data.html"><a href="types-of-data.html#from-the-environment-pane"><i class="fa fa-check"></i><b>2.2.1</b> From the Environment pane</a></li>
+<li class="chapter" data-level="2.2.2" data-path="types-of-data.html"><a href="types-of-data.html#head-and-tail"><i class="fa fa-check"></i><b>2.2.2</b> <code>head()</code> and <code>tail()</code></a></li>
+<li class="chapter" data-level="2.2.3" data-path="types-of-data.html"><a href="types-of-data.html#colnames"><i class="fa fa-check"></i><b>2.2.3</b> <code>colnames()</code></a></li>
+<li class="chapter" data-level="2.2.4" data-path="types-of-data.html"><a href="types-of-data.html#summary"><i class="fa fa-check"></i><b>2.2.4</b> <code>summary()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics: A focus on measures of central tendency and dispersion</a><ul>
+<li class="chapter" data-level="3.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#samples-and-populations"><i class="fa fa-check"></i><b>3.1</b> Samples and populations</a></li>
+<li class="chapter" data-level="3.2" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>3.2</b> Measures of central tendency</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#the-mean"><i class="fa fa-check"></i><b>3.2.1</b> The mean</a></li>
+<li class="chapter" data-level="3.2.2" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#the-median"><i class="fa fa-check"></i><b>3.2.2</b> The median</a></li>
+<li class="chapter" data-level="3.2.3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#central-moment"><i class="fa fa-check"></i><b>3.2.3</b> Central moment</a></li>
+<li class="chapter" data-level="3.2.4" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#skewness"><i class="fa fa-check"></i><b>3.2.4</b> Skewness</a></li>
+<li class="chapter" data-level="3.2.5" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#kurtosis"><i class="fa fa-check"></i><b>3.2.5</b> Kurtosis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#measures-of-variation-and-spread"><i class="fa fa-check"></i><b>3.3</b> Measures of variation and spread</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#the-variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.3.1</b> The variance and standard deviation</a></li>
+<li class="chapter" data-level="3.3.2" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#quantiles"><i class="fa fa-check"></i><b>3.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="3.3.3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#the-minimum-maximum-and-range"><i class="fa fa-check"></i><b>3.3.3</b> The minimum, maximum and range</a></li>
+<li class="chapter" data-level="3.3.4" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#covariance"><i class="fa fa-check"></i><b>3.3.4</b> Covariance</a></li>
+<li class="chapter" data-level="3.3.5" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#correlation"><i class="fa fa-check"></i><b>3.3.5</b> Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#missing-values-1"><i class="fa fa-check"></i><b>3.4</b> Missing values</a></li>
+<li class="chapter" data-level="3.5" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#descriptive-statistics-by-group"><i class="fa fa-check"></i><b>3.5</b> Descriptive statistics by group</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#groupwise-summary-statistics"><i class="fa fa-check"></i><b>3.5.1</b> Groupwise summary statistics</a></li>
+<li class="chapter" data-level="3.5.2" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#displays-of-group-summaries"><i class="fa fa-check"></i><b>3.5.2</b> Displays of group summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#exercises"><i class="fa fa-check"></i><b>3.6</b> Exercises</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#exercise-1"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html"><i class="fa fa-check"></i><b>4</b> Graphical data displays</a><ul>
+<li class="chapter" data-level="4.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#frequency-distributions"><i class="fa fa-check"></i><b>4.1</b> Frequency distributions</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#qualitative-data-1"><i class="fa fa-check"></i><b>4.1.1</b> Qualitative data</a></li>
+<li class="chapter" data-level="4.1.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.2</b> Continuous data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#bar-graphs"><i class="fa fa-check"></i><b>4.2</b> Bar graphs</a></li>
+<li class="chapter" data-level="4.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#pie-graphs"><i class="fa fa-check"></i><b>4.3</b> Pie graphs (!!!)</a></li>
+<li class="chapter" data-level="4.4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#category-statistics"><i class="fa fa-check"></i><b>4.4</b> Category statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Distributions</a><ul>
+<li class="chapter" data-level="5.1" data-path="distributions.html"><a href="distributions.html#discrete-distributions"><i class="fa fa-check"></i><b>5.1</b> Discrete distributions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="distributions.html"><a href="distributions.html#bernoulli-distribution"><i class="fa fa-check"></i><b>5.1.1</b> Bernoulli distribution</a></li>
+<li class="chapter" data-level="5.1.2" data-path="distributions.html"><a href="distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>5.1.2</b> Binomial distribution</a></li>
+<li class="chapter" data-level="5.1.3" data-path="distributions.html"><a href="distributions.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>5.1.3</b> Negative binomial distribution</a></li>
+<li class="chapter" data-level="5.1.4" data-path="distributions.html"><a href="distributions.html#geometric-distribution"><i class="fa fa-check"></i><b>5.1.4</b> Geometric distribution</a></li>
+<li class="chapter" data-level="5.1.5" data-path="distributions.html"><a href="distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>5.1.5</b> Poisson distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#continuous-distributions"><i class="fa fa-check"></i><b>5.2</b> Continuous distributions</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="distributions.html"><a href="distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>5.2.1</b> Uniform distribution</a></li>
+<li class="chapter" data-level="5.2.2" data-path="distributions.html"><a href="distributions.html#normal-distribution"><i class="fa fa-check"></i><b>5.2.2</b> Normal distribution</a></li>
+<li class="chapter" data-level="5.2.3" data-path="distributions.html"><a href="distributions.html#student-t-distribution"><i class="fa fa-check"></i><b>5.2.3</b> Student T distribution</a></li>
+<li class="chapter" data-level="5.2.4" data-path="distributions.html"><a href="distributions.html#chi-squared-distribution"><i class="fa fa-check"></i><b>5.2.4</b> Chi-squared distribution</a></li>
+<li class="chapter" data-level="5.2.5" data-path="distributions.html"><a href="distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>5.2.5</b> Exponential distribution</a></li>
+<li class="chapter" data-level="5.2.6" data-path="distributions.html"><a href="distributions.html#f-distribution"><i class="fa fa-check"></i><b>5.2.6</b> F distribution</a></li>
+<li class="chapter" data-level="5.2.7" data-path="distributions.html"><a href="distributions.html#gamma-distribution"><i class="fa fa-check"></i><b>5.2.7</b> Gamma distribution</a></li>
+<li class="chapter" data-level="5.2.8" data-path="distributions.html"><a href="distributions.html#beta-distribution"><i class="fa fa-check"></i><b>5.2.8</b> Beta distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html"><i class="fa fa-check"></i><b>6</b> Inferences about one or two populations</a><ul>
+<li class="chapter" data-level="6.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sample-t-tests"><i class="fa fa-check"></i><b>6.1</b> One-sample t-tests</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sided-one-sample-t-tests"><i class="fa fa-check"></i><b>6.1.1</b> One-sided one-sample t-tests</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sided-one-sample-t-tests"><i class="fa fa-check"></i><b>6.1.2</b> Two-sided one-sample t-tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sample-t-tests"><i class="fa fa-check"></i><b>6.2</b> Two-sample t-tests</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sided-two-sample-t-tests"><i class="fa fa-check"></i><b>6.2.1</b> One-sided two-sample t-tests</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sided-two-sample-t-tests"><i class="fa fa-check"></i><b>6.2.2</b> Two-sided two-sample t-tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#paired-t-tests"><i class="fa fa-check"></i><b>6.3</b> Paired t-tests</a></li>
+<li class="chapter" data-level="6.4" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#comparison-of-two-population-proportions"><i class="fa fa-check"></i><b>6.4</b> Comparison of Two Population Proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>7</b> Confidence intervals</a></li>
+<li class="chapter" data-level="8" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>8</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="8.1" data-path="one-way-anova.html"><a href="one-way-anova.html#t-test"><i class="fa fa-check"></i><b>8.1</b> t-test</a></li>
+<li class="chapter" data-level="8.2" data-path="one-way-anova.html"><a href="one-way-anova.html#anova"><i class="fa fa-check"></i><b>8.2</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="one-way-anova.html"><a href="one-way-anova.html#single-factor"><i class="fa fa-check"></i><b>8.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="8.2.2" data-path="one-way-anova.html"><a href="one-way-anova.html#multiple-factors"><i class="fa fa-check"></i><b>8.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="one-way-anova.html"><a href="one-way-anova.html#exercises-1"><i class="fa fa-check"></i><b>8.3</b> Exercises</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="one-way-anova.html"><a href="one-way-anova.html#exercise-1-1"><i class="fa fa-check"></i><b>8.3.1</b> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html"><i class="fa fa-check"></i><b>9</b> Deeper into ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#wilcox-rank-sum-test"><i class="fa fa-check"></i><b>9.1</b> Wilcox rank sum test</a></li>
+<li class="chapter" data-level="9.2" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#kruskall-wallis-rank-sum-test"><i class="fa fa-check"></i><b>9.2</b> Kruskall-Wallis rank sum test</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#single-factor-1"><i class="fa fa-check"></i><b>9.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="9.2.2" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#multiple-factors-1"><i class="fa fa-check"></i><b>9.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#exercises-2"><i class="fa fa-check"></i><b>9.3</b> Exercises</a></li>
+<li class="chapter" data-level="9.4" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#exercise-1-2"><i class="fa fa-check"></i><b>9.4</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>10</b> Linear mixed models</a><ul>
+<li class="chapter" data-level="10.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#wilcox-rank-sum-test-1"><i class="fa fa-check"></i><b>10.1</b> Wilcox rank sum test</a></li>
+<li class="chapter" data-level="10.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskall-wallis-rank-sum-test-1"><i class="fa fa-check"></i><b>10.2</b> Kruskall-Wallis rank sum test</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#single-factor-2"><i class="fa fa-check"></i><b>10.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="10.2.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#multiple-factors-2"><i class="fa fa-check"></i><b>10.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-3"><i class="fa fa-check"></i><b>10.3</b> Exercises</a></li>
+<li class="chapter" data-level="10.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-3"><i class="fa fa-check"></i><b>10.4</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#the-two-main-assumptions"><i class="fa fa-check"></i><b>11.1</b> The two main assumptions</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
+<li class="chapter" data-level="11.1.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#homoscedasticity"><i class="fa fa-check"></i><b>11.1.2</b> Homoscedasticity</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#transforming-data"><i class="fa fa-check"></i><b>11.2</b> Transforming data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#log-transform"><i class="fa fa-check"></i><b>11.2.1</b> Log transform</a></li>
+<li class="chapter" data-level="11.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>11.2.2</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-4"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-4"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>12</b> Generalised linear models</a><ul>
+<li class="chapter" data-level="12.1" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#sign-test"><i class="fa fa-check"></i><b>12.1</b> Sign Test</a></li>
+<li class="chapter" data-level="12.2" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>12.2</b> Wilcoxon Signed-Rank Test</a></li>
+<li class="chapter" data-level="12.3" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#mann-whitney-wilcoxon-test"><i class="fa fa-check"></i><b>12.3</b> Mann-Whitney-Wilcoxon Test</a></li>
+<li class="chapter" data-level="12.4" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>12.4</b> Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="12.5" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#generalised-linear-models-glm"><i class="fa fa-check"></i><b>12.5</b> Generalised linear models (GLM)</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chi-squared.html"><a href="chi-squared.html"><i class="fa fa-check"></i><b>13</b> Chi-squared</a></li>
+<li class="chapter" data-level="14" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>14</b> Correlations</a></li>
+<li class="chapter" data-level="15" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html"><i class="fa fa-check"></i><b>15</b> Simple linear regressions</a><ul>
+<li class="chapter" data-level="15.1" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-simple-linear-regression-equation"><i class="fa fa-check"></i><b>15.1</b> The simple linear regression equation</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-intercept"><i class="fa fa-check"></i><b>15.1.1</b> The intercept</a></li>
+<li class="chapter" data-level="15.1.2" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-regression-coefficient"><i class="fa fa-check"></i><b>15.1.2</b> The regression coefficient</a></li>
+<li class="chapter" data-level="15.1.3" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#a-graph-of-the-linear-regression"><i class="fa fa-check"></i><b>15.1.3</b> A graph of the linear regression</a></li>
+<li class="chapter" data-level="15.1.4" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#predicting-from-the-linear-model"><i class="fa fa-check"></i><b>15.1.4</b> Predicting from the linear model</a></li>
+<li class="chapter" data-level="15.1.5" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-coefficient-of-determination-r2"><i class="fa fa-check"></i><b>15.1.5</b> The coefficient of determination, <span class="math inline">\(r^{2}\)</span></a></li>
+<li class="chapter" data-level="15.1.6" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#significance-test-for-linear-regression"><i class="fa fa-check"></i><b>15.1.6</b> Significance test for linear regression</a></li>
+<li class="chapter" data-level="15.1.7" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#confidence-interval-for-linear-regression"><i class="fa fa-check"></i><b>15.1.7</b> Confidence interval for linear regression</a></li>
+<li class="chapter" data-level="15.1.8" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#prediction-interval-for-linear-regression"><i class="fa fa-check"></i><b>15.1.8</b> Prediction interval for linear regression</a></li>
+<li class="chapter" data-level="15.1.9" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#residual-plot"><i class="fa fa-check"></i><b>15.1.9</b> Residual plot</a></li>
+<li class="chapter" data-level="15.1.10" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#standardised-residual"><i class="fa fa-check"></i><b>15.1.10</b> Standardised residual</a></li>
+<li class="chapter" data-level="15.1.11" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#normal-probability-plot-of-residuals"><i class="fa fa-check"></i><b>15.1.11</b> Normal probability plot of residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#using-an-additional-categorical-variable"><i class="fa fa-check"></i><b>15.2</b> Using an additional categorical variable</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Basic Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Descriptive statistics: A focus on measures of central tendency and dispersion</h1>
+<blockquote>
+<p><em>“I think it is much more interesting to live with uncertainty than to live with answers that might be wrong.”</em></p>
+<p>–– Richard Feynman</p>
+</blockquote>
+<p>In this Chapter we will focus on basic descriptions of the data, and these initial forrays are built around measures of the central tendency of the data (the mean, median, mode) and the dispersion and variability of the data (standard deviations and their ilk). The materials covered in this and the next two chapters concern a broad discussion that will aid us in understanding our data better prior to analysing it, and before we can draw inference from it. In this work flow it emerges that descriptive statistics generally precede inferential statistics.</p>
+<p>Let us now turn to some of the most commonly used descriptive statistics, and learn about how to calculate them.</p>
+<div id="samples-and-populations" class="section level2">
+<h2><span class="header-section-number">3.1</span> Samples and populations</h2>
+<p>This is a simple toy example. In real life, however, our data will be available in a tibble (initially perhaps captured in MS Excel before importing it as a <code>.csv</code> file into R, where the tibble is created). To see how this can be done more realistically using actual data, let us turn to the ChickenWeight data, which, as before, we place in the object <code>chicks</code>. Recall the pipe operator (<code>%&gt;%</code>, pronounced ‘then’) that we introduced in the Intro R Workshop—we will use that here, throughout. Let us calculate the sample size:</p>
+<p>To determine the sample size we can use the <code>length()</code> or <code>n()</code> functions; the latter is for use within <strong>dplyr</strong>’s <code>summarise()</code> method, and it is applied without writing anything inside of the <code>()</code>, like this:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># first load the tidyverse packages that has the pipe operator, %&gt;%</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co"># how many weights are available across all Diets and Times?</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">length =</span> <span class="kw">n</span>())</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 1
+R&gt;   length
+R&gt;    &lt;int&gt;
+R&gt; 1    578</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># the same as</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw">length</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<pre><code>R&gt; [1] 578</code></pre>
+</div>
+<div id="measures-of-central-tendency" class="section level2">
+<h2><span class="header-section-number">3.2</span> Measures of central tendency</h2>
+<table style="width:67%;">
+<caption>Measures of central tendency.</caption>
+<colgroup>
+<col width="27%" />
+<col width="19%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Statistic</th>
+<th align="left">Function</th>
+<th align="left">Package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mean</td>
+<td align="left"><code>mean()</code></td>
+<td align="left"><strong>base</strong></td>
+</tr>
+<tr class="even">
+<td align="left">Median</td>
+<td align="left"><code>median()</code></td>
+<td align="left"><strong>base</strong></td>
+</tr>
+<tr class="odd">
+<td align="left">Central moment</td>
+<td align="left"><code>moment()</code></td>
+<td align="left"><strong>e1071</strong></td>
+</tr>
+<tr class="even">
+<td align="left">Skewness</td>
+<td align="left"><code>skewness()</code></td>
+<td align="left"><strong>e1071</strong></td>
+</tr>
+<tr class="odd">
+<td align="left">Kurtosis</td>
+<td align="left"><code>kurtosis()</code></td>
+<td align="left"><strong>e1071</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The measures of central tendency are also sometimes called ‘location’ statistics. We have already seen summaries of the mean and the median when we called to <code>summary()</code> function on the <code>chicks</code> data in Chapter 2. Here we shall show you how they can be calculated using some built-in R functions.</p>
+<div id="the-mean" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> The mean</h3>
+<p>The sample <em>mean</em> is the arithmetic average of the data, and it is calculated by summing all the data and dividing it by the sample size, <em>n</em>. The mean, <span class="math inline">\(\bar{x}\)</span>, is calculated thus:</p>
+<p><span class="math display">\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i} = \frac{x_{1} + x_{2} + \cdots + x_{n}}{n}\]</span>
+where <span class="math inline">\(x_{1} + x_{2} + \cdots + x_{n}\)</span> are the observations and <span class="math inline">\(n\)</span> is the number of observations in the sample.</p>
+<p>In R one can quickly apply the <code>mean()</code> function to some data. Let us create a vector of arbitrary numbers using the ‘combine’ function, <code>c()</code>, and then apply the function for the mean:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># combine a series of numbers into a vector;</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co"># hint: use this function in the exercises that we will require from you</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co"># later on...</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">dat1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">23</span>, <span class="dv">45</span>, <span class="dv">23</span>, <span class="dv">66</span>, <span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="kw">mean</span>(dat1)</a></code></pre></div>
+<pre><code>R&gt; [1] 34</code></pre>
+<p>Below, we use another tidyverse package, <strong><code>dplyr</code></strong> and its <code>summarise()</code> function, whose purpose it is to <em>summarise</em> the entire column into one summary statistic, in this case the mean:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wt =</span> <span class="kw">mean</span>(weight))</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 1
+R&gt;   mean_wt
+R&gt;     &lt;dbl&gt;
+R&gt; 1    122.</code></pre>
+<p>We can achieve the same using the more traditional syntax, which in some instances may be slightly less verbose, but less user-friendly, especially when multiple summary statistics are required (we shall later on how we can summarise a vector of data into multiple statistics). The traditional syntax is:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># the &#39;$&#39; operator is used to denote a variable inside of the tibble</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">mean</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<pre><code>R&gt; [1] 121.8183</code></pre>
+<blockquote>
+<p><strong>Question:</strong> How would you manually calculate the mean mass for the chicks? Do it now!</p>
+</blockquote>
+<p>Notice above how the two approaches display the result differently: in the first instance, using <code>summarise()</code>, the answer is rounded to zero decimal places; in the second, it is displayed (here) at full precision. The precision of the answer that you require depends on the context of your study, so make sure that you use the appropriate number of significant digits. Using the <code>summarise()</code> approach again, here is how you can adjust the number of decimal places of the answer:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># the value printed in the HTML/PDF versions is incorrect;</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="co"># check in the console for correct output</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wt =</span> <span class="kw">round</span>(<span class="kw">mean</span>(weight), <span class="dv">1</span>))</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 1
+R&gt;   mean_wt
+R&gt;     &lt;dbl&gt;
+R&gt; 1    122.</code></pre>
+<blockquote>
+<p><strong>Question:</strong> What happens when there are missing values (<code>NA</code>)? Consult the help file for the <code>mean()</code> function, discuss amongst yourselves, and then provide a demonstration to the class of how you would handle missing values. Hint: use the <code>c()</code> function to capture a series of data that you can then use to demonstrate your understanding.</p>
+</blockquote>
+<p>At this point it might be useful to point out that the mean (or any function for that matter, even one that does not yet exist) can be programatically calculated. Let us demonstrate the principle by reproducing the mean function from the constituent parts:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wt =</span> <span class="kw">sum</span>(weight) <span class="op">/</span><span class="st"> </span><span class="kw">n</span>())</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 1
+R&gt;   mean_wt
+R&gt;     &lt;dbl&gt;
+R&gt; 1    122.</code></pre>
+<p>The mean is quite sensitive to the presence of outliers or extreme values in the data, and it is advised that its use be reserved for normally distributed data from which the extremes/outliers have been removed. When extreme values are indeed part of our data and not simply ‘noise,’ then we have to resort to a different measure of central tendency: the median.</p>
+</div>
+<div id="the-median" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> The median</h3>
+<p>The <em>median</em> can be calculated by ‘hand’ (if you have a small enough amount of data) by arranging all the numbers in sequence from low to high, and then finding the middle value. If there are five numbers, say <code>5, 2, 6, 13, 1</code>, then you would arrange them from low to high, i.e. <code>1, 2, 5, 6, 13</code>. The middle number is <code>5</code>. This is the median. But there is no middle if we have an even number of values. What now? Take this example sequence of six integers (they may also be floating point numbers), which has already been ordered for your pleasure: <code>1, 2, 5, 6, 9, 13</code>. Find the middle two numbers (i.e. <code>5, 6</code>) and take the mean. It is <code>5.5</code>. That is the median.</p>
+<p>Let us find the median for the weights of the chickens in the ChickWeight data:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">med_wt =</span> <span class="kw">median</span>(weight))</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 1
+R&gt;   med_wt
+R&gt;    &lt;dbl&gt;
+R&gt; 1   103.</code></pre>
+<p>The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the <em>1st and 3rd quartiles</em>, which, respectively, separate the first quarter of the data from the last quarter — see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).</p>
+</div>
+<div id="central-moment" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Central moment</h3>
+<!-- AJS to update -->
+</div>
+<div id="skewness" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Skewness</h3>
+<!-- AJS to update -->
+</div>
+<div id="kurtosis" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Kurtosis</h3>
+<!-- AJS to update -->
+</div>
+</div>
+<div id="measures-of-variation-and-spread" class="section level2">
+<h2><span class="header-section-number">3.3</span> Measures of variation and spread</h2>
+<p>Since the mean or median does not tell us everything there is to know about data, we will also have to determine some statistics that inform us about the variation (or spread) around the central/mean value.</p>
+<table style="width:61%;">
+<caption>Measures of variation and spread.</caption>
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Statistic</th>
+<th align="left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Variance</td>
+<td align="left"><code>var()</code></td>
+</tr>
+<tr class="even">
+<td align="left">Standard deviation</td>
+<td align="left"><code>sd()</code></td>
+</tr>
+<tr class="odd">
+<td align="left">Minimum</td>
+<td align="left"><code>min()</code></td>
+</tr>
+<tr class="even">
+<td align="left">Maximum</td>
+<td align="left"><code>max()</code></td>
+</tr>
+<tr class="odd">
+<td align="left">Range</td>
+<td align="left"><code>range()</code></td>
+</tr>
+<tr class="even">
+<td align="left">Quantile</td>
+<td align="left"><code>quantile()</code></td>
+</tr>
+<tr class="odd">
+<td align="left">Covariance</td>
+<td align="left"><code>cov()</code></td>
+</tr>
+<tr class="even">
+<td align="left">Correlation</td>
+<td align="left"><code>cor()</code></td>
+</tr>
+</tbody>
+</table>
+<div id="the-variance-and-standard-deviation" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> The variance and standard deviation</h3>
+<p>The variance and standard deviation are examples of interval estimates. The <em>sample variance</em>, <span class="math inline">\(S^{2}\)</span>, may be calculated according to the following formula:</p>
+<p><span class="math display">\[S^{2} = \frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}\]</span></p>
+<p>This reads: “the sum of the squared differences from the mean, divided by the sample size minus 1.”</p>
+<p>To get the <em>standard deviation</em>, <span class="math inline">\(S\)</span>, we take the square root of the variance, i.e. <span class="math inline">\(S = \sqrt{S^{2}}\)</span>.</p>
+<p>No need to plug these equations into MS Excel. Let us quickly calculate <span class="math inline">\(S\)</span> in R. Again, we use the <code>chicks</code> data:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sd_wt =</span> <span class="kw">sd</span>(weight))</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 1
+R&gt;   sd_wt
+R&gt;   &lt;dbl&gt;
+R&gt; 1  71.1</code></pre>
+<p>The interpretation of the concepts of mean and median are fairly straight forward and intuitive. Not so for the measures of variance. What does <span class="math inline">\(S\)</span> represent? Firstly, the unit of measurement of <span class="math inline">\(S\)</span> is the same as that of <span class="math inline">\(\bar{x}\)</span> (but the variance doesn’t share this characteristic). If temperature is measured in °C, then <span class="math inline">\(S\)</span> also takes a unit of °C. Since <span class="math inline">\(S\)</span> measures the dispersion <em>around</em> the mean, we write it as <span class="math inline">\(\bar{x} \pm S\)</span> (note that often the mean and standard deviation are written with the letters <em>mu</em> and <em>sigma</em>, respectively; i.e. <span class="math inline">\(\mu \pm \sigma\)</span>). The smaller <span class="math inline">\(S\)</span> the closer the sample data are to <span class="math inline">\(\bar{x}\)</span>, and the larger the value is the further away they will spread out from <span class="math inline">\(\bar{x}\)</span>. So, it tells us about the proportion of observations above and below <span class="math inline">\(\bar{x}\)</span>. But what proportion? We invoke the the 68-95-99.7 rule: ~68% of the population (as represented by a random sample of <span class="math inline">\(n\)</span> observations taken from the population) falls within 1<span class="math inline">\(S\)</span> of <span class="math inline">\(\bar{x}\)</span> (i.e. ~34% below <span class="math inline">\(\bar{x}\)</span> and ~34% above <span class="math inline">\(\bar{x}\)</span>); ~95% of the population falls within 2<span class="math inline">\(S\)</span>; and ~99.7% falls within 3<span class="math inline">\(S\)</span>.</p>
+<div class="figure"><span id="fig:rmarkdown"></span>
+<img src="figures/Standard_deviation_diagram.svg" alt="The proportions of data representation by the standard deviation. Credit: [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)"  />
+<p class="caption">
+Figure 1.1: The proportions of data representation by the standard deviation. Credit: <a href="https://en.wikipedia.org/wiki/Standard_deviation">Wikipedia</a>
+</p>
+</div>
+<p>Like the mean, <span class="math inline">\(S\)</span> is affected by extreme values and outliers, so before we attach <span class="math inline">\(S\)</span> as a summary statistic to describe some data, we need to ensure that the data are in fact normally distributed. We will talk about how to do this in Chapter 6, where we will go over the numerous ways to check the assumption of normality. When the data are found to be non-normal, we need to find appropriate ways to express the spread of the data. Enter the quartiles.</p>
+</div>
+<div id="quantiles" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Quantiles</h3>
+<p>A more forgiving approach (forgiving of the extremes, often called ‘robust’) is to divide the distribution of ordered data into quarters, and find the points below which 25% (0.25, the first quartile), 50% (0.50, the median) and 75% (0.75, the third quartile) of the data are distributed. These are called <em>quartiles</em> (for ‘quarter;’ not to be confused with <em>quantile</em>, which is a more general form of the function that can be used to divide the distribution into any arbitrary proportion from 0 to 1). In R we use the <code>quantile()</code> function to provide the quartiles; we demonstrate two approaches:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">quantile</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<pre><code>R&gt;     0%    25%    50%    75%   100% 
+R&gt;  35.00  63.00 103.00 163.75 373.00</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">min_wt =</span> <span class="kw">min</span>(weight),</a>
+<a class="sourceLine" id="cb35-3" data-line-number="3">            <span class="dt">qrt1_wt =</span> <span class="kw">quantile</span>(weight, <span class="dt">p =</span> <span class="fl">0.25</span>),</a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight),</a>
+<a class="sourceLine" id="cb35-5" data-line-number="5">            <span class="dt">qrt3_wt =</span> <span class="kw">median</span>(weight, <span class="dt">p =</span> <span class="fl">0.75</span>),</a>
+<a class="sourceLine" id="cb35-6" data-line-number="6">            <span class="dt">max_wt =</span> <span class="kw">max</span>(weight))</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 5
+R&gt;   min_wt qrt1_wt med_wt qrt3_wt max_wt
+R&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+R&gt; 1    35.     63.   103.    103.   373.</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># note median(weight) is the same as quantile(weight, p = 0.5) </span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="co"># in the summarise() implementation, above</span></a></code></pre></div>
+<blockquote>
+<p><em>Question:</em> What is different about the <code>quantile()</code> function that caused us to specify the calculation in the way in which we have done so above? You will have to consult the help file, read it, understand it, think about it, and experiment with the ideas. Take 15 minutes to figure it out and report back to the class.</p>
+</blockquote>
+</div>
+<div id="the-minimum-maximum-and-range" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> The minimum, maximum and range</h3>
+<p>A description of the extent of the data can also be provided by the functions <code>min()</code>, <code>max()</code> and <code>range()</code>.</p>
+<p>These statistics apply to data of any distribution, and not only to normal data. This if often the first place you want to start when looking at the data for the first time. We’ve seen above how to use <code>min()</code> and <code>max()</code>, so below we will quickly look at how to use <code>range()</code> in both the base R and tidy methods:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">range</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<pre><code>R&gt; [1]  35 373</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">lower_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">            <span class="dt">upper_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">2</span>])</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 2
+R&gt;   lower_wt upper_wt
+R&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+R&gt; 1      35.     373.</code></pre>
+<p>Note that <code>range()</code> actually gives us the minimum and maximum values, and not the difference between them. To find the range value properly we must be a bit more clever:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">range</span>(chicks<span class="op">$</span>weight)[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span><span class="kw">range</span>(chicks<span class="op">$</span>weight)[<span class="dv">1</span>]</a></code></pre></div>
+<pre><code>R&gt; [1] 338</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb44-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">range_wt =</span> <span class="kw">range</span>(weight)[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span><span class="kw">range</span>(weight)[<span class="dv">1</span>])</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 1 x 1
+R&gt;   range_wt
+R&gt;      &lt;dbl&gt;
+R&gt; 1     338.</code></pre>
+</div>
+<div id="covariance" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Covariance</h3>
+</div>
+<div id="correlation" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> Correlation</h3>
+<p>The correlation coefficient of two matched (paired) variables is equal to their covariance divided by the product of their individual standard deviations. It is a normalised measurement of how linearly related the two variables are.</p>
+<!-- include the equation -->
+<!-- include example here -->
+<p>Graphical displays of correlations are provided by scatter plots as can be seen in Section X.</p>
+</div>
+</div>
+<div id="missing-values-1" class="section level2">
+<h2><span class="header-section-number">3.4</span> Missing values</h2>
+<p>As mentioned in Chapter 2, missing data are pervaise in the biological sciences. Happily for us, R is designed to handle these data easily. It is important to note here explicitly that all of the basic functions in R will by default <em>NOT</em> ignore missing data. This has been done so as to prevent the user from accidentally forgetting about the missing data and potentially making errors in later stages in an analysis. Therefore, we must explicitly tell R when we want it to ommit missing values from a calculation. Let’s create a small vector of data to demonstrate this:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">dat1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">12</span>, <span class="dv">76</span>, <span class="dv">34</span>, <span class="dv">23</span>)</a>
+<a class="sourceLine" id="cb46-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb46-3" data-line-number="3"><span class="co"># Without telling R to ommit missing data</span></a>
+<a class="sourceLine" id="cb46-4" data-line-number="4"><span class="kw">mean</span>(dat1)</a></code></pre></div>
+<pre><code>R&gt; [1] NA</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># Ommitting the missing data</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">mean</span>(dat1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>R&gt; [1] 36.25</code></pre>
+<p>Note that this argument, <code>na.rm = TRUE</code> may be used in all of the functions we have seen thus far in this chapter.</p>
+</div>
+<div id="descriptive-statistics-by-group" class="section level2">
+<h2><span class="header-section-number">3.5</span> Descriptive statistics by group</h2>
+<p>Above we have revised the basic kinds of summary statistics, and how to calculate them. This is nice. But it can be more useful. The real reason why we might want to see the descriptive statistics is to facilitate comparisons between groups. In the chicks data we calculated the mean (etc.) for all the chickens, over all the diet groups to which they had been assigned (there are four factors, i.e. Diets 1 to 4), and over the entire duration of the experiment (the experiment lasted 21 days). It would be more useful to see what the weights are of the chickens in each of the four groups at the end of the experiment — we can compare means (± SD) and medians (± interquartile ranges, etc.), for instance. You’ll notice now how the measures of central tendency is being combined with the measures of variability/range. Further, we can augment this statistical summary with many kinds of graphical summaries, which will be far more revealing of differences (if any) amongst groups. We will revise how to produce the group statistics and show a range of graphical displays.</p>
+<div id="groupwise-summary-statistics" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Groupwise summary statistics</h3>
+<p>At this point you need to refer to <a href="https://robwschlegel.github.io/Intro_R_Workshop/tidy.html">Chapter 10</a> (Tidy data) and <a href="https://robwschlegel.github.io/Intro_R_Workshop/tidier.html">Chapter 11</a> (Tidier data) in the <strong>Intro R Workshop</strong> to remind yourself about in what format the data need to be before we can efficiently work with it. A hint: one observation in a row, and one variable per column. From this point, it is trivial to do the various data descriptions, visualisations, and analyses. Thankfully, the <code>chicks</code> data are already in this format.</p>
+<p>So, what are the summary statistics for the chickens for each diet group at day 21?</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">grp_stat &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb50-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet, Time) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb50-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wt =</span> <span class="kw">round</span>(<span class="kw">mean</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb50-5" data-line-number="5">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb50-6" data-line-number="6">            <span class="dt">sd_wt =</span> <span class="kw">round</span>(<span class="kw">sd</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb50-7" data-line-number="7">            <span class="dt">sum_wt =</span> <span class="kw">sum</span>(weight),</a>
+<a class="sourceLine" id="cb50-8" data-line-number="8">            <span class="dt">min_wt =</span> <span class="kw">min</span>(weight),</a>
+<a class="sourceLine" id="cb50-9" data-line-number="9">            <span class="dt">qrt1_wt =</span> <span class="kw">quantile</span>(weight, <span class="dt">p =</span> <span class="fl">0.25</span>),</a>
+<a class="sourceLine" id="cb50-10" data-line-number="10">            <span class="dt">med_wt =</span> <span class="kw">median</span>(weight),</a>
+<a class="sourceLine" id="cb50-11" data-line-number="11">            <span class="dt">qrt3_wt =</span> <span class="kw">median</span>(weight, <span class="dt">p =</span> <span class="fl">0.75</span>),</a>
+<a class="sourceLine" id="cb50-12" data-line-number="12">            <span class="dt">max_wt =</span> <span class="kw">max</span>(weight),</a>
+<a class="sourceLine" id="cb50-13" data-line-number="13">            <span class="dt">n_wt =</span> <span class="kw">n</span>())</a>
+<a class="sourceLine" id="cb50-14" data-line-number="14">grp_stat</a></code></pre></div>
+<pre><code>R&gt; # A tibble: 4 x 11
+R&gt; # Groups:   Diet [?]
+R&gt;   Diet   Time mean_wt med_wt sd_wt sum_wt min_wt qrt1_wt qrt3_wt max_wt
+R&gt;   &lt;fct&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+R&gt; 1 1       21.    178.   166.  58.7  2844.    96.    138.    166.   305.
+R&gt; 2 2       21.    215.   212.  78.1  2147.    74.    169.    212.   331.
+R&gt; 3 3       21.    270.   281.  71.6  2703.   147.    229.    281.   373.
+R&gt; 4 4       21.    239.   237.  43.4  2147.   196.    204.    237.   322.
+R&gt; # ... with 1 more variable: n_wt &lt;int&gt;</code></pre>
+</div>
+<div id="displays-of-group-summaries" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Displays of group summaries</h3>
+<!-- probably can be moved to the section 'Graphical data displays' -->
+<p>There are several kinds of graphical displays for your data. We will show some which are able to display the spread of the raw data, the mean or median, as well as the appropriate accompanying indicators of variation around the mean or median.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">library</span>(ggpubr) <span class="co"># needed for arranging multi-panel plots</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">plt1 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb52-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> grp_stat, <span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> mean_wt), </a>
+<a class="sourceLine" id="cb52-6" data-line-number="6">             <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">shape =</span> <span class="dv">23</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.05</span>) <span class="op">+</span><span class="st"> </span><span class="co"># geom_point() if jitter not required</span></a>
+<a class="sourceLine" id="cb52-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb52-9" data-line-number="9"><span class="st">  </span><span class="kw">theme_pubr</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> grp_stat, <span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> mean_wt)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(), <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, </a>
+<a class="sourceLine" id="cb53-3" data-line-number="3">           <span class="dt">col =</span> <span class="ot">NA</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean_wt <span class="op">-</span><span class="st"> </span>sd_wt, <span class="dt">ymax =</span> mean_wt <span class="op">+</span><span class="st"> </span>sd_wt),</a>
+<a class="sourceLine" id="cb53-5" data-line-number="5">                <span class="dt">width =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb53-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubr</span>()</a>
+<a class="sourceLine" id="cb53-8" data-line-number="8"><span class="co"># position_dodge() places bars side-by-side</span></a>
+<a class="sourceLine" id="cb53-9" data-line-number="9"><span class="co"># stat = &quot;identity&quot; prevents the default count from being plotted</span></a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">plt3 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb54-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.05</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb54-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubr</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">plt4 &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">21</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight, <span class="dt">fill =</span> <span class="kw">as.factor</span>(Time))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb55-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb55-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">width =</span> <span class="fl">0.1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb55-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Chicken mass (g)&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;Time&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb55-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubr</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">ggarrange</span>(plt1, plt2, plt3, plt4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-18"></span>
+<img src="03-discriptive_files/figure-html/unnamed-chunk-18-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
+<p class="caption">
+Figure 3.1: A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing ‘whiskers’ indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for <code>geom_boxplot()</code> for what the graph components mean.
+</p>
+</div>
+</div>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">3.6</span> Exercises</h2>
+<div id="exercise-1" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Exercise 1</h3>
+<p>Notice how the data summary for chicken weights contained within <code>wt_summary</code> is very similar to the summary returned for <code>weight</code> when we apply <code>summary(chicks)</code>. Please use the <code>summarise()</code> approach and construct a data summary with exactly the same summary statistics for <code>weight</code> as that which <code>summary()</code> returns.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="types-of-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graphical-data-displays.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

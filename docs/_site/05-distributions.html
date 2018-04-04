@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=03751ccfa51e97b314a4c01a87a9b1b5598c90c5" media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Distributions | Basic_stats</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Distributions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic Statistics Workshop" />
+<meta property="og:description" content="Basic Statistics Workshop" />
+<link rel="canonical" href="http://localhost:4000/05-distributions.html" />
+<meta property="og:url" content="http://localhost:4000/05-distributions.html" />
+<meta property="og:site_name" content="Basic_stats" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/05-distributions.html","headline":"Distributions","description":"Basic Statistics Workshop","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <a href="http://localhost:4000/">
+          <h1>Basic_stats</h1>
+        </a>
+        <h2>Basic Statistics Workshop</h2>
+        
+          <a href="http://github.com/ajsmit/Basic_stats" class="button"><small>View project on</small> GitHub</a>
+        
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1 id="distributions">Distributions</h1>
+
+<p>Therefore, we must next learn about the different types of data distributions we are likely to encounter in the wild.</p>
+
+<h2 id="discrete-distributions">Discrete distributions</h2>
+<p>A discrete random variable has a finite or countable number of possible values. As the name suggests, it models integer data. Below we provide options to generate and visualise data belonging to several classes of discrete distributions. Later (Chapter X) we will learn how to transform these data prior to performing the approapriate statistical analysis.</p>
+
+<h3 id="bernoulli-distribution">Bernoulli distribution</h3>
+<p>A Bernoulli random variable, $x$, takes the value 1 with probability of $p$ and the value 0 with probability of $1−p$. It is used to represent data resulting from experiments with binary outcomes, such as a coin toss.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+f(x;p)=
+  \begin{cases}
+    p, &\text{if}~x=1\\
+    1-p, &\text{if}~x=0
+  \end{cases} %]]></script>
+
+<h3 id="binomial-distribution">Binomial distribution</h3>
+<p>A binomial random variable, $x$, is the sum of $n$ independent Bernoulli random variables with parameter $p$. This data distribution results from repeating identical experiments that produce a binary outcome with probability $p$ a specified number of times, and choosing $n$ samples at random:</p>
+
+<script type="math/tex; mode=display">f(x;n,p)= {n\choose x}p^{x}(1-p)^{n-x}</script>
+
+<h3 id="negative-binomial-distribution">Negative binomial distribution</h3>
+<p>A negative binomial random variable, $x$, counts the number of successes in a sequence of independent Bernoulli trials with probability $p$ before $r$ failures occur. This distribution could for example be used to predict the number of heads that result from a series of coin tosses before three tails are observed:</p>
+
+<script type="math/tex; mode=display">f(x;n,r,p)= {x+r-1\choose x}p^{x}(1-p)^{r}</script>
+
+<iframe src="https://robert-schlegel.shinyapps.io/binomial_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h3 id="geometric-distribution">Geometric distribution</h3>
+<p>A geometric random variable, $x$, represents the number of trials that are required to observe a single success. Each trial is independent and has success probability $p$. As an example, the geometric distribution is useful to model the number of times a die must be tossed in order for a six to be observed. It is given by:</p>
+
+<script type="math/tex; mode=display">f(x;p)=(1-p)^{x}p</script>
+
+<h3 id="poisson-distribution">Poisson distribution</h3>
+<p>A Poisson random variable, $x$, tallies the number of events occurring in a fixed interval of time or space, given that these events occur with an average rate $\lambda$. Poisson distributions can be used to model events such as meteor showers and or number of people entering a shopping mall. This equation describes the Poison distribution:</p>
+
+<script type="math/tex; mode=display">f(x;\lambda)=\frac{\lambda^{x}e^{-\lambda}}{x!}</script>
+
+<iframe src="https://robert-schlegel.shinyapps.io/poisson_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h2 id="continuous-distributions">Continuous distributions</h2>
+
+<h3 id="uniform-distribution">Uniform distribution</h3>
+
+<iframe src="https://robert-schlegel.shinyapps.io/uniform_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h3 id="normal-distribution">Normal distribution</h3>
+
+<div class="figure">
+<img src="figures/Boxplot_vs_PDF.svg" alt="Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)" />
+<p class="caption">(\#fig:PDF)Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)</p>
+</div>
+
+<h3 id="student-t-distribution">Student T distribution</h3>
+
+<iframe src="https://robert-schlegel.shinyapps.io/student_t_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h3 id="chi-squared-distribution">Chi-squared distribution</h3>
+
+<iframe src="https://robert-schlegel.shinyapps.io/chi_squared_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h3 id="exponential-distribution">Exponential distribution</h3>
+
+<iframe src="https://robert-schlegel.shinyapps.io/exponential_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h3 id="f-distribution">F distribution</h3>
+
+<iframe src="https://robert-schlegel.shinyapps.io/f_dist/?showcase=0" width="672" height="600px"></iframe>
+
+<h3 id="gamma-distribution">Gamma distribution</h3>
+
+<h3 id="beta-distribution">Beta distribution</h3>
+
+        </section>
+
+        <aside id="sidebar">
+          
+
+          
+            <p class="repo-owner"><a href="http://github.com/ajsmit/Basic_stats">Basic_stats</a> is maintained by <a href="http://github.com/ajsmit">ajsmit</a>.</p>
+          
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+    
+  </body>
+</html>

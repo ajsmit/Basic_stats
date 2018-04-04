@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=03751ccfa51e97b314a4c01a87a9b1b5598c90c5" media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Simple linear regressions | Basic_stats</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Simple linear regressions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic Statistics Workshop" />
+<meta property="og:description" content="Basic Statistics Workshop" />
+<link rel="canonical" href="http://localhost:4000/15-regressions.html" />
+<meta property="og:url" content="http://localhost:4000/15-regressions.html" />
+<meta property="og:site_name" content="Basic_stats" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/15-regressions.html","headline":"Simple linear regressions","description":"Basic Statistics Workshop","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <a href="http://localhost:4000/">
+          <h1>Basic_stats</h1>
+        </a>
+        <h2>Basic Statistics Workshop</h2>
+        
+          <a href="http://github.com/ajsmit/Basic_stats" class="button"><small>View project on</small> GitHub</a>
+        
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1 id="simple-linear-regressions">Simple linear regressions</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
+## ✔ tidyr   0.8.0     ✔ stringr 1.3.0
+## ✔ readr   1.1.1     ✔ forcats 0.3.0
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ✖ dplyr::n()      masks .env::n()
+</code></pre></div></div>
+
+<p>Regressions test the statistical significance of the <em>dependence</em> of one continuous variable on one or many independent continuous variables.</p>
+
+<h2 id="the-simple-linear-regression-equation">The simple linear regression equation</h2>
+
+<p>The linear regression equation is already known to you. It is:</p>
+
+<script type="math/tex; mode=display">y_{n}=\beta \cdot x_{n}+\alpha+\epsilon</script>
+
+<p>Coefficients are parameters (statistics) that describe two properties of the linear line that best fit a scatter plot between a dependent variable and the independent variable. The dependent variable, $y_{n}$, may also be called the response variable, and the independent variable, $x_{n}$, the predictor. The regression model consists of an intercept term, $\alpha$, that describes where the fitted line starts and intercepts with the <em>y</em>-axis, and the <em>slope</em>, $\beta$, of the line. The amount of variation not explained by a linear relationship of $y$ on $x$ is termed the residual variation, or simply the residual or the error term, and in the above equation it is indicated by $\epsilon$.</p>
+
+<p>The parameters $\alpha$ and $\beta$ are determined by minimising the sum of squares of the error term, $\epsilon$. It allows us to predict new fitted values of $y$ based on values of $x$.</p>
+
+<p>We will demonstrate the principle behind a simple linear regression by using the built-in dataset <code class="highlighter-rouge">faithful</code>. According to the R help file for the data, the dataset describes the “Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA.”</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">faithful</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt;   eruptions waiting
+R&gt; 1     3.600      79
+R&gt; 2     1.800      54
+R&gt; 3     3.333      74
+R&gt; 4     2.283      62
+R&gt; 5     4.533      85
+R&gt; 6     2.883      55
+</code></pre></div></div>
+
+<p>In this dataset there are two columns: the first, <code class="highlighter-rouge">eruptions</code>, denotes the duration of the eruption (in minutes), and the second, <code class="highlighter-rouge">waiting</code>, is the waiting time (also in minutes) until the next eruptions. Its linear regression model can be expressed as:</p>
+
+<script type="math/tex; mode=display">eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon</script>
+
+<p>Here we fit the model in R. When we perform a linear regression in R, it’ll output the model and the coefficients:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">eruption.lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">eruptions</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">waiting</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">faithful</span><span class="p">)</span><span class="w">
+</span><span class="n">summary</span><span class="p">(</span><span class="n">eruption.lm</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; 
+R&gt; Call:
+R&gt; lm(formula = eruptions ~ waiting, data = faithful)
+R&gt; 
+R&gt; Residuals:
+R&gt;      Min       1Q   Median       3Q      Max 
+R&gt; -1.29917 -0.37689  0.03508  0.34909  1.19329 
+R&gt; 
+R&gt; Coefficients:
+R&gt;              Estimate Std. Error t value Pr(&gt;|t|)    
+R&gt; (Intercept) -1.874016   0.160143  -11.70   &lt;2e-16 ***
+R&gt; waiting      0.075628   0.002219   34.09   &lt;2e-16 ***
+R&gt; ---
+R&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+R&gt; 
+R&gt; Residual standard error: 0.4965 on 270 degrees of freedom
+R&gt; Multiple R-squared:  0.8115,	Adjusted R-squared:  0.8108 
+R&gt; F-statistic:  1162 on 1 and 270 DF,  p-value: &lt; 2.2e-16
+</code></pre></div></div>
+
+<h3 id="the-intercept">The intercept</h3>
+<p>The intercept is the best estimate of the starting point of the fitted line on the lefthand side of the graph. You will notice that there is also an estimate for the standard error of the estimate for the intercept.</p>
+
+<h3 id="the-regression-coefficient">The regression coefficient</h3>
+<p>The interpretation of the regression coefficient is simple. For every one unit of change in the independent variable (here waiting time) there is a corresponding change in the dependent variable (here the duration of the eruption). This is the <em>slope</em> or <em>gradient</em>, and it may be positive or negative. In the example the coefficient of determination of the line is denoted by the value 0.076 min.min^-1^ in the column termed <code class="highlighter-rouge">Estimate</code> and in the row called <code class="highlighter-rouge">waiting</code> (the latter name will of course depend on the name of the response column in your dataset). The coefficient of determination multiplies the response variable to produce a prediction of the response based on the slope of the relationship between the response and the predictor. It tells us how much one unit in change of the independent variable <em>determines</em> the corresponding change in the response variable. There is also a standard error for the estimate.</p>
+
+<h3 id="a-graph-of-the-linear-regression">A graph of the linear regression</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">slope</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">eruption.lm</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="c1"># p.val &lt;- round(coefficients(summary(eruption.lm))[2, 4], 3) # it approx. 0, so...</span><span class="w">
+</span><span class="n">p.val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.001</span><span class="w">
+</span><span class="n">r</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">summary</span><span class="p">(</span><span class="n">eruption.lm</span><span class="p">)</span><span class="o">$</span><span class="n">r.squared</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">faithful</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">waiting</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eruptions</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">annotate</span><span class="p">(</span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">45</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paste0</span><span class="p">(</span><span class="s2">"slope == "</span><span class="p">,</span><span class="w"> </span><span class="n">slope</span><span class="p">,</span><span class="w"> </span><span class="s2">"~(min/min)"</span><span class="p">),</span><span class="w"> </span><span class="n">parse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">annotate</span><span class="p">(</span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">45</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4.75</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paste0</span><span class="p">(</span><span class="s2">"italic(P) &lt; "</span><span class="p">,</span><span class="w"> </span><span class="n">p.val</span><span class="p">),</span><span class="w"> </span><span class="n">parse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">annotate</span><span class="p">(</span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">45</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4.5</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paste0</span><span class="p">(</span><span class="s2">"italic(r)^2 == "</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">parse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">stat_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"lm"</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"salmon"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Old Faithful eruption data"</span><span class="p">,</span><span class="w">
+       </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Linear regression"</span><span class="p">,</span><span class="w">
+       </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Waiting time (minutes)"</span><span class="p">,</span><span class="w">
+       </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Eruption duration (minutes)"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="15-regressions_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+
+<h3 id="predicting-from-the-linear-model">Predicting from the linear model</h3>
+<p>Knowing $\alpha$ and $\beta$ allows us to predict what the erruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., $eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$). Here’s how:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># use the accessor function to grab the coefficients:</span><span class="w">
+</span><span class="n">erupt.coef</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">coefficients</span><span class="p">(</span><span class="n">eruption.lm</span><span class="p">)</span><span class="w">
+</span><span class="n">erupt.coef</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; (Intercept)     waiting 
+R&gt; -1.87401599  0.07562795
+</code></pre></div></div>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># how long would an eruption last of we waited, say, 80 minutes?</span><span class="w">
+</span><span class="n">waiting</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">80</span><span class="w"> 
+ 
+</span><span class="c1"># the first and second coef. can be accessed using the </span><span class="w">
+</span><span class="c1"># square bracket notation:</span><span class="w">
+</span><span class="n">erupt.pred</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">erupt.coef</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">erupt.coef</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">waiting</span><span class="p">)</span><span class="w">
+</span><span class="n">erupt.pred</span><span class="w"> </span><span class="c1"># the unit is minutes</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; (Intercept) 
+R&gt;     4.17622
+</code></pre></div></div>
+
+<p>The prediction is that, given a waiting time of 80 minutes since the previous eruption, the next eruption will last 4.176 minutes.</p>
+
+<p>There is another way to do this. The <code class="highlighter-rouge">predict()</code> function takes a dataframe of values for which we want to predict the duration of the eruption and returns a vector with the waiting times:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred.val</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">waiting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="m">80</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">))</span><span class="w">
+</span><span class="n">predict</span><span class="p">(</span><span class="n">eruption.lm</span><span class="p">,</span><span class="w"> </span><span class="n">pred.val</span><span class="p">)</span><span class="w"> </span><span class="c1"># returns waiting time in minutes</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt;        1        2        3 
+R&gt; 2.663661 4.176220 5.688779
+</code></pre></div></div>
+
+<h3 id="the-coefficient-of-determination-r2">The coefficient of determination, $r^{2}$</h3>
+<p>The coefficient of determination, the $r^{2}$, of a linear model is the quotient of the variances of the fitted values, $\hat{y_{i}}$, and observed values, $y_{i}$, of the dependent variable. If the mean of the dependent variable is $\bar y$, then the $r^{2}$ is:</p>
+
+<script type="math/tex; mode=display">r^{2}=\frac{\sum(\hat{y_{i}} - \bar{y})^{2}}{\sum(y_{i} - \bar{y})^{2}}</script>
+
+<p>In our Old Faithful example, the coefficient of determination is returned together with the summary of the <code class="highlighter-rouge">eruption.lm</code> object, but it may also be extracted as:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">eruption.lm</span><span class="p">)</span><span class="o">$</span><span class="n">r.squared</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; [1] 0.8114608
+</code></pre></div></div>
+
+<p>What does the $r^{2}$ tell us? It tells us the “fraction of variance explained by the model” (from the <code class="highlighter-rouge">summary.lm()</code> help file). In other words it is the proportion of variation in the dispersion (variance) of the measured dependent variable, $y$, that can be predicted from the measured independent variable, $x$ (or variables in the case of multiple regressions). It gives us an indication of how well the observed outcome variable is predicted by the observed influential variable, and in the case of a simple linear regression, the geometric relationship of $y$ on $x$ is a straight line. $r^{2}$ can take values from 0 to 1: a value of 0 tells us that there is absolutely no relationship between the two, whilst a value of 1 shows that there is a perfect fit and a scatter of points to denote the $y$ vs. $x$ relationship will all fall perfectly on a stright line.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">100</span><span class="w">
+</span><span class="n">set.seed</span><span class="p">(</span><span class="m">666</span><span class="p">)</span><span class="w">
+</span><span class="n">rand.df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">),</span><span class="w">
+                      </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">))</span><span class="w">
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand.df</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">(</span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">stat_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"lm"</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"purple"</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.75</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"turquoise"</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Random normal data"</span><span class="p">,</span><span class="w">
+       </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Linear regression"</span><span class="p">,</span><span class="w">
+       </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"X (independent variable)"</span><span class="p">,</span><span class="w">
+       </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Y (dependent variable)"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="15-regressions_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+
+<!-- insert a graph of a random relationship of y on x (a fitted line will have have a slope of 0 and the intercept will equal the mean, and the r2 will be 0) -->
+<!-- insert a graph of a perfect relationship of y on x, r2 will be 1 -->
+
+<p>Regressions may take on any relationship, not only a linear one. For example, there are parabolic, hyperbolic, logistic, exponential, etc. relationships of $y$ on $x$, and here, too, does $r^{2}$ tell us the same thing. If we assume that the samples were representatively drawn from a population (i.e. the sample fully captures the relationship of $y$ on $x$ that is present in the entire population), the $r^{2}$ will represent the relationship in the population too.</p>
+
+<!-- maybe give examples of some other mathematical relationships, such as 2nd order polynomial and a sine curve fitted to seasonal data -->
+
+<p>In the case of our Old Faithful data, the $r^{2}$ is 0.811, meaning that the proportion of variance explained is 81.1%; the remaining 18.9% is not (yet) accounted for by the linear relationship. Adding more predictors into the regression (i.e. a multiple regression) might consume some of the unexplained variance and increase the overall $r^{2}$.</p>
+
+<h3 id="significance-test-for-linear-regression">Significance test for linear regression</h3>
+<p>There are several hypothesis tests associated with a simple linear regression. All of them assume that the residual error, $\epsilon$, in the linear regression model is independent of $x$ (i.e. nothing about the structure of the error term can be inferred based on a knowledge of $x$), is normally distributed, with zero mean and constant variance. We say the residuals are <em>i.i.d.</em> (independent and identically distributed, which is a fancy way of saying they are random).</p>
+
+<p>We can decide whether there is any significant relationship (slope) of $y$ on $x$ by testing the null hypothesis that $\beta=0$. Rejecting the null hypothesis causes the alternate hypothesis of $\beta \neq 0$ to be accepted. This test is automatically performed when fitting a linear model in R and asking for a summary of the regression object, but it is insightful and important to know that the test is simply a one-sample <em>t</em>-test. In the regression summary the probability associated with this test is given in the <code class="highlighter-rouge">Coefficients</code> table in the column called <code class="highlighter-rouge">Pr(&gt;|t|)</code>.</p>
+
+<p>In the Old Faithful data, the <em>p</em>-value associated with <code class="highlighter-rouge">waiting</code> is less than 0.05 and we therefore reject the null hypothesis that $\beta=0$. So, there is a significant linear relationship of eruption duration on the waiting time between eruptions.</p>
+
+<blockquote>
+  <p><strong>Question:</strong> Note that there is also a hypothesis test in the <code class="highlighter-rouge">(Intercept)</code> row. What does this do?</p>
+</blockquote>
+
+<h3 id="confidence-interval-for-linear-regression">Confidence interval for linear regression</h3>
+<p>Again we have to observe the assumption of <em>i.i.d.</em> as before. For a given value of $x$, the 95% confidence interval around the mean of the <em>observed</em> dependent variable, $\bar{y}$, can be obtained as follows:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred.val</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">waiting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">80</span><span class="p">))</span><span class="w">
+</span><span class="n">predict</span><span class="p">(</span><span class="n">eruption.lm</span><span class="p">,</span><span class="w"> </span><span class="n">pred.val</span><span class="p">,</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"confidence"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt;       fit      lwr      upr
+R&gt; 1 4.17622 4.104848 4.247592
+</code></pre></div></div>
+
+<p>So, the 95% confidence interval of the mean eruption duration for the waiting time of 80 minutes is between 4.105 and 4.248 minutes.</p>
+
+<h3 id="prediction-interval-for-linear-regression">Prediction interval for linear regression</h3>
+<p>Observe that $\epsilon$ is <em>i.i.d.</em> For a given value of $x$, the interval estimate of the <em>future</em> dependent variable, $y$, is called the prediction interval. The way we do this is similar to finding the confidence interval:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred.val</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">waiting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">80</span><span class="p">))</span><span class="w">
+</span><span class="n">predict</span><span class="p">(</span><span class="n">eruption.lm</span><span class="p">,</span><span class="w"> </span><span class="n">pred.val</span><span class="p">,</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"prediction"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt;       fit      lwr      upr
+R&gt; 1 4.17622 3.196089 5.156351
+</code></pre></div></div>
+
+<p>The intervals are wider. The difference between confidence and prediction intervals is subtle and requires some philosophical consideration. In practice, if you use these intervals to make inferences about the population from which the samples were drawn, use the prediction intervals. If you instead want to describe the samples which you have taken, use the confidence intervals.</p>
+
+<h3 id="residual-plot">Residual plot</h3>
+
+<h3 id="standardised-residual">Standardised residual</h3>
+
+<h3 id="normal-probability-plot-of-residuals">Normal probability plot of residuals</h3>
+
+<h2 id="using-an-additional-categorical-variable">Using an additional categorical variable</h2>
+<ul>
+  <li>When you use a categorical variable, in R the intercept represents the default position for a given value in the categorical column. Every other value then gets a modifier to the base prediction.</li>
+</ul>
+
+<!-- for example the iris data set -->
+
+
+        </section>
+
+        <aside id="sidebar">
+          
+
+          
+            <p class="repo-owner"><a href="http://github.com/ajsmit/Basic_stats">Basic_stats</a> is maintained by <a href="http://github.com/ajsmit">ajsmit</a>.</p>
+          
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Basic Statistics</title>
+  <meta name="description" content="This is a book about basic statistics: theory and practice.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Basic Statistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figures/NSFW.jpg" />
+  <meta property="og:description" content="This is a book about basic statistics: theory and practice." />
+  <meta name="github-repo" content="ajsmit/Basic_stats" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Basic Statistics" />
+  
+  <meta name="twitter:description" content="This is a book about basic statistics: theory and practice." />
+  <meta name="twitter:image" content="figures/NSFW.jpg" />
+
+<meta name="author" content="AJ Smit and Robert Schlegel">
+
+
+<meta name="date" content="2018-04-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="prerequisites.html">
+<link rel="next" href="types-of-data.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#venue-date-and-time"><i class="fa fa-check"></i><b>1.1</b> Venue, date and time</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#course-outline"><i class="fa fa-check"></i><b>1.2</b> Course outline</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#about-this-workshop"><i class="fa fa-check"></i><b>1.3</b> About this Workshop</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#this-is-biology-why-more-r-coding"><i class="fa fa-check"></i><b>1.4</b> This is biology: why more R coding?</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.5</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#resources"><i class="fa fa-check"></i><b>1.6</b> Resources</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#required-reading"><i class="fa fa-check"></i><b>1.6.1</b> Required reading</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#general-resources-about-r"><i class="fa fa-check"></i><b>1.6.2</b> General resources about R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#style-and-code-conventions"><i class="fa fa-check"></i><b>1.7</b> Style and code conventions</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#assessment-and-teaching-philosophy"><i class="fa fa-check"></i><b>1.8</b> Assessment and teaching philosophy</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#about-this-document"><i class="fa fa-check"></i><b>1.9</b> About this document</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="types-of-data.html"><a href="types-of-data.html"><i class="fa fa-check"></i><b>2</b> Types of data</a><ul>
+<li class="chapter" data-level="2.1" data-path="types-of-data.html"><a href="types-of-data.html#data-classes"><i class="fa fa-check"></i><b>2.1</b> Data classes</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="types-of-data.html"><a href="types-of-data.html#numerical-data"><i class="fa fa-check"></i><b>2.1.1</b> Numerical data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="types-of-data.html"><a href="types-of-data.html#qualitative-data"><i class="fa fa-check"></i><b>2.1.2</b> Qualitative data</a></li>
+<li class="chapter" data-level="2.1.3" data-path="types-of-data.html"><a href="types-of-data.html#binary-data"><i class="fa fa-check"></i><b>2.1.3</b> Binary data</a></li>
+<li class="chapter" data-level="2.1.4" data-path="types-of-data.html"><a href="types-of-data.html#character-values"><i class="fa fa-check"></i><b>2.1.4</b> Character values</a></li>
+<li class="chapter" data-level="2.1.5" data-path="types-of-data.html"><a href="types-of-data.html#missing-values"><i class="fa fa-check"></i><b>2.1.5</b> Missing values</a></li>
+<li class="chapter" data-level="2.1.6" data-path="types-of-data.html"><a href="types-of-data.html#complex-numbers"><i class="fa fa-check"></i><b>2.1.6</b> Complex numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="types-of-data.html"><a href="types-of-data.html#viewing-our-data"><i class="fa fa-check"></i><b>2.2</b> Viewing our data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="types-of-data.html"><a href="types-of-data.html#from-the-environment-pane"><i class="fa fa-check"></i><b>2.2.1</b> From the Environment pane</a></li>
+<li class="chapter" data-level="2.2.2" data-path="types-of-data.html"><a href="types-of-data.html#head-and-tail"><i class="fa fa-check"></i><b>2.2.2</b> <code>head()</code> and <code>tail()</code></a></li>
+<li class="chapter" data-level="2.2.3" data-path="types-of-data.html"><a href="types-of-data.html#colnames"><i class="fa fa-check"></i><b>2.2.3</b> <code>colnames()</code></a></li>
+<li class="chapter" data-level="2.2.4" data-path="types-of-data.html"><a href="types-of-data.html#summary"><i class="fa fa-check"></i><b>2.2.4</b> <code>summary()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics: A focus on measures of central tendency and dispersion</a><ul>
+<li class="chapter" data-level="3.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#samples-and-populations"><i class="fa fa-check"></i><b>3.1</b> Samples and populations</a></li>
+<li class="chapter" data-level="3.2" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>3.2</b> Measures of central tendency</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#the-mean"><i class="fa fa-check"></i><b>3.2.1</b> The mean</a></li>
+<li class="chapter" data-level="3.2.2" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#the-median"><i class="fa fa-check"></i><b>3.2.2</b> The median</a></li>
+<li class="chapter" data-level="3.2.3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#central-moment"><i class="fa fa-check"></i><b>3.2.3</b> Central moment</a></li>
+<li class="chapter" data-level="3.2.4" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#skewness"><i class="fa fa-check"></i><b>3.2.4</b> Skewness</a></li>
+<li class="chapter" data-level="3.2.5" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#kurtosis"><i class="fa fa-check"></i><b>3.2.5</b> Kurtosis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#measures-of-variation-and-spread"><i class="fa fa-check"></i><b>3.3</b> Measures of variation and spread</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#the-variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.3.1</b> The variance and standard deviation</a></li>
+<li class="chapter" data-level="3.3.2" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#quantiles"><i class="fa fa-check"></i><b>3.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="3.3.3" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#the-minimum-maximum-and-range"><i class="fa fa-check"></i><b>3.3.3</b> The minimum, maximum and range</a></li>
+<li class="chapter" data-level="3.3.4" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#covariance"><i class="fa fa-check"></i><b>3.3.4</b> Covariance</a></li>
+<li class="chapter" data-level="3.3.5" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#correlation"><i class="fa fa-check"></i><b>3.3.5</b> Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#missing-values-1"><i class="fa fa-check"></i><b>3.4</b> Missing values</a></li>
+<li class="chapter" data-level="3.5" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#descriptive-statistics-by-group"><i class="fa fa-check"></i><b>3.5</b> Descriptive statistics by group</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#groupwise-summary-statistics"><i class="fa fa-check"></i><b>3.5.1</b> Groupwise summary statistics</a></li>
+<li class="chapter" data-level="3.5.2" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#displays-of-group-summaries"><i class="fa fa-check"></i><b>3.5.2</b> Displays of group summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#exercises"><i class="fa fa-check"></i><b>3.6</b> Exercises</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html"><a href="descriptive-statistics-a-focus-on-measures-of-central-tendency-and-dispersion.html#exercise-1"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html"><i class="fa fa-check"></i><b>4</b> Graphical data displays</a><ul>
+<li class="chapter" data-level="4.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#frequency-distributions"><i class="fa fa-check"></i><b>4.1</b> Frequency distributions</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#qualitative-data-1"><i class="fa fa-check"></i><b>4.1.1</b> Qualitative data</a></li>
+<li class="chapter" data-level="4.1.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.2</b> Continuous data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#bar-graphs"><i class="fa fa-check"></i><b>4.2</b> Bar graphs</a></li>
+<li class="chapter" data-level="4.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#pie-graphs"><i class="fa fa-check"></i><b>4.3</b> Pie graphs (!!!)</a></li>
+<li class="chapter" data-level="4.4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#category-statistics"><i class="fa fa-check"></i><b>4.4</b> Category statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Distributions</a><ul>
+<li class="chapter" data-level="5.1" data-path="distributions.html"><a href="distributions.html#discrete-distributions"><i class="fa fa-check"></i><b>5.1</b> Discrete distributions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="distributions.html"><a href="distributions.html#bernoulli-distribution"><i class="fa fa-check"></i><b>5.1.1</b> Bernoulli distribution</a></li>
+<li class="chapter" data-level="5.1.2" data-path="distributions.html"><a href="distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>5.1.2</b> Binomial distribution</a></li>
+<li class="chapter" data-level="5.1.3" data-path="distributions.html"><a href="distributions.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>5.1.3</b> Negative binomial distribution</a></li>
+<li class="chapter" data-level="5.1.4" data-path="distributions.html"><a href="distributions.html#geometric-distribution"><i class="fa fa-check"></i><b>5.1.4</b> Geometric distribution</a></li>
+<li class="chapter" data-level="5.1.5" data-path="distributions.html"><a href="distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>5.1.5</b> Poisson distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#continuous-distributions"><i class="fa fa-check"></i><b>5.2</b> Continuous distributions</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="distributions.html"><a href="distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>5.2.1</b> Uniform distribution</a></li>
+<li class="chapter" data-level="5.2.2" data-path="distributions.html"><a href="distributions.html#normal-distribution"><i class="fa fa-check"></i><b>5.2.2</b> Normal distribution</a></li>
+<li class="chapter" data-level="5.2.3" data-path="distributions.html"><a href="distributions.html#student-t-distribution"><i class="fa fa-check"></i><b>5.2.3</b> Student T distribution</a></li>
+<li class="chapter" data-level="5.2.4" data-path="distributions.html"><a href="distributions.html#chi-squared-distribution"><i class="fa fa-check"></i><b>5.2.4</b> Chi-squared distribution</a></li>
+<li class="chapter" data-level="5.2.5" data-path="distributions.html"><a href="distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>5.2.5</b> Exponential distribution</a></li>
+<li class="chapter" data-level="5.2.6" data-path="distributions.html"><a href="distributions.html#f-distribution"><i class="fa fa-check"></i><b>5.2.6</b> F distribution</a></li>
+<li class="chapter" data-level="5.2.7" data-path="distributions.html"><a href="distributions.html#gamma-distribution"><i class="fa fa-check"></i><b>5.2.7</b> Gamma distribution</a></li>
+<li class="chapter" data-level="5.2.8" data-path="distributions.html"><a href="distributions.html#beta-distribution"><i class="fa fa-check"></i><b>5.2.8</b> Beta distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html"><i class="fa fa-check"></i><b>6</b> Inferences about one or two populations</a><ul>
+<li class="chapter" data-level="6.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sample-t-tests"><i class="fa fa-check"></i><b>6.1</b> One-sample t-tests</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sided-one-sample-t-tests"><i class="fa fa-check"></i><b>6.1.1</b> One-sided one-sample t-tests</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sided-one-sample-t-tests"><i class="fa fa-check"></i><b>6.1.2</b> Two-sided one-sample t-tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sample-t-tests"><i class="fa fa-check"></i><b>6.2</b> Two-sample t-tests</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sided-two-sample-t-tests"><i class="fa fa-check"></i><b>6.2.1</b> One-sided two-sample t-tests</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sided-two-sample-t-tests"><i class="fa fa-check"></i><b>6.2.2</b> Two-sided two-sample t-tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#paired-t-tests"><i class="fa fa-check"></i><b>6.3</b> Paired t-tests</a></li>
+<li class="chapter" data-level="6.4" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#comparison-of-two-population-proportions"><i class="fa fa-check"></i><b>6.4</b> Comparison of Two Population Proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>7</b> Confidence intervals</a></li>
+<li class="chapter" data-level="8" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>8</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="8.1" data-path="one-way-anova.html"><a href="one-way-anova.html#t-test"><i class="fa fa-check"></i><b>8.1</b> t-test</a></li>
+<li class="chapter" data-level="8.2" data-path="one-way-anova.html"><a href="one-way-anova.html#anova"><i class="fa fa-check"></i><b>8.2</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="one-way-anova.html"><a href="one-way-anova.html#single-factor"><i class="fa fa-check"></i><b>8.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="8.2.2" data-path="one-way-anova.html"><a href="one-way-anova.html#multiple-factors"><i class="fa fa-check"></i><b>8.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="one-way-anova.html"><a href="one-way-anova.html#exercises-1"><i class="fa fa-check"></i><b>8.3</b> Exercises</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="one-way-anova.html"><a href="one-way-anova.html#exercise-1-1"><i class="fa fa-check"></i><b>8.3.1</b> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html"><i class="fa fa-check"></i><b>9</b> Deeper into ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#wilcox-rank-sum-test"><i class="fa fa-check"></i><b>9.1</b> Wilcox rank sum test</a></li>
+<li class="chapter" data-level="9.2" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#kruskall-wallis-rank-sum-test"><i class="fa fa-check"></i><b>9.2</b> Kruskall-Wallis rank sum test</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#single-factor-1"><i class="fa fa-check"></i><b>9.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="9.2.2" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#multiple-factors-1"><i class="fa fa-check"></i><b>9.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#exercises-2"><i class="fa fa-check"></i><b>9.3</b> Exercises</a></li>
+<li class="chapter" data-level="9.4" data-path="deeper-into-anova.html"><a href="deeper-into-anova.html#exercise-1-2"><i class="fa fa-check"></i><b>9.4</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>10</b> Linear mixed models</a><ul>
+<li class="chapter" data-level="10.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#wilcox-rank-sum-test-1"><i class="fa fa-check"></i><b>10.1</b> Wilcox rank sum test</a></li>
+<li class="chapter" data-level="10.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskall-wallis-rank-sum-test-1"><i class="fa fa-check"></i><b>10.2</b> Kruskall-Wallis rank sum test</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#single-factor-2"><i class="fa fa-check"></i><b>10.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="10.2.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#multiple-factors-2"><i class="fa fa-check"></i><b>10.2.2</b> Multiple factors</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-3"><i class="fa fa-check"></i><b>10.3</b> Exercises</a></li>
+<li class="chapter" data-level="10.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-3"><i class="fa fa-check"></i><b>10.4</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#the-two-main-assumptions"><i class="fa fa-check"></i><b>11.1</b> The two main assumptions</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
+<li class="chapter" data-level="11.1.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#homoscedasticity"><i class="fa fa-check"></i><b>11.1.2</b> Homoscedasticity</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#transforming-data"><i class="fa fa-check"></i><b>11.2</b> Transforming data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#log-transform"><i class="fa fa-check"></i><b>11.2.1</b> Log transform</a></li>
+<li class="chapter" data-level="11.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>11.2.2</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-4"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-4"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>12</b> Generalised linear models</a><ul>
+<li class="chapter" data-level="12.1" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#sign-test"><i class="fa fa-check"></i><b>12.1</b> Sign Test</a></li>
+<li class="chapter" data-level="12.2" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>12.2</b> Wilcoxon Signed-Rank Test</a></li>
+<li class="chapter" data-level="12.3" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#mann-whitney-wilcoxon-test"><i class="fa fa-check"></i><b>12.3</b> Mann-Whitney-Wilcoxon Test</a></li>
+<li class="chapter" data-level="12.4" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>12.4</b> Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="12.5" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#generalised-linear-models-glm"><i class="fa fa-check"></i><b>12.5</b> Generalised linear models (GLM)</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chi-squared.html"><a href="chi-squared.html"><i class="fa fa-check"></i><b>13</b> Chi-squared</a></li>
+<li class="chapter" data-level="14" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>14</b> Correlations</a></li>
+<li class="chapter" data-level="15" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html"><i class="fa fa-check"></i><b>15</b> Simple linear regressions</a><ul>
+<li class="chapter" data-level="15.1" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-simple-linear-regression-equation"><i class="fa fa-check"></i><b>15.1</b> The simple linear regression equation</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-intercept"><i class="fa fa-check"></i><b>15.1.1</b> The intercept</a></li>
+<li class="chapter" data-level="15.1.2" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-regression-coefficient"><i class="fa fa-check"></i><b>15.1.2</b> The regression coefficient</a></li>
+<li class="chapter" data-level="15.1.3" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#a-graph-of-the-linear-regression"><i class="fa fa-check"></i><b>15.1.3</b> A graph of the linear regression</a></li>
+<li class="chapter" data-level="15.1.4" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#predicting-from-the-linear-model"><i class="fa fa-check"></i><b>15.1.4</b> Predicting from the linear model</a></li>
+<li class="chapter" data-level="15.1.5" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-coefficient-of-determination-r2"><i class="fa fa-check"></i><b>15.1.5</b> The coefficient of determination, <span class="math inline">\(r^{2}\)</span></a></li>
+<li class="chapter" data-level="15.1.6" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#significance-test-for-linear-regression"><i class="fa fa-check"></i><b>15.1.6</b> Significance test for linear regression</a></li>
+<li class="chapter" data-level="15.1.7" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#confidence-interval-for-linear-regression"><i class="fa fa-check"></i><b>15.1.7</b> Confidence interval for linear regression</a></li>
+<li class="chapter" data-level="15.1.8" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#prediction-interval-for-linear-regression"><i class="fa fa-check"></i><b>15.1.8</b> Prediction interval for linear regression</a></li>
+<li class="chapter" data-level="15.1.9" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#residual-plot"><i class="fa fa-check"></i><b>15.1.9</b> Residual plot</a></li>
+<li class="chapter" data-level="15.1.10" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#standardised-residual"><i class="fa fa-check"></i><b>15.1.10</b> Standardised residual</a></li>
+<li class="chapter" data-level="15.1.11" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#normal-probability-plot-of-residuals"><i class="fa fa-check"></i><b>15.1.11</b> Normal probability plot of residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#using-an-additional-categorical-variable"><i class="fa fa-check"></i><b>15.2</b> Using an additional categorical variable</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Basic Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<blockquote>
+<p><em>“A scientist worthy of a lab coat should be able to make original discoveries while wearing a clown suit, or give a lecture in a high squeaky voice from inhaling helium. It is written nowhere in the math of probability theory that one may have no fun.”</em></p>
+<p>— Eliezer Yudkowsky</p>
+</blockquote>
+<blockquote>
+<p><em>“Prediction is very difficult, especially about the future.”</em></p>
+<p>–– Niels Bohr</p>
+</blockquote>
+<!-- ## Preliminaries -->
+<div id="venue-date-and-time" class="section level2">
+<h2><span class="header-section-number">1.1</span> Venue, date and time</h2>
+<p>Basic Statistics is the second half of the BSc (Hons) Biostats core module, and will run from 9 April to 20 April 2018. This workshop will take place each day from <strong>9:00–16:00</strong>. There will be an assignment due about six weeks after the end of this module, and it will provide the other half of the marks for the Biostats module. More on the assignment later.</p>
+</div>
+<div id="course-outline" class="section level2">
+<h2><span class="header-section-number">1.2</span> Course outline</h2>
+<ol style="list-style-type: decimal">
+<li>Introduction (this chapter)</li>
+<li>Types of data</li>
+<li>Descriptive statistics: Measures of location and dispersion</li>
+<li>Representing data graphically</li>
+<li>The Normal distribution and probability determination using the normal curve</li>
+<li>T-tests (one-sample, two-sample and paired)</li>
+<li>Confidence intervals</li>
+<li>One-way ANOVA</li>
+<li>Multivariate ANOVA</li>
+<li>Repeated measures ANOVA (or rather LME?)</li>
+<li>Testing data for normality and transforming data</li>
+<li>Non-parametric tests—Mann-Whitney, Kruskal-Wallis (or rather GLM?)</li>
+<li>Chi square tests</li>
+<li>Correlation</li>
+<li>Linear regression</li>
+</ol>
+<p>The course content can broadly be classified into two parts: <em>Descriptive Statistics</em> and <em>Inferential Statistics</em>.</p>
+<p>Descriptive statistics and their associated statistical and graphical data summaries will be covered in Chapters 3 and 4. In Chapter 5 we will introduce the concepts of data distributions, knowledge of which is required to select the most appropriate inferential statistical methods.</p>
+<p>Chapters 6-15 are about inferential statistics. Inferential tests allow us to evaluate hypotheses within a framework of probabalistic theory, which helps us infer the nature of a ‘population’ based on a smaller represenative set of samples. In partiucular, we can infer whether the property under scrutiny (arrived at by means of a designed experiment or a directed sampling programme) occured as a result of deterministic influences, or whether it is as a result of chance.</p>
+</div>
+<div id="about-this-workshop" class="section level2">
+<h2><span class="header-section-number">1.3</span> About this Workshop</h2>
+<p>The aim of this five-day introductory workshop is to guide you through the outline given above.</p>
+<!-- AJS to update -->
+</div>
+<div id="this-is-biology-why-more-r-coding" class="section level2">
+<h2><span class="header-section-number">1.4</span> This is biology: why more R coding?</h2>
+<p>Please refer to the <a href="https://robwschlegel.github.io/Intro_R_Workshop/">Intro R Workshop: Data Manipulation, Analysis and Graphing</a> for why we feel strongly that you use R <span class="citation">(R Core Team <a href="#ref-R2017">2017</a>)</span> for the analyses that we will perform here. All of the reasons provided there are valid here too, but one reason perhaps more so than others—R and RStudio promote the principles of <em>reproducible research</em>, and in fact make it very easy to implement. We will focus on some of these principles throughout the workshop, and the assignments will require that you submit a fully functional working script, complete with all the notes, memos, examples, data, executable code, and output that will result from completing the course material.</p>
+<p>What other options are there for analysing the kinds of data that we will encounter in biological research? Software packages like the ones you may be familiar with, such as Statistica and SPSS, are often used to perform many of these analyses. They are rather limited with regards to the full scope of modern statistical methods in use by biologists today, but many people still use these kinds of software as they provide the basic kinds analyses that still form the staple of the biological and medical sciences. For the many reasons provided above, we prefer to use R as the <em>engine</em> within which to do our biological data analysis. R is used by academic statisticians the world over, and it is therefore an excellent choice for our purpose here.</p>
+</div>
+<div id="installing-r-and-rstudio" class="section level2">
+<h2><span class="header-section-number">1.5</span> Installing R and RStudio</h2>
+<p>We assume that you already have R installed on your computer, as all of you will have already completed the the Intro R Workshop. If you need a refresher, please refer to <a href="https://robwschlegel.github.io/Intro_R_Workshop/">Intro R Workshop: Data Manipulation, Analysis and Graphing</a> for the installation instructions.</p>
+</div>
+<div id="resources" class="section level2">
+<h2><span class="header-section-number">1.6</span> Resources</h2>
+<!-- AJS to update -->
+<div id="required-reading" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> Required reading</h3>
+</div>
+<div id="general-resources-about-r" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> General resources about R</h3>
+</div>
+</div>
+<div id="style-and-code-conventions" class="section level2">
+<h2><span class="header-section-number">1.7</span> Style and code conventions</h2>
+<p>Early on, develop the habit of unambiguous and consistent style and formatting when writing your code, or anything else for that matter. Pay attention to detail and be pedantic. This will benefit your scientific writing in general. Although many R commands rely on precisely formatted statements (code blocks), style can nevertheless to <em>some extent</em> have a personal flavour to it. The key is <em>consistency</em>. In this book we use certain conventions to improve readability. We also use a consistent set of conventions to refer to code, and in particular to typed commands and package names.</p>
+<ul>
+<li>Package names are shown in a bold font over a grey box, <em>e.g.</em> <strong><code>tidyr</code></strong>.</li>
+<li>Functions are shown in normal font followed by parentheses and also over a grey box , <em>e.g.</em> <code>plot()</code>, or <code>summary()</code>.</li>
+<li>Other R objects, such as data, function arguments or variable names are again in normal font over a grey box, but without parentheses, <em>e.g.</em> <code>x</code> and <code>apples</code>.</li>
+<li>Sometimes we might directly specify the package that contains the function by using two colons, <em>e.g.</em> <code>dplyr::filter()</code>.</li>
+<li>Commands entered onto the R command line (console) and the output that is returned will be shown in a code block, which is a light grey background with code font. The commands entered start at the beginning of a line and the output it produces is preceded by <code>R&gt;</code>, like so:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">13</span>)</a></code></pre></div>
+<pre><code>R&gt;  [1]   0.6833691  -5.0048931 -13.7805344   9.8663684  15.7583015
+R&gt;  [6]  12.5748652 -21.8451776  -6.1227266  18.4162677  11.6000100</code></pre>
+<p>Consult these resources for more about R code style :</p>
+<ul>
+<li><a href="https://google.github.io/styleguide/Rguide.xml">Google’s R style guide</a></li>
+<li><a href="http://style.tidyverse.org">The tidyverse style guide</a></li>
+<li><a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham’s advanced R style guide</a></li>
+</ul>
+<p>We may also insert maths expressions within the text, like this <span class="math inline">\(f(k) = {n \choose k} p^{k} (1-p)^{n-k}\)</span> or on their own, like this: <span class="math display">\[f(k) = {n \choose k} p^{k} (1-p)^{n-k}\]</span></p>
+</div>
+<div id="assessment-and-teaching-philosophy" class="section level2">
+<h2><span class="header-section-number">1.8</span> Assessment and teaching philosophy</h2>
+<p>Grades will be based on performance of two take home exams, and an individual project and homework problem sets. The exams and individual project will represent 30% of the grade. The homework problem sets will make up the remaining 10%. In cases where students are borderline between lower and higher grades, a high level of participation in the class discussions and class in general will win the day for the higher grade.</p>
+<p>Homework problems are essential to understanding of the materials. Although the homework comprises only 10% of the final grade, performance on the exams is usually correlated with effort on the homework problems.</p>
+<p>Whereas plagiarism will not be tolerated, students ARE encouraged to work together to learn from one another (especially those from the same IVN site) and solve problems in a collaborative and collegial way (aside from the take home exam).</p>
+</div>
+<div id="about-this-document" class="section level2">
+<h2><span class="header-section-number">1.9</span> About this document</h2>
+<p>This document, which as available as an HTML file that’s viewable on a web browser of your choice (anything will do, but we discourage using Internet Explorer) and as a PDF (accessible from the link at the top of any of the website’s pages) that may be printed, was prepared by the software tools available to R via RStudio. We use the package called <code>bookdown</code> that may be accessed and read about <a href="https://bookdown.org/yihui/bookdown/">here</a> to produce this documentation. The entire source code to reproduce this book is available from my <a href="https://github.com/ajsmit/Basic_stats">GitHub repo</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/bookdown_hex_logo.png&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:rmarkdown"></span>
+<img src="figures/bookdown_hex_logo.png" alt="Bookdown hex." width="100" />
+<p class="caption">
+Figure 1.1: Bookdown hex.
+</p>
+</div>
+<p>You will notice that this repository uses <a href="https://github.com">GitHub</a>, and you are advised to set up your own repository for R scripts and all your data. We will touch on GitHub and the principles of reproducible research later, and GitHub forms a core ingredient of such a workflow.</p>
+<p>The R session information when compiling this book is shown below:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<pre><code>R&gt; R version 3.4.4 (2018-03-15)
+R&gt; Platform: x86_64-apple-darwin15.6.0 (64-bit)
+R&gt; Running under: macOS Sierra 10.12.6
+R&gt; 
+R&gt; Matrix products: default
+R&gt; BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
+R&gt; LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+R&gt; 
+R&gt; locale:
+R&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+R&gt; 
+R&gt; attached base packages:
+R&gt; [1] stats     grDevices utils     datasets  graphics  base     
+R&gt; 
+R&gt; loaded via a namespace (and not attached):
+R&gt;  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  
+R&gt;  [5] rprojroot_1.3-2 backports_1.1.2 magrittr_1.5    evaluate_0.10.1
+R&gt;  [9] highr_0.6       stringi_1.1.7   rmarkdown_1.9   tools_3.4.4    
+R&gt; [13] stringr_1.3.0   xfun_0.1        yaml_2.1.18     compiler_3.4.4 
+R&gt; [17] htmltools_0.3.6 knitr_1.20      methods_3.4.4</code></pre>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R2017">
+<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prerequisites.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="types-of-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

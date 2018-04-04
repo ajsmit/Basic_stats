@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=03751ccfa51e97b314a4c01a87a9b1b5598c90c5" media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>One-way ANOVA | Basic_stats</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="One-way ANOVA" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic Statistics Workshop" />
+<meta property="og:description" content="Basic Statistics Workshop" />
+<link rel="canonical" href="http://localhost:4000/08-one_way_anova.html" />
+<meta property="og:url" content="http://localhost:4000/08-one_way_anova.html" />
+<meta property="og:site_name" content="Basic_stats" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/08-one_way_anova.html","headline":"One-way ANOVA","description":"Basic Statistics Workshop","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <a href="http://localhost:4000/">
+          <h1>Basic_stats</h1>
+        </a>
+        <h2>Basic Statistics Workshop</h2>
+        
+          <a href="http://github.com/ajsmit/Basic_stats" class="button"><small>View project on</small> GitHub</a>
+        
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1 id="one-way-anova">One-way ANOVA</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
+## ✔ tidyr   0.8.0     ✔ stringr 1.3.0
+## ✔ readr   1.1.1     ✔ forcats 0.3.0
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ✖ dplyr::n()      masks .env::n()
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Loading required package: magrittr
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## 
+## Attaching package: 'magrittr'
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## The following object is masked from 'package:purrr':
+## 
+##     set_names
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## The following object is masked from 'package:tidyr':
+## 
+##     extract
+</code></pre></div></div>
+
+<p>Whole big books have been written about Analysis of Variance (ANOVA). Although there are many ANOVA experimental designs available, biologists are taught to pay special attention to the design of experiments, and generally make sure that the experiments are fully factorial (in the case of two-way or higher ANOVAs) and balanced. For this reason we will focus in this Introductory Statistics course on one-way and factorial ANOVAs only.</p>
+
+<p>As t-tests, ANOVAs require that some assumtions are met:</p>
+
+<ul>
+  <li>Normally distributed data</li>
+  <li>Independence of data</li>
+  <li>In our case, we will encourage also that the data are balanced</li>
+</ul>
+
+<p>If some of the above assumptions are violated, then your course of action is either to transform the data (if non-normal) or to use a generalised linear model (also when non-normal), or to use a linear mixed model (when the assumption on non-independence cannot be garanteed). We will get to some of these methods in later chapters. Linked to the above, ANOVAs are also sensitive to the presence of outliers (see our earlier discussion about the mean and how it differs from the median), so we need to ensure that outliers are not present (they can be removed, and there are many ways of finding them and eliminating them). If outliers are an important feature of the data, then a non-parametric test can be used, or some other test that works well with extreme values can be applied.</p>
+
+<p>Rather than talking about t-tests and ANOVAs as separate things, let us acknowledge that they are similar ways of asking the same question. That question being, are the means of these two or more things we want to compare different, or the same? At this stage it is important to note that the independent variable is categorical (i.e. a factor denoting two or more different treatments or sampling conditions) and that the dependent variable is continuous. You may perhaps be more familiar with this question when it is presented as a set of hypotheses.</p>
+
+<blockquote>
+  <p>H0: Group A is not different from group B.</p>
+
+  <p>H1: Group A is different from group B.</p>
+</blockquote>
+
+<p>This is a scientific question in the simplest sense. Often, for basic inquiries such as that posed above, we need to see if one group differs significantly from another. The way in which we accomplish this is by looking at the mean and variance within a set of data compared against another similar set. In order to do so appropriately however we need to first assume that both sets of data are normally distributed, and that the variance found within each set of data is similar. These are the two primary assumptions we learned about in Chapter 6, and if they are met then we may use paramteric tests. We will learn in Chapter 9 what we can do if these assumptions are not meant and we cannot adequately transform our data, meaning we will need to use non-parametric tests.</p>
+
+<h2 id="t-test">t-test</h2>
+
+<p>A t-test is used when wants to compare two different sample sets against one another. This is also known as a two-factor or two level test. When one wants to compare multiple, more than two, sample sets against one another an ANOVA is required (see below). In order to illustrate how to perform a t-test in R we are going to once again use the <code class="highlighter-rouge">chicks</code> data, but only Diet 1 and 2 from day 21.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># First grab the data</span><span class="w">
+</span><span class="n">chicks</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as_tibble</span><span class="p">(</span><span class="n">ChickWeight</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Then subset out only the sample sets to be compared</span><span class="w">
+</span><span class="n">chicks_sub</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">chicks</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">Diet</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">21</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Once we have filtered our data we may now perform the t-test. Traditionally this would be performed with <code class="highlighter-rouge">t.test()</code>, but recent developments in R have made any testing for the comparison of means more convenient by wrapping everything up into the one single function <code class="highlighter-rouge">compare_means()</code>. We will need to use only this one signle function for all of the tests we will perform in this chapter as well as Chapter 9. To use <code class="highlighter-rouge">compare_means()</code> for a t-test we must simplu specify this in the <code class="highlighter-rouge">method</code> argument, as seen below:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compare_means</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Diet</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chicks_sub</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"t.test"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; # A tibble: 1 x 8
+R&gt;   .y.    group1 group2     p p.adj p.format p.signif method
+R&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
+R&gt; 1 weight 1      2      0.218 0.218 0.22     ns       T-test
+</code></pre></div></div>
+
+<p>As one may recall from the Intro R Workshop, whenever we want to give a formula to a function in R, we use the <code class="highlighter-rouge">~</code>. The formula used above, <code class="highlighter-rouge">weight ~ Diet</code>, reads in plain English as “weight as a function of diet”. This is perhaps easier to understand as “Y as a function of X”. This means that we are assuming whatever is to the left of the <code class="highlighter-rouge">~</code> is the dependant variable, and whatever is to the right is the independent variable. We then tell <code class="highlighter-rouge">compare_means()</code> to run a t-test on our <code class="highlighter-rouge">chicks_sub</code> dataframe and it does the rest. We see in the output above that this function gives us a rather tidy read-out of the information we require to test a potential hypothesis. Let’s take a moment to look through the help file for this function and see what all of this means. Did the Diet 1 and 2 produce significantly fatter birds?</p>
+
+<h2 id="anova">ANOVA</h2>
+
+<h3 id="single-factor">Single factor</h3>
+
+<p>In the previous section we learned how to calculate the difference between two smaple sets. But what if, as is often the case, we want to compare three or more? Again, the <code class="highlighter-rouge">chicks</code> data provide an excellent example of how to do this. The base R function for an ANOVA is <code class="highlighter-rouge">aov()</code>, but we will rather continue to use <code class="highlighter-rouge">compare_means()</code>. To look for significant differences between all four diets on the last day of sampling we use this one line of code:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compare_means</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Diet</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">chicks</span><span class="p">,</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">21</span><span class="p">),</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"anova"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; # A tibble: 1 x 6
+R&gt;   .y.          p   p.adj p.format p.signif method
+R&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
+R&gt; 1 weight 0.00686 0.00686 0.0069   **       Anova
+</code></pre></div></div>
+
+<p>When we now look at all four diets, rather than only 1 and 2, do they produce significantly different chicken weights after 21 days? If this seems to easy to be true, it’s because we aren’t quite done yet. The next step one must take is to run a Tukey test on the results of the ANOVA by wrapping <code class="highlighter-rouge">tukeyHSD()</code> around <code class="highlighter-rouge">aov()</code>:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TukeyHSD</span><span class="p">(</span><span class="n">aov</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Diet</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">chicks</span><span class="p">,</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">21</span><span class="p">)))</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt;   Tukey multiple comparisons of means
+R&gt;     95% family-wise confidence level
+R&gt; 
+R&gt; Fit: aov(formula = weight ~ Diet, data = filter(chicks, Time == 21))
+R&gt; 
+R&gt; $Diet
+R&gt;          diff        lwr       upr     p adj
+R&gt; 2-1  36.95000  -32.11064 106.01064 0.4868095
+R&gt; 3-1  92.55000   23.48936 161.61064 0.0046959
+R&gt; 4-1  60.80556  -10.57710 132.18821 0.1192661
+R&gt; 3-2  55.60000  -21.01591 132.21591 0.2263918
+R&gt; 4-2  23.85556  -54.85981 102.57092 0.8486781
+R&gt; 4-3 -31.74444 -110.45981  46.97092 0.7036249
+</code></pre></div></div>
+
+<p>The output of <code class="highlighter-rouge">tukeyHSD()</code> shows us tha pairwise comparisons of all of the groups we are comparing. Let’s look at the help file for this function to better understand what the output means. Which of the groups are significantly different from one another? Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?</p>
+
+<h3 id="multiple-factors">Multiple factors</h3>
+
+<p>What if we have multiple grouping variables, and not just one? To run an ANOVA on multiple factors we will need to use <code class="highlighter-rouge">aov()</code> rather than <code class="highlighter-rouge">compare_means()</code>. To specify the different factors we put them in our formula and separate them with a <code class="highlighter-rouge">+</code>:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">aov</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Diet</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">as.factor</span><span class="p">(</span><span class="n">Time</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">chicks</span><span class="p">,</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">))))</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt;                 Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+R&gt; Diet             3 113270   37757  10.436 6.33e-06 ***
+R&gt; as.factor(Time)  1   1488    1488   0.411    0.523    
+R&gt; Residuals       86 311147    3618                     
+R&gt; ---
+R&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</code></pre></div></div>
+
+<p>What question are we asking with the above line of code? Waht is the answer? Also, why did we wrap <code class="highlighter-rouge">Time</code> in <code class="highlighter-rouge">as.factor()</code>?</p>
+
+<p>It is also possible to look at what the effect is between gouping variables, and not just within the individual grouping variables. To do this we replace the <code class="highlighter-rouge">+</code> in our formula with <code class="highlighter-rouge">*</code>:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">aov</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Diet</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">as.factor</span><span class="p">(</span><span class="n">Time</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">chicks</span><span class="p">,</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">))))</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt;                      Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+R&gt; Diet                  3 113270   37757  10.076 9.88e-06 ***
+R&gt; as.factor(Time)       1   1488    1488   0.397    0.530    
+R&gt; Diet:as.factor(Time)  3    117      39   0.010    0.999    
+R&gt; Residuals            83 311030    3747                     
+R&gt; ---
+R&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</code></pre></div></div>
+
+<p>How do these results differ from the previous set?</p>
+
+<p>One may also run a post-hoc Tukey test on these results the same as for a single factor ANOVA:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TukeyHSD</span><span class="p">(</span><span class="n">aov</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Diet</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">as.factor</span><span class="p">(</span><span class="n">Time</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">chicks</span><span class="p">,</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">))))</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt;   Tukey multiple comparisons of means
+R&gt;     95% family-wise confidence level
+R&gt; 
+R&gt; Fit: aov(formula = weight ~ Diet * as.factor(Time), data = filter(chicks, Time %in% c(20, 21)))
+R&gt; 
+R&gt; $Diet
+R&gt;          diff        lwr       upr     p adj
+R&gt; 2-1  36.18030  -9.301330  81.66194 0.1663037
+R&gt; 3-1  90.63030  45.148670 136.11194 0.0000075
+R&gt; 4-1  62.25253  15.223937 109.28111 0.0045092
+R&gt; 3-2  54.45000   3.696023 105.20398 0.0305957
+R&gt; 4-2  26.07222 -26.072532  78.21698 0.5586643
+R&gt; 4-3 -28.37778 -80.522532  23.76698 0.4863940
+R&gt; 
+R&gt; $`as.factor(Time)`
+R&gt;           diff       lwr      upr     p adj
+R&gt; 21-20 8.088223 -17.44017 33.61661 0.5303164
+R&gt; 
+R&gt; $`Diet:as.factor(Time)`
+R&gt;                 diff        lwr        upr     p adj
+R&gt; 2:20-1:20  35.188235  -40.67378 111.050253 0.8347209
+R&gt; 3:20-1:20  88.488235   12.62622 164.350253 0.0111136
+R&gt; 4:20-1:20  63.477124  -14.99365 141.947897 0.2035951
+R&gt; 1:21-1:20   7.338235  -58.96573  73.642198 0.9999703
+R&gt; 2:21-1:20  44.288235  -31.57378 120.150253 0.6116081
+R&gt; 3:21-1:20  99.888235   24.02622 175.750253 0.0023872
+R&gt; 4:21-1:20  68.143791  -10.32698 146.614563 0.1371181
+R&gt; 3:20-2:20  53.300000  -31.82987 138.429869 0.5234263
+R&gt; 4:20-2:20  28.288889  -59.17374 115.751515 0.9723470
+R&gt; 1:21-2:20 -27.850000 -104.58503  48.885027 0.9486212
+R&gt; 2:21-2:20   9.100000  -76.02987  94.229869 0.9999766
+R&gt; 3:21-2:20  64.700000  -20.42987 149.829869 0.2732059
+R&gt; 4:21-2:20  32.955556  -54.50707 120.418182 0.9377007
+R&gt; 4:20-3:20 -25.011111 -112.47374  62.451515 0.9862822
+R&gt; 1:21-3:20 -81.150000 -157.88503  -4.414973 0.0305283
+R&gt; 2:21-3:20 -44.200000 -129.32987  40.929869 0.7402877
+R&gt; 3:21-3:20  11.400000  -73.72987  96.529869 0.9998919
+R&gt; 4:21-3:20 -20.344444 -107.80707  67.118182 0.9960548
+R&gt; 1:21-4:20 -56.138889 -135.45396  23.176184 0.3619622
+R&gt; 2:21-4:20 -19.188889 -106.65152  68.273738 0.9972631
+R&gt; 3:21-4:20  36.411111  -51.05152 123.873738 0.8984019
+R&gt; 4:21-4:20   4.666667  -85.06809  94.401428 0.9999998
+R&gt; 2:21-1:21  36.950000  -39.78503 113.685027 0.8067041
+R&gt; 3:21-1:21  92.550000   15.81497 169.285027 0.0075185
+R&gt; 4:21-1:21  60.805556  -18.50952 140.120628 0.2629945
+R&gt; 3:21-2:21  55.600000  -29.52987 140.729869 0.4679025
+R&gt; 4:21-2:21  23.855556  -63.60707 111.318182 0.9896157
+R&gt; 4:21-3:21 -31.744444 -119.20707  55.718182 0.9486128
+</code></pre></div></div>
+
+<p>Jikes! That’s a massive amount of results. What does all of this mean, and why is it so verbose?</p>
+
+<h2 id="exercises">Exercises</h2>
+
+<h3 id="exercise-1">Exercise 1</h3>
+
+<p>Write out the hypotheses that we tested for in this chapter and answer them based on the results we produced in class.</p>
+
+        </section>
+
+        <aside id="sidebar">
+          
+
+          
+            <p class="repo-owner"><a href="http://github.com/ajsmit/Basic_stats">Basic_stats</a> is maintained by <a href="http://github.com/ajsmit">ajsmit</a>.</p>
+          
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+    
+  </body>
+</html>
