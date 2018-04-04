@@ -7,11 +7,6 @@ Therefore, we must next learn about the different types of data distributions we
 
 ## Binomial distribution
 
-
-```r
-knitr::include_app("https://robert-schlegel.shinyapps.io/binomial_dist/", height = "600px")
-```
-
 <iframe src="https://robert-schlegel.shinyapps.io/binomial_dist/?showcase=0" width="672" height="600px"></iframe>
 
 ## Poisson distribution
@@ -25,7 +20,21 @@ knitr::include_app("https://robert-schlegel.shinyapps.io/poisson_dist/", height 
 
 ## Continuous uniform distribution
 
+
+```r
+knitr::include_app("https://robert-schlegel.shinyapps.io/uniform_dist/", height = "600px")
+```
+
+<iframe src="https://robert-schlegel.shinyapps.io/uniform_dist/?showcase=0" width="672" height="600px"></iframe>
+
 ## Exponential distribution
+
+
+```r
+knitr::include_app("https://robert-schlegel.shinyapps.io/exponential_dist/", height = "600px")
+```
+
+<iframe src="https://robert-schlegel.shinyapps.io/exponential_dist/?showcase=0" width="672" height="600px"></iframe>
 
 ## Normal distribution
 
@@ -36,6 +45,27 @@ knitr::include_app("https://robert-schlegel.shinyapps.io/poisson_dist/", height 
 
 ## Chi-squared distribution
 
+
+```r
+knitr::include_app("https://robert-schlegel.shinyapps.io/chi_squared_dist/", height = "600px")
+```
+
+<iframe src="https://robert-schlegel.shinyapps.io/chi_squared_dist/?showcase=0" width="672" height="600px"></iframe>
+
 ## Student t distribution
 
+
+```r
+knitr::include_app("https://robert-schlegel.shinyapps.io/student_t_dist/", height = "600px")
+```
+
+<iframe src="https://robert-schlegel.shinyapps.io/student_t_dist/?showcase=0" width="672" height="600px"></iframe>
+
 ## F distribution
+
+
+```r
+knitr::include_app("https://robert-schlegel.shinyapps.io/f_dist/", height = "600px")
+```
+
+<iframe src="https://robert-schlegel.shinyapps.io/f_dist/?showcase=0" width="672" height="600px"></iframe>

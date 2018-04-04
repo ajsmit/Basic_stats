@@ -25,7 +25,15 @@ knitr::include_app("https://robert-schlegel.shinyapps.io/poisson_dist/", height 
 
 ## Continuous uniform distribution
 
+```{r}
+knitr::include_app("https://robert-schlegel.shinyapps.io/uniform_dist/", height = "600px")
+```
+
 ## Exponential distribution
+
+```{r}
+knitr::include_app("https://robert-schlegel.shinyapps.io/exponential_dist/", height = "600px")
+```
 
 ## Normal distribution
 
@@ -35,6 +43,18 @@ knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
 
 ## Chi-squared distribution
 
+```{r}
+knitr::include_app("https://robert-schlegel.shinyapps.io/chi_squared_dist/", height = "600px")
+```
+
 ## Student t distribution
 
+```{r}
+knitr::include_app("https://robert-schlegel.shinyapps.io/student_t_dist/", height = "600px")
+```
+
 ## F distribution
+
+```{r}
+knitr::include_app("https://robert-schlegel.shinyapps.io/f_dist/", height = "600px")
+```
