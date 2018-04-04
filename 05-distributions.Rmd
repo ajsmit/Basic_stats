@@ -36,7 +36,7 @@ A negative binomial random variable, $x$, counts the number of successes in a se
 $$f(x;n,r,p)= {x+r-1\choose x}p^{x}(1-p)^{r}$$
 
 ```{r, echo = FALSE}
-knitr::include_app("https://robert-schlegel.shinyapps.io/binomial_dist/", height = "600px")
+# knitr::include_app("https://robert-schlegel.shinyapps.io/binomial_dist/", height = "600px")
 ```
 
 ### Geometric distribution
@@ -50,7 +50,7 @@ A Poisson random variable, $x$, tallies the number of events occurring in a fixe
 $$f(x;\lambda)=\frac{\lambda^{x}e^{-\lambda}}{x!}$$
 
 ```{r, echo=FALSE}
-knitr::include_app("https://robert-schlegel.shinyapps.io/poisson_dist/", height = "600px")
+# knitr::include_app("https://robert-schlegel.shinyapps.io/poisson_dist/", height = "600px")
 ```
 
 ## Continuous distributions
@@ -58,10 +58,18 @@ knitr::include_app("https://robert-schlegel.shinyapps.io/poisson_dist/", height 
 ### Uniform distribution
 
 ```{r, echo=FALSE}
-knitr::include_app("https://robert-schlegel.shinyapps.io/uniform_dist/", height = "600px")
+# knitr::include_app("https://robert-schlegel.shinyapps.io/uniform_dist/", height = "600px")
 ```
 
 ### Normal distribution
+
+```{r}
+library(plotly)
+x <- rnorm(100, 5, 1)
+plot_ly(x = x, type = "histogram") %>%
+  add_boxplot()
+```
+
 
 ```{r PDF, echo = FALSE, fig.margin = TRUE, fig.cap = "Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)"}
 knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
@@ -70,25 +78,25 @@ knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
 ### Student T distribution
 
 ```{r, echo=FALSE}
-knitr::include_app("https://robert-schlegel.shinyapps.io/student_t_dist/", height = "600px")
+# knitr::include_app("https://robert-schlegel.shinyapps.io/student_t_dist/", height = "600px")
 ```
 
 ### Chi-squared distribution
 
 ```{r, echo=FALSE}
-knitr::include_app("https://robert-schlegel.shinyapps.io/chi_squared_dist/", height = "600px")
+# knitr::include_app("https://robert-schlegel.shinyapps.io/chi_squared_dist/", height = "600px")
 ```
 
 ### Exponential distribution
 
 ```{r, echo=FALSE}
-knitr::include_app("https://robert-schlegel.shinyapps.io/exponential_dist/", height = "600px")
+# knitr::include_app("https://robert-schlegel.shinyapps.io/exponential_dist/", height = "600px")
 ```
 
 ### F distribution
 
 ```{r, echo=FALSE}
-knitr::include_app("https://robert-schlegel.shinyapps.io/f_dist/", height = "600px")
+# knitr::include_app("https://robert-schlegel.shinyapps.io/f_dist/", height = "600px")
 ```
 
 ### Gamma distribution

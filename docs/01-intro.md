@@ -81,8 +81,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]   0.6833691  -5.0048931 -13.7805344   9.8663684  15.7583015
-R>  [6]  12.5748652 -21.8451776  -6.1227266  18.4162677  11.6000100
+R>  [1]  0.2685677 -6.8569539 17.7626560 -4.0749092  4.9456339 15.4150346
+R>  [7] 15.8626816 -9.9012246  5.5902842  1.8855904
 ```
 
 Consult these resources for more about R code style :
@@ -124,18 +124,23 @@ sessionInfo()
 
 ```
 R> R version 3.4.4 (2018-03-15)
-R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
-R> Running under: macOS Sierra 10.12.6
+R> Platform: x86_64-pc-linux-gnu (64-bit)
+R> Running under: Ubuntu 16.04.4 LTS
 R> 
 R> Matrix products: default
-R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
-R> LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+R> BLAS: /usr/lib/libblas/libblas.so.3.6.0
+R> LAPACK: /usr/lib/lapack/liblapack.so.3.6.0
 R> 
 R> locale:
-R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+R>  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C              
+R>  [3] LC_TIME=en_ZA.UTF-8        LC_COLLATE=en_ZA.UTF-8    
+R>  [5] LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
+R>  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                 
+R>  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+R> [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
 R> 
 R> attached base packages:
-R> [1] stats     grDevices utils     datasets  graphics  base     
+R> [1] stats     graphics  grDevices utils     datasets  base     
 R> 
 R> loaded via a namespace (and not attached):
 R>  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  
