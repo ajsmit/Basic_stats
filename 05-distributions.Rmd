@@ -15,7 +15,7 @@ Therefore, we must next learn about the different types of data distributions we
 A discrete random variable has a finite or countable number of possible values. As the name suggests, it models integer data. Below we provide options to generate and visualise data belonging to several classes of discrete distributions. Later (Chapter X) we will learn how to transform these data prior to performing the approapriate statistical analysis.
 
 ### Bernoulli distribution
-A Bernoulli random variable, $x$, takes the value 1 with probability of $p$ and the value 0 with probability of $1−p$. It is used to represent data resulting from experiments with binary outcomes, such as a coin toss.
+A Bernoulli random variable, $x$, takes the value 1 with probability $p$ and the value 0 with probability $q=1−p$. It is used to represent data resulting from a *single* experiment with binary (yes or no; black or white; positive or negative; success or failure; dead or alive;) outcomes, such as a coin toss---there are only two options, heads or tails. Nothing else. Here, $p$ represents the probability of the one outcome and $q$ the probability of the other outcome. The distribution of the possible outcomes, $x$, is given by:
 
 $$
 f(x;p)=
@@ -26,7 +26,7 @@ f(x;p)=
 $$
 
 ### Binomial distribution
-A binomial random variable, $x$, is the sum of $n$ independent Bernoulli random variables with parameter $p$. This data distribution results from repeating identical experiments that produce a binary outcome with probability $p$ a specified number of times, and choosing $n$ samples at random:
+A binomial random variable, $x$, is the sum of $n$ independent Bernoulli random variables with parameter $p$. This data distribution results from repeating identical experiments that produce a binary outcome with probability $p$ a specified number of times, and choosing $n$ samples at random. As such, it represents a collection of Bernoulli trials.
 
 $$f(x;n,p)= {n\choose x}p^{x}(1-p)^{n-x}$$
 
