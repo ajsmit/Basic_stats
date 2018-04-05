@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-04">
+<meta name="date" content="2018-04-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -313,22 +320,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="confidence-intervals" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Confidence intervals</h1>
 <p>A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. To calculate a confidence interval requires three things:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># First we set the sample mean</span></a>
-<a class="sourceLine" id="cb62-2" data-line-number="2">sample_mean &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb62-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb62-4" data-line-number="4"><span class="co"># Then the sample standard deviation</span></a>
-<a class="sourceLine" id="cb62-5" data-line-number="5">sample_sd &lt;-<span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb62-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb62-7" data-line-number="7"><span class="co"># Then the number of samples</span></a>
-<a class="sourceLine" id="cb62-8" data-line-number="8">sample_n &lt;-<span class="st"> </span><span class="dv">20</span></a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="co"># First we set the sample mean</span></a>
+<a class="sourceLine" id="cb61-2" data-line-number="2">sample_mean &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb61-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb61-4" data-line-number="4"><span class="co"># Then the sample standard deviation</span></a>
+<a class="sourceLine" id="cb61-5" data-line-number="5">sample_sd &lt;-<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb61-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb61-7" data-line-number="7"><span class="co"># Then the number of samples</span></a>
+<a class="sourceLine" id="cb61-8" data-line-number="8">sample_n &lt;-<span class="st"> </span><span class="dv">20</span></a></code></pre></div>
 <p>Once we know these things we must then use the following formula to calculate th CI:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">error &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>sample_sd<span class="op">/</span><span class="kw">sqrt</span>(sample_n)</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">error &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>sample_sd<span class="op">/</span><span class="kw">sqrt</span>(sample_n)</a></code></pre></div>
 <p>With the CI known, we then substract/add it from the sample mean in order to find the upper and lower limits:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">lower &lt;-<span class="st"> </span>sample_mean<span class="op">-</span>error</a>
-<a class="sourceLine" id="cb64-2" data-line-number="2">upper &lt;-<span class="st"> </span>sample_mean<span class="op">+</span>error</a>
-<a class="sourceLine" id="cb64-3" data-line-number="3">lower</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">lower &lt;-<span class="st"> </span>sample_mean<span class="op">-</span>error</a>
+<a class="sourceLine" id="cb63-2" data-line-number="2">upper &lt;-<span class="st"> </span>sample_mean<span class="op">+</span>error</a>
+<a class="sourceLine" id="cb63-3" data-line-number="3">lower</a></code></pre></div>
 <pre><code>R&gt; [1] 9.123477</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">upper</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">upper</a></code></pre></div>
 <pre><code>R&gt; [1] 10.87652</code></pre>
 
 </div>

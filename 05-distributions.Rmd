@@ -7,6 +7,7 @@ knitr::opts_chunk$set(
   warning = FALSE, 
   message = FALSE
 )
+library(plotly)
 ```
 
 Therefore, we must next learn about the different types of data distributions we are likely to encounter in the wild.
@@ -15,7 +16,7 @@ Therefore, we must next learn about the different types of data distributions we
 A discrete random variable has a finite or countable number of possible values. As the name suggests, it models integer data. Below we provide options to generate and visualise data belonging to several classes of discrete distributions. Later (Chapter X) we will learn how to transform these data prior to performing the approapriate statistical analysis.
 
 ### Bernoulli distribution
-A Bernoulli random variable, $x$, takes the value 1 with probability of $p$ and the value 0 with probability of $1−p$. It is used to represent data resulting from experiments with binary outcomes, such as a coin toss.
+A Bernoulli random variable, $x$, takes the value 1 with probability $p$ and the value 0 with probability $q=1−p$. It is used to represent data resulting from a *single* experiment with binary (yes or no; black or white; positive or negative; success or failure; dead or alive;) outcomes, such as a coin toss---there are only two options, heads or tails. Nothing else. Here, $p$ represents the probability of the one outcome and $q$ the probability of the other outcome. The distribution of the possible outcomes, $x$, is given by:
 
 $$
 f(x;p)=
@@ -26,7 +27,7 @@ f(x;p)=
 $$
 
 ### Binomial distribution
-A binomial random variable, $x$, is the sum of $n$ independent Bernoulli random variables with parameter $p$. This data distribution results from repeating identical experiments that produce a binary outcome with probability $p$ a specified number of times, and choosing $n$ samples at random:
+A binomial random variable, $x$, is the sum of $n$ independent Bernoulli random variables with parameter $p$. This data distribution results from repeating identical experiments that produce a binary outcome with probability $p$ a specified number of times, and choosing $n$ samples at random. As such, it represents a collection of Bernoulli trials.
 
 $$f(x;n,p)= {n\choose x}p^{x}(1-p)^{n-x}$$
 
@@ -64,10 +65,40 @@ $$f(x;\lambda)=\frac{\lambda^{x}e^{-\lambda}}{x!}$$
 ### Normal distribution
 
 ```{r}
-library(plotly)
-x <- rnorm(100, 5, 1)
-plot_ly(x = x, type = "histogram") %>%
-  add_boxplot()
+norm_dat <- data.frame(dist = c(rnorm(10, 10, 1), rnorm(100, 10, 1), rnorm(1000, 10, 1),
+                                rnorm(10, 20, 1), rnorm(100, 20, 1), rnorm(1000, 20, 1),
+                                rnorm(10, 30, 1), rnorm(100, 30, 1), rnorm(1000, 30, 1),
+                                rnorm(10, 10, 2), rnorm(100, 10, 2), rnorm(1000, 10, 2),
+                                rnorm(10, 20, 2), rnorm(100, 20, 2), rnorm(1000, 20, 2),
+                                rnorm(10, 30, 2), rnorm(100, 30, 2), rnorm(1000, 30, 2),
+                                rnorm(10, 10, 3), rnorm(100, 10, 3), rnorm(1000, 10, 3),
+                                rnorm(10, 20, 3), rnorm(100, 20, 3), rnorm(1000, 20, 3),
+                                rnorm(10, 30, 3), rnorm(100, 30, 3), rnorm(1000, 30, 3)),
+                       norm_group = paste(rep(c(rep("n = 10", 10), rep("n = 100", 100), rep("n = 1000", 1000)), 9),
+                                      rep(c(rep("m = 10", 1110), rep("m = 20", 1110), rep("m = 30", 1110)), 3),
+                                      c(rep("sd = 1", 3330), rep("sd = 2", 3330), rep("sd = 3", 3330))))
+
+# Create all of the buttons
+l = list()
+for (i in 1:length(levels(norm_dat$norm_group))) {
+  ll = list(method = "restyle",
+            args = list("transforms[0].value", unique(norm_dat$norm_group)[i]),
+            label = unique(norm_dat$norm_group)[i]) 
+  l[[i]] = ll
+}
+
+# Run the figure
+p <- plot_ly(data = norm_dat, type = 'histogram', x = ~dist,
+          transforms = list(
+            list(type = 'filter',
+                 target = ~norm_group,
+                 operation = '=',
+                 value = unique(norm_dat$norm_group)[1]))) %>%
+  layout(
+    updatemenus = list(
+      list(x = 0.2, y = 1.1, buttons = l)))
+
+p
 ```
 
 ```{r PDF, echo = FALSE, fig.margin = TRUE, fig.cap = "Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)"}

@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-04">
+<meta name="date" content="2018-04-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -383,8 +390,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Commands entered onto the R command line (console) and the output that is returned will be shown in a code block, which is a light grey background with code font. The commands entered start at the beginning of a line and the output it produces is preceded by <code>R&gt;</code>, like so:</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">13</span>)</a></code></pre></div>
-<pre><code>R&gt;  [1]   0.6833691  -5.0048931 -13.7805344   9.8663684  15.7583015
-R&gt;  [6]  12.5748652 -21.8451776  -6.1227266  18.4162677  11.6000100</code></pre>
+<pre><code>R&gt;  [1]  -0.8759925   0.7343694 -16.7771184   6.6990968  -4.8447596
+R&gt;  [6]   6.2763795  -2.6443716 -13.2744824  -7.7641231 -21.4471054</code></pre>
 <p>Consult these resources for more about R code style :</p>
 <ul>
 <li><a href="https://google.github.io/styleguide/Rguide.xml">Google’s R style guide</a></li>
@@ -414,7 +421,7 @@ Figure 1.1: Bookdown hex.
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
 <pre><code>R&gt; R version 3.4.4 (2018-03-15)
 R&gt; Platform: x86_64-apple-darwin15.6.0 (64-bit)
-R&gt; Running under: macOS Sierra 10.12.6
+R&gt; Running under: macOS High Sierra 10.13.3
 R&gt; 
 R&gt; Matrix products: default
 R&gt; BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
@@ -424,7 +431,7 @@ R&gt; locale:
 R&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 R&gt; 
 R&gt; attached base packages:
-R&gt; [1] stats     grDevices utils     datasets  graphics  base     
+R&gt; [1] stats     graphics  grDevices utils     datasets  base     
 R&gt; 
 R&gt; loaded via a namespace (and not attached):
 R&gt;  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  

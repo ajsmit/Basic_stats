@@ -81,8 +81,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]   0.6833691  -5.0048931 -13.7805344   9.8663684  15.7583015
-R>  [6]  12.5748652 -21.8451776  -6.1227266  18.4162677  11.6000100
+R>  [1]  -0.8759925   0.7343694 -16.7771184   6.6990968  -4.8447596
+R>  [6]   6.2763795  -2.6443716 -13.2744824  -7.7641231 -21.4471054
 ```
 
 Consult these resources for more about R code style :
@@ -125,7 +125,7 @@ sessionInfo()
 ```
 R> R version 3.4.4 (2018-03-15)
 R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
-R> Running under: macOS Sierra 10.12.6
+R> Running under: macOS High Sierra 10.13.3
 R> 
 R> Matrix products: default
 R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
@@ -135,7 +135,7 @@ R> locale:
 R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 R> 
 R> attached base packages:
-R> [1] stats     grDevices utils     datasets  graphics  base     
+R> [1] stats     graphics  grDevices utils     datasets  base     
 R> 
 R> loaded via a namespace (and not attached):
 R>  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  
