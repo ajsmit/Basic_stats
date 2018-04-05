@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-04">
+<meta name="date" content="2018-04-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,41 +57,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -291,70 +319,85 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="graphical-data-displays" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Graphical data displays</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(ggpubr)</code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
 <div id="frequency-distributions" class="section level2">
 <h2><span class="header-section-number">4.1</span> Frequency distributions</h2>
 <div id="qualitative-data-1" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Qualitative data</h3>
-<div id="frequency-distribution" class="section level4">
-<h4><span class="header-section-number">4.1.1.1</span> Frequency distribution</h4>
-<p>This kind of graph applies to categorical data. Although it can also be presented numerically in tabular form, one may also create a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both approaches will be demonstrated here.</p>
+<p>Qualitative data that describe group representivity to various categories are best described with frequency distribution histograms (I interchangably use histograms, frequency histograms, and frequency distribution histograms). Histograms apply to categorical data. Although it can also be presented numerically in tabular form, one may also create a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both the data and graphical displays will be demonstrated here.</p>
+<p>The first case of a frequency distribution histogram is one that shows the raw counts per each of the categories that are represented in the data. The count within each of the categories (represented by a bar graph called a histogram) sums to the sample size, <span class="math inline">\(n\)</span>. In the second case, we may want to report that data as proportions. Here we show the frequency proportion in a collection of non-overlapping categories. For example, we have a sample size of 12 (<span class="math inline">\(n=12\)</span>). In this sample, two are coloured blue, six red, and five purple. The relative proportions are <span class="math inline">\(2/12=0.1666667\)</span> blue, <span class="math inline">\(6/12=0.5\)</span> red, and <span class="math inline">\(5/12=0.4166667\)</span> purple. The important thing to note here is that the relative proportions sum to 1, i.e. <span class="math inline">\(0.1666667+0.5+0.4166667=1\)</span>. These data may be presented as a table or as a graph.
+<!-- show example of frequency distribution bar graph -->
+<!-- show example of pie graph -->
+<!-- show example of numerical summary --></p>
 <!-- show example of numerical summary -->
 <!-- show example of frequency distribution bar graph -->
 <!-- show example of pie graph -->
-</div>
-<div id="relative-frequency-distributions" class="section level4">
-<h4><span class="header-section-number">4.1.1.2</span> Relative frequency distributions</h4>
-<p>This is similar to the frequency distribution of qualitative data, except that now we show the frequency proportion in a collection of non-overlapping categories. An example:</p>
-<p>We have a sample size of 12 (<span class="math inline">\(n=12\)</span>). In this sample, two are coloured blue, six red, and five purple. The relative proportions are <span class="math inline">\(2/12=0.1666667\)</span> blue, <span class="math inline">\(6/12=0.5\)</span> red, and <span class="math inline">\(5/12=0.4166667\)</span> purple. The important thing to note here is that the relative proportions sum to 1, i.e. <span class="math inline">\(0.1666667+0.5+0.4166667=1\)</span>. These data may be presented as a table or as a graph.</p>
-<!-- show example of numerical summary -->
-<!-- show example of frequency distribution bar graph -->
-<!-- show example of pie graph -->
-</div>
 </div>
 <div id="continuous-data-1" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Continuous data</h3>
-<div id="frequency-distribution-histograms" class="section level4">
-<h4><span class="header-section-number">4.1.2.1</span> Frequency distribution (histograms)</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
-<p><img src="04-graphics_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="frequency-distributions-histograms" class="section level4">
+<h4><span class="header-section-number">4.1.2.1</span> Frequency distributions (histograms)</h4>
+<p>As with discrete data, we have a choice of absolute and relative frequency histograms. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called <em>bins</em>. See the Old Faithful data, for example. The eruptions last between 1.6 and 5.1 minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The <strong>ggplot2</strong> <code>geom_histogram()</code> function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure X A-B).</p>
 <!-- show example of numerical summary -->
-<!-- show example of a histogram -->
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="co"># a normal frequency histogram, with count along y</span></a>
+<a class="sourceLine" id="cb58-2" data-line-number="2">hist1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb58-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb58-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb58-5" data-line-number="5">       <span class="dt">subtitle =</span> <span class="st">&quot;A vanilla frequency histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb58-6" data-line-number="6">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb58-7" data-line-number="7">       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>)</a>
+<a class="sourceLine" id="cb58-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb58-9" data-line-number="9"><span class="co"># when the binwidth is 1, the density histogram *is* the relative</span></a>
+<a class="sourceLine" id="cb58-10" data-line-number="10"><span class="co"># frequency histogram</span></a>
+<a class="sourceLine" id="cb58-11" data-line-number="11">hist2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb58-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),</a>
+<a class="sourceLine" id="cb58-13" data-line-number="13">                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb58-14" data-line-number="14">                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb58-15" data-line-number="15"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb58-16" data-line-number="16">       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb58-17" data-line-number="17">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb58-18" data-line-number="18">       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>)</a>
+<a class="sourceLine" id="cb58-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb58-20" data-line-number="20"><span class="co"># if binwidth is something other than 1, the relative frequency in</span></a>
+<a class="sourceLine" id="cb58-21" data-line-number="21"><span class="co"># a histogram is ..density.. * binwidth</span></a>
+<a class="sourceLine" id="cb58-22" data-line-number="22">hist3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb58-23" data-line-number="23"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span>..density..),</a>
+<a class="sourceLine" id="cb58-24" data-line-number="24">                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb58-25" data-line-number="25">                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb58-26" data-line-number="26"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb58-27" data-line-number="27">       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb58-28" data-line-number="28">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb58-29" data-line-number="29">       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>)</a>
+<a class="sourceLine" id="cb58-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb58-31" data-line-number="31"><span class="kw">ggarrange</span>(hist1, hist2, hist3, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-2-1.png" alt="Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1." width="672" />
+<p class="caption">
+Figure 4.1: Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.
+</p>
 </div>
-<div id="relative-frequency-distributions-1" class="section level4">
-<h4><span class="header-section-number">4.1.2.2</span> Relative frequency distributions</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">faithful <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eruptions =</span> eruptions <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(eruptions)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..ndensity..))</code></pre></div>
-<p><img src="04-graphics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ggplot(data = faithful, aes(x = eruptions)) +</span>
-<span class="co">#   geom_density(fill = &quot;salmon&quot;, aes(y = ..density..)) +</span>
-<span class="co">#   scale_x_continuous(expand = c(0, 0)) +</span>
-<span class="co">#   scale_y_continuous(expand = c(0, 0))</span></code></pre></div>
 <!-- show example of numerical summary -->
 <!-- show example of a histogram (desnity/probability) -->
 </div>
 <div id="cumulative-frequency-distributions" class="section level4">
-<h4><span class="header-section-number">4.1.2.3</span> Cumulative frequency distributions</h4>
+<h4><span class="header-section-number">4.1.2.2</span> Cumulative frequency distributions</h4>
 <!-- show example of numerical summary -->
 <!-- show example of a cumulative frequency graph -->
 </div>
 <div id="cumulative-relative-frequency-distributions" class="section level4">
-<h4><span class="header-section-number">4.1.2.4</span> Cumulative relative frequency distributions</h4>
+<h4><span class="header-section-number">4.1.2.3</span> Cumulative relative frequency distributions</h4>
 <!-- show example of numerical summary -->
 <!-- show example of a cumulative relative frequency graph -->
 </div>
 <div id="scatter-plots" class="section level4">
-<h4><span class="header-section-number">4.1.2.5</span> Scatter plots</h4>
+<h4><span class="header-section-number">4.1.2.4</span> Scatter plots</h4>
 <p>Relationship between two (matched) continuous variables.</p>
 <!-- show example of a scatter plot -->
 <!-- show example of correlation -->
 </div>
 <div id="box-plots" class="section level4">
-<h4><span class="header-section-number">4.1.2.6</span> Box plots</h4>
+<h4><span class="header-section-number">4.1.2.5</span> Box plots</h4>
 <p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution.</p>
 <!-- show example of a box plot -->
 </div>
@@ -423,7 +466,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

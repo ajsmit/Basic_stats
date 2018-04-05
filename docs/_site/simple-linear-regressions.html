@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-04">
+<meta name="date" content="2018-04-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,41 +57,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -291,14 +319,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="simple-linear-regressions" class="section level1">
 <h1><span class="header-section-number">Chapter 15</span> Simple linear regressions</h1>
-<pre><code>## ── Attaching packages ───────────────</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
-## ✔ tibble  1.4.2          ✔ dplyr   0.7.4.9000
-## ✔ tidyr   0.8.0          ✔ stringr 1.3.0     
-## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
+## ✔ tidyr   0.8.0     ✔ stringr 1.3.0
+## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ .GlobalEnv::arrange() masks dplyr::arrange()
+## ✖ dplyr::filter()       masks stats::filter()
+## ✖ dplyr::lag()          masks stats::lag()
+## ✖ dplyr::n()            masks .env::n()</code></pre>
 <p>Regressions test the statistical significance of the <em>dependence</em> of one continuous variable on one or many independent continuous variables.</p>
 <div id="the-simple-linear-regression-equation" class="section level2">
 <h2><span class="header-section-number">15.1</span> The simple linear regression equation</h2>
@@ -307,7 +337,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Coefficients are parameters (statistics) that describe two properties of the linear line that best fit a scatter plot between a dependent variable and the independent variable. The dependent variable, <span class="math inline">\(y_{n}\)</span>, may also be called the response variable, and the independent variable, <span class="math inline">\(x_{n}\)</span>, the predictor. The regression model consists of an intercept term, <span class="math inline">\(\alpha\)</span>, that describes where the fitted line starts and intercepts with the <em>y</em>-axis, and the <em>slope</em>, <span class="math inline">\(\beta\)</span>, of the line. The amount of variation not explained by a linear relationship of <span class="math inline">\(y\)</span> on <span class="math inline">\(x\)</span> is termed the residual variation, or simply the residual or the error term, and in the above equation it is indicated by <span class="math inline">\(\epsilon\)</span>.</p>
 <p>The parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are determined by minimising the sum of squares of the error term, <span class="math inline">\(\epsilon\)</span>. It allows us to predict new fitted values of <span class="math inline">\(y\)</span> based on values of <span class="math inline">\(x\)</span>.</p>
 <p>We will demonstrate the principle behind a simple linear regression by using the built-in dataset <code>faithful</code>. According to the R help file for the data, the dataset describes the “Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA.”</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(faithful)</code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="kw">head</span>(faithful)</a></code></pre></div>
 <pre><code>R&gt;   eruptions waiting
 R&gt; 1     3.600      79
 R&gt; 2     1.800      54
@@ -318,8 +348,8 @@ R&gt; 6     2.883      55</code></pre>
 <p>In this dataset there are two columns: the first, <code>eruptions</code>, denotes the duration of the eruption (in minutes), and the second, <code>waiting</code>, is the waiting time (also in minutes) until the next eruptions. Its linear regression model can be expressed as:</p>
 <p><span class="math display">\[eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon\]</span></p>
 <p>Here we fit the model in R. When we perform a linear regression in R, it’ll output the model and the coefficients:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eruption.lm =<span class="st"> </span><span class="kw">lm</span>(eruptions <span class="op">~</span><span class="st"> </span>waiting, <span class="dt">data =</span> faithful)
-<span class="kw">summary</span>(eruption.lm)</code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">eruption.lm =<span class="st"> </span><span class="kw">lm</span>(eruptions <span class="op">~</span><span class="st"> </span>waiting, <span class="dt">data =</span> faithful)</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2"><span class="kw">summary</span>(eruption.lm)</a></code></pre></div>
 <pre><code>R&gt; 
 R&gt; Call:
 R&gt; lm(formula = eruptions ~ waiting, data = faithful)
@@ -348,44 +378,44 @@ R&gt; F-statistic:  1162 on 1 and 270 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div id="a-graph-of-the-linear-regression" class="section level3">
 <h3><span class="header-section-number">15.1.3</span> A graph of the linear regression</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">slope &lt;-<span class="st"> </span><span class="kw">round</span>(eruption.lm<span class="op">$</span>coef[<span class="dv">2</span>], <span class="dv">3</span>)
-<span class="co"># p.val &lt;- round(coefficients(summary(eruption.lm))[2, 4], 3) # it approx. 0, so...</span>
-p.val =<span class="st"> </span><span class="fl">0.001</span>
-r2 &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">summary</span>(eruption.lm)<span class="op">$</span>r.squared, <span class="dv">3</span>)
-
-<span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> waiting, <span class="dt">y =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">45</span>, <span class="dt">y =</span> <span class="dv">5</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;slope == &quot;</span>, slope, <span class="st">&quot;~(min/min)&quot;</span>), <span class="dt">parse =</span> <span class="ot">TRUE</span>, <span class="dt">hjust =</span> <span class="dv">0</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">45</span>, <span class="dt">y =</span> <span class="fl">4.75</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;italic(P) &lt; &quot;</span>, p.val), <span class="dt">parse =</span> <span class="ot">TRUE</span>, <span class="dt">hjust =</span> <span class="dv">0</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">45</span>, <span class="dt">y =</span> <span class="fl">4.5</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;italic(r)^2 == &quot;</span>, r2), <span class="dt">parse =</span> <span class="ot">TRUE</span>, <span class="dt">hjust =</span> <span class="dv">0</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;salmon&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful eruption data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Linear regression&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Waiting time (minutes)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Eruption duration (minutes)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">slope &lt;-<span class="st"> </span><span class="kw">round</span>(eruption.lm<span class="op">$</span>coef[<span class="dv">2</span>], <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb123-2" data-line-number="2"><span class="co"># p.val &lt;- round(coefficients(summary(eruption.lm))[2, 4], 3) # it approx. 0, so...</span></a>
+<a class="sourceLine" id="cb123-3" data-line-number="3">p.val =<span class="st"> </span><span class="fl">0.001</span></a>
+<a class="sourceLine" id="cb123-4" data-line-number="4">r2 &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">summary</span>(eruption.lm)<span class="op">$</span>r.squared, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb123-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb123-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> waiting, <span class="dt">y =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb123-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb123-8" data-line-number="8"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">45</span>, <span class="dt">y =</span> <span class="dv">5</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;slope == &quot;</span>, slope, <span class="st">&quot;~(min/min)&quot;</span>), <span class="dt">parse =</span> <span class="ot">TRUE</span>, <span class="dt">hjust =</span> <span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb123-9" data-line-number="9"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">45</span>, <span class="dt">y =</span> <span class="fl">4.75</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;italic(P) &lt; &quot;</span>, p.val), <span class="dt">parse =</span> <span class="ot">TRUE</span>, <span class="dt">hjust =</span> <span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb123-10" data-line-number="10"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">45</span>, <span class="dt">y =</span> <span class="fl">4.5</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;italic(r)^2 == &quot;</span>, r2), <span class="dt">parse =</span> <span class="ot">TRUE</span>, <span class="dt">hjust =</span> <span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb123-11" data-line-number="11"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;salmon&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb123-12" data-line-number="12"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful eruption data&quot;</span>,</a>
+<a class="sourceLine" id="cb123-13" data-line-number="13">       <span class="dt">subtitle =</span> <span class="st">&quot;Linear regression&quot;</span>,</a>
+<a class="sourceLine" id="cb123-14" data-line-number="14">       <span class="dt">x =</span> <span class="st">&quot;Waiting time (minutes)&quot;</span>,</a>
+<a class="sourceLine" id="cb123-15" data-line-number="15">       <span class="dt">y =</span> <span class="st">&quot;Eruption duration (minutes)&quot;</span>)</a></code></pre></div>
 <p><img src="15-regressions_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
 <div id="predicting-from-the-linear-model" class="section level3">
 <h3><span class="header-section-number">15.1.4</span> Predicting from the linear model</h3>
 <p>Knowing <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> allows us to predict what the erruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., <span class="math inline">\(eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon\)</span>). Here’s how:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use the accessor function to grab the coefficients:</span>
-erupt.coef &lt;-<span class="st"> </span><span class="kw">coefficients</span>(eruption.lm)
-erupt.coef</code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="co"># use the accessor function to grab the coefficients:</span></a>
+<a class="sourceLine" id="cb124-2" data-line-number="2">erupt.coef &lt;-<span class="st"> </span><span class="kw">coefficients</span>(eruption.lm)</a>
+<a class="sourceLine" id="cb124-3" data-line-number="3">erupt.coef</a></code></pre></div>
 <pre><code>R&gt; (Intercept)     waiting 
 R&gt; -1.87401599  0.07562795</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># how long would an eruption last of we waited, say, 80 minutes?</span>
-waiting &lt;-<span class="st"> </span><span class="dv">80</span> 
- 
-<span class="co"># the first and second coef. can be accessed using the </span>
-<span class="co"># square bracket notation:</span>
-erupt.pred &lt;-<span class="st"> </span>erupt.coef[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>(erupt.coef[<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>waiting)
-erupt.pred <span class="co"># the unit is minutes</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="co"># how long would an eruption last of we waited, say, 80 minutes?</span></a>
+<a class="sourceLine" id="cb126-2" data-line-number="2">waiting &lt;-<span class="st"> </span><span class="dv">80</span> </a>
+<a class="sourceLine" id="cb126-3" data-line-number="3"> </a>
+<a class="sourceLine" id="cb126-4" data-line-number="4"><span class="co"># the first and second coef. can be accessed using the </span></a>
+<a class="sourceLine" id="cb126-5" data-line-number="5"><span class="co"># square bracket notation:</span></a>
+<a class="sourceLine" id="cb126-6" data-line-number="6">erupt.pred &lt;-<span class="st"> </span>erupt.coef[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>(erupt.coef[<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>waiting)</a>
+<a class="sourceLine" id="cb126-7" data-line-number="7">erupt.pred <span class="co"># the unit is minutes</span></a></code></pre></div>
 <pre><code>R&gt; (Intercept) 
 R&gt;     4.17622</code></pre>
 <p>The prediction is that, given a waiting time of 80 minutes since the previous eruption, the next eruption will last 4.176 minutes.</p>
 <p>There is another way to do this. The <code>predict()</code> function takes a dataframe of values for which we want to predict the duration of the eruption and returns a vector with the waiting times:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pred.val &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">waiting =</span> <span class="kw">c</span>(<span class="dv">60</span>, <span class="dv">80</span>, <span class="dv">100</span>))
-<span class="kw">predict</span>(eruption.lm, pred.val) <span class="co"># returns waiting time in minutes</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">pred.val &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">waiting =</span> <span class="kw">c</span>(<span class="dv">60</span>, <span class="dv">80</span>, <span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb128-2" data-line-number="2"><span class="kw">predict</span>(eruption.lm, pred.val) <span class="co"># returns waiting time in minutes</span></a></code></pre></div>
 <pre><code>R&gt;        1        2        3 
 R&gt; 2.663661 4.176220 5.688779</code></pre>
 </div>
@@ -394,20 +424,20 @@ R&gt; 2.663661 4.176220 5.688779</code></pre>
 <p>The coefficient of determination, the <span class="math inline">\(r^{2}\)</span>, of a linear model is the quotient of the variances of the fitted values, <span class="math inline">\(\hat{y_{i}}\)</span>, and observed values, <span class="math inline">\(y_{i}\)</span>, of the dependent variable. If the mean of the dependent variable is <span class="math inline">\(\bar y\)</span>, then the <span class="math inline">\(r^{2}\)</span> is:</p>
 <p><span class="math display">\[r^{2}=\frac{\sum(\hat{y_{i}} - \bar{y})^{2}}{\sum(y_{i} - \bar{y})^{2}}\]</span></p>
 <p>In our Old Faithful example, the coefficient of determination is returned together with the summary of the <code>eruption.lm</code> object, but it may also be extracted as:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(eruption.lm)<span class="op">$</span>r.squared</code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">summary</span>(eruption.lm)<span class="op">$</span>r.squared</a></code></pre></div>
 <pre><code>R&gt; [1] 0.8114608</code></pre>
 <p>What does the <span class="math inline">\(r^{2}\)</span> tell us? It tells us the “fraction of variance explained by the model” (from the <code>summary.lm()</code> help file). In other words it is the proportion of variation in the dispersion (variance) of the measured dependent variable, <span class="math inline">\(y\)</span>, that can be predicted from the measured independent variable, <span class="math inline">\(x\)</span> (or variables in the case of multiple regressions). It gives us an indication of how well the observed outcome variable is predicted by the observed influential variable, and in the case of a simple linear regression, the geometric relationship of <span class="math inline">\(y\)</span> on <span class="math inline">\(x\)</span> is a straight line. <span class="math inline">\(r^{2}\)</span> can take values from 0 to 1: a value of 0 tells us that there is absolutely no relationship between the two, whilst a value of 1 shows that there is a perfect fit and a scatter of points to denote the <span class="math inline">\(y\)</span> vs. <span class="math inline">\(x\)</span> relationship will all fall perfectly on a stright line.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">100</span>
-<span class="kw">set.seed</span>(<span class="dv">666</span>)
-rand.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span>n),
-                      <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dt">n =</span> n, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="dv">3</span>))
-<span class="kw">ggplot</span>(<span class="dt">data =</span> rand.df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">size =</span> <span class="fl">0.75</span>, <span class="dt">fill =</span> <span class="st">&quot;turquoise&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Random normal data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Linear regression&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;X (independent variable)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Y (dependent variable)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">666</span>)</a>
+<a class="sourceLine" id="cb132-3" data-line-number="3">rand.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span>n),</a>
+<a class="sourceLine" id="cb132-4" data-line-number="4">                      <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dt">n =</span> n, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb132-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> rand.df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-7" data-line-number="7"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">size =</span> <span class="fl">0.75</span>, <span class="dt">fill =</span> <span class="st">&quot;turquoise&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Random normal data&quot;</span>,</a>
+<a class="sourceLine" id="cb132-9" data-line-number="9">       <span class="dt">subtitle =</span> <span class="st">&quot;Linear regression&quot;</span>,</a>
+<a class="sourceLine" id="cb132-10" data-line-number="10">       <span class="dt">x =</span> <span class="st">&quot;X (independent variable)&quot;</span>,</a>
+<a class="sourceLine" id="cb132-11" data-line-number="11">       <span class="dt">y =</span> <span class="st">&quot;Y (dependent variable)&quot;</span>)</a></code></pre></div>
 <p><img src="15-regressions_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <!-- insert a graph of a random relationship of y on x (a fitted line will have have a slope of 0 and the intercept will equal the mean, and the r2 will be 0) -->
 <!-- insert a graph of a perfect relationship of y on x, r2 will be 1 -->
@@ -427,8 +457,8 @@ rand.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span c
 <div id="confidence-interval-for-linear-regression" class="section level3">
 <h3><span class="header-section-number">15.1.7</span> Confidence interval for linear regression</h3>
 <p>Again we have to observe the assumption of <em>i.i.d.</em> as before. For a given value of <span class="math inline">\(x\)</span>, the 95% confidence interval around the mean of the <em>observed</em> dependent variable, <span class="math inline">\(\bar{y}\)</span>, can be obtained as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pred.val &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">waiting =</span> <span class="kw">c</span>(<span class="dv">80</span>))
-<span class="kw">predict</span>(eruption.lm, pred.val, <span class="dt">interval =</span> <span class="st">&quot;confidence&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">pred.val &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">waiting =</span> <span class="kw">c</span>(<span class="dv">80</span>))</a>
+<a class="sourceLine" id="cb133-2" data-line-number="2"><span class="kw">predict</span>(eruption.lm, pred.val, <span class="dt">interval =</span> <span class="st">&quot;confidence&quot;</span>)</a></code></pre></div>
 <pre><code>R&gt;       fit      lwr      upr
 R&gt; 1 4.17622 4.104848 4.247592</code></pre>
 <p>So, the 95% confidence interval of the mean eruption duration for the waiting time of 80 minutes is between 4.105 and 4.248 minutes.</p>
@@ -436,8 +466,8 @@ R&gt; 1 4.17622 4.104848 4.247592</code></pre>
 <div id="prediction-interval-for-linear-regression" class="section level3">
 <h3><span class="header-section-number">15.1.8</span> Prediction interval for linear regression</h3>
 <p>Observe that <span class="math inline">\(\epsilon\)</span> is <em>i.i.d.</em> For a given value of <span class="math inline">\(x\)</span>, the interval estimate of the <em>future</em> dependent variable, <span class="math inline">\(y\)</span>, is called the prediction interval. The way we do this is similar to finding the confidence interval:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pred.val &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">waiting =</span> <span class="kw">c</span>(<span class="dv">80</span>))
-<span class="kw">predict</span>(eruption.lm, pred.val, <span class="dt">interval =</span> <span class="st">&quot;prediction&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1">pred.val &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">waiting =</span> <span class="kw">c</span>(<span class="dv">80</span>))</a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"><span class="kw">predict</span>(eruption.lm, pred.val, <span class="dt">interval =</span> <span class="st">&quot;prediction&quot;</span>)</a></code></pre></div>
 <pre><code>R&gt;       fit      lwr      upr
 R&gt; 1 4.17622 3.196089 5.156351</code></pre>
 <p>The intervals are wider. The difference between confidence and prediction intervals is subtle and requires some philosophical consideration. In practice, if you use these intervals to make inferences about the population from which the samples were drawn, use the prediction intervals. If you instead want to describe the samples which you have taken, use the confidence intervals.</p>
@@ -518,7 +548,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
