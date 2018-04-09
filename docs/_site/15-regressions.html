@@ -47,7 +47,7 @@
         <section id="main-content">
           <h1 id="simple-linear-regressions">Simple linear regressions</h1>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ── Attaching packages ───────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 </code></pre></div></div>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
@@ -56,7 +56,7 @@
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## ── Conflicts ──────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ .GlobalEnv::arrange() masks dplyr::arrange()
 ## ✖ dplyr::filter()       masks stats::filter()
 ## ✖ dplyr::lag()          masks stats::lag()
@@ -71,9 +71,11 @@
 
 <script type="math/tex; mode=display">y_{n}=\beta \cdot x_{n}+\alpha+\epsilon</script>
 
-<p>Coefficients are parameters (statistics) that describe two properties of the linear line that best fit a scatter plot between a dependent variable and the independent variable. The dependent variable, $y_{n}$, may also be called the response variable, and the independent variable, $x_{n}$, the predictor. The regression model consists of an intercept term, $\alpha$, that describes where the fitted line starts and intercepts with the <em>y</em>-axis, and the <em>slope</em>, $\beta$, of the line. The amount of variation not explained by a linear relationship of $y$ on $x$ is termed the residual variation, or simply the residual or the error term, and in the above equation it is indicated by $\epsilon$.</p>
+<p>Coefficients are parameters (statistics) that describe two properties of the linear line that best fit a scatter plot between a dependent variable and the independent variable. The dependent variable, $y_{1..n}$, may also be called the response variable, and the independent variable, $x_{1..n}$, the predictor. The regression model consists of an <em>intercept term</em>, $\alpha$, that describes where the fitted line starts and intercepts with the <em>y</em>-axis, and the <em>slope</em>, $\beta$, of the line. The amount of variation not explained by a linear relationship of $y$ on $x$ is termed the residual variation, or simply the residual or the error term, and in the above equation it is indicated by $\epsilon$.</p>
 
-<p>The parameters $\alpha$ and $\beta$ are determined by minimising the sum of squares of the error term, $\epsilon$. It allows us to predict new fitted values of $y$ based on values of $x$.</p>
+<p>The regression parameters $\alpha$ and $\beta$ are determined by <em>minimising the error sum of squares</em> of the error term, $\epsilon$. It allows us to predict new fitted values of $y$ based on values of $x$. The error sum of squares is calculated by:</p>
+
+<script type="math/tex; mode=display">error~SS=\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}</script>
 
 <p>We will demonstrate the principle behind a simple linear regression by using the built-in dataset <code class="highlighter-rouge">faithful</code>. According to the R help file for the data, the dataset describes the “Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA.”</p>
 

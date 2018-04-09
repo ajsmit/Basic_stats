@@ -85,6 +85,12 @@ R&gt; 1    578
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>R&gt; [1] 578
 </code></pre></div></div>
 
+<p>Note that this gives us the number of all of the chicks in the experiment, irrespective oif which diet they were given. It will make more sense to know how many chicks were assigned to each of the experimental diets they were raised on.</p>
+
+<blockquote>
+  <p><strong>Question:</strong> Can you figure out how to detemine the number of chicks in each of the feed categories?</p>
+</blockquote>
+
 <h2 id="measures-of-central-tendency">Measures of central tendency</h2>
 
 <p>Table: Measures of central tendency.</p>
@@ -180,6 +186,10 @@ R&gt; 1    122.
 
 <p>The mean is quite sensitive to the presence of outliers or extreme values in the data, and it is advised that its use be reserved for normally distributed data from which the extremes/outliers have been removed. When extreme values are indeed part of our data and not simply ‘noise,’ then we have to resort to a different measure of central tendency: the median.</p>
 
+<blockquote>
+  <p><strong>Question:</strong> In statistics, what do we mean with ‘noise’?</p>
+</blockquote>
+
 <h3 id="the-median">The median</h3>
 
 <p>The <em>median</em> can be calculated by ‘hand’ (if you have a small enough amount of data) by arranging all the numbers in sequence from low to high, and then finding the middle value. If there are five numbers, say <code class="highlighter-rouge">5, 2, 6, 13, 1</code>, then you would arrange them from low to high, i.e. <code class="highlighter-rouge">1, 2, 5, 6, 13</code>. The middle number is <code class="highlighter-rouge">5</code>. This is the median. But there is no middle if we have an even number of values. What now? Take this example sequence of six integers (they may also be floating point numbers), which has already been ordered for your pleasure: <code class="highlighter-rouge">1, 2, 5, 6, 9, 13</code>. Find the middle two numbers (i.e. <code class="highlighter-rouge">5, 6</code>) and take the mean. It is <code class="highlighter-rouge">5.5</code>. That is the median.</p>
@@ -196,7 +206,7 @@ R&gt;    &lt;dbl&gt;
 R&gt; 1   103.
 </code></pre></div></div>
 
-<p>The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the <em>1st and 3rd quartiles</em>, which, respectively, separate the first quarter of the data from the last quarter — see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).</p>
+<p>The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the <em>1st</em> and <em>3rd quartiles</em>, which, respectively, separate the first quarter of the data from the last quarter—see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).</p>
 
 <h3 id="central-moment">Central moment</h3>
 
@@ -212,7 +222,7 @@ R&gt; 1   103.
 
 <h2 id="measures-of-variation-and-spread">Measures of variation and spread</h2>
 
-<p>Since the mean or median does not tell us everything there is to know about data, we will also have to determine some statistics that inform us about the variation (or spread) around the central/mean value.</p>
+<p>Since the mean or median does not tell us everything there is to know about data, we will also have to determine some statistics that inform us about the variation (or spread or dispersal or inertia) around the central/mean value.</p>
 
 <p>Table: Measures of variation and spread.</p>
 

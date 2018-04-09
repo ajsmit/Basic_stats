@@ -18,9 +18,11 @@ The linear regression equation is already known to you. It is:
 
 $$y_{n}=\beta \cdot x_{n}+\alpha+\epsilon$$
 
-Coefficients are parameters (statistics) that describe two properties of the linear line that best fit a scatter plot between a dependent variable and the independent variable. The dependent variable, $y_{n}$, may also be called the response variable, and the independent variable, $x_{n}$, the predictor. The regression model consists of an intercept term, $\alpha$, that describes where the fitted line starts and intercepts with the *y*-axis, and the *slope*, $\beta$, of the line. The amount of variation not explained by a linear relationship of $y$ on $x$ is termed the residual variation, or simply the residual or the error term, and in the above equation it is indicated by $\epsilon$.
+Coefficients are parameters (statistics) that describe two properties of the linear line that best fit a scatter plot between a dependent variable and the independent variable. The dependent variable, $y_{1..n}$, may also be called the response variable, and the independent variable, $x_{1..n}$, the predictor. The regression model consists of an *intercept term*, $\alpha$, that describes where the fitted line starts and intercepts with the *y*-axis, and the *slope*, $\beta$, of the line. The amount of variation not explained by a linear relationship of $y$ on $x$ is termed the residual variation, or simply the residual or the error term, and in the above equation it is indicated by $\epsilon$.
 
-The parameters $\alpha$ and $\beta$ are determined by minimising the sum of squares of the error term, $\epsilon$. It allows us to predict new fitted values of $y$ based on values of $x$.
+The regression parameters $\alpha$ and $\beta$ are determined by *minimising the error sum of squares* of the error term, $\epsilon$. It allows us to predict new fitted values of $y$ based on values of $x$. The error sum of squares is calculated by:
+
+$$error~SS=\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}$$
 
 We will demonstrate the principle behind a simple linear regression by using the built-in dataset `faithful`. According to the R help file for the data, the dataset describes the "Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA."
 
@@ -64,7 +66,6 @@ ggplot(data = faithful, aes(x = waiting, y = eruptions)) +
        x = "Waiting time (minutes)",
        y = "Eruption duration (minutes)")
 ```
-
 
 ### Predicting from the linear model
 Knowing $\alpha$ and $\beta$ allows us to predict what the erruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., $eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$). Here's how:

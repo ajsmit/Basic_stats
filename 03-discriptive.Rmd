@@ -36,6 +36,10 @@ chicks %>%
 length(chicks$weight)
 ```
 
+Note that this gives us the number of all of the chicks in the experiment, irrespective oif which diet they were given. It will make more sense to know how many chicks were assigned to each of the experimental diets they were raised on. 
+
+> **Question:** Can you figure out how to detemine the number of chicks in each of the feed categories?
+
 ## Measures of central tendency
 
 Table: Measures of central tendency.
@@ -109,6 +113,8 @@ chicks %>%
 
 The mean is quite sensitive to the presence of outliers or extreme values in the data, and it is advised that its use be reserved for normally distributed data from which the extremes/outliers have been removed. When extreme values are indeed part of our data and not simply 'noise,' then we have to resort to a different measure of central tendency: the median.
 
+> **Question:** In statistics, what do we mean with 'noise'?
+
 ### The median
 
 The *median* can be calculated by 'hand' (if you have a small enough amount of data) by arranging all the numbers in sequence from low to high, and then finding the middle value. If there are five numbers, say `5, 2, 6, 13, 1`, then you would arrange them from low to high, i.e. `1, 2, 5, 6, 13`. The middle number is `5`. This is the median. But there is no middle if we have an even number of values. What now? Take this example sequence of six integers (they may also be floating point numbers), which has already been ordered for your pleasure: `1, 2, 5, 6, 9, 13`. Find the middle two numbers (i.e. `5, 6`) and take the mean. It is `5.5`. That is the median. 
@@ -120,7 +126,7 @@ chicks %>%
   summarise(med_wt = median(weight))
 ```
 
-The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the *1st and 3rd quartiles*, which, respectively, separate the first quarter of the data from the last quarter --- see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).
+The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the *1st* and *3rd quartiles*, which, respectively, separate the first quarter of the data from the last quarter---see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).
 
 ### Central moment
 
@@ -136,7 +142,7 @@ The median is therefore the value that separates the lower half of the sample da
 
 ## Measures of variation and spread
 
-Since the mean or median does not tell us everything there is to know about data, we will also have to determine some statistics that inform us about the variation (or spread) around the central/mean value.
+Since the mean or median does not tell us everything there is to know about data, we will also have to determine some statistics that inform us about the variation (or spread or dispersal or inertia) around the central/mean value.
 
 Table: Measures of variation and spread.
 
