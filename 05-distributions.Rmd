@@ -40,7 +40,7 @@ bern_dat <- data.frame(dist = c(rbern(10, 0.1), rbern(100, 0.1), rbern(1000, 0.1
 
 # Create density curves
 bern_dens <- data.frame()
-for(i in 1:length(levels(bern_dat$bern_group))){
+for(i in 1:length(levels(bern_dat$bern_group))) {
   x <- density(bern_dat$dist[bern_dat$bern_group == levels(bern_dat$bern_group)[i]])$x
   y <- density(bern_dat$dist[bern_dat$bern_group == levels(bern_dat$bern_group)[i]])$y
   df <- data.frame(x = x, y = y, bern_group = levels(bern_dat$bern_group)[i])
@@ -49,7 +49,7 @@ for(i in 1:length(levels(bern_dat$bern_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(bern_dat$bern_group))){
+for(i in 1:length(levels(bern_dat$bern_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(bern_dat$bern_group)[i]),
                  label = unique(bern_dat$bern_group)[i])
@@ -105,7 +105,7 @@ binom_dat <- data.frame(dist = c(rbinom(10, 10, 0.1), rbinom(100, 10, 0.1), rbin
 
 # Create density curves
 binom_dens <- data.frame()
-for(i in 1:length(levels(binom_dat$binom_group))){
+for(i in 1:length(levels(binom_dat$binom_group))) {
   x <- density(binom_dat$dist[binom_dat$binom_group == levels(binom_dat$binom_group)[i]])$x
   y <- density(binom_dat$dist[binom_dat$binom_group == levels(binom_dat$binom_group)[i]])$y
   df <- data.frame(x = x, y = y, binom_group = levels(binom_dat$binom_group)[i])
@@ -114,7 +114,7 @@ for(i in 1:length(levels(binom_dat$binom_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(binom_dat$binom_group))){
+for(i in 1:length(levels(binom_dat$binom_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(binom_dat$binom_group)[i]),
                  label = unique(binom_dat$binom_group)[i])
@@ -169,7 +169,7 @@ nbinom_dat <- data.frame(dist = c(rnbinom(10, 10, 0.1), rnbinom(100, 10, 0.1), r
 
 # Create density curves
 nbinom_dens <- data.frame()
-for(i in 1:length(levels(nbinom_dat$nbinom_group))){
+for(i in 1:length(levels(nbinom_dat$nbinom_group))) {
   x <- density(nbinom_dat$dist[nbinom_dat$nbinom_group == levels(nbinom_dat$nbinom_group)[i]])$x
   y <- density(nbinom_dat$dist[nbinom_dat$nbinom_group == levels(nbinom_dat$nbinom_group)[i]])$y
   df <- data.frame(x = x, y = y, nbinom_group = levels(nbinom_dat$nbinom_group)[i])
@@ -178,7 +178,7 @@ for(i in 1:length(levels(nbinom_dat$nbinom_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(nbinom_dat$nbinom_group))){
+for(i in 1:length(levels(nbinom_dat$nbinom_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(nbinom_dat$nbinom_group)[i]),
                  label = unique(nbinom_dat$nbinom_group)[i])
@@ -226,7 +226,7 @@ geom_dat <- data.frame(dist = c(rgeom(10, 0.1), rgeom(100, 0.1), rgeom(1000, 0.1
 
 # Create density curves
 geom_dens <- data.frame()
-for(i in 1:length(levels(geom_dat$geom_group))){
+for(i in 1:length(levels(geom_dat$geom_group))) {
   x <- density(geom_dat$dist[geom_dat$geom_group == levels(geom_dat$geom_group)[i]])$x
   y <- density(geom_dat$dist[geom_dat$geom_group == levels(geom_dat$geom_group)[i]])$y
   df <- data.frame(x = x, y = y, geom_group = levels(geom_dat$geom_group)[i])
@@ -235,7 +235,7 @@ for(i in 1:length(levels(geom_dat$geom_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(geom_dat$geom_group))){
+for(i in 1:length(levels(geom_dat$geom_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(geom_dat$geom_group)[i]),
                  label = unique(geom_dat$geom_group)[i])
@@ -284,7 +284,7 @@ pois_dat <- data.frame(dist = c(rpois(10, 10), rpois(100, 10), rpois(1000, 10),
 
 # Create density curves
 pois_dens <- data.frame()
-for(i in 1:length(levels(pois_dat$pois_group))){
+for(i in 1:length(levels(pois_dat$pois_group))) {
   x <- density(pois_dat$dist[pois_dat$pois_group == levels(pois_dat$pois_group)[i]])$x
   y <- density(pois_dat$dist[pois_dat$pois_group == levels(pois_dat$pois_group)[i]])$y
   df <- data.frame(x = x, y = y, pois_group = levels(pois_dat$pois_group)[i])
@@ -293,7 +293,7 @@ for(i in 1:length(levels(pois_dat$pois_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(pois_dat$pois_group))){
+for(i in 1:length(levels(pois_dat$pois_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(pois_dat$pois_group)[i]),
                  label = unique(pois_dat$pois_group)[i])
@@ -341,7 +341,7 @@ unif_dat <- data.frame(dist = c(runif(10, 0, 10), runif(100, 0, 10), runif(1000,
 
 # Create density curves
 unif_dens <- data.frame()
-for(i in 1:length(levels(unif_dat$unif_group))){
+for(i in 1:length(levels(unif_dat$unif_group))) {
   x <- density(unif_dat$dist[unif_dat$unif_group == levels(unif_dat$unif_group)[i]])$x
   y <- density(unif_dat$dist[unif_dat$unif_group == levels(unif_dat$unif_group)[i]])$y
   df <- data.frame(x = x, y = y, unif_group = levels(unif_dat$unif_group)[i])
@@ -350,7 +350,7 @@ for(i in 1:length(levels(unif_dat$unif_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(unif_dat$unif_group))){
+for(i in 1:length(levels(unif_dat$unif_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(unif_dat$unif_group)[i]),
                  label = unique(unif_dat$unif_group)[i])
@@ -402,7 +402,7 @@ norm_dat <- data.frame(dist = c(rnorm(10, 10, 1), rnorm(100, 10, 1), rnorm(1000,
 
 # Create density curves
 norm_dens <- data.frame()
-for(i in 1:length(levels(norm_dat$norm_group))){
+for(i in 1:length(levels(norm_dat$norm_group))) {
   x <- density(norm_dat$dist[norm_dat$norm_group == levels(norm_dat$norm_group)[i]])$x
   y <- density(norm_dat$dist[norm_dat$norm_group == levels(norm_dat$norm_group)[i]])$y
   df <- data.frame(x = x, y = y, norm_group = levels(norm_dat$norm_group)[i])
@@ -411,7 +411,7 @@ for(i in 1:length(levels(norm_dat$norm_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(norm_dat$norm_group))){
+for(i in 1:length(levels(norm_dat$norm_group))) {
   l[[i]] <- list(method = "restyle",
             args = list("transforms[0].value", unique(norm_dat$norm_group)[i]),
             label = unique(norm_dat$norm_group)[i])
@@ -467,7 +467,7 @@ t_dat <- data.frame(dist =    c(rt(10, 5, 0), rt(100, 5, 0), rt(1000, 5, 0),
 
 # Create density curves
 t_dens <- data.frame()
-for(i in 1:length(levels(t_dat$t_group))){
+for(i in 1:length(levels(t_dat$t_group))) {
   x <- density(t_dat$dist[t_dat$t_group == levels(t_dat$t_group)[i]])$x
   y <- density(t_dat$dist[t_dat$t_group == levels(t_dat$t_group)[i]])$y
   df <- data.frame(x = x, y = y, t_group = levels(t_dat$t_group)[i])
@@ -476,7 +476,7 @@ for(i in 1:length(levels(t_dat$t_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(t_dat$t_group))){
+for(i in 1:length(levels(t_dat$t_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(t_dat$t_group)[i]),
                  label = unique(t_dat$t_group)[i])
@@ -528,7 +528,7 @@ chisq_dat <- data.frame(dist = c(rchisq(10, 5, 0), rchisq(100, 5, 0), rchisq(100
 
 # Create density curves
 chisq_dens <- data.frame()
-for(i in 1:length(levels(chisq_dat$chisq_group))){
+for(i in 1:length(levels(chisq_dat$chisq_group))) {
   x <- density(chisq_dat$dist[chisq_dat$chisq_group == levels(chisq_dat$chisq_group)[i]])$x
   y <- density(chisq_dat$dist[chisq_dat$chisq_group == levels(chisq_dat$chisq_group)[i]])$y
   df <- data.frame(x = x, y = y, chisq_group = levels(chisq_dat$chisq_group)[i])
@@ -537,7 +537,7 @@ for(i in 1:length(levels(chisq_dat$chisq_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(chisq_dat$chisq_group))){
+for(i in 1:length(levels(chisq_dat$chisq_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(chisq_dat$chisq_group)[i]),
                  label = unique(chisq_dat$chisq_group)[i])
@@ -582,7 +582,7 @@ exp_dat <- data.frame(dist = c(rexp(10, 1), rexp(100, 1), rexp(1000, 1),
 
 # Create density curves
 exp_dens <- data.frame()
-for(i in 1:length(levels(exp_dat$exp_group))){
+for(i in 1:length(levels(exp_dat$exp_group))) {
   x <- density(exp_dat$dist[exp_dat$exp_group == levels(exp_dat$exp_group)[i]])$x
   y <- density(exp_dat$dist[exp_dat$exp_group == levels(exp_dat$exp_group)[i]])$y
   df <- data.frame(x = x, y = y, exp_group = levels(exp_dat$exp_group)[i])
@@ -591,7 +591,7 @@ for(i in 1:length(levels(exp_dat$exp_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(exp_dat$exp_group))){
+for(i in 1:length(levels(exp_dat$exp_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(exp_dat$exp_group)[i]),
                  label = unique(exp_dat$exp_group)[i])
@@ -643,7 +643,7 @@ f_dat <- data.frame(dist =     c(rf(10, 5, 5), rf(100, 5, 5), rf(1000, 5, 5),
 
 # Create density curves
 f_dens <- data.frame()
-for(i in 1:length(levels(f_dat$f_group))){
+for(i in 1:length(levels(f_dat$f_group))) {
   x <- density(f_dat$dist[f_dat$f_group == levels(f_dat$f_group)[i]])$x
   y <- density(f_dat$dist[f_dat$f_group == levels(f_dat$f_group)[i]])$y
   df <- data.frame(x = x, y = y, f_group = levels(f_dat$f_group)[i])
@@ -652,7 +652,7 @@ for(i in 1:length(levels(f_dat$f_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(f_dat$f_group))){
+for(i in 1:length(levels(f_dat$f_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(f_dat$f_group)[i]),
                  label = unique(f_dat$f_group)[i])
@@ -697,7 +697,7 @@ gamma_dat <- data.frame(dist = c(rgamma(10, 1), rgamma(100, 1), rgamma(1000, 1),
 
 # Create density curves
 gamma_dens <- data.frame()
-for(i in 1:length(levels(gamma_dat$gamma_group))){
+for(i in 1:length(levels(gamma_dat$gamma_group))) {
   x <- density(gamma_dat$dist[gamma_dat$gamma_group == levels(gamma_dat$gamma_group)[i]])$x
   y <- density(gamma_dat$dist[gamma_dat$gamma_group == levels(gamma_dat$gamma_group)[i]])$y
   df <- data.frame(x = x, y = y, gamma_group = levels(gamma_dat$gamma_group)[i])
@@ -706,7 +706,7 @@ for(i in 1:length(levels(gamma_dat$gamma_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(gamma_dat$gamma_group))){
+for(i in 1:length(levels(gamma_dat$gamma_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(gamma_dat$gamma_group)[i]),
                  label = unique(gamma_dat$gamma_group)[i])
@@ -757,7 +757,7 @@ beta_dat <- data.frame(dist = c(rbeta(10, 1, 1), rbeta(100, 1, 1), rbeta(1000, 1
                                           sep = ", "))
 # Create density curves
 beta_dens <- data.frame()
-for(i in 1:length(levels(beta_dat$beta_group))){
+for(i in 1:length(levels(beta_dat$beta_group))) {
   x <- density(beta_dat$dist[beta_dat$beta_group == levels(beta_dat$beta_group)[i]])$x
   y <- density(beta_dat$dist[beta_dat$beta_group == levels(beta_dat$beta_group)[i]])$y
   df <- data.frame(x = x, y = y, beta_group = levels(beta_dat$beta_group)[i])
@@ -766,7 +766,7 @@ for(i in 1:length(levels(beta_dat$beta_group))){
 
 # Create all of the buttons
 l <- list()
-for(i in 1:length(levels(beta_dat$beta_group))){
+for(i in 1:length(levels(beta_dat$beta_group))) {
   l[[i]] <- list(method = "restyle",
                  args = list("transforms[0].value", unique(beta_dat$beta_group)[i]),
                  label = unique(beta_dat$beta_group)[i])

@@ -21,8 +21,6 @@ library(ggpubr)
 Qualitative data that describe group representivity to various categories are best described with frequency distribution histograms (I interchangably use histograms, frequency histograms, and frequency distribution histograms). Histograms apply to categorical data. Although it can be presented numerically in tabular form, one more frequently creates a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both the data and graphical displays will be demonstrated here.
 
 The first case of a frequency distribution histogram is one that shows the raw counts per each of the categories that are represented in the data. The count within each of the categories (represented by a bar graph called a histogram) sums to the sample size, $n$. In the second case, we may want to report that data as proportions. Here we show the frequency proportion in a collection of non-overlapping categories. For example, we have a sample size of 12 ($n=12$). In this sample, two are coloured blue, six red, and five purple. The relative proportions are $2/12=0.1666667$ blue, $6/12=0.5$ red, and $5/12=0.4166667$ purple. The important thing to note here is that the relative proportions sum to 1, i.e. $0.1666667+0.5+0.4166667=1$. These data may be presented as a table or as a graph.
-<<<<<<< HEAD
-=======
 
 <!-- show example of frequency distribution bar graph -->
 ```{r}
@@ -39,7 +37,6 @@ ggplot(data = iris, aes(x = Species, fill = Species)) +
 ```{r}
 
 ```
->>>>>>> 4568901863d47ad7b213266c7ea5c4a39ecf70d3
 
 <!-- show example of numerical summary -->
 ```{r}
@@ -118,8 +115,6 @@ ggarrange(hist1, hist2, hist3, hist4, ncol = 2, nrow = 2, labels = "AUTO")
 
 ```
 
-<<<<<<< HEAD
-=======
 #### Cumulative frequency distributions
 
 <!-- show example of numerical summary -->
@@ -144,7 +139,6 @@ ggarrange(hist1, hist2, hist3, hist4, ncol = 2, nrow = 2, labels = "AUTO")
 
 ```
 
->>>>>>> 4568901863d47ad7b213266c7ea5c4a39ecf70d3
 #### Scatter plots
 Relationship between two (matched) continuous variables.
 
