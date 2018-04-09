@@ -2,57 +2,18 @@
 
 
 
-```
-## ── Attaching packages ──────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
-```
-
-```
-## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
-## ✔ tidyr   0.8.0     ✔ stringr 1.3.0
-## ✔ readr   1.1.1     ✔ forcats 0.3.0
-```
-
-```
-## ── Conflicts ─────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ✖ dplyr::n()      masks .env::n()
-```
-
-```
-## Loading required package: magrittr
-```
-
-```
-## 
-## Attaching package: 'magrittr'
-```
-
-```
-## The following object is masked from 'package:purrr':
-## 
-##     set_names
-```
-
-```
-## The following object is masked from 'package:tidyr':
-## 
-##     extract
-```
-
 
 
 
 Whole big books have been written about Analysis of Variance (ANOVA). Although there are many ANOVA experimental designs available, biologists are taught to pay special attention to the design of experiments, and generally make sure that the experiments are fully factorial (in the case of two-way or higher ANOVAs) and balanced. For this reason we will focus in this Introductory Statistics course on one-way and factorial ANOVAs only.
 
-As t-tests, ANOVAs require that some assumtions are met:
+As t-tests, ANOVAs require that some assumptions are met:
 
 * Normally distributed data
 * Independence of data
 * In our case, we will encourage also that the data are balanced
 
-If some of the above assumptions are violated, then your course of action is either to transform the data (if non-normal) or to use a generalised linear model (also when non-normal), or to use a linear mixed model (when the assumption on non-independence cannot be garanteed). We will get to some of these methods in later chapters. Linked to the above, ANOVAs are also sensitive to the presence of outliers (see our earlier discussion about the mean and how it differs from the median), so we need to ensure that outliers are not present (they can be removed, and there are many ways of finding them and eliminating them). If outliers are an important feature of the data, then a non-parametric test can be used, or some other test that works well with extreme values can be applied. 
+If some of the above assumptions are violated, then your course of action is either to transform the data (if non-normal) or to use a generalised linear model (also when non-normal), or to use a linear mixed model (when the assumption on non-independence cannot be guaranteed). We will get to some of these methods in later chapters. Linked to the above, ANOVAs are also sensitive to the presence of outliers (see our earlier discussion about the mean and how it differs from the median), so we need to ensure that outliers are not present (they can be removed, and there are many ways of finding them and eliminating them). If outliers are an important feature of the data, then a non-parametric test can be used, or some other test that works well with extreme values can be applied. 
 
 Rather than talking about t-tests and ANOVAs as separate things, let us acknowledge that they are similar ways of asking the same question. That question being, are the means of these two or more things we want to compare different, or the same? At this stage it is important to note that the independent variable is categorical (i.e. a factor denoting two or more different treatments or sampling conditions) and that the dependent variable is continuous. You may perhaps be more familiar with this question when it is presented as a set of hypotheses.
 
@@ -60,7 +21,7 @@ Rather than talking about t-tests and ANOVAs as separate things, let us acknowle
 >
 > H1: Group A is different from group B.
 
-This is a scientific question in the simplest sense. Often, for basic inquiries such as that posed above, we need to see if one group differs significantly from another. The way in which we accomplish this is by looking at the mean and variance within a set of data compared against another similar set. In order to do so appropriately however we need to first assume that both sets of data are normally distributed, and that the variance found within each set of data is similar. These are the two primary assumptions we learned about in Chapter 6, and if they are met then we may use paramteric tests. We will learn in Chapter 9 what we can do if these assumptions are not meant and we cannot adequately transform our data, meaning we will need to use non-parametric tests.
+This is a scientific question in the simplest sense. Often, for basic inquiries such as that posed above, we need to see if one group differs significantly from another. The way in which we accomplish this is by looking at the mean and variance within a set of data compared against another similar set. In order to do so appropriately however we need to first assume that both sets of data are normally distributed, and that the variance found within each set of data is similar. These are the two primary assumptions we learned about in Chapter 6, and if they are met then we may use parametric tests. We will learn in Chapter 9 what we can do if these assumptions are not meant and we cannot adequately transform our data, meaning we will need to use non-parametric tests.
 
 ## t-test
 
@@ -76,7 +37,7 @@ chicks_sub <- chicks %>%
   filter(Diet %in% c(1, 2), Time == 21)
 ```
 
-Once we have filtered our data we may now perform the t-test. Traditionally this would be performed with `t.test()`, but recent developments in R have made any testing for the comparison of means more convenient by wrapping everything up into the one single function `compare_means()`. We will need to use only this one signle function for all of the tests we will perform in this chapter as well as Chapter 9. To use `compare_means()` for a t-test we must simplu specify this in the `method` argument, as seen below:
+Once we have filtered our data we may now perform the t-test. Traditionally this would be performed with `t.test()`, but recent developments in R have made any testing for the comparison of means more convenient by wrapping everything up into the one single function `compare_means()`. We may use only this one single function for many of the tests we will perform in this chapter as well as Chapter 9. To use `compare_means()` for a t-test we must simply specify this in the `method` argument, as seen below:
 
 
 ```r
@@ -96,7 +57,7 @@ As one may recall from the Intro R Workshop, whenever we want to give a formula 
 
 ### Single factor
 
-In the previous section we learned how to calculate the difference between two smaple sets. But what if, as is often the case, we want to compare three or more? Again, the `chicks` data provide an excellent example of how to do this. The base R function for an ANOVA is `aov()`, but we will rather continue to use `compare_means()`. To look for significant differences between all four diets on the last day of sampling we use this one line of code:
+In the previous section we learned how to calculate the difference between two sample sets. But what if, as is often the case, we want to compare three or more? Again, the `chicks` data provide an excellent example of how to do this. The base R function for an ANOVA is `aov()`, but we will rather continue to use `compare_means()`. To look for significant differences between all four diets on the last day of sampling we use this one line of code:
 
 
 ```r
@@ -133,7 +94,7 @@ R> 4-2  23.85556  -54.85981 102.57092 0.8486781
 R> 4-3 -31.74444 -110.45981  46.97092 0.7036249
 ```
 
-The output of `tukeyHSD()` shows us tha pairwise comparisons of all of the groups we are comparing. Let's look at the help file for this function to better understand what the output means. Which of the groups are significantly different from one another? Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?
+The output of `tukeyHSD()` shows us that pairwise comparisons of all of the groups we are comparing. Let's look at the help file for this function to better understand what the output means. Which of the groups are significantly different from one another? Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?
 
 ### Multiple factors
 
@@ -153,9 +114,9 @@ R> ---
 R> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-What question are we asking with the above line of code? Waht is the answer? Also, why did we wrap `Time` in `as.factor()`?
+What question are we asking with the above line of code? What is the answer? Also, why did we wrap `Time` in `as.factor()`?
 
-It is also possible to look at what the effect is between gouping variables, and not just within the individual grouping variables. To do this we replace the `+` in our formula with `*`:
+It is also possible to look at what the effect is between grouping variables, and not just within the individual grouping variables. To do this we replace the `+` in our formula with `*`:
 
 
 ```r

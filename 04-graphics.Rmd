@@ -219,3 +219,7 @@ ggplot(data = arrange(filter(ChickWeight, Time == 21), weight), aes(x = Diet, y 
 ```
 
 ## Category statistics
+
+## Exercises
+
+### Exercise 1

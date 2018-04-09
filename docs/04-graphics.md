@@ -221,3 +221,7 @@ ggplot(data = arrange(filter(ChickWeight, Time == 21), weight), aes(x = Diet, y 
 <img src="04-graphics_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 ## Category statistics
+
+## Exercises
+
+### Exercise 1
