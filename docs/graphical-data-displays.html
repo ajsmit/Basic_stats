@@ -170,10 +170,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.2</b> Continuous data</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#bar-graphs"><i class="fa fa-check"></i><b>4.2</b> Bar graphs</a></li>
-<li class="chapter" data-level="4.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#pie-graphs"><i class="fa fa-check"></i><b>4.3</b> Pie graphs (!!!)</a></li>
-<li class="chapter" data-level="4.4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#category-statistics"><i class="fa fa-check"></i><b>4.4</b> Category statistics</a></li>
-<li class="chapter" data-level="4.5" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#exercises-1"><i class="fa fa-check"></i><b>4.5</b> Exercises</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#exercise-1-1"><i class="fa fa-check"></i><b>4.5.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="4.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#category-statistics"><i class="fa fa-check"></i><b>4.3</b> Category statistics</a></li>
+<li class="chapter" data-level="4.4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#exercises-1"><i class="fa fa-check"></i><b>4.4</b> Exercises</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#exercise-1-1"><i class="fa fa-check"></i><b>4.4.1</b> Exercise 1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Distributions</a><ul>
@@ -312,19 +311,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(ggpubr)
 <span class="kw">library</span>(RColorBrewer)</code></pre></div>
+<p>Here we shall provide examples of many kinds of graphical data summaries. We use <strong>ggplot2</strong> for these figures and will refrain from using the base R graphs. We shall provide examples of various themes so you can see what is available to use for your own plots. We also include various modifications of the default plots so you can get an idea of how to modify some of the plot characteristics, and we always make sure that our graphs are publication ready. The best way to learn is to work by example. Deeper understanding will emergy only from working through all of these example plots, and making your own changes here and there to see how your own modification will affect your graphs’ appearance. Then find your own data and plot them. As always, liberally make use of the built-in help facility (the more you do, the easier it becomes, like riding a bicycle). Also, don’t be shy to use Google.</p>
 <div id="frequency-distributions" class="section level2">
 <h2><span class="header-section-number">4.1</span> Frequency distributions</h2>
 <div id="qualitative-data-1" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Qualitative data</h3>
-<p>Qualitative data that describe group representivity to various categories are best described with frequency distribution histograms (I interchangably use histograms, frequency histograms, and frequency distribution histograms). Histograms apply to categorical data. Although it can be presented numerically in tabular form, one more frequently creates a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both the data and graphical displays will be demonstrated here.</p>
+<p>Qualitative data that describe group representivity to various categories are best presented as frequency distribution histograms (I interchangably use histograms, frequency histograms, and frequency distribution histograms). Histograms apply to categorical data. Although it can be presented numerically in tabular form, one more frequently creates a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both the data and graphical displays will be demonstrated here.</p>
 <p>The first case of a frequency distribution histogram is one that shows the raw counts per each of the categories that are represented in the data. The count within each of the categories (represented by a bar graph called a histogram) sums to the sample size, <span class="math inline">\(n\)</span>. In the second case, we may want to report that data as proportions. Here we show the frequency proportion in a collection of non-overlapping categories. For example, we have a sample size of 12 (<span class="math inline">\(n=12\)</span>). In this sample, two are coloured blue, six red, and five purple. The relative proportions are <span class="math inline">\(2/12=0.1666667\)</span> blue, <span class="math inline">\(6/12=0.5\)</span> red, and <span class="math inline">\(5/12=0.4166667\)</span> purple. The important thing to note here is that the relative proportions sum to 1, i.e. <span class="math inline">\(0.1666667+0.5+0.4166667=1\)</span>. These data may be presented as a table or as a graph.</p>
 <p>Let us demonstrate the numerical and graphical summaries using the built-in <code>iris</code> data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the numerical summary produced by a piped series of functions</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the numerical summary produced by a piped series of functions;</span>
 <span class="co"># create a summary of the data (i.e. number of replicates per species)</span>
-<span class="co"># used for (A), (B) and (C)</span>
+<span class="co"># used for (A), (B) and (C), below</span>
 iris.cnt &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n))
+<span class="st">  </span><span class="kw">count</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># automagically creates a column, n, with the counts</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n)) <span class="co"># creates the relative proportion of each species</span>
 iris.cnt</code></pre></div>
 <pre><code>R&gt; # A tibble: 3 x 3
 R&gt;   Species        n  prop
@@ -360,23 +360,23 @@ plt3 &lt;-<span class="st"> </span>plt1 <span class="op">+</span><span class="st
 <span class="co"># the default mapping of `geom_bar` is `stat = count`, which is a </span>
 <span class="co"># bar for each fo the categories (`Species`), with `count` along y</span>
 plt4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Side-by-side bars&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;n per species&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme_minimal</span>()
 
 <span class="kw">ggarrange</span>(plt1, plt2, plt3, plt4, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
-<p><img src="04-graphics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<!-- show example of pie graph -->
-<!-- show example of numerical summary -->
-<!-- show example of numerical summary -->
-<!-- show example of frequency distribution bar graph -->
-<!-- show example of pie graph -->
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-3-1.png" alt="Examples of histograms for the built-in Iris data. A) A default frequency histogram showing the count of samples for each of the three species. B) A relative frequency histogram of the same data; here, the sum of counts of samples available for each of the three species is 1. C) A boring pie chart. D) A frequency histogram of raw data counts shown as a series of side-by-side bars." width="672" />
+<p class="caption">
+Figure 4.1: Examples of histograms for the built-in Iris data. A) A default frequency histogram showing the count of samples for each of the three species. B) A relative frequency histogram of the same data; here, the sum of counts of samples available for each of the three species is 1. C) A boring pie chart. D) A frequency histogram of raw data counts shown as a series of side-by-side bars.
+</p>
+</div>
 </div>
 <div id="continuous-data-1" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Continuous data</h3>
 <div id="frequency-distributions-histograms" class="section level4">
 <h4><span class="header-section-number">4.1.2.1</span> Frequency distributions (histograms)</h4>
-<p>As with discrete data, we have a choice of absolute (Fig. 4.1A) and relative (Fig. 4.1 B-C) frequency histograms. There’s also the empirical cumulative distribution function (ECDF) (Fig. 4.1 D), which also uses relative proportions, but in this instance it is the relative propotion that each individual observation has towwards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called <em>bins</em>. See the Old Faithful data, for example. The eruptions last between 1.6 and 5.1 minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The <strong>ggplot2</strong> <code>geom_histogram()</code> function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure X A-B).</p>
+<p>As with discrete data, we have a choice of absolute (Fig. 4.2A) and relative (Fig. 4.2 B-C) frequency histograms. There’s also the empirical cumulative distribution function (ECDF) (Fig. 4.2 D) that uses relative proportions, but in this instance it is the relative propotion that each individual observation has towards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called <em>bins</em>. See the Old Faithful data, for example. The eruptions last between 1.6 and 5.1 minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The <strong>ggplot2</strong> <code>geom_histogram()</code> function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure 4.2 A-D).</p>
 <!-- show example of numerical summary -->
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a normal frequency histogram, with count along y</span>
 hist1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
@@ -417,65 +417,102 @@ hist4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="
        <span class="dt">y =</span> <span class="st">&quot;Relative contribution&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
 
 <span class="kw">ggarrange</span>(hist1, hist2, hist3, hist4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-10"></span>
-<img src="04-graphics_files/figure-html/unnamed-chunk-10-1.png" alt="Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1." width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-5-1.png" alt="Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1." width="672" />
 <p class="caption">
-Figure 4.1: Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.
+Figure 4.2: Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.
 </p>
 </div>
-<!-- show example of numerical summary -->
-<!-- show example of a histogram (desnity/probability) -->
-</div>
-<div id="cumulative-frequency-distributions" class="section level4">
-<h4><span class="header-section-number">4.1.2.2</span> Cumulative frequency distributions</h4>
-<!-- show example of numerical summary -->
-<!-- show example of a cumulative frequency graph -->
-</div>
-<div id="cumulative-relative-frequency-distributions" class="section level4">
-<h4><span class="header-section-number">4.1.2.3</span> Cumulative relative frequency distributions</h4>
-<!-- show example of numerical summary -->
-<!-- show example of a cumulative relative frequency graph -->
-</div>
-<div id="scatter-plots" class="section level4">
-<h4><span class="header-section-number">4.1.2.4</span> Scatter plots</h4>
-<p>Relationship between two (matched) continuous variables.</p>
-<!-- show example of a scatter plot -->
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="04-graphics_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<!-- show example of correlation -->
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> F)</code></pre></div>
-<p><img src="04-graphics_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 <div id="box-plots" class="section level4">
-<h4><span class="header-section-number">4.1.2.5</span> Box plots</h4>
-<p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution.</p>
+<h4><span class="header-section-number">4.1.2.2</span> Box plots</h4>
+<p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution; they provide an alternative view to that given by the frequency distribution. A variation of the basic box-and-whisker plt is to superimpose a jittered scatter plot of the raw data on each bar.</p>
 <!-- show example of a box plot -->
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
-<p><img src="04-graphics_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>)
+
+iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;size&quot;</span>, <span class="op">-</span>Species)
+
+plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> size)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
+
+<span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-6-1.png" alt="Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="672" />
+<p class="caption">
+Figure 4.3: Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.
+</p>
+</div>
+<p>Box-and-whisker plots have traditionally been used to display data that are not normally distributed, but I like to use them for any old data, even normal data. I prefer these over the old-fashioned bar graphs (as seen later in this section).</p>
+<p>The <strong>ggpubr</strong> package provides many convenience functions for the drawing of publication quality graphs, many of which include summaries of pairwise comparisons (e.g. in t-tests and ANOVAs). Please see <a href="http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/">here</a> and <a href="http://www.sthda.com/english/rpkgs/ggpubr/">here</a>.</p>
+</div>
+<div id="pairwise-scatter-plots" class="section level4">
+<h4><span class="header-section-number">4.1.2.3</span> Pairwise Scatter plots</h4>
+<p>This graph shows the relationship between two (matched) continuous variables. The statistical strength of the relationship can be indicated by a correlation (no causal relationship implied as is the case here) or a regression (when a causal link of <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span> is demonstrated).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.18</span>, <span class="fl">0.85</span>))
+
+plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>)
+
+<span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-7"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-7-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="672" />
+<p class="caption">
+Figure 4.4: Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added.
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="bar-graphs" class="section level2">
 <h2><span class="header-section-number">4.2</span> Bar graphs</h2>
+<p>Bar graphs display the mean plus/minus some measure of variation around the mean—typically the standard error or the standard deviation. The mean±SE and mean±SD are typically used for normally-distributed data. Here I provide an example bar graph for one of the Iris data set’s variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first make nice labels for the facets because the default ones </span>
+<span class="co"># in the dataframe are not so nice; use the `labeller()` function</span>
+<span class="co"># to receive the new variable names defined here</span>
+facet.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Petal.Length =</span> <span class="st">&quot;Petal length&quot;</span>, 
+                 <span class="dt">Petal.Width =</span> <span class="st">&quot;Petal width&quot;</span>,
+                 <span class="dt">Sepal.Length =</span> <span class="st">&quot;Sepal length&quot;</span>,
+                 <span class="dt">Sepal.Width =</span> <span class="st">&quot;Sepal width&quot;</span>)
+
+<span class="co"># start with the `iris.long` long data that were produced above</span>
+<span class="co"># we create summaries of mean and SD and squirt it directly</span>
+<span class="co"># into the ggplot functions</span>
+iris.long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Species, variable) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.size =</span> <span class="kw">mean</span>(size),
+            <span class="dt">sd.size =</span> <span class="kw">sd</span>(size)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> mean.size)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean.size <span class="op">-</span><span class="st"> </span>sd.size, <span class="dt">ymax =</span> mean.size <span class="op">+</span><span class="st"> </span>sd.size), <span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">variable =</span> facet.names)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;A box plot...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...of the Iris data&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-8-1.png" alt="Boxplots of the mean±SD of the four Iris variables." width="672" />
+<p class="caption">
+Figure 4.5: Boxplots of the mean±SD of the four Iris variables.
+</p>
 </div>
-<div id="pie-graphs" class="section level2">
-<h2><span class="header-section-number">4.3</span> Pie graphs (!!!)</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="kw">arrange</span>(<span class="kw">filter</span>(ChickWeight, Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>), weight), <span class="kw">aes</span>(<span class="dt">x =</span> Diet, <span class="dt">y =</span> weight, <span class="dt">fill =</span> Diet)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">width =</span> <span class="dv">1</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_polar</span>()</code></pre></div>
-<p><img src="04-graphics_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 </div>
 <div id="category-statistics" class="section level2">
-<h2><span class="header-section-number">4.4</span> Category statistics</h2>
+<h2><span class="header-section-number">4.3</span> Category statistics</h2>
 </div>
 <div id="exercises-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Exercises</h2>
+<h2><span class="header-section-number">4.4</span> Exercises</h2>
 <div id="exercise-1-1" class="section level3">
-<h3><span class="header-section-number">4.5.1</span> Exercise 1</h3>
+<h3><span class="header-section-number">4.4.1</span> Exercise 1</h3>
 
 </div>
 </div>
