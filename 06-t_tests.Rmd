@@ -197,7 +197,27 @@ t.test(r_one$dat, mu = 30, alternative = "two.sided")
 
 ## Two-sample *t*-tests
 
-A two-sample *t*-test is used when we have samples from two different populations that we would like to compare against one another. This is the most common use of a *t*-test. Let's generate some new random normal data and test to see if the data belonging to the two groups differe significantly from one-another. First, we apply the *t*-test function as usual:
+A two-sample *t*-test is used when we have samples from two different populations that we would like to compare against one another. This is the most common use of a *t*-test. Two sample *t*-tests can accommodate samples with equal variances or samples with unequal variances (as determined by the test for heteroscedasticity that we performed earlier).
+
+In the case of samples that share the same variance we perform a classical *t*-test (otherwise known as Student's *t*-test); the equation to calculate the *t*-statistic is this one:
+
+$$t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}}{n_{A}}+\frac{S^{2}}{n_{B}}}}$$
+$\bar{A}$ and $\bar{B}$ are the means for groups $A$ and $B$, respectively; $n_{A}$ and $n_{B}$ are the sample sizes of the two sets of samples; and $S^{2}$ is the pooled variance, which is calculated as:
+
+$$S^{2}=\frac{\sum{(x-\bar{A})^{2}}+\sum{(x-\bar{B})^{2}}}{n_{A}+n_{B}-2}$$
+The degrees of freedom, $d.f.$, in the equation for the shared variance is $n_{A}+n_{B}-2$.
+
+When variances are unequal we perform the Welch's *t*-test; Welch's *t*-statistics is calculated as per this equation:
+
+$$t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}_{A}}{n_{A}}+\frac{S^{2}_{B}}{n_{B}}}}$$
+
+Above, $S_{A}$ and $S_{B}$ are the variances of groups $A$ and $B$, respectively (see Section X). The degrees of freedom to use with Welch's *t*-test is obtained as:
+
+$$d.f. = \frac{\left( \frac{S^{2}_{A}}{n_{A}}+\frac{S^{2}_{B}}{n^{2}_{B}} \right)}{\left( \frac{S^{4}_{A}}{n^{2}_{A}(n_{B}-1)} + \frac{S^{4}_{B}}{n^{2}_{B}(n_{B}-1)} \right)}$$
+
+What do we do with this *t*-statistic? In the olden days we had to calculate the $t$-statistics and the $d.f.$ by hand. These two values, the $d.f.$ and $t$-value had to be read off a table of pre-calculated $t$-values, probabilities and degrees of freedom [as in here](https://home.ubalt.edu/ntsbarsh/Business-stat/StatistialTables.pdf). Luckily, the *t*-test function nowadays does this all automagically. But if you are feeling nostalic over times that you have sadly never experienced, please calculate the $t$-statistic and the $d.f.$ yourself and give the table a go.
+
+Back to the present day and the wonders of modern technology. Let's generate some new random normal data and test to see if the data belonging to the two groups differe significantly from one-another. First, we apply the *t*-test function as usual:
 
 ```{r}
 # random normal data
@@ -278,7 +298,7 @@ mosquito
 
 ### One-sample and two-sample tests
 
-As with t-tests, proportion tests may also be based on one sample, or two. If we have only one sample we must specify the total number of trials as well as what the expected population probability of success is. Because these are individual values, and not matrices, we will show what this would look like without using any objects but will rather give each argument within `prop.test()` an exact value. In the arguments within `prop.test()`, `x` denotes the number of successes recorded, `n` shows the total number of individual trials performed, and `p` is the expected probability. It is easiest to consider this as though it were a series of 100 coin tosses.
+As with *t*-tests, proportion tests may also be based on one sample, or two. If we have only one sample we must specify the total number of trials as well as what the expected population probability of success is. Because these are individual values, and not matrices, we will show what this would look like without using any objects but will rather give each argument within `prop.test()` an exact value. In the arguments within `prop.test()`, `x` denotes the number of successes recorded, `n` shows the total number of individual trials performed, and `p` is the expected probability. It is easiest to consider this as though it were a series of 100 coin tosses.
 
 ```{r}
 # When the probability matches the population
