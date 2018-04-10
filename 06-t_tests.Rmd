@@ -14,25 +14,49 @@ library(tidyverse)
 library(plotly)
 ```
 
-## Assumptions
-
 At the heart of many basic scientific inquiries is the simple question "Is A different from B?". The scientific notation for this question is:
 
-> H0: Group A is not different from group B.
->
-> H1: Group A is different from group B.
+* H0: Group A is not different from group B.
+* H1: Group A is different from group B.
 
-To answer this fundamental question one often uses a t-test. This test however requires us to make a couple of important assumptions that are _not_ guaranteed to be true. In fact, these assumptions are often violated because real data, especially biological data, are messy. In order to use a t-test to determine if a significant difference between two samples sets of data exists we must first establish that the data are normally distributed and that the data are homoscedastic. 
+More formally, one would say:
 
-### Normal distributions
+1. $H_{0}: \bar{A} = \bar{B}$ vs. the alternate hypothesis that $H_{a}: \bar{A} \neq \bar{B}$.
+2. $H_{0}: \bar{A} \leq \bar{B}$ vs. the alternate hypothesis that $H_{a}: \bar{A} > \bar{B}$.
+3. $H_{0}: \bar{A} \geq \bar{B}$ vs. the alternate hypothesis that $H_{a}: \bar{A} < \bar{B}$.
+
+> *NOTE:* Hypothesis 1 is a two-sided *t*-test and hypotheses 2 and 3 are one-sided tests.
+
+To answer this fundamental question one often uses a *t*-test. There are several variations of *t*-tests, depending on the nature of our samples and the type of question being asked:
+
+* **One-sample *t*-tests:** only one sample set of data that we wish to compare against a known population mean:
+  * one-sided one-sample *t*-tests
+  * two-sided one-sample *t*-tests
+* **Two-sample *t*-tests:** the means of two groups are compared against each other:
+  * independent sample *t*-tests
+    * one-sided two-sample *t*-tests
+    * two-sided two-sample *t*-tests
+  * paired sample *t*-tests
+    * one-sided
+    * two-sided
+
+## Assumptions
+Irrespective of the kind of *t*-test, we have to make a couple of important assumptions that are _not_ guaranteed to be true. In fact, these assumptions are often violated because real data, especially biological data, are messy. In order to use a *t*-test to determine if a significant difference between two sample sets of data exists we must first establish that:
+
+* the dependent variable must be continuous (i.e. it is measured at the interval or ratio level),
+* the observations in the groups being compared are independent of each other,
+* the data are **normally distributed**, and 
+* that the data are **homoscedastic**, and in particular, that there are no outliers.
+
+### Normality
 
 Remember from Chapter 5 what a normal distribution is/looks like? Let's have a peek below to remind ourselves:
 
 ```{r, fig.cap="Interactive histogram showing two randomly generated normal distributions."}
 # Random normal data
-r_dat <- data.frame(dat = c(rnorm(n = 1000, mean = 10, sd = 3), 
-                             rnorm(n = 1000, mean = 8, sd = 2)),
-                    sample = c(rep("1", 1000), rep("2", 1000)))
+r_dat <- data.frame(dat = c(rnorm(n = 1000, mean = 10, sd = 3),
+                            rnorm(n = 1000, mean = 8, sd = 2)),
+                    sample = c(rep("A", 1000), rep("B", 1000)))
 
 # Create histogram
 h <- ggplot(data = r_dat, aes(x = dat, fill = sample)) +
@@ -44,15 +68,17 @@ h <- ggplot(data = r_dat, aes(x = dat, fill = sample)) +
 ggplotly(h)
 ```
 
-Whereas histograms may be a pretty way to check the normality of our data, there is actually a statistical test for this, which is preferable to a visual inspection alone. But remember that you should _always_ visualise your data before performing any statistics on them. TO check the normality of the data we use the Shapiro-Wilk test. This test produces a W value and a _p_-value. We are only interested in the _p_-value as this is how we are to determine the normality of the data. If the _p_-value is __above__ 0.05 we may assume the data to be normally distributed. In order to demonstrate what the output of `shapiro.test()` looks like we will run it on all of the random data we generated.
+Whereas histograms may be a pretty way to check the normality of our data, there is actually a statistical test for this, which is preferable to a visual inspection alone. But remember that you should _always_ visualise your data before performing any statistics on them. To check the normality of the data we use the Shapiro-Wilk test. This test produces a $W$ value and a _p_-value. We are only interested in the _p_-value as this is how we are to determine the normality of the data. The Shapiro–Wilk test tests the null hypothesis that a sample $x_{1},..., x_{n}$ comes from a normally distributed population. i.e. that the normality *does not* differ significantly from normal. If the _p_-value is __above__ 0.05 we may assume the data to be normally distributed. In order to demonstrate what the output of `shapiro.test()` looks like we will run it on all of the random data we generated.
 
 ```{r}
 shapiro.test(r_dat$dat)
 ```
 
-Note that this shows that the data are _not_ normally distributed. This is because we have incorrectly run this function on two different samples of data. To perform this test correctly, and in the tidy way, we need to select only the second piece of information from the `shapiro.test()` output and ensure that it is presented as a numeric value:
+Note that this shows that the data are _not_ normally distributed. This is because we have incorrectly run this function simultaneously on two different samples of data. To perform this test correctly, and in the tidy way, we need to select only the second piece of information from the `shapiro.test()` output and ensure that it is presented as a numeric value:
 
 ```{r}
+# we use the square bracket notation to select only the p-value;
+# had we used `[1]` we'd have gotten W
 r_dat %>% 
   group_by(sample) %>% 
   summarise(norm_dat = as.numeric(shapiro.test(dat)[2]))
@@ -60,9 +86,11 @@ r_dat %>%
 
 Now we see that our two sample sets are indeed normally distributed.
 
+What if we find that the data are not normally distributed? Although there are many options, the easiest is to perform a Wilcoxon Rank Sum test, which is the non-parametric equivalent to a *t*-test (see Section X). Another option is to transform the data (Chapter Y).
+
 ### Homoscedasticity
 
-Besides requiring that our data are normally distributed, we must also ensured that they are homoscedastic. This word means that the scedasticity (variance) of things are homogeneous () similar). In practical terms this means that the variance of the samples we are comparing should not be more than four times greater than one another. In R, we use the function `var()` to check the variance in a sample:
+Besides requiring that our data are normally distributed, we must also ensured that they are homoscedastic. This word means that the scedasticity (variance) of things are homogeneous (similar). In practical terms this means that the variance of the samples we are comparing should not be more than four times greater than one another. In R, we use the function `var()` to check the variance in a sample:
 
 ```{r}
 r_dat %>% 
@@ -71,6 +99,8 @@ r_dat %>%
 ```
 
 Above we see that the variance of our two samples are homoscedastic because the variance of one is not more than four times greater than the other.
+
+What is our data are not equal in their variances? This is easier to fix as the solution is built right into the *t*-test function; all we need to do is to perform Welch Two Sample *t*-test (the default) in the `t.test()` function that we shall use below. If the variances are equal, we simply perform a normal Student's *t*-test by setting the argument `var.equal = TRUE` in the function call (see below).
 
 ### Two for one
 
@@ -102,19 +132,19 @@ Once we have tested our assumptions we may perform a t-test to ascertain whether
 library(ggpubr)
 ```
 
-## One-sample t-tests
+## One-sample *t*-tests
 
-Generally when we use a t-test it will be a two-sample t-test (see below). Occasionally however we may have only one sample set of data that we wish to compare against a known population mean, which is generally denoted as mu:
+Generally when we use a *t*-test it will be a two-sample *t*-test (see below). Occasionally, however, we may have only one sample set of data that we wish to compare against a known population mean, which is generally denoted as $\mu$, or `mu` in the function call to the *t*-test in R:
 
 ```{r}
-# Create a single sample of random normal data
+# create a single sample of random normal data
 r_one <- data.frame(dat = rnorm(n = 20, mean = 20, sd = 5),
                     sample = "1")
 
-# Compare random data against a population mean of 20
+# compare random data against a population mean of 20
 t.test(r_one$dat, mu = 20)
 
-# Compare random data against a population mean of 30
+# compare random data against a population mean of 30
 t.test(r_one$dat, mu = 30)
 ```
 
@@ -123,33 +153,35 @@ What do the results of these two different tests show? Let's visualise these dat
 ```{r, fig.cap="Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30."}
 ggplot(data = r_one, aes(y = dat, x = sample)) +
   geom_boxplot(fill = "lightsalmon") +
-  # Population  mean (mu) = 20
+  # population  mean (mu) = 20
   geom_hline(yintercept = 20, colour = "blue", 
              size = 3, linetype = "dashed") +
-  # Population  mean (mu) = 30
-    geom_hline(yintercept = 30, colour = "red", 
+  # population  mean (mu) = 30
+  geom_hline(yintercept = 30, colour = "red", 
              size = 3, linetype = "dashed") +
-  labs(y = "value") +
+  labs(y = "Value", x = NULL) +
   coord_flip()
 ```
 
-The boxplot above shows the distribution of our random data against two potential population means. Does this help now to illustrate the results of our one-sample t-tests?
+The boxplot above shows the distribution of our random data against two potential population means. Does this help now to illustrate the results of our one-sample *t*-tests?
 
-### One-sided one-sample t-tests
+### One-sided one-sample *t*-tests
 
-As we may remember from Chapter 5, a distribution has two tails. When we are testing for significance we are generally looking for a result that lays in the far end of either of these tails. Occasionally, however, we may want to know if the result lays specifically in one of the tails. Explicitly the leading or trailing tail. To specify this in R we must add an argument as seen below:
+As we may remember from Chapter 5, a distribution has two tails. When we are testing for significance we are generally looking for a result that lays in the far end of either of these tails. Occasionally, however, we may want to know if the result lays specifically in one of the tails. Explicitly the leading or trailing tail. For example, is the mean value of our sample population significantly *greater than* the value $\mu$? Or, is the mean value of our sample population significantly *less than* the value $\mu$? To specify this in R we must add an argument as seen below:
 
 ```{r}
-# Check against the trailing tail
+# check against the trailing tail
 t.test(r_one$dat, mu = 30, alternative = "less")
 
-# Check against the leading tail
+# check against the leading tail
 t.test(r_one$dat, mu = 30, alternative = "greater")
 ```
 
 Are these the results we would have expected? Why does the second test not return a significant result?
 
-### Two-sided one-sample t-tests
+> **TASK:** Create a visualisation to graphically demonstrate the outcome of this *t*-test.
+
+### Two-sided one-sample *t*-tests
 
 In R, the default setting for any comparison of means test is that it is two-sided so we do not need to state this explicitly. For the sake of thoroughness let's see how to do this below. Note that the results for the two following tests are identical:
 
@@ -157,55 +189,74 @@ In R, the default setting for any comparison of means test is that it is two-sid
 # R assumes we want a to-sided test
 t.test(r_one$dat, mu = 30)
 
-# But we can be explicit as we choose
+# but we can be explicit as we choose
 t.test(r_one$dat, mu = 30, alternative = "two.sided")
 ```
 
-## Two-sample t-tests
+## Two-sample *t*-tests
 
-A two-sample t-test is used when we have two different samples that we would like to compare against one another. This is the most common use of this test. Let's generate some new random normal data and see how to use `compare_means()` to perform a t-test:
+A two-sample *t*-test is used when we have samples from two different populations that we would like to compare against one another. This is the most common use of a *t*-test. Let's generate some new random normal data and test to see if the data belonging to the two groups differe significantly from one-another. First, we apply the *t*-test function as usual:
 
 ```{r}
-# Random normal data
+# random normal data
 r_two <- data.frame(dat = c(rnorm(n = 20, mean = 4, sd = 1), 
                              rnorm(n = 20, mean = 5, sd = 1)),
-                    sample = c(rep("1", 20), rep("2", 20)))
+                    sample = c(rep("A", 20), rep("B", 20)))
 
-# Perform t-test
-compare_means(dat ~ sample, data = r_two, method = "t.test")
+# perform t-test
+# note how we set the `var.equal` argument to TRUE because we know 
+# our data has the same SD (they are simulated as such!)
+t.test(dat ~ sample, data = r_two, var.equal = TRUE)
+# if the variances are not equal, simply set `var.equal` to false
+# and a Welch's t-test will be performed
 ```
 
-Note above that in order to tell `compare_means()` to perform a t-test we feed it the argument `method = "t.test"`. The first argument we see in `compare_means()` is `dat ~ sample`. Usually in R when we see a `~` (tilde) we are creating what is known as a formula. A formula tells R how it should look for interactions between data and factors. For example `Y ~ X`. reads: Y as a factor of X. In our code above we see `dat ~ sample`. This means we are telling R that the t-test we want it to perform is when the `dat` column is a factor of the `sample` column. In plain English we are dividing up the `dat` column into the two different samples we have, and then running a t-test on these samples.
+The first argument we see in `t.test()` is `dat ~ sample`. Usually in R when we see a `~` (tilde) we are creating what is known as a formula. A formula tells R how it should look for interactions between data and factors. For example `Y ~ X` reads: $Y$ as a function of $X$. In our code above we see `dat ~ sample`. This means we are telling R that the *t*-test we want it to perform is when the `dat` column is a function of the `sample` column. In plain English we are dividing up the `dat` column into the two different samples we have, and then running a *t*-test on these samples. Another way of stating this is that the value of `dat` depends on the grouping it belong to (`A` or `B`). We will see this same formula notation cropping up later under ANOVAs, linear models, etc.
 
-### One-sided two-sample t-tests
+> **TASK:** Create a visualisation to graphically demonstrate the outcome of this *t*-test.
 
-Just as with the one-sample t-tests above, we may also specify which tail of the distribution we are interested in when we compare the means of our two samples. We do so by providing the same arguments as previously:
+Now we do the same test using a convenient function that comes with the **ggpubr** package, called `compare_means()`, to perform the same *t*-test:
 
 ```{r}
-# Is sample 2 smaller than sample 1?
+# perform t-test using `compare_means()`
+compare_means(dat ~ sample, data = r_two, method = "t.test")
+# a t-test (not Welch's t-test) is done, so as far as I know
+# `compare_means()` does not allow one to account for unequal vars
+```
+
+Note above that in order to tell `compare_means()` to perform a *t*-test we feed it the argument `method = "t.test"`. The output is similar to that of the familiar `t.test()` function that we used earlier, but the output is more abbreviated and less useful. Typically, the output of the *t*-tests that we need to report in the results sections of our papers include the $t$-statistic, the $P$-value, and the degrees of freedom, $d.f.$, and these are absent from the `compare_means()` function's output.
+
+### One-sided two-sample *t*-tests
+
+Just as with the one-sample *t*-tests above, we may also specify which tail of the distribution we are interested in when we compare the means of our two samples. We do so by providing the same arguments as previously:
+
+```{r}
+# is the mean of sample 2 smaller than that of sample 1?
 compare_means(dat ~ sample, data = r_two, method = "t.test", alternative = "less")
 
-# Is sample 2 greater than sample 1?
+# is the mean of sample 2 greater than that of sample 1?
 compare_means(dat ~ sample, data = r_two, method = "t.test", alternative = "greater")
 ```
 
 What do these results show? Is this surprising?
 
-### Two-sided two-sample t-tests
+### Two-sided two-sample *t*-tests
 
 Again, as stated above, the default setting in R for comparisons of means is that the test is two-sided. If one wants to state this explicitly it may be done as previously. Note that the results are identical.
 
 ```{r}
-# Default settings
+# default settings
 compare_means(dat ~ sample, data = r_two, method = "t.test")
 
-# Explicitly state a two-sided test
+# explicitly state a two-sided test
 compare_means(dat ~ sample, data = r_two, method = "t.test", alternative = "two.sided")
 ```
 
 ## Paired t-tests
 
-Generally when one is comparing the means of two samples the order in which the individual records were recorded is not importing to the hypothesis. If for some reason they are, we must use a paired t-test. To do so we use the same structure as previously except we must now add one additional argument.
+Paired *t*-tests are done when comparing matched samples, and in other words, when our second assumption of *t*-tests is violated: the observations are independent of one another---in paired samples, clearly they are not independent. This test is also sometimes called a dependent sample *t*-test.
+
+For example, we design a survey to determine if, in a group of 20 people, individuals' right arms differ in length from that of their left arms. For person A, we measure her right arm and her left arm. For person B we measure his right arm and his left arm. So we go all the way to person 20. A right arm belonging with one individual is always matched against a left arm in the same individual. The samples are paired so we use a paired *t*-test. Another example: we follow the growth of a sample of 20 piglets over three weeks to see if they weigh more after three weeks than they did at the start of the assessment period. We measure the first piglet, named Halaal, at the start of the three week period and again after. We do the same for the second piglet, Kosher. And so it goes. Each piglet has a paired set of measurements, one before matched with one after. In both these examples the data in the two groups (left arm and right arm; or before and after) are not independent, so we need to account for this in the analysis. In practice, how do we perform such a *t*-test?
 
 ```{r}
 compare_means(dat ~ sample, data = r_two, method = "t.test", paired = TRUE)

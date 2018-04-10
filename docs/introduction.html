@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-09">
+<meta name="date" content="2018-04-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,41 +57,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -199,17 +227,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="6" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html"><i class="fa fa-check"></i><b>6</b> Inferences about one or two populations</a><ul>
 <li class="chapter" data-level="6.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#assumptions"><i class="fa fa-check"></i><b>6.1</b> Assumptions</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#normal-distributions"><i class="fa fa-check"></i><b>6.1.1</b> Normal distributions</a></li>
+<li class="chapter" data-level="6.1.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#normality"><i class="fa fa-check"></i><b>6.1.1</b> Normality</a></li>
 <li class="chapter" data-level="6.1.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#homoscedasticity"><i class="fa fa-check"></i><b>6.1.2</b> Homoscedasticity</a></li>
 <li class="chapter" data-level="6.1.3" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-for-one"><i class="fa fa-check"></i><b>6.1.3</b> Two for one</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sample-t-tests"><i class="fa fa-check"></i><b>6.2</b> One-sample t-tests</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sided-one-sample-t-tests"><i class="fa fa-check"></i><b>6.2.1</b> One-sided one-sample t-tests</a></li>
-<li class="chapter" data-level="6.2.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sided-one-sample-t-tests"><i class="fa fa-check"></i><b>6.2.2</b> Two-sided one-sample t-tests</a></li>
+<li class="chapter" data-level="6.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sample-t-tests"><i class="fa fa-check"></i><b>6.2</b> One-sample <em>t</em>-tests</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sided-one-sample-t-tests"><i class="fa fa-check"></i><b>6.2.1</b> One-sided one-sample <em>t</em>-tests</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sided-one-sample-t-tests"><i class="fa fa-check"></i><b>6.2.2</b> Two-sided one-sample <em>t</em>-tests</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sample-t-tests"><i class="fa fa-check"></i><b>6.3</b> Two-sample t-tests</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sided-two-sample-t-tests"><i class="fa fa-check"></i><b>6.3.1</b> One-sided two-sample t-tests</a></li>
-<li class="chapter" data-level="6.3.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sided-two-sample-t-tests"><i class="fa fa-check"></i><b>6.3.2</b> Two-sided two-sample t-tests</a></li>
+<li class="chapter" data-level="6.3" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sample-t-tests"><i class="fa fa-check"></i><b>6.3</b> Two-sample <em>t</em>-tests</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#one-sided-two-sample-t-tests"><i class="fa fa-check"></i><b>6.3.1</b> One-sided two-sample <em>t</em>-tests</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#two-sided-two-sample-t-tests"><i class="fa fa-check"></i><b>6.3.2</b> Two-sided two-sample <em>t</em>-tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#paired-t-tests"><i class="fa fa-check"></i><b>6.4</b> Paired t-tests</a></li>
 <li class="chapter" data-level="6.5" data-path="inferences-about-one-or-two-populations.html"><a href="inferences-about-one-or-two-populations.html#comparison-of-two-population-proportions"><i class="fa fa-check"></i><b>6.5</b> Comparison of Two Population Proportions</a><ul>
@@ -252,7 +280,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
 <li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#the-two-main-assumptions"><i class="fa fa-check"></i><b>11.1</b> The two main assumptions</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
+<li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality-1"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
 <li class="chapter" data-level="11.1.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#homoscedasticity-1"><i class="fa fa-check"></i><b>11.1.2</b> Homoscedasticity</a></li>
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#transforming-data"><i class="fa fa-check"></i><b>11.2</b> Transforming data</a><ul>
@@ -378,15 +406,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Sometimes we might directly specify the package that contains the function by using two colons, <em>e.g.</em> <code>dplyr::filter()</code>.</li>
 <li>Commands entered onto the R command line (console) and the output that is returned will be shown in a code block, which is a light grey background with code font. The commands entered start at the beginning of a line and the output it produces is preceded by <code>R&gt;</code>, like so:</li>
 </ul>
-<<<<<<< HEAD
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">13</span>)</a></code></pre></div>
-<pre><code>R&gt;  [1]  -1.703457  10.485279  16.550476  -8.898388   4.684921 -20.733541
-R&gt;  [7]  11.755307  20.590057  11.650813  -5.026572</code></pre>
-=======
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">13</span>)</code></pre></div>
-<pre><code>R&gt;  [1]  -2.893296  -2.660435 -14.261032   6.988156   4.539081  18.056699
-R&gt;  [7]  -7.359621  -4.386022  -8.890592 -19.810345</code></pre>
->>>>>>> 99b5975bb157e8f49cddc91cab09cdbae26c9fe3
+<pre><code>R&gt;  [1] -8.382901 20.581653 -9.863459 -6.106783 -8.209677  9.811694  1.459537
+R&gt;  [8] -5.674477 25.799345  9.804143</code></pre>
 <p>Consult these resources for more about R code style :</p>
 <ul>
 <li><a href="https://google.github.io/styleguide/Rguide.xml">Google’s R style guide</a></li>
@@ -404,7 +426,7 @@ R&gt;  [7]  -7.359621  -4.386022  -8.890592 -19.810345</code></pre>
 <div id="about-this-document" class="section level2">
 <h2><span class="header-section-number">1.9</span> About this document</h2>
 <p>This document, which as available as an HTML file that’s viewable on a web browser of your choice (anything will do, but we discourage using Internet Explorer) and as a PDF (accessible from the link at the top of any of the website’s pages) that may be printed, was prepared by the software tools available to R via RStudio. We use the package called <code>bookdown</code> that may be accessed and read about <a href="https://bookdown.org/yihui/bookdown/">here</a> to produce this documentation. The entire source code to reproduce this book is available from my <a href="https://github.com/ajsmit/Basic_stats">GitHub repo</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/bookdown_hex_logo.png&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/bookdown_hex_logo.png&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:rmarkdown"></span>
 <img src="figures/bookdown_hex_logo.png" alt="Bookdown hex." width="100" />
 <p class="caption">
@@ -413,25 +435,20 @@ Figure 1.1: Bookdown hex.
 </div>
 <p>You will notice that this repository uses <a href="https://github.com">GitHub</a>, and you are advised to set up your own repository for R scripts and all your data. We will touch on GitHub and the principles of reproducible research later, and GitHub forms a core ingredient of such a workflow.</p>
 <p>The R session information when compiling this book is shown below:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
 <pre><code>R&gt; R version 3.4.4 (2018-03-15)
-R&gt; Platform: x86_64-pc-linux-gnu (64-bit)
-R&gt; Running under: Ubuntu 16.04.4 LTS
+R&gt; Platform: x86_64-apple-darwin15.6.0 (64-bit)
+R&gt; Running under: macOS Sierra 10.12.6
 R&gt; 
 R&gt; Matrix products: default
-R&gt; BLAS: /usr/lib/libblas/libblas.so.3.6.0
-R&gt; LAPACK: /usr/lib/lapack/liblapack.so.3.6.0
+R&gt; BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
+R&gt; LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
 R&gt; 
 R&gt; locale:
-R&gt;  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C              
-R&gt;  [3] LC_TIME=en_ZA.UTF-8        LC_COLLATE=en_ZA.UTF-8    
-R&gt;  [5] LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
-R&gt;  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                 
-R&gt;  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-R&gt; [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
+R&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 R&gt; 
 R&gt; attached base packages:
-R&gt; [1] stats     graphics  grDevices utils     datasets  base     
+R&gt; [1] stats     grDevices utils     datasets  graphics  base     
 R&gt; 
 R&gt; loaded via a namespace (and not attached):
 R&gt;  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  
@@ -500,7 +517,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

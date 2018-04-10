@@ -148,7 +148,7 @@ What if we have continuous data belonging with multiple categories? The `iris` d
 iris.long <- iris %>% 
   gather(key = "variable", value = "size", -Species)
 
-hist5 <- ggplot(data = iris.long, aes(x = size)) +
+ggplot(data = iris.long, aes(x = size)) +
   geom_histogram(position = "dodge", # ommitting this creates a stacked histogram
                  colour = NA, bins = 20,
                  aes(fill = Species)) +
@@ -157,7 +157,6 @@ hist5 <- ggplot(data = iris.long, aes(x = size)) +
        subtitle = "Grouped frequency histogram",
        x = "Size (mm)",
        y = "Count")
-hist5
 ```
 
 <img src="04-graphics_files/figure-html/unnamed-chunk-6-1.png" width="672" />
