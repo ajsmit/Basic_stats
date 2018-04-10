@@ -204,7 +204,7 @@ In the case of samples that share the same variance we perform a classical *t*-t
 $$t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}}{n_{A}}+\frac{S^{2}}{n_{B}}}}$$
 $\bar{A}$ and $\bar{B}$ are the means for groups $A$ and $B$, respectively; $n_{A}$ and $n_{B}$ are the sample sizes of the two sets of samples; and $S^{2}$ is the pooled variance, which is calculated as:
 
-$$S^{2}=\frac{\sum{(x-\bar{A})^{2}}+\sum{(x-\bar{B})^{2}}}{n_{A}+n_{B}-2}$$
+$$S^{2}=\frac{\sum_{i=1}^{n}{(x_{i}-\bar{A})^{2}}+\sum_{i=1}^{n}{(x_{i}-\bar{B})^{2}}}{n_{A}+n_{B}-2}$$
 The degrees of freedom, $d.f.$, in the equation for the shared variance is $n_{A}+n_{B}-2$.
 
 When variances are unequal we perform the Welch's *t*-test; Welch's *t*-statistics is calculated as per this equation:
