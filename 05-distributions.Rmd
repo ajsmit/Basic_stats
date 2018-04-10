@@ -798,3 +798,6 @@ p <- plot_ly(data = beta_dat,
 p
 ```
 
+## Exercises
+
+### Exercise 1

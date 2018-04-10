@@ -212,3 +212,7 @@ iris.long %>%
 ```
 
 ## Category statistics
+
+## Exercises
+
+### Exercise 1

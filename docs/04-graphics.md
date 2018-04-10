@@ -249,3 +249,7 @@ iris.long %>%
 </div>
 
 ## Category statistics
+
+## Exercises
+
+### Exercise 1
