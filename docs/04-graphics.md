@@ -49,7 +49,7 @@ R> 3 virginica     50 0.333
 plt1 <- ggplot(data = iris.cnt, aes(x = "", y = n, fill = Species)) +
   geom_bar(width = 1, stat = "identity") +
   labs(title = "Stacked bar graph", subtitle = "cumulative sum",
-       x = NULL, y = "Count") + 
+       x = NULL, y = "Count") +
   theme_minimal()
 
 # a stacked bar graph with the relative proportions of observations
@@ -57,7 +57,7 @@ plt2 <- ggplot(data = iris.cnt, aes(x = "", y = prop, fill = Species)) +
   geom_bar(width = 1, stat = "identity") +
   scale_y_continuous(breaks = c(0.00, 0.33, 0.66, 1.00)) +
   labs(title = "Stacked bar graph", subtitle = "relative proportions",
-       x = NULL, y = "Proportion") + 
+       x = NULL, y = "Proportion") +
   theme_minimal()
 
 # a basic pie chart
@@ -69,11 +69,11 @@ plt3 <- plt1 + coord_polar("y", start = 0) +
 # if you seriously want a pie chart, rather use the base R function, `pie()`
 
 # here now a bar graph...
-# the default mapping of `geom_bar` is `stat = count`, which is a 
+# the default mapping of `geom_bar` is `stat = count`, which is a
 # bar for each fo the categories (`Species`), with `count` along y
 plt4 <- ggplot(data = iris, aes(x = Species, fill = Species)) +
   geom_bar(show.legend = FALSE) +
-  labs(title = "Side-by-side bars", subtitle = "n per species", y = "Count") + 
+  labs(title = "Side-by-side bars", subtitle = "n per species", y = "Count") +
   theme_minimal()
 
 ggarrange(plt1, plt2, plt3, plt4, nrow = 2, ncol = 2, labels = "AUTO")
@@ -140,6 +140,29 @@ ggarrange(hist1, hist2, hist3, hist4, ncol = 2, nrow = 2, labels = "AUTO")
 <p class="caption">(\#fig:unnamed-chunk-5)Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.</p>
 </div>
 
+What if we have continuous data belonging with multiple categories? The `iris` data provide a nice set of measurements that we may use to demonstrate a grouped frequency histogram. These data are size measurements (cm) of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of three species of *Iris*. The species are *Iris setosa*, *I. versicolor*, and *I. virginica*.
+
+
+```r
+# first we make long data
+iris.long <- iris %>% 
+  gather(key = "variable", value = "size", -Species)
+
+hist5 <- ggplot(data = iris.long, aes(x = size)) +
+  geom_histogram(position = "dodge", # ommitting this creates a stacked histogram
+                 colour = NA, bins = 20,
+                 aes(fill = Species)) +
+  facet_wrap(~variable) +
+  labs(title = "Iris data",
+       subtitle = "Grouped frequency histogram",
+       x = "Size (mm)",
+       y = "Count")
+hist5
+```
+
+<img src="04-graphics_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+
+
 #### Box plots
 Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the 'shape' of the data distribution; they provide an alternative view to that given by the frequency distribution. A variation of the basic box-and-whisker plt is to superimpose a jittered scatter plot of the raw data on each bar.
 
@@ -149,9 +172,6 @@ Box plots are sometimes called box-and-whisker plots. These graphs are a a graph
 plt1 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
   geom_boxplot(show.legend = FALSE) + theme_pubclean() +
   labs(y = "Sepal length (mm)")
-
-iris.long <- iris %>% 
-  gather(key = "variable", value = "size", -Species)
 
 plt2 <- ggplot(data = iris.long, aes(x = Species, y = size)) +
   geom_boxplot(fill = "red", alpha = 0.4) +
@@ -164,8 +184,8 @@ ggarrange(plt1, plt2, nrow = 2, ncol = 1, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/unnamed-chunk-6-1.png" alt="Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-6)Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.</p>
+<img src="04-graphics_files/figure-html/unnamed-chunk-7-1.png" alt="Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-7)Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.</p>
 </div>
 
 Box-and-whisker plots have traditionally been used to display data that are not normally distributed, but I like to use them for any old data, even normal data. I prefer these over the old-fashioned bar graphs (as seen later in this section).
@@ -191,8 +211,8 @@ ggarrange(plt1, plt2, ncol = 2, nrow = 1, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/unnamed-chunk-7-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-7)Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added.</p>
+<img src="04-graphics_files/figure-html/unnamed-chunk-8-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-8)Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added.</p>
 </div>
 
 ## Bar graphs
@@ -200,10 +220,10 @@ Bar graphs display the mean plus/minus some measure of variation around the mean
 
 
 ```r
-# first make nice labels for the facets because the default ones 
+# first make nice labels for the facets because the default ones
 # in the dataframe are not so nice; use the `labeller()` function
 # to receive the new variable names defined here
-facet.names <- c(Petal.Length = "Petal length", 
+facet.names <- c(Petal.Length = "Petal length",
                  Petal.Width = "Petal width",
                  Sepal.Length = "Sepal length",
                  Sepal.Width = "Sepal width")
@@ -212,9 +232,9 @@ facet.names <- c(Petal.Length = "Petal length",
 # we create summaries of mean and SD and squirt it directly
 # into the ggplot functions
 iris.long %>% 
-  group_by(Species, variable) %>% 
+  group_by(Species, variable) %>%
   summarise(mean.size = mean(size),
-            sd.size = sd(size)) %>% 
+            sd.size = sd(size)) %>%
   ggplot(aes(x = Species, y = mean.size)) +
   geom_bar(stat = "identity") +
   geom_errorbar(aes(ymin = mean.size - sd.size, ymax = mean.size + sd.size), width = 0.2) +
@@ -224,8 +244,8 @@ iris.long %>%
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/unnamed-chunk-8-1.png" alt="Boxplots of the mean±SD of the four Iris variables." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-8)Boxplots of the mean±SD of the four Iris variables.</p>
+<img src="04-graphics_files/figure-html/unnamed-chunk-9-1.png" alt="Boxplots of the mean±SD of the four Iris variables." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-9)Boxplots of the mean±SD of the four Iris variables.</p>
 </div>
 
 ## Category statistics

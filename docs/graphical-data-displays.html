@@ -347,7 +347,7 @@ R&gt; 3 virginica     50 0.333</code></pre>
 <a class="sourceLine" id="cb60-2" data-line-number="2">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.cnt, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> n, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb60-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">width =</span> <span class="dv">1</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb60-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Stacked bar graph&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;cumulative sum&quot;</span>,</a>
-<a class="sourceLine" id="cb60-5" data-line-number="5">       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb60-5" data-line-number="5">       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb60-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
 <a class="sourceLine" id="cb60-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb60-8" data-line-number="8"><span class="co"># a stacked bar graph with the relative proportions of observations</span></a>
@@ -355,7 +355,7 @@ R&gt; 3 virginica     50 0.333</code></pre>
 <a class="sourceLine" id="cb60-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">width =</span> <span class="dv">1</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb60-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.00</span>, <span class="fl">0.33</span>, <span class="fl">0.66</span>, <span class="fl">1.00</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb60-12" data-line-number="12"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Stacked bar graph&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;relative proportions&quot;</span>,</a>
-<a class="sourceLine" id="cb60-13" data-line-number="13">       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Proportion&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb60-13" data-line-number="13">       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Proportion&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb60-14" data-line-number="14"><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
 <a class="sourceLine" id="cb60-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb60-16" data-line-number="16"><span class="co"># a basic pie chart</span></a>
@@ -367,11 +367,11 @@ R&gt; 3 virginica     50 0.333</code></pre>
 <a class="sourceLine" id="cb60-22" data-line-number="22"><span class="co"># if you seriously want a pie chart, rather use the base R function, `pie()`</span></a>
 <a class="sourceLine" id="cb60-23" data-line-number="23"></a>
 <a class="sourceLine" id="cb60-24" data-line-number="24"><span class="co"># here now a bar graph...</span></a>
-<a class="sourceLine" id="cb60-25" data-line-number="25"><span class="co"># the default mapping of `geom_bar` is `stat = count`, which is a </span></a>
+<a class="sourceLine" id="cb60-25" data-line-number="25"><span class="co"># the default mapping of `geom_bar` is `stat = count`, which is a</span></a>
 <a class="sourceLine" id="cb60-26" data-line-number="26"><span class="co"># bar for each fo the categories (`Species`), with `count` along y</span></a>
 <a class="sourceLine" id="cb60-27" data-line-number="27">plt4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb60-28" data-line-number="28"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb60-29" data-line-number="29"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Side-by-side bars&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;n per species&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb60-29" data-line-number="29"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Side-by-side bars&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;n per species&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb60-30" data-line-number="30"><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
 <a class="sourceLine" id="cb60-31" data-line-number="31"></a>
 <a class="sourceLine" id="cb60-32" data-line-number="32"><span class="kw">ggarrange</span>(plt1, plt2, plt3, plt4, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
@@ -433,28 +433,41 @@ Figure 4.1: Examples of histograms for the built-in Iris data. A) A default freq
 Figure 4.2: Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.
 </p>
 </div>
+<p>What if we have continuous data belonging with multiple categories? The <code>iris</code> data provide a nice set of measurements that we may use to demonstrate a grouped frequency histogram. These data are size measurements (cm) of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of three species of <em>Iris</em>. The species are <em>Iris setosa</em>, <em>I. versicolor</em>, and <em>I. virginica</em>.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># first we make long data</span></a>
+<a class="sourceLine" id="cb62-2" data-line-number="2">iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;size&quot;</span>, <span class="op">-</span>Species)</a>
+<a class="sourceLine" id="cb62-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb62-5" data-line-number="5">hist5 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> size)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb62-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="co"># ommitting this creates a stacked histogram</span></a>
+<a class="sourceLine" id="cb62-7" data-line-number="7">                 <span class="dt">colour =</span> <span class="ot">NA</span>, <span class="dt">bins =</span> <span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb62-8" data-line-number="8">                 <span class="kw">aes</span>(<span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb62-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable) <span class="op">+</span></a>
+<a class="sourceLine" id="cb62-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,</a>
+<a class="sourceLine" id="cb62-11" data-line-number="11">       <span class="dt">subtitle =</span> <span class="st">&quot;Grouped frequency histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb62-12" data-line-number="12">       <span class="dt">x =</span> <span class="st">&quot;Size (mm)&quot;</span>,</a>
+<a class="sourceLine" id="cb62-13" data-line-number="13">       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>)</a>
+<a class="sourceLine" id="cb62-14" data-line-number="14">hist5</a></code></pre></div>
+<p><img src="04-graphics_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="box-plots" class="section level4">
 <h4><span class="header-section-number">4.1.2.2</span> Box plots</h4>
 <p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution; they provide an alternative view to that given by the frequency distribution. A variation of the basic box-and-whisker plt is to superimpose a jittered scatter plot of the raw data on each bar.</p>
 <!-- show example of a box plot -->
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb62-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>)</a>
-<a class="sourceLine" id="cb62-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb62-5" data-line-number="5">iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb62-6" data-line-number="6"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;size&quot;</span>, <span class="op">-</span>Species)</a>
-<a class="sourceLine" id="cb62-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb62-8" data-line-number="8">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> size)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb62-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb62-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb62-11" data-line-number="11"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb62-12" data-line-number="12"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb62-13" data-line-number="13"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a>
-<a class="sourceLine" id="cb62-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb62-15" data-line-number="15"><span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-6"></span>
-<img src="04-graphics_files/figure-html/unnamed-chunk-6-1.png" alt="Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="672" />
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>)</a>
+<a class="sourceLine" id="cb63-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb63-5" data-line-number="5">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> size)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-10" data-line-number="10"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a>
+<a class="sourceLine" id="cb63-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb63-12" data-line-number="12"><span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-7"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-7-1.png" alt="Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="672" />
 <p class="caption">
 Figure 4.3: Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.
 </p>
@@ -465,19 +478,19 @@ Figure 4.3: Examples of boxplots made for the Iris data. A) A default boxplot fo
 <div id="pairwise-scatter-plots" class="section level4">
 <h4><span class="header-section-number">4.1.2.3</span> Pairwise Scatter plots</h4>
 <p>This graph shows the relationship between two (matched) continuous variables. The statistical strength of the relationship can be indicated by a correlation (no causal relationship implied as is the case here) or a regression (when a causal link of <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span> is demonstrated).</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-4" data-line-number="4"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.18</span>, <span class="fl">0.85</span>))</a>
-<a class="sourceLine" id="cb63-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb63-6" data-line-number="6">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb63-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb63-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb63-11" data-line-number="11"><span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-7"></span>
-<img src="04-graphics_files/figure-html/unnamed-chunk-7-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="672" />
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-4" data-line-number="4"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.18</span>, <span class="fl">0.85</span>))</a>
+<a class="sourceLine" id="cb64-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb64-6" data-line-number="6">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb64-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb64-11" data-line-number="11"><span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-8-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="672" />
 <p class="caption">
 Figure 4.4: Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added.
 </p>
@@ -488,29 +501,29 @@ Figure 4.4: Examples of scatterplots made for the Iris data. A) A default scatte
 <div id="bar-graphs" class="section level2">
 <h2><span class="header-section-number">4.2</span> Bar graphs</h2>
 <p>Bar graphs display the mean plus/minus some measure of variation around the mean—typically the standard error or the standard deviation. The mean±SE and mean±SD are typically used for normally-distributed data. Here I provide an example bar graph for one of the Iris data set’s variables:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co"># first make nice labels for the facets because the default ones </span></a>
-<a class="sourceLine" id="cb64-2" data-line-number="2"><span class="co"># in the dataframe are not so nice; use the `labeller()` function</span></a>
-<a class="sourceLine" id="cb64-3" data-line-number="3"><span class="co"># to receive the new variable names defined here</span></a>
-<a class="sourceLine" id="cb64-4" data-line-number="4">facet.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Petal.Length =</span> <span class="st">&quot;Petal length&quot;</span>, </a>
-<a class="sourceLine" id="cb64-5" data-line-number="5">                 <span class="dt">Petal.Width =</span> <span class="st">&quot;Petal width&quot;</span>,</a>
-<a class="sourceLine" id="cb64-6" data-line-number="6">                 <span class="dt">Sepal.Length =</span> <span class="st">&quot;Sepal length&quot;</span>,</a>
-<a class="sourceLine" id="cb64-7" data-line-number="7">                 <span class="dt">Sepal.Width =</span> <span class="st">&quot;Sepal width&quot;</span>)</a>
-<a class="sourceLine" id="cb64-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb64-9" data-line-number="9"><span class="co"># start with the `iris.long` long data that were produced above</span></a>
-<a class="sourceLine" id="cb64-10" data-line-number="10"><span class="co"># we create summaries of mean and SD and squirt it directly</span></a>
-<a class="sourceLine" id="cb64-11" data-line-number="11"><span class="co"># into the ggplot functions</span></a>
-<a class="sourceLine" id="cb64-12" data-line-number="12">iris.long <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb64-13" data-line-number="13"><span class="st">  </span><span class="kw">group_by</span>(Species, variable) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb64-14" data-line-number="14"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.size =</span> <span class="kw">mean</span>(size),</a>
-<a class="sourceLine" id="cb64-15" data-line-number="15">            <span class="dt">sd.size =</span> <span class="kw">sd</span>(size)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb64-16" data-line-number="16"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> mean.size)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb64-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb64-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean.size <span class="op">-</span><span class="st"> </span>sd.size, <span class="dt">ymax =</span> mean.size <span class="op">+</span><span class="st"> </span>sd.size), <span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb64-19" data-line-number="19"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">variable =</span> facet.names)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb64-20" data-line-number="20"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;A box plot...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...of the Iris data&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb64-21" data-line-number="21"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-8"></span>
-<img src="04-graphics_files/figure-html/unnamed-chunk-8-1.png" alt="Boxplots of the mean±SD of the four Iris variables." width="672" />
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co"># first make nice labels for the facets because the default ones</span></a>
+<a class="sourceLine" id="cb65-2" data-line-number="2"><span class="co"># in the dataframe are not so nice; use the `labeller()` function</span></a>
+<a class="sourceLine" id="cb65-3" data-line-number="3"><span class="co"># to receive the new variable names defined here</span></a>
+<a class="sourceLine" id="cb65-4" data-line-number="4">facet.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Petal.Length =</span> <span class="st">&quot;Petal length&quot;</span>,</a>
+<a class="sourceLine" id="cb65-5" data-line-number="5">                 <span class="dt">Petal.Width =</span> <span class="st">&quot;Petal width&quot;</span>,</a>
+<a class="sourceLine" id="cb65-6" data-line-number="6">                 <span class="dt">Sepal.Length =</span> <span class="st">&quot;Sepal length&quot;</span>,</a>
+<a class="sourceLine" id="cb65-7" data-line-number="7">                 <span class="dt">Sepal.Width =</span> <span class="st">&quot;Sepal width&quot;</span>)</a>
+<a class="sourceLine" id="cb65-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb65-9" data-line-number="9"><span class="co"># start with the `iris.long` long data that were produced above</span></a>
+<a class="sourceLine" id="cb65-10" data-line-number="10"><span class="co"># we create summaries of mean and SD and squirt it directly</span></a>
+<a class="sourceLine" id="cb65-11" data-line-number="11"><span class="co"># into the ggplot functions</span></a>
+<a class="sourceLine" id="cb65-12" data-line-number="12">iris.long <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb65-13" data-line-number="13"><span class="st">  </span><span class="kw">group_by</span>(Species, variable) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb65-14" data-line-number="14"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.size =</span> <span class="kw">mean</span>(size),</a>
+<a class="sourceLine" id="cb65-15" data-line-number="15">            <span class="dt">sd.size =</span> <span class="kw">sd</span>(size)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb65-16" data-line-number="16"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> mean.size)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean.size <span class="op">-</span><span class="st"> </span>sd.size, <span class="dt">ymax =</span> mean.size <span class="op">+</span><span class="st"> </span>sd.size), <span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-19" data-line-number="19"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">variable =</span> facet.names)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-20" data-line-number="20"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;A box plot...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...of the Iris data&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-21" data-line-number="21"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-9-1.png" alt="Boxplots of the mean±SD of the four Iris variables." width="672" />
 <p class="caption">
 Figure 4.5: Boxplots of the mean±SD of the four Iris variables.
 </p>

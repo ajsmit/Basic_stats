@@ -319,22 +319,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="confidence-intervals" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Confidence intervals</h1>
 <p>A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. To calculate a confidence interval requires three things:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># First we set the sample mean</span></a>
-<a class="sourceLine" id="cb66-2" data-line-number="2">sample_mean &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb66-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb66-4" data-line-number="4"><span class="co"># Then the sample standard deviation</span></a>
-<a class="sourceLine" id="cb66-5" data-line-number="5">sample_sd &lt;-<span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb66-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb66-7" data-line-number="7"><span class="co"># Then the number of samples</span></a>
-<a class="sourceLine" id="cb66-8" data-line-number="8">sample_n &lt;-<span class="st"> </span><span class="dv">20</span></a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="co"># First we set the sample mean</span></a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">sample_mean &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb67-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb67-4" data-line-number="4"><span class="co"># Then the sample standard deviation</span></a>
+<a class="sourceLine" id="cb67-5" data-line-number="5">sample_sd &lt;-<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb67-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb67-7" data-line-number="7"><span class="co"># Then the number of samples</span></a>
+<a class="sourceLine" id="cb67-8" data-line-number="8">sample_n &lt;-<span class="st"> </span><span class="dv">20</span></a></code></pre></div>
 <p>Once we know these things we must then use the following formula to calculate th CI:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">error &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>sample_sd<span class="op">/</span><span class="kw">sqrt</span>(sample_n)</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">error &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>sample_sd<span class="op">/</span><span class="kw">sqrt</span>(sample_n)</a></code></pre></div>
 <p>With the CI known, we then substract/add it from the sample mean in order to find the upper and lower limits:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">lower &lt;-<span class="st"> </span>sample_mean<span class="op">-</span>error</a>
-<a class="sourceLine" id="cb68-2" data-line-number="2">upper &lt;-<span class="st"> </span>sample_mean<span class="op">+</span>error</a>
-<a class="sourceLine" id="cb68-3" data-line-number="3">lower</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">lower &lt;-<span class="st"> </span>sample_mean<span class="op">-</span>error</a>
+<a class="sourceLine" id="cb69-2" data-line-number="2">upper &lt;-<span class="st"> </span>sample_mean<span class="op">+</span>error</a>
+<a class="sourceLine" id="cb69-3" data-line-number="3">lower</a></code></pre></div>
 <pre><code>R&gt; [1] 9.123477</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">upper</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">upper</a></code></pre></div>
 <pre><code>R&gt; [1] 10.87652</code></pre>
 
 </div>
