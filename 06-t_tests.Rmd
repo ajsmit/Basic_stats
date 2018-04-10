@@ -54,6 +54,7 @@ Remember from Chapter 5 what a normal distribution is/looks like? Let's have a p
 
 ```{r, fig.cap="Interactive histogram showing two randomly generated normal distributions."}
 # Random normal data
+set.seed(666)
 r_dat <- data.frame(dat = c(rnorm(n = 1000, mean = 10, sd = 3),
                             rnorm(n = 1000, mean = 8, sd = 2)),
                     sample = c(rep("A", 1000), rep("B", 1000)))
@@ -138,6 +139,7 @@ Generally when we use a *t*-test it will be a two-sample *t*-test (see below). O
 
 ```{r}
 # create a single sample of random normal data
+set.seed(666)
 r_one <- data.frame(dat = rnorm(n = 20, mean = 20, sd = 5),
                     sample = "1")
 
@@ -199,6 +201,7 @@ A two-sample *t*-test is used when we have samples from two different population
 
 ```{r}
 # random normal data
+set.seed(666)
 r_two <- data.frame(dat = c(rnorm(n = 20, mean = 4, sd = 1), 
                              rnorm(n = 20, mean = 5, sd = 1)),
                     sample = c(rep("A", 20), rep("B", 20)))
