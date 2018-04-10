@@ -211,9 +211,9 @@ When variances are unequal we perform the Welch's *t*-test; Welch's *t*-statisti
 
 $$t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}_{A}}{n_{A}}+\frac{S^{2}_{B}}{n_{B}}}}$$
 
-Above, $S_{A}$ and $S_{B}$ are the variances of groups $A$ and $B$, respectively (see Section X). The degrees of freedom to use with Welch's *t*-test is obtained as:
+Above, $S_{A}$ and $S_{B}$ are the variances of groups $A$ and $B$, respectively (see Section X). The degrees of freedom to use with Welch's *t*-test is obtained using the Welch–Satterthwaite equation as:
 
-$$d.f. = \frac{\left( \frac{S^{2}_{A}}{n_{A}}+\frac{S^{2}_{B}}{n^{2}_{B}} \right)}{\left( \frac{S^{4}_{A}}{n^{2}_{A}(n_{B}-1)} + \frac{S^{4}_{B}}{n^{2}_{B}(n_{B}-1)} \right)}$$
+$$d.f. = \frac{\left( \frac{S^{2}_{A}}{n_{A}}+\frac{S^{2}_{B}}{n_{B}} \right)^{2}}{\left( \frac{S^{4}_{A}}{n^{2}_{A}(n_{A}-1)} + \frac{S^{4}_{B}}{n^{2}_{B}(n_{B}-1)} \right)}$$
 
 What do we do with this *t*-statistic? In the olden days we had to calculate the $t$-statistics and the $d.f.$ by hand. These two values, the $d.f.$ and $t$-value had to be read off a table of pre-calculated $t$-values, probabilities and degrees of freedom [as in here](https://home.ubalt.edu/ntsbarsh/Business-stat/StatistialTables.pdf). Luckily, the *t*-test function nowadays does this all automagically. But if you are feeling nostalic over times that you have sadly never experienced, please calculate the $t$-statistic and the $d.f.$ yourself and give the table a go.
 
@@ -222,8 +222,8 @@ Back to the present day and the wonders of modern technology. Let's generate som
 ```{r}
 # random normal data
 set.seed(666)
-r_two <- data.frame(dat = c(rnorm(n = 20, mean = 4, sd = 1), 
-                             rnorm(n = 20, mean = 5, sd = 1)),
+r_two <- data.frame(dat = c(rnorm(n = 20, mean = 4, sd = 1),
+                            rnorm(n = 20, mean = 5, sd = 1)),
                     sample = c(rep("A", 20), rep("B", 20)))
 
 # perform t-test
@@ -275,7 +275,7 @@ compare_means(dat ~ sample, data = r_two, method = "t.test")
 compare_means(dat ~ sample, data = r_two, method = "t.test", alternative = "two.sided")
 ```
 
-## Paired t-tests
+## Paired *t*-tests
 
 Paired *t*-tests are done when comparing matched samples, and in other words, when our second assumption of *t*-tests is violated: the observations are independent of one another---in paired samples, clearly they are not independent. This test is also sometimes called a dependent sample *t*-test.
 
@@ -285,7 +285,7 @@ For example, we design a survey to determine if, in a group of 20 people, indivi
 compare_means(dat ~ sample, data = r_two, method = "t.test", paired = TRUE)
 ```
 
-## Comparison of Two Population Proportions
+## Comparison of two population proportions
 
 All of the tests we covered above are designed to deal with continuous data, such as fish lengths or chlorophyll content. If we want to compare proportions (probabilities of success) of different samples against each other, or some known population mean, we need `prop.test()`. Let's create a dummy dataset to get a better idea of how this function works. Below we create some data showing the result of placing two different subjects, Jack and Jill, in separate sealed rooms for two hours (120 minutes). Once every minute a mosquito is let into the room before being extracted again. The columns `yes` and `no` show if the mosquito bit the subject during that one minute. Who says science can't be fun!
 
