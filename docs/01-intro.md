@@ -77,12 +77,13 @@ Early on, develop the habit of unambiguous and consistent style and formatting w
 
 
 ```r
+set.seed(666)
 rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1] -12.866714  22.837752  16.259049 -14.232909   5.129996   2.752002
-R>  [7]   3.982761  10.320876  21.252740   1.084538
+R>  [1]   9.7930436  26.1866107  -4.6167480  26.3661820 -28.8193679
+R>  [6]   9.8591503 -16.9804084 -10.4327544 -23.2991308  -0.5464219
 ```
 
 Consult these resources for more about R code style :

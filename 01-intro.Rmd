@@ -82,6 +82,7 @@ Early on, develop the habit of unambiguous and consistent style and formatting w
   * Commands entered onto the R command line (console) and the output that is returned will be shown in a code block, which is a light grey background with code font. The commands entered start at the beginning of a line and the output it produces is preceded by `R>`, like so:
 
 ```{r prelim-1}
+set.seed(666)
 rnorm(n = 10, mean = 0, sd = 13)
 ```
 

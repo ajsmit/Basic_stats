@@ -169,10 +169,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#qualitative-data-1"><i class="fa fa-check"></i><b>4.1.1</b> Qualitative data</a></li>
 <li class="chapter" data-level="4.1.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#continuous-data-1"><i class="fa fa-check"></i><b>4.1.2</b> Continuous data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#bar-graphs"><i class="fa fa-check"></i><b>4.2</b> Bar graphs</a></li>
-<li class="chapter" data-level="4.3" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#category-statistics"><i class="fa fa-check"></i><b>4.3</b> Category statistics</a></li>
-<li class="chapter" data-level="4.4" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#exercises-1"><i class="fa fa-check"></i><b>4.4</b> Exercises</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#exercise-1-1"><i class="fa fa-check"></i><b>4.4.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="4.2" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#exercises-1"><i class="fa fa-check"></i><b>4.2</b> Exercises</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="graphical-data-displays.html"><a href="graphical-data-displays.html#exercise-1-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Distributions</a><ul>
@@ -322,13 +320,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(ggpubr)
 <span class="kw">library</span>(RColorBrewer)</code></pre></div>
-<p>Here we shall provide examples of many kinds of graphical data summaries. We use <strong>ggplot2</strong> for these figures and will refrain from using the base R graphs. We shall provide examples of various themes so you can see what is available to use for your own plots. We also include various modifications of the default plots so you can get an idea of how to modify some of the plot characteristics, and we always make sure that our graphs are publication ready. The best way to learn is to work by example. Deeper understanding will emergy only from working through all of these example plots, and making your own changes here and there to see how your own modification will affect your graphs’ appearance. Then find your own data and plot them. As always, liberally make use of the built-in help facility (the more you do, the easier it becomes, like riding a bicycle). Also, don’t be shy to use Google.</p>
+<p>Here we shall provide examples of many kinds of graphical data summaries. We use <strong>ggplot2</strong> for these figures and will refrain from using the base R graphs. We shall provide examples of various themes so you can see what is available to use for your own plots. We also include various modifications of the default plots so you can get an idea of how to modify some of the plot characteristics, and we always make sure that our graphs are publication ready. The best way to learn is to work by example. Deeper understanding will emerge only from working through all of these example plots, and making your own changes here and there to see how your own modification will affect your graphs’ appearance. Then find your own data and plot them. As always, liberally make use of the built-in help facility (the more you do, the easier it becomes, like riding a bicycle). Also, don’t be shy to use Google.</p>
 <div id="frequency-distributions" class="section level2">
 <h2><span class="header-section-number">4.1</span> Frequency distributions</h2>
 <div id="qualitative-data-1" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Qualitative data</h3>
-<p>Qualitative data that describe group representivity to various categories are best presented as frequency distribution histograms (I interchangably use histograms, frequency histograms, and frequency distribution histograms). Histograms apply to categorical data. Although it can be presented numerically in tabular form, one more frequently creates a bar or pie graph of the number of occurences in a collection of non-overlapping classes or categories. Both the data and graphical displays will be demonstrated here.</p>
-<p>The first case of a frequency distribution histogram is one that shows the raw counts per each of the categories that are represented in the data. The count within each of the categories (represented by a bar graph called a histogram) sums to the sample size, <span class="math inline">\(n\)</span>. In the second case, we may want to report that data as proportions. Here we show the frequency proportion in a collection of non-overlapping categories. For example, we have a sample size of 12 (<span class="math inline">\(n=12\)</span>). In this sample, two are coloured blue, six red, and five purple. The relative proportions are <span class="math inline">\(2/12=0.1666667\)</span> blue, <span class="math inline">\(6/12=0.5\)</span> red, and <span class="math inline">\(5/12=0.4166667\)</span> purple. The important thing to note here is that the relative proportions sum to 1, i.e. <span class="math inline">\(0.1666667+0.5+0.4166667=1\)</span>. These data may be presented as a table or as a graph.</p>
+<p>Qualitative data that describe group representivity to various categories are best presented as frequency distribution histograms (I interchangeably use histograms, frequency histograms, and frequency distribution histograms). Histograms apply to categorical data. Although it can be presented numerically in tabular form, one more frequently creates a bar or pie graph of the number of occurrences in a collection of non-overlapping classes or categories. Both the data and graphical displays will be demonstrated here.</p>
+<p>The first case of a frequency distribution histogram is one that shows the raw counts per each of the categories that are represented in the data. The count within each of the categories (represented by a bar graph called a histogram) sums to the sample size, <span class="math inline">\(n\)</span>. In the second case, we may want to report those data as proportions. Here we show the frequency proportion in a collection of non-overlapping categories. For example, we have a sample size of 12 (<span class="math inline">\(n=12\)</span>). In this sample, two are coloured blue, six red, and five purple. The relative proportions are <span class="math inline">\(2/12=0.1666667\)</span> blue, <span class="math inline">\(6/12=0.5\)</span> red, and <span class="math inline">\(5/12=0.4166667\)</span> purple. The important thing to note here is that the relative proportions sum to 1, i.e. <span class="math inline">\(0.1666667+0.5+0.4166667=1\)</span>. These data may be presented as a table or as a graph.</p>
 <p>Let us demonstrate the numerical and graphical summaries using the built-in <code>iris</code> data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the numerical summary produced by a piped series of functions;</span>
 <span class="co"># create a summary of the data (i.e. number of replicates per species)</span>
@@ -387,7 +385,7 @@ Figure 4.1: Examples of histograms for the built-in Iris data. A) A default freq
 <h3><span class="header-section-number">4.1.2</span> Continuous data</h3>
 <div id="frequency-distributions-histograms" class="section level4">
 <h4><span class="header-section-number">4.1.2.1</span> Frequency distributions (histograms)</h4>
-<p>As with discrete data, we have a choice of absolute (Fig. 4.2A) and relative (Fig. 4.2 B-C) frequency histograms. There’s also the empirical cumulative distribution function (ECDF) (Fig. 4.2 D) that uses relative proportions, but in this instance it is the relative propotion that each individual observation has towards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called <em>bins</em>. See the Old Faithful data, for example. The eruptions last between 1.6 and 5.1 minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The <strong>ggplot2</strong> <code>geom_histogram()</code> function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure 4.2 A-D).</p>
+<p>As with discrete data, we have a choice of absolute (Fig. 4.2A) and relative (Fig. 4.2 B-C) frequency histograms. There’s also the empirical cumulative distribution function (ECDF) (Fig. 4.2 D) that uses relative proportions, but in this instance it is the relative proportion that each individual observation has towards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called <em>bins</em>. See the Old Faithful data, for example. The eruptions last between 1.6 and 5.1 minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The <strong>ggplot2</strong> <code>geom_histogram()</code> function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure 4.2 A-D).</p>
 <!-- show example of numerical summary -->
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a normal frequency histogram, with count along y</span>
 hist1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
@@ -452,8 +450,7 @@ iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span
 </div>
 <div id="box-plots" class="section level4">
 <h4><span class="header-section-number">4.1.2.2</span> Box plots</h4>
-<p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution; they provide an alternative view to that given by the frequency distribution. A variation of the basic box-and-whisker plt is to superimpose a jittered scatter plot of the raw data on each bar.</p>
-<!-- show example of a box plot -->
+<p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution; they provide an alternative view to that given by the frequency distribution. A variation of the basic box-and-whisker plot is to superimpose a jittered scatter plot of the raw data on each bar.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>)
@@ -467,9 +464,9 @@ plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="d
 
 <span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-7"></span>
-<img src="04-graphics_files/figure-html/unnamed-chunk-7-1.png" alt="Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="672" />
+<img src="04-graphics_files/figure-html/unnamed-chunk-7-1.png" alt="Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="672" />
 <p class="caption">
-Figure 4.3: Examples of boxplots made for the Iris data. A) A default boxplot for one of the variables only. B) A panelled collection of boxplots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.
+Figure 4.3: Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.
 </p>
 </div>
 <p>Box-and-whisker plots have traditionally been used to display data that are not normally distributed, but I like to use them for any old data, even normal data. I prefer these over the old-fashioned bar graphs (as seen later in this section).</p>
@@ -496,10 +493,8 @@ Figure 4.4: Examples of scatterplots made for the Iris data. A) A default scatte
 </p>
 </div>
 </div>
-</div>
-</div>
-<div id="bar-graphs" class="section level2">
-<h2><span class="header-section-number">4.2</span> Bar graphs</h2>
+<div id="bar-graphs" class="section level4">
+<h4><span class="header-section-number">4.1.2.4</span> Bar graphs</h4>
 <p>Bar graphs display the mean plus/minus some measure of variation around the mean—typically the standard error or the standard deviation. The mean±SE and mean±SD are typically used for normally-distributed data. Here I provide an example bar graph for one of the Iris data set’s variables:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first make nice labels for the facets because the default ones</span>
 <span class="co"># in the dataframe are not so nice; use the `labeller()` function</span>
@@ -523,19 +518,109 @@ iris.long <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;A box plot...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...of the Iris data&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-9"></span>
-<img src="04-graphics_files/figure-html/unnamed-chunk-9-1.png" alt="Boxplots of the mean±SD of the four Iris variables." width="672" />
+<img src="04-graphics_files/figure-html/unnamed-chunk-9-1.png" alt="Box plots of the mean±SD of the four Iris variables." width="672" />
 <p class="caption">
-Figure 4.5: Boxplots of the mean±SD of the four Iris variables.
+Figure 4.5: Box plots of the mean±SD of the four Iris variables.
 </p>
 </div>
 </div>
-<div id="category-statistics" class="section level2">
-<h2><span class="header-section-number">4.3</span> Category statistics</h2>
+<div id="density-graphs" class="section level4">
+<h4><span class="header-section-number">4.1.2.5</span> Density graphs</h4>
+<p>Often when we are displaying a distribution of data we are interested in the “shape” of the data more than the actual count of values in a specific category, as shown by a standard histogram. When one wishes to more organically visualise the frequency of values in a sample set a density graphs is used. These may also be thought of as smooth histograms. These work well with histograms and rug plots, as we may see in the figure below. It is important to note with density plots that they show the relative density of the distribution along the Y axis, and <em>not</em> the counts of the data. This can of course be changed, as seen below, but is not the default setting. Sometimes it can be informative to see how different the count and density distributions appear.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a normal density graph</span>
+dens1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;A vanilla density plot&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
+
+<span class="co"># a density and rug plot combo</span>
+dens2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_rug</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;A density and rug plot&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
+
+<span class="co"># a relative frequency histogram overlayed with a density plot</span>
+dens3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),
+                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>,
+                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency with density&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
+
+<span class="co"># a normal frequency histogram with density overlayed</span>
+<span class="co"># note that the density curve must be adjusted by</span>
+<span class="co"># the number of data points times the bin width</span>
+dens4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..count..),
+                 <span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density.. <span class="op">*</span><span class="st"> </span><span class="kw">nrow</span>(faithful) <span class="op">*</span><span class="st"> </span><span class="fl">0.2</span>), <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>,
+               <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Frequency with density&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
+
+<span class="kw">ggarrange</span>(dens1, dens2, dens3, dens4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-10"></span>
+<img src="04-graphics_files/figure-html/unnamed-chunk-10-1.png" alt="A bevy of density graphs option based on the iris data. A) A lone density graph. B) A histogram with a density graph overlay. C) A density graph accompanied by a rug plot. D) A ridge plot." width="672" />
+<p class="caption">
+Figure 4.6: A bevy of density graphs option based on the iris data. A) A lone density graph. B) A histogram with a density graph overlay. C) A density graph accompanied by a rug plot. D) A ridge plot.
+</p>
+</div>
+</div>
+<div id="violin-plots" class="section level4">
+<h4><span class="header-section-number">4.1.2.6</span> Violin plots</h4>
+<p>The density graph is not limited to it’s use with histograms. We may combine this concept with box plots, too. These are known as violin plots and are very useful when we want to show the distribution of multiple categories of the same variable alongside one another. Violin plots may show the same information as box plots but take things one step further by allowing the shape of the boxplot to further show the distribution of the data within the sample set. We will use the <code>iris</code> data below to highlight the different types of violin plots one may use.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A basic violin plot</span>
+vio1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Basic violin plot&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>)
+
+<span class="co"># Aviolin plot showing the quartiles as lines</span>
+vio2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>, <span class="dt">draw_quantiles =</span> <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Violin plot with quartiles&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>)
+
+<span class="co"># Box plots nested within violin plots</span>
+vio3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;thistle&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;grey30&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lavender&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Box plots nested within violin plots&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>)
+
+<span class="co"># Boxes in violins with the raw data jittered about</span>
+vio4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;thistle&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;khaki&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;sienna&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.05</span>, <span class="dt">colour =</span> <span class="st">&quot;goldenrod&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Violins, boxes, and jittered data&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>)
+
+<span class="kw">ggarrange</span>(vio1, vio2, vio3, vio4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<p><img src="04-graphics_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<!-- ## Category statistics -->
+</div>
+</div>
 </div>
 <div id="exercises-1" class="section level2">
-<h2><span class="header-section-number">4.4</span> Exercises</h2>
+<h2><span class="header-section-number">4.2</span> Exercises</h2>
 <div id="exercise-1-1" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> Exercise 1</h3>
+<h3><span class="header-section-number">4.2.1</span> Exercise 1</h3>
+<p>Choose a dataset, either one of the many built into R or one of your own, and create four distinctly different figures. Use <code>ggarrange()</code> to stitch them together in a meaningful way.</p>
 
 </div>
 </div>

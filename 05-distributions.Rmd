@@ -31,6 +31,7 @@ library(plotly)
 library(Rlab)
 
 # Create base distributions
+set.seed(666)
 bern_dat <- data.frame(dist = c(rbern(10, 0.1), rbern(100, 0.1), rbern(1000, 0.1),
                                 rbern(10, 0.5), rbern(100, 0.5), rbern(1000, 0.5),
                                 rbern(10, 0.9), rbern(100, 0.9), rbern(1000, 0.9)),
@@ -89,6 +90,7 @@ $$f(x;n,p)= {n\choose x}p^{x}(1-p)^{n-x}$$
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 binom_dat <- data.frame(dist = c(rbinom(10, 10, 0.1), rbinom(100, 10, 0.1), rbinom(1000, 10, 0.1),
                                 rbinom(10, 20, 0.1), rbinom(100, 20, 0.1), rbinom(1000, 20, 0.1),
                                 rbinom(10, 30, 0.1), rbinom(100, 30, 0.1), rbinom(1000, 30, 0.1),
@@ -153,6 +155,7 @@ $$f(x;n,r,p)= {x+r-1\choose x}p^{x}(1-p)^{r}$$
 
 ```{r, echo = FALSE}
 # Create base distributions
+set.seed(666)
 nbinom_dat <- data.frame(dist = c(rnbinom(10, 10, 0.1), rnbinom(100, 10, 0.1), rnbinom(1000, 10, 0.1),
                                  rnbinom(10, 20, 0.1), rnbinom(100, 20, 0.1), rnbinom(1000, 20, 0.1),
                                  rnbinom(10, 30, 0.1), rnbinom(100, 30, 0.1), rnbinom(1000, 30, 0.1),
@@ -217,6 +220,7 @@ $$f(x;p)=(1-p)^{x}p$$
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 geom_dat <- data.frame(dist = c(rgeom(10, 0.1), rgeom(100, 0.1), rgeom(1000, 0.1),
                                  rgeom(10, 0.5), rgeom(100, 0.5), rgeom(1000, 0.5),
                                  rgeom(10, 0.9), rgeom(100, 0.9), rgeom(1000, 0.9)),
@@ -275,6 +279,7 @@ $$f(x;\lambda)=\frac{\lambda^{x}e^{-\lambda}}{x!}$$
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 pois_dat <- data.frame(dist = c(rpois(10, 10), rpois(100, 10), rpois(1000, 10),
                                 rpois(10, 20), rpois(100, 20), rpois(1000, 20),
                                 rpois(10, 30), rpois(100, 30), rpois(1000, 30)),
@@ -331,6 +336,7 @@ p
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 unif_dat <- data.frame(dist = c(runif(10, 0, 10), runif(100, 0, 10), runif(1000, 0, 10),
                                 runif(10, 0, 50), runif(100, 0, 50), runif(1000, 0, 50),
                                 runif(10, 0, 100), runif(100, 0, 100), runif(1000, 0, 100)),
@@ -386,6 +392,7 @@ p
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 norm_dat <- data.frame(dist = c(rnorm(10, 10, 1), rnorm(100, 10, 1), rnorm(1000, 10, 1),
                                 rnorm(10, 20, 1), rnorm(100, 20, 1), rnorm(1000, 20, 1),
                                 rnorm(10, 30, 1), rnorm(100, 30, 1), rnorm(1000, 30, 1),
@@ -451,6 +458,7 @@ knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 t_dat <- data.frame(dist =    c(rt(10, 5, 0), rt(100, 5, 0), rt(1000, 5, 0),
                                 rt(10, 20, 0), rt(100, 20, 0), rt(1000, 20, 0),
                                 rt(10, 100, 0), rt(100, 100, 0), rt(1000, 100, 0),
@@ -512,6 +520,7 @@ p
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 chisq_dat <- data.frame(dist = c(rchisq(10, 5, 0), rchisq(100, 5, 0), rchisq(1000, 5, 0),
                                 rchisq(10, 20, 0), rchisq(100, 20, 0), rchisq(1000, 20, 0),
                                 rchisq(10, 100, 0), rchisq(100, 100, 0), rchisq(1000, 100, 0),
@@ -573,6 +582,7 @@ p
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 exp_dat <- data.frame(dist = c(rexp(10, 1), rexp(100, 1), rexp(1000, 1),
                                 rexp(10, 2), rexp(100, 2), rexp(1000, 2),
                                 rexp(10, 3), rexp(100, 3), rexp(1000, 3)),
@@ -627,6 +637,7 @@ p
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 f_dat <- data.frame(dist =     c(rf(10, 5, 5), rf(100, 5, 5), rf(1000, 5, 5),
                                  rf(10, 20, 5), rf(100, 20, 5), rf(1000, 20, 5),
                                  rf(10, 100, 5), rf(100, 100, 5), rf(1000, 100, 5),
@@ -688,6 +699,7 @@ p
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 gamma_dat <- data.frame(dist = c(rgamma(10, 1), rgamma(100, 1), rgamma(1000, 1),
                                rgamma(10, 2), rgamma(100, 2), rgamma(1000, 2),
                                rgamma(10, 3), rgamma(100, 3), rgamma(1000, 3)),
@@ -742,6 +754,7 @@ p
 
 ```{r, echo=FALSE}
 # Create base distributions
+set.seed(666)
 beta_dat <- data.frame(dist = c(rbeta(10, 1, 1), rbeta(100, 1, 1), rbeta(1000, 1, 1),
                                 rbeta(10, 2, 1), rbeta(100, 2, 1), rbeta(1000, 2, 1),
                                 rbeta(10, 3, 1), rbeta(100, 3, 1), rbeta(1000, 3, 1),
@@ -801,3 +814,5 @@ p
 ## Exercises
 
 ### Exercise 1
+
+Choose two different datasets and plot them as historgrams with density curves overlayed. Label them with the distribution they appear to be and stitch them together with `ggarrange()`.
