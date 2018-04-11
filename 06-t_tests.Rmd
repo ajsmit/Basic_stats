@@ -215,7 +215,7 @@ $$t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}_{A}}{n}+\frac{S^{2}_{B}}{m}}}$$
 
 Above, $S_{A}$ and $S_{B}$ are the variances of groups $A$ and $B$, respectively (see Section X). The degrees of freedom to use with Welch's *t*-test is obtained using the Welch–Satterthwaite equation as:
 
-$$d.f. = \frac{\left( \frac{S^{2}_{A}}{n}+\frac{S^{2}_{B}}{m} \right)^{2}}{\left( \frac{S^{4}_{A}}{n(n-1)} + \frac{S^{4}_{B}}{m(m-1)} \right)}$$
+$$d.f. = \frac{\left( \frac{S^{2}_{A}}{n}+\frac{S^{2}_{B}}{m} \right)^{2}}{\left( \frac{S^{4}_{A}}{n-1} + \frac{S^{4}_{B}}{m-1} \right)}$$
 
 What do we do with this *t*-statistic? In the olden days we had to calculate the $t$-statistics and the $d.f.$ by hand. These two values, the $d.f.$ and $t$-value had to be read off a table of pre-calculated $t$-values, probabilities and degrees of freedom [as in here](https://home.ubalt.edu/ntsbarsh/Business-stat/StatistialTables.pdf). Luckily, the *t*-test function nowadays does this all automagically. But if you are feeling nostalic over times that you have sadly never experienced, please calculate the $t$-statistic and the $d.f.$ yourself and give the table a go.
 
