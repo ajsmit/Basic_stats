@@ -27,6 +27,7 @@ $$
 
 ```{r, echo=FALSE}
 # Load libraries
+library(tidyverse)
 library(plotly)
 library(Rlab)
 
@@ -389,6 +390,48 @@ p
 ```
 
 ### Normal distribution
+
+```{r, echo=FALSE}
+# library(animation)
+# library(e1071)
+
+## The function to animate a histogram
+# hist_fig <- function(i){
+#   set.seed(666)
+#   norm_dat <- data.frame(dat = rnorm(n = i, mean = 10, sd = 1),
+#                          sample = "A")
+#   hist <- ggplot(data = norm_dat, aes(x = dat)) + 
+#     geom_histogram(aes(y = ..density..),
+#                  position = 'identity',
+#                  colour = "black", fill = "turquoise", alpha = 0.6) +
+#     geom_density(colour = "black", fill = "salmon", alpha = 0.6) +
+#     annotate("text", x = 6.5, y = 0.35, size = 5, 
+#              label = paste0("N = ", i, 
+#                             "\nmean = 10", 
+#                             "\nSD = 1",
+#                             "\nskew = ", round(skewness(norm_dat$dat), 2),
+#                             "\nkurt = ", round(kurtosis(norm_dat$dat), 2))) +
+#     scale_x_continuous(limits = c(6, 14)) +
+#     scale_y_continuous(limits = c(0, 0.4)) +
+#     ggtitle("Normal distribution") +
+#     labs(x = "value")
+#     print(hist)
+# }
+
+## Create animation of the histogram
+animate_hist <- function() {
+  lapply(c(rep(10, 5), seq(20, 90, 10), seq(100, 900, 100), seq(900, 1000, 10), rep(1000, 5)), function(i) {
+    hist_fig(i)
+  })
+}
+
+# Note that this spits out in the main directory and is manually moved to the figures folder
+#
+# saveGIF(animate_hist())
+# system.time(saveGIF(animate_hist(), interval = 0.5, ani.width = 600, movie.name = "hist_norm_n.gif")) ## ~12 seconds
+knitr::include_graphics("figures/hist_norm_n.gif")
+```
+
 
 ```{r, echo=FALSE}
 # Create base distributions
@@ -810,6 +853,13 @@ p <- plot_ly(data = beta_dat,
          updatemenus = list(list(y = 1.05, x = 0.2, active = 7, buttons = l)))
 p
 ```
+
+## Paranormal distributions
+
+```{r}
+knitr::include_graphics("figures/paranormal_distributions.jpeg")
+```
+
 
 ## Exercises
 
