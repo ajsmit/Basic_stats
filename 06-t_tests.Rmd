@@ -50,6 +50,10 @@ Irrespective of the kind of *t*-test, we have to make a couple of important assu
 * the data are **normally distributed**, and 
 * that the data are **homoscedastic**, and in particular, that there are no outliers.
 
+<!-- Insert table showing what the consequences of not meeting the assumptions are. -->
+
+<!-- Then a and a table showing which tests may be used for those circumstances -->
+
 ### Normality
 
 Remember from Chapter 5 what a normal distribution is/looks like? Let's have a peek below to remind ourselves:
