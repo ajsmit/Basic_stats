@@ -17,9 +17,7 @@ library(RColorBrewer)
 
 Here we shall provide examples of many kinds of graphical data summaries. We use **ggplot2** for these figures and will refrain from using the base R graphs. We shall provide examples of various themes so you can see what is available to use for your own plots. We also include various modifications of the default plots so you can get an idea of how to modify some of the plot characteristics, and we always make sure that our graphs are publication ready. The best way to learn is to work by example. Deeper understanding will emerge only from working through all of these example plots, and making your own changes here and there to see how your own modification will affect your graphs' appearance. Then find your own data and plot them. As always, liberally make use of the built-in help facility (the more you do, the easier it becomes, like riding a bicycle). Also, don't be shy to use Google.
 
-## Frequency distributions
-
-### Qualitative data
+## Qualitative data
 
 Qualitative data that describe group representivity to various categories are best presented as frequency distribution histograms (I interchangeably use histograms, frequency histograms, and frequency distribution histograms). Histograms apply to categorical data. Although it can be presented numerically in tabular form, one more frequently creates a bar or pie graph of the number of occurrences in a collection of non-overlapping classes or categories. Both the data and graphical displays will be demonstrated here.
 
@@ -73,9 +71,9 @@ plt4 <- ggplot(data = iris, aes(x = Species, fill = Species)) +
 ggarrange(plt1, plt2, plt3, plt4, nrow = 2, ncol = 2, labels = "AUTO")
 ```
 
-### Continuous data
+## Continuous data
 
-#### Frequency distributions (histograms)
+### Frequency distributions (histograms)
 
 As with discrete data, we have a choice of absolute (Fig. 4.2A) and relative (Fig. 4.2 B-C) frequency histograms. There's also the empirical cumulative distribution function (ECDF) (Fig. 4.2 D) that uses relative proportions, but in this instance it is the relative proportion that each individual observation has towards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called *bins*. See the Old Faithful data, for example. The eruptions last between `r min(faithful$eruptions)` and `r max(faithful$eruptions)` minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The **ggplot2** `geom_histogram()` function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure 4.2 A-D).
 
@@ -144,7 +142,7 @@ ggplot(data = iris.long, aes(x = size)) +
        y = "Count")
 ```
 
-#### Box plots
+### Box plots
 
 Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the 'shape' of the data distribution; they provide an alternative view to that given by the frequency distribution. A variation of the basic box-and-whisker plot is to superimpose a jittered scatter plot of the raw data on each bar.
 
@@ -167,7 +165,7 @@ Box-and-whisker plots have traditionally been used to display data that are not 
 
 The **ggpubr** package provides many convenience functions for the drawing of publication quality graphs, many of which include summaries of pairwise comparisons (e.g. in t-tests and ANOVAs). Please see [here](http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/) and [here](http://www.sthda.com/english/rpkgs/ggpubr/).
 
-#### Pairwise Scatter plots
+### Pairwise Scatter plots
 
 This graph shows the relationship between two (matched) continuous variables. The statistical strength of the relationship can be indicated by a correlation (no causal relationship implied as is the case here) or a regression (when a causal link of $x$ on $y$ is demonstrated).
 
@@ -185,7 +183,7 @@ plt2 <- ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width, colour = Spec
 ggarrange(plt1, plt2, ncol = 2, nrow = 1, labels = "AUTO")
 ```
 
-#### Bar graphs
+### Bar graphs
 
 Bar graphs display the mean plus/minus some measure of variation around the mean---typically the standard error or the standard deviation. The mean±SE and mean±SD are typically used for normally-distributed data. Here I provide an example bar graph for one of the Iris data set's variables:
 
@@ -213,7 +211,7 @@ iris.long %>%
   theme(axis.text.x = element_text(face = "italic"))
 ```
 
-#### Density graphs
+### Density graphs
 
 Often when we are displaying a distribution of data we are interested in the "shape" of the data more than the actual count of values in a specific category, as shown by a standard histogram. When one wishes to more organically visualise the frequency of values in a sample set a density graphs is used. These may also be thought of as smooth histograms. These work well with histograms and rug plots, as we may see in the figure below. It is important to note with density plots that they show the relative density of the distribution along the Y axis, and _not_ the counts of the data. This can of course be changed, as seen below, but is not the default setting. Sometimes it can be informative to see how different the count and density distributions appear.
 
@@ -262,7 +260,7 @@ dens4 <- ggplot(data = faithful, aes(x = eruptions)) +
 ggarrange(dens1, dens2, dens3, dens4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
-#### Violin plots
+### Violin plots
 
 The density graph is not limited to it's use with histograms. We may combine this concept with box plots, too. These are known as violin plots and are very useful when we want to show the distribution of multiple categories of the same variable alongside one another. Violin plots may show the same information as box plots but take things one step further by allowing the shape of the boxplot to further show the distribution of the data within the sample set. We will use the `iris` data below to highlight the different types of violin plots one may use.
 

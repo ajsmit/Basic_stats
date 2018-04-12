@@ -91,7 +91,7 @@ We can achieve the same using the more traditional syntax, which in some instanc
 mean(chicks$weight)
 ```
 
-> **Question:** How would you manually calculate the mean mass for the chicks? Do it now!
+> **Task:** Manually calculate the mean mass for the chicks.
 
 Notice above how the two approaches display the result differently: in the first instance, using `summarise()`, the answer is rounded to zero decimal places; in the second, it is displayed (here) at full precision. The precision of the answer that you require depends on the context of your study, so make sure that you use the appropriate number of significant digits. Using the `summarise()` approach again, here is how you can adjust the number of decimal places of the answer:
 
@@ -102,7 +102,7 @@ chicks %>%
   summarise(mean_wt = round(mean(weight), 1))
 ```
 
-> **Question:** What happens when there are missing values (`NA`)? Consult the help file for the `mean()` function, discuss amongst yourselves, and then provide a demonstration to the class of how you would handle missing values. Hint: use the `c()` function to capture a series of data that you can then use to demonstrate your understanding.
+> **Task:** What happens when there are missing values (`NA`)? Consult the help file for the `mean()` function, discuss amongst yourselves, and then provide a demonstration to the class of how you would handle missing values. Hint: use the `c()` function to capture a series of data that you can then use to demonstrate your understanding.
 
 At this point it might be useful to point out that the mean (or any function for that matter, even one that does not yet exist) can be programatically calculated. Let us demonstrate the principle by reproducing the mean function from the constituent parts:
 
