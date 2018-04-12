@@ -59,8 +59,6 @@ Mean                `mean()`      **base**
 
 Median              `median()`    **base**
 
-Central moment      `moment()`    **e1071**
-
 Skewness            `skewness()`  **e1071**
 
 Kurtosis            `kurtosis()`  **e1071**
@@ -117,7 +115,7 @@ mean(chicks$weight)
 R> [1] 121.8183
 ```
 
-> **Question:** How would you manually calculate the mean mass for the chicks? Do it now!
+> **Task:** Manually calculate the mean mass for the chicks.
 
 Notice above how the two approaches display the result differently: in the first instance, using `summarise()`, the answer is rounded to zero decimal places; in the second, it is displayed (here) at full precision. The precision of the answer that you require depends on the context of your study, so make sure that you use the appropriate number of significant digits. Using the `summarise()` approach again, here is how you can adjust the number of decimal places of the answer:
 
@@ -136,7 +134,7 @@ R>     <dbl>
 R> 1    122.
 ```
 
-> **Question:** What happens when there are missing values (`NA`)? Consult the help file for the `mean()` function, discuss amongst yourselves, and then provide a demonstration to the class of how you would handle missing values. Hint: use the `c()` function to capture a series of data that you can then use to demonstrate your understanding.
+> **Task:** What happens when there are missing values (`NA`)? Consult the help file for the `mean()` function, discuss amongst yourselves, and then provide a demonstration to the class of how you would handle missing values. Hint: use the `c()` function to capture a series of data that you can then use to demonstrate your understanding.
 
 At this point it might be useful to point out that the mean (or any function for that matter, even one that does not yet exist) can be programatically calculated. Let us demonstrate the principle by reproducing the mean function from the constituent parts:
 
@@ -155,7 +153,7 @@ R> 1    122.
 
 The mean is quite sensitive to the presence of outliers or extreme values in the data, and it is advised that its use be reserved for normally distributed data from which the extremes/outliers have been removed. When extreme values are indeed part of our data and not simply 'noise,' then we have to resort to a different measure of central tendency: the median.
 
-> **Question:** In statistics, what do we mean with 'noise'?
+> *Task:** In statistics, what do we mean with 'noise'?
 
 ### The median
 
@@ -178,13 +176,21 @@ R> 1   103.
 
 The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the *1st* and *3rd quartiles*, which, respectively, separate the first quarter of the data from the last quarter---see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).
 
-### Central moment
-
-<!-- AJS to update -->
-
 ### Skewness
 
-<!-- AJS to update -->
+Skewness is a measure of symmetry, and it is best understood by understanding the location of the median relative to the mean. A negative skewness indicates that the mean of the data is less than their median---the data distribution is left-skewed. A positive skewness results from data that have a mean that is larger than their median; these data have a right-skewed distribution.
+
+
+```r
+library(e1071)
+skewness(faithful$eruptions)
+```
+
+```
+R> [1] -0.4135498
+```
+
+> **Task:**
 
 ### Kurtosis
 
@@ -473,8 +479,8 @@ ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="03-discriptive_files/figure-html/unnamed-chunk-18-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-18)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
+<img src="03-discriptive_files/figure-html/unnamed-chunk-19-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-19)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
 </div>
 
 ## Exercises

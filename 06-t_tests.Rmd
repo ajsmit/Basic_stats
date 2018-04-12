@@ -21,11 +21,15 @@ At the heart of many basic scientific inquiries is the simple question "Is A dif
 
 More formally, one would say:
 
-1. $H_{0}: \bar{A} = \bar{B}$ vs. the alternate hypothesis that $H_{a}: \bar{A} \neq \bar{B}$.
-2. $H_{0}: \bar{A} \leq \bar{B}$ vs. the alternate hypothesis that $H_{a}: \bar{A} > \bar{B}$.
-3. $H_{0}: \bar{A} \geq \bar{B}$ vs. the alternate hypothesis that $H_{a}: \bar{A} < \bar{B}$.
+1. $H_{0}: \bar{A} = \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} \neq \bar{B}$.
+2. $H_{0}: \bar{A} \leq \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} > \bar{B}$.
+3. $H_{0}: \bar{A} \geq \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} < \bar{B}$.
 
 > *NOTE:* Hypothesis 1 is a two-sided *t*-test and hypotheses 2 and 3 are one-sided tests.
+
+<!-- AJS to insert more about frequentist probability, p-values and significance testing in here. -->
+
+Biologists typically define the probability of one in twenty (0.05) as the cutoff level to reject the null hypothesis.
 
 To answer this fundamental question one often uses a *t*-test. There are several variations of *t*-tests, depending on the nature of our samples and the type of question being asked:
 

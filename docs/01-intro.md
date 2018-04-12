@@ -15,7 +15,7 @@
 
 ## Venue, date and time
 
-Basic Statistics is the second half of the BSc (Hons) Biostats core module, and will run from 9 April to 20 April 2018. This workshop will take place each day from **9:00--16:00**. There will be an assignment due about six weeks after the end of this module, and it will provide the other half of the marks for the Biostats module. More on the assignment later.
+Basic Statistics is the second half of the BSc (Hons) Biostats core module, and will run from 12 April to 26 April 2018. This workshop will take place on Tuesdays from **13:00--17:00**, Thursdays from **10:40--17:00**, and Fridays from **08:30--17:00**. There will be an assignment due about six weeks after the end of this module, and it will provide the other half of the marks for the Biostats module. More on the assignment later.
 
 ## Course outline
 
@@ -23,17 +23,15 @@ Basic Statistics is the second half of the BSc (Hons) Biostats core module, and 
 2. Types of data
 3. Descriptive statistics: Measures of location and dispersion
 4. Representing data graphically
-5. The Normal distribution and probability determination using the normal curve
-6. T-tests (one-sample, two-sample and paired)
-7. Confidence intervals
-8. One-way ANOVA
-9. Multivariate ANOVA
-10. Repeated measures ANOVA (or rather LME?)
-11. Testing data for normality and transforming data
-12. Non-parametric tests---Mann-Whitney, Kruskal-Wallis (or rather GLM?)
+5. Distributions
+6. One-sample and two-sample tests
+7. Multi-sample (>2) tests
+8. Linear regression
+9. Correlation
+10. Confidence intervals
+11. Transforming data
+12. Generalised linear model (GLM)
 13. Chi square tests
-14. Correlation
-15. Linear regression
 
 The course content can broadly be classified into two parts: *Descriptive Statistics* and *Inferential Statistics*.
 
@@ -43,9 +41,13 @@ Chapters 6-15 are about inferential statistics. Inferential tests allow us to ev
 
 ## About this Workshop
 
-The aim of this five-day introductory workshop is to guide you through the outline given above.
+The aim of this workshop is to guide you through the outline given above. The workshop focuses broadly (and unequally) on three groups of concepts:
 
-<!-- AJS to update -->
+* Data and distributions
+* Descriptive statistics and graphics
+* Inferential statistics
+
+Data and distributions are unsurprisingly about the data itself. Here we will talk about the various kinds of data that we will encounter as biologists. In the second part we will describe the data using a combination of numerical and graphical summaries. Third, all of this culminates in trying to infer from a small subset (a sample) of subjects if the characteristics under scrutiny also hold true for the entire population. We may also ask questions about probailities, i.e. measuring the likelihood that an event will occur, or that an experiment has an outcome that is different from a situation where the influential factor(s) has no effect, or that some observation or outcome is non-random.
 
 ## This is biology: why more R coding?
 
@@ -59,11 +61,13 @@ We assume that you already have R installed on your computer, as all of you will
 
 ## Resources
 
-<!-- AJS to update -->
-
-### Required reading
-
-### General resources about R
+* New users should introduce themselves to the [R ecosystem](fg2re.sellorm.com)
+* A fancy interactive website that covers a wide range of [basic statistics](http://students.brown.edu/seeing-theory/)
+* An easy to follow walkthrough for a [statistical analysis](http://www.sthda.com/english/wiki/unpaired-two-samples-t-test-in-r)
+* Learn more about [tidy statistical inference](https://infer.netlify.com)
+* A thorough journey through the philosophy of [data visualisation](http://www.serialmentor.com/dataviz/)
+* [Google](www.google.com)
+* [Stack Overflow](www.stackoverflow.com)
 
 ## Style and code conventions
 
@@ -95,11 +99,20 @@ Consult these resources for more about R code style :
 We may also insert maths expressions within the text, like this $f(k) = {n \choose k} p^{k} (1-p)^{n-k}$ or on their own, like this: $$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
 
 ## Assessment and teaching philosophy
-Grades will be based on performance of two take home exams, and an individual project and homework problem sets. The exams and individual project will represent 30% of the grade. The homework problem sets will make up the remaining 10%. In cases where students are borderline between lower and higher grades, a high level of participation in the class discussions and class in general will win the day for the higher grade.
 
-Homework problems are essential to understanding of the materials. Although the homework comprises only 10% of the final grade, performance on the exams is usually correlated with effort on the homework problems.
+Grades will be based on the aggregate performance across two group projects; the first group project was completed after the Intro R Workshop. The project for this workshop will represent 35% of the total grade for BioStatistics. The remaining 15% will come from daily participation. This will be assessed by the R scripts produced in class and follows these five criteria: 
 
-Whereas plagiarism will not be tolerated, students ARE encouraged to work together to learn from one another (especially those from the same IVN site) and solve problems in a collaborative and collegial way (aside from the take home exam).
+* The script has been uploaded to GitHub
+* The script covers the content of the day
+* The code runs without errors
+* Proper style conventions have been observed
+* Liberally commented
+
+In cases where students are borderline between lower and higher grades, a high level of participation in the class discussions and class in general will win the day for the higher grade.
+
+The daily scripts are essential to understanding the material. Although they comprise only 15% of the final grade, performance on the projects is usually correlated with effort on the daily assignments.
+
+Whereas plagiarism will not be tolerated, students ARE encouraged to work together to learn from one another and solve problems in a collaborative and collegial way.
 
 ## About this document
 
@@ -126,7 +139,7 @@ sessionInfo()
 ```
 R> R version 3.4.4 (2018-03-15)
 R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
-R> Running under: macOS High Sierra 10.13.3
+R> Running under: macOS Sierra 10.12.6
 R> 
 R> Matrix products: default
 R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
@@ -136,7 +149,7 @@ R> locale:
 R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 R> 
 R> attached base packages:
-R> [1] stats     graphics  grDevices utils     datasets  base     
+R> [1] stats     grDevices utils     datasets  graphics  base     
 R> 
 R> loaded via a namespace (and not attached):
 R>  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  

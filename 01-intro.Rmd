@@ -29,7 +29,7 @@ Basic Statistics is the second half of the BSc (Hons) Biostats core module, and 
 2. Types of data
 3. Descriptive statistics: Measures of location and dispersion
 4. Representing data graphically
-5. The Normal distribution and probability determination using the normal curve
+5. Distributions
 6. One-sample and two-sample tests
 7. Multi-sample (>2) tests
 8. Linear regression
@@ -47,7 +47,13 @@ Chapters 6-15 are about inferential statistics. Inferential tests allow us to ev
 
 ## About this Workshop
 
-The aim of this workshop is to guide you through the outline given above.
+The aim of this workshop is to guide you through the outline given above. The workshop focuses broadly (and unequally) on three groups of concepts:
+
+* Data and distributions
+* Descriptive statistics and graphics
+* Inferential statistics
+
+Data and distributions are unsurprisingly about the data itself. Here we will talk about the various kinds of data that we will encounter as biologists. In the second part we will describe the data using a combination of numerical and graphical summaries. Third, all of this culminates in trying to infer from a small subset (a sample) of subjects if the characteristics under scrutiny also hold true for the entire population. We may also ask questions about probailities, i.e. measuring the likelihood that an event will occur, or that an experiment has an outcome that is different from a situation where the influential factor(s) has no effect, or that some observation or outcome is non-random.
 
 ## This is biology: why more R coding?
 
