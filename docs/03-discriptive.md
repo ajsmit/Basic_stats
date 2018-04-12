@@ -46,7 +46,7 @@ R> [1] 578
 
 Note that this gives us the number of all of the chicks in the experiment, irrespective oif which diet they were given. It will make more sense to know how many chicks were assigned to each of the experimental diets they were raised on. 
 
-> **Question:** Can you figure out how to detemine the number of chicks in each of the feed categories?
+> **Task:** Figure out the number of chicks in each of the feed categories.
 
 ## Measures of central tendency
 
@@ -115,7 +115,7 @@ mean(chicks$weight)
 R> [1] 121.8183
 ```
 
-> **Task:** Manually calculate the mean mass for the chicks.
+> **Task:** How would you manually calculate the mean mass for the chicks? Do it now!
 
 Notice above how the two approaches display the result differently: in the first instance, using `summarise()`, the answer is rounded to zero decimal places; in the second, it is displayed (here) at full precision. The precision of the answer that you require depends on the context of your study, so make sure that you use the appropriate number of significant digits. Using the `summarise()` approach again, here is how you can adjust the number of decimal places of the answer:
 
@@ -178,6 +178,7 @@ The median is therefore the value that separates the lower half of the sample da
 
 ### Skewness
 
+
 Skewness is a measure of symmetry, and it is best understood by understanding the location of the median relative to the mean. A negative skewness indicates that the mean of the data is less than their median---the data distribution is left-skewed. A positive skewness results from data that have a mean that is larger than their median; these data have a right-skewed distribution.
 
 
@@ -190,11 +191,21 @@ skewness(faithful$eruptions)
 R> [1] -0.4135498
 ```
 
-> **Task:**
+> **Task:** Is the distribution left or right skewed?
 
 ### Kurtosis
 
-<!-- AJS to update -->
+Kurtosis describes the tail shape of the data's distribution. A normal distribution has zero kurtosis and thus the standard tail shape (mesokurtic). Negative kurtosis indicates data with a thin-tailed (platykurtic) distribution. Positive kurtosis indicates a fat-tailed distribution (leptokurtic).
+
+
+```r
+# library(e1071)
+kurtosis(faithful$eruptions)
+```
+
+```
+R> [1] -1.511605
+```
 
 ## Measures of variation and spread
 
@@ -290,7 +301,7 @@ R> 1    35.     63.   103.    103.   373.
 # in the summarise() implementation, above
 ```
 
-> *Question:* What is different about the `quantile()` function that caused us to specify the calculation in the way in which we have done so above? You will have to consult the help file, read it, understand it, think about it, and experiment with the ideas. Take 15 minutes to figure it out and report back to the class.
+> *Task:* What is different about the `quantile()` function that caused us to specify the calculation in the way in which we have done so above? You will have to consult the help file, read it, understand it, think about it, and experiment with the ideas. Take 15 minutes to figure it out and report back to the class.
 
 ### The minimum, maximum and range
 A description of the extent of the data can also be provided by the functions `min()`, `max()` and `range()`. 
@@ -479,8 +490,8 @@ ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="03-discriptive_files/figure-html/unnamed-chunk-19-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-19)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
+<img src="03-discriptive_files/figure-html/unnamed-chunk-20-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-20)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
 </div>
 
 ## Exercises
