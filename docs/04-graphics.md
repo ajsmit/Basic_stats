@@ -166,17 +166,28 @@ ggplot(data = iris.long, aes(x = size)) +
 
 Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the 'shape' of the data distribution; they provide an alternative view to that given by the frequency distribution. A variation of the basic box-and-whisker plot is to superimpose a jittered scatter plot of the raw data on each bar.
 
+From the `geom_boxplot` documentation, which says it best (type `?geom_boxplot`):
+
+"The lower and upper hinges correspond to the first and third quartiles (the 25th and 75th percentiles)." 
+
+"The upper whisker extends from the hinge to the largest value no further than 1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 * IQR of the hinge. Data beyond the end of the whiskers are called 'outlying' points and are plotted individually."
+
+"In a notched box plot, the notches extend 1.58 * IQR / sqrt(n). This gives a roughly 95% confidence interval for comparing medians."
+
+Here be examples:
+
 
 ```r
 plt1 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
-  geom_boxplot(show.legend = FALSE) + theme_pubclean() +
-  labs(y = "Sepal length (mm)")
+  geom_boxplot(show.legend = FALSE, notch = FALSE) + theme_pubclean() +
+  labs(y = "Sepal length (mm)") +
+  theme(axis.text.x = element_text(face = "italic"))
 
 plt2 <- ggplot(data = iris.long, aes(x = Species, y = size)) +
-  geom_boxplot(fill = "red", alpha = 0.4) +
+  geom_boxplot(fill = "red", alpha = 0.4, notch = TRUE) +
   geom_jitter(width = 0.1, shape = 21, colour = "blue", fill = NA, alpha = 0.2) +
   facet_wrap(~variable, nrow = 1) +
-  labs(y = "Size (mm)") +
+  labs(y = "Size (mm)") + theme_minimal() +
   theme(axis.text.x = element_text(face = "italic"))
 
 ggarrange(plt1, plt2, nrow = 2, ncol = 1, labels = "AUTO")
@@ -211,7 +222,7 @@ ggarrange(plt1, plt2, ncol = 2, nrow = 1, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/unnamed-chunk-8-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="672" />
+<img src="04-graphics_files/figure-html/unnamed-chunk-8-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="576" />
 <p class="caption">(\#fig:unnamed-chunk-8)Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added.</p>
 </div>
 
@@ -266,7 +277,7 @@ dens1 <- ggplot(data = faithful, aes(x = eruptions)) +
 # a density and rug plot combo
 dens2 <- ggplot(data = faithful, aes(x = eruptions)) +
   geom_density(colour = "black", fill = "salmon", alpha = 0.6) +
-  geom_rug() +
+  geom_rug(colour = "red") +
   labs(title = "Old Faithful data",
        subtitle = "A density and rug plot",
        x = "Eruption duration (min)",
@@ -276,7 +287,7 @@ dens2 <- ggplot(data = faithful, aes(x = eruptions)) +
 dens3 <- ggplot(data = faithful, aes(x = eruptions)) +
   geom_histogram(aes(y = ..density..),
                  position = 'identity', binwidth = 1,
-                 colour = "black", fill = "salmon", alpha = 0.6) +
+                 colour = "black", fill = "turquoise", alpha = 0.6) +
   geom_density(colour = "black", fill = "salmon", alpha = 0.6) +
   labs(title = "Old Faithful data",
        subtitle = "Relative frequency with density",
@@ -288,8 +299,8 @@ dens3 <- ggplot(data = faithful, aes(x = eruptions)) +
 # the number of data points times the bin width
 dens4 <- ggplot(data = faithful, aes(x = eruptions)) +
   geom_histogram(aes(y = ..count..),
-                 binwidth = 0.2, colour = "black", fill = "salmon", alpha = 0.6) +
-  geom_density(aes(y = ..density.. * nrow(faithful) * 0.2), position = "identity",
+                 binwidth = 0.2, colour = "black", fill = "turquoise", alpha = 0.6) +
+  geom_density(aes(y = ..density.. * nrow(datasets::faithful) * 0.2), position = "identity",
                colour = "black", fill = "salmon", alpha = 0.6) +
   labs(title = "Old Faithful data",
        subtitle = "Frequency with density",
@@ -300,13 +311,13 @@ ggarrange(dens1, dens2, dens3, dens4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/unnamed-chunk-10-1.png" alt="A bevy of density graphs option based on the iris data. A) A lone density graph. B) A histogram with a density graph overlay. C) A density graph accompanied by a rug plot. D) A ridge plot." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-10)A bevy of density graphs option based on the iris data. A) A lone density graph. B) A histogram with a density graph overlay. C) A density graph accompanied by a rug plot. D) A ridge plot.</p>
+<img src="04-graphics_files/figure-html/unnamed-chunk-10-1.png" alt="A bevy of density graphs option based on the iris data. A) A lone density graph. B) A density graph accompanied by a rug plot. C) A histogram with a density graph overlay. D) A ridge plot." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-10)A bevy of density graphs option based on the iris data. A) A lone density graph. B) A density graph accompanied by a rug plot. C) A histogram with a density graph overlay. D) A ridge plot.</p>
 </div>
 
 #### Violin plots
 
-The density graph is not limited to it's use with histograms. We may combine this concept with box plots, too. These are known as violin plots and are very useful when we want to show the distribution of multiple categories of the same variable alongside one another. Violin plots may show the same information as box plots but take things one step further by allowing the shape of the boxplot to further show the distribution of the data within the sample set. We will use the `iris` data below to highlight the different types of violin plots one may use.
+The density graph is not limited to it's use with histograms. We may combine this concept with box plots, too. These are known as violin plots and are very useful when we want to show the distribution of multiple categories of the same variable alongside one another. Violin plots may show the same information as box plots but take things one step further by allowing the shape of the boxplot to also show the distribution of the data within the sample set. We will use the `iris` data below to highlight the different types of violin plots one may use.
 
 
 ```r
@@ -315,31 +326,35 @@ vio1 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) 
   geom_violin() + 
   theme_pubclean() + theme(legend.position = "none") +
   labs(title = "Iris data",
-       subtitle = "Basic violin plot", y = "Sepal length (mm)")
+       subtitle = "Basic violin plot", y = "Sepal length (mm)") +
+  theme(axis.text.x = element_text(face = "italic"))
 
 # Aviolin plot showing the quartiles as lines
 vio2 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
   geom_violin(show.legend = FALSE, draw_quantiles = c(0.25, 0.5, 0.75)) + 
   theme_pubclean() + theme(legend.position = "none") +
   labs(title = "Iris data",
-       subtitle = "Violin plot with quartiles", y = "Sepal length (mm)")
+       subtitle = "Violin plot with quartiles", y = "Sepal length (mm)") +
+  theme(axis.text.x = element_text(face = "italic"))
 
 # Box plots nested within violin plots
 vio3 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, colour = Species)) +
-  geom_violin(fill = "thistle", size = 2) + 
-  geom_boxplot(width = 0.1, colour = "grey30", fill = "lavender") +
+  geom_violin(fill = "grey70") + 
+  geom_boxplot(width = 0.1, colour = "grey30", fill = "white") +
   theme_pubclean() + theme(legend.position = "none") +
   labs(title = "Iris data",
-       subtitle = "Box plots nested within violin plots", y = "Sepal length (mm)")
+       subtitle = "Box plots nested within violin plots", y = "Sepal length (mm)") +
+  theme(axis.text.x = element_text(face = "italic"))
 
 # Boxes in violins with the raw data jittered about
 vio4 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, colour = Species)) +
-  geom_violin(fill = "thistle", size = 2) + 
-  geom_boxplot(width = 0.1, colour = "khaki", fill = "sienna") +
-  geom_jitter(width = 0.05, colour = "goldenrod", alpha = 0.4) +
+  geom_violin(fill = "grey70") + 
+  geom_boxplot(width = 0.1, colour = "black", fill = "white") +
+  geom_jitter(shape = 1, width = 0.1, colour = "red", alpha = 0.7, fill = NA) +
   theme_pubclean() + theme(legend.position = "none") +
   labs(title = "Iris data",
-       subtitle = "Violins, boxes, and jittered data", y = "Sepal length (mm)")
+       subtitle = "Violins, boxes, and jittered data", y = "Sepal length (mm)") +
+  theme(axis.text.x = element_text(face = "italic"))
 
 ggarrange(vio1, vio2, vio3, vio4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
