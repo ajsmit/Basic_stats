@@ -109,6 +109,11 @@ Grades will be based on the aggregate performance across two group projects; the
 * Proper style conventions have been observed
 * Liberally commented
 
+__BONUS POINTS__
+
+* Additional analysis not performed in class
+* Additional figure not created in class
+
 In cases where students are borderline between lower and higher grades, a high level of participation in the class discussions and class in general will win the day for the higher grade.
 
 The daily scripts are essential to understanding the material. Although they comprise only 15% of the final grade, performance on the projects is usually correlated with effort on the daily assignments.
