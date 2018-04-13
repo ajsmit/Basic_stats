@@ -34,17 +34,62 @@ In this dataset there are two columns: the first, `eruptions`, denotes the durat
 
 $$eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$$
 
-Here we fit the model in R. When we perform a linear regression in R, it’ll output the model and the coefficients:
+Here we fit the model in R. When we perform a linear regression in R, it will output the model and the coefficients:
 
 ```{r faithful, echo=TRUE, include=TRUE}
-eruption.lm = lm(eruptions ~ waiting, data = faithful)
+eruption.lm <- lm(eruptions ~ waiting, data = faithful)
 summary(eruption.lm)
 ```
 
+```{r}
+library(animation)
+
+# The function to animate the rotating line
+lm_fig <- function(i){
+  # set.seed(666)
+  # norm_dat <- data.frame(dat = rnorm(n = i, mean = 10, sd = 1),
+  #                        sample = "A")
+  faithful_fake <- faithful %>%
+    mutate(eruptions_fake = waiting*i) %>% 
+    mutate(eruptions_corrected = eruptions_fake + mean(eruptions)-mean(eruptions_fake))
+  
+  rse_val <- sqrt(sum(faithful_fake$eruptions_corrected-faithful_fake$eruptions)^2)/(nrow(faithful_fake)-2)
+  
+  lmr <- ggplot(data = faithful_fake, aes(x = waiting, y = eruptions)) +
+    geom_point() +
+    geom_segment(aes(x = waiting, xend = waiting, 
+                 y = eruptions_corrected,  yend = eruptions), 
+                 size = 1, alpha = 0.7, colour = "red", linetype = "dotted") +
+    annotate("text", x = 45, y = 5, label = paste0("slope == ", i, "~(min/min)"), parse = TRUE, hjust = 0) +
+    annotate("text", x = 45, y = 4.75, label = paste0("RSE == ", rse_val), parse = TRUE, hjust = 0) +
+    # stat_smooth(method = "lm", colour = "salmon") +
+    geom_line(aes(y = eruptions_corrected)) +
+    labs(title = "Old Faithful eruption data",
+         subtitle = "Rotating linear fit",
+         x = "Waiting time (minutes)",
+         y = "Eruption duration (minutes)")
+  print(lmr)
+}
+
+# Create animation of the histogram
+animate_lm <- function() {
+  lapply(seq(0.00, 0.1, by = 0.01), function(i) {
+    lm_fig(i)
+  })
+}
+
+# Note that this spits out in the main directory and is manually moved to the figures folder
+system.time(saveGIF(animate_lm(), interval = 1, ani.width = 600, movie.name = "lm_rotate.gif")) ## ~12 seconds
+
+knitr::include_graphics("figures/lm_rotate.gif")
+```
+
 ### The intercept
+
 The intercept is the best estimate of the starting point of the fitted line on the lefthand side of the graph. You will notice that there is also an estimate for the standard error of the estimate for the intercept.
 
 ### The regression coefficient
+
 The interpretation of the regression coefficient is simple. For every one unit of change in the independent variable (here waiting time) there is a corresponding change in the dependent variable (here the duration of the eruption). This is the *slope* or *gradient*, and it may be positive or negative. In the example the coefficient of determination of the line is denoted by the value `r round(eruption.lm$coef[2], 3)` min.min^-1^ in the column termed `Estimate` and in the row called `waiting` (the latter name will of course depend on the name of the response column in your dataset). The coefficient of determination multiplies the response variable to produce a prediction of the response based on the slope of the relationship between the response and the predictor. It tells us how much one unit in change of the independent variable *determines* the corresponding change in the response variable. There is also a standard error for the estimate. 
 
 ### A graph of the linear regression
@@ -58,7 +103,7 @@ r2 <- round(summary(eruption.lm)$r.squared, 3)
 ggplot(data = faithful, aes(x = waiting, y = eruptions)) +
   geom_point() +
   annotate("text", x = 45, y = 5, label = paste0("slope == ", slope, "~(min/min)"), parse = TRUE, hjust = 0) +
-  annotate("text", x = 45, y = 4.75, label = paste0("italic(P) < ", p.val), parse = TRUE, hjust = 0) +
+  annotate("text", x = 45, y = 4.75, label = paste0("italic(p) < ", p.val), parse = TRUE, hjust = 0) +
   annotate("text", x = 45, y = 4.5, label = paste0("italic(r)^2 == ", r2), parse = TRUE, hjust = 0) +
   stat_smooth(method = "lm", colour = "salmon") +
   labs(title = "Old Faithful eruption data",
@@ -68,6 +113,7 @@ ggplot(data = faithful, aes(x = waiting, y = eruptions)) +
 ```
 
 ### Predicting from the linear model
+
 Knowing $\alpha$ and $\beta$ allows us to predict what the erruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., $eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$). Here's how:
 
 ```{r predict-eruption-1, echo=TRUE, include=TRUE}
@@ -94,6 +140,7 @@ predict(eruption.lm, pred.val) # returns waiting time in minutes
 ```
 
 ### The coefficient of determination, $r^{2}$
+
 The coefficient of determination, the $r^{2}$, of a linear model is the quotient of the variances of the fitted values, $\hat{y_{i}}$, and observed values, $y_{i}$, of the dependent variable. If the mean of the dependent variable is $\bar y$, then the $r^{2}$ is:
 
 $$r^{2}=\frac{\sum(\hat{y_{i}} - \bar{y})^{2}}{\sum(y_{i} - \bar{y})^{2}}$$
@@ -131,6 +178,7 @@ Regressions may take on any relationship, not only a linear one. For example, th
 In the case of our Old Faithful data, the $r^{2}$ is `r round(summary(eruption.lm)$r.squared, 3)`, meaning that the proportion of variance explained is `r round(summary(eruption.lm)$r.squared * 100, 1)`%; the remaining `r 100 - round(summary(eruption.lm)$r.squared * 100, 1)`% is not (yet) accounted for by the linear relationship. Adding more predictors into the regression (i.e. a multiple regression) might consume some of the unexplained variance and increase the overall $r^{2}$.
 
 ### Significance test for linear regression
+
 There are several hypothesis tests associated with a simple linear regression. All of them assume that the residual error, $\epsilon$, in the linear regression model is independent of $x$ (i.e. nothing about the structure of the error term can be inferred based on a knowledge of $x$), is normally distributed, with zero mean and constant variance. We say the residuals are *i.i.d.* (independent and identically distributed, which is a fancy way of saying they are random).
 
 We can decide whether there is any significant relationship (slope) of $y$ on $x$ by testing the null hypothesis that $\beta=0$. Rejecting the null hypothesis causes the alternate hypothesis of $\beta \neq 0$ to be accepted. This test is automatically performed when fitting a linear model in R and asking for a summary of the regression object, but it is insightful and important to know that the test is simply a one-sample *t*-test. In the regression summary the probability associated with this test is given in the `Coefficients` table in the column called `Pr(>|t|)`.
@@ -140,6 +188,7 @@ In the Old Faithful data, the *p*-value associated with `waiting` is less than 0
 > **Question:** Note that there is also a hypothesis test in the `(Intercept)` row. What does this do?
 
 ### Confidence interval for linear regression
+
 Again we have to observe the assumption of *i.i.d.* as before. For a given value of $x$, the 95% confidence interval around the mean of the *observed* dependent variable, $\bar{y}$, can be obtained as follows:
 
 ```{r predict-eruption-3, echo=TRUE, include=TRUE}
@@ -150,6 +199,7 @@ predict(eruption.lm, pred.val, interval = "confidence")
 So, the 95% confidence interval of the mean eruption duration for the waiting time of 80 minutes is between 4.105 and 4.248 minutes.
 
 ### Prediction interval for linear regression
+
 Observe that $\epsilon$ is *i.i.d.* For a given value of $x$, the interval estimate of the *future* dependent variable, $y$, is called the prediction interval. The way we do this is similar to finding the confidence interval:
 
 ```{r predict-eruption-4, echo=TRUE, include=TRUE}
@@ -166,6 +216,7 @@ The intervals are wider. The difference between confidence and prediction interv
 ### Normal probability plot of residuals
 
 ## Using an additional categorical variable
+
 * When you use a categorical variable, in R the intercept represents the default position for a given value in the categorical column. Every other value then gets a modifier to the base prediction.
 
 <!-- for example the iris data set -->
