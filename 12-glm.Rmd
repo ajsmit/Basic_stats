@@ -65,6 +65,19 @@ Let's consult the help file for `kruskalmc()` to understand what this print-out 
 
 The water becomes murky quickly when one wants to perform mutliple factor non-parametric comparison of means tests. TO that end, we will not cover the few existing methods here. Rather, one should avoid the necessity for these types of tests when designing an experiment.
 
+## Generalised linear models
+
+### Sign Test
+
+### Wilcoxon Signed-Rank Test
+
+### Mann-Whitney-Wilcoxon Test
+
+### Kruskal-Wallis Test
+
+### Generalised linear models (GLM)
+
+
 ## Exercises
 
 ## Exercise 1
