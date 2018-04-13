@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
   warning = FALSE, 
   message = FALSE
 )
+#
 ```
 
 ## Venue, date and time
@@ -107,6 +108,11 @@ Grades will be based on the aggregate performance across two group projects; the
 * The code runs without errors
 * Proper style conventions have been observed
 * Liberally commented
+
+__BONUS POINTS__
+
+* Additional analysis not performed in class
+* Additional figure not created in class
 
 In cases where students are borderline between lower and higher grades, a high level of participation in the class discussions and class in general will win the day for the higher grade.
 
