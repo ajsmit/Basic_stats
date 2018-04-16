@@ -44,44 +44,105 @@ summary(eruption.lm)
 ```{r}
 library(animation)
 
+# And the sum of squares must of course be included with the figure, and maybe also the p-value and the SE of the slope estimate.
+
+# I think for this one we are perhaps permitted to have a slightly larger movie--say 10Mb? Then it looks nicer.
+
+# Can the animation not be saved as an AVI or MPEG, which may be smaller?
+
 # The function to animate the rotating line
-lm_fig <- function(i){
-  # set.seed(666)
-  # norm_dat <- data.frame(dat = rnorm(n = i, mean = 10, sd = 1),
-  #                        sample = "A")
-  faithful_fake <- faithful %>%
-    mutate(eruptions_fake = waiting*i) %>% 
-    mutate(eruptions_corrected = eruptions_fake + mean(eruptions)-mean(eruptions_fake))
-  
-  rse_val <- sqrt(sum(faithful_fake$eruptions_corrected-faithful_fake$eruptions)^2)/(nrow(faithful_fake)-2)
-  
-  lmr <- ggplot(data = faithful_fake, aes(x = waiting, y = eruptions)) +
-    geom_point() +
-    geom_segment(aes(x = waiting, xend = waiting, 
-                 y = eruptions_corrected,  yend = eruptions), 
-                 size = 1, alpha = 0.7, colour = "red", linetype = "dotted") +
-    annotate("text", x = 45, y = 5, label = paste0("slope == ", i, "~(min/min)"), parse = TRUE, hjust = 0) +
-    annotate("text", x = 45, y = 4.75, label = paste0("RSE == ", rse_val), parse = TRUE, hjust = 0) +
-    # stat_smooth(method = "lm", colour = "salmon") +
-    geom_line(aes(y = eruptions_corrected)) +
-    labs(title = "Old Faithful eruption data",
-         subtitle = "Rotating linear fit",
-         x = "Waiting time (minutes)",
-         y = "Eruption duration (minutes)")
-  print(lmr)
-}
+# lm_fig <- function(i){
+#   # set.seed(666)
+#   # norm_dat <- data.frame(dat = rnorm(n = i, mean = 10, sd = 1),
+#   #                        sample = "A")
+#   # tester...
+#   # i <- 0.075628
+#   #
+#   
+#   # Set the slope
+#   slope <- i
+#   
+#   # Calculate fitted values
+#   faithful_pred <- faithful %>%
+#     mutate(eruptions_pred = waiting*i, 
+#            eruptions_fit = eruptions_pred + mean(eruptions)-mean(eruptions_pred),
+#            eruptions_error = eruptions_fit - eruptions)
+#   
+#   # Set intercept value
+#   intercept <- round(mean(faithful_pred$eruptions)-mean(faithful_pred$eruptions_pred),2)
+#   
+#   # Pull out increasing and decreasing bars
+#   bars_decrease_right <- faithful_pred %>% 
+#     filter(waiting >= mean(waiting), eruptions_error <= 0) %>% 
+#     mutate(eruptions_error = abs(eruptions_error))
+#   bars_increase_right <- faithful_pred %>% 
+#     filter(waiting >= mean(waiting), eruptions_error >= 0) %>% 
+#     mutate(eruptions_error = -eruptions_error)
+#   bars_decrease_left <- faithful_pred %>% 
+#     filter(waiting <= mean(waiting), eruptions_error >= 0)
+#   bars_increase_left <- faithful_pred %>% 
+#     filter(waiting <= mean(waiting), eruptions_error <= 0)
+#   
+#   # Calculate stats for plotting
+#   rse_val <- round(sqrt(sum(faithful_pred$eruptions_error^2))/(nrow(faithful_pred)), 4)
+#     # Interesting... these following two lines produce the same results...
+#   # rss_val <- round(sum(faithful_pred$eruptions_error^2), 4)
+#   # rss_val <- round(sum(faithful_pred$eruptions_error^2)-((sum(faithful_pred$eruptions_error)^2)/nrow(faithful_pred)), 4)
+#   # This is a competing equation... seems more accurate
+#   rss_val <- round(sum((faithful_pred$eruptions_fit-mean(faithful_pred$eruptions))^2)/(nrow(faithful_pred)), 4)
+#   se_val <- sqrt(var(faithful_pred$eruptions_fit)/nrow(faithful_pred))
+#   f_val <- (rse_val/1)/(rss_val/(nrow(faithful_pred)-2))
+#   # test <- qf(0.95, 1, 270)
+#   p_val <- 1-pf(f_val, 1, (nrow(faithful_pred)-2))
+#   r2_val <- round(cor(faithful_pred$waiting, faithful_pred$eruptions)^2, 2)
+#   
+#   # Create p value for printing
+#   if(p_val < 0.001){
+#     p_val_print <- " < 0.001"
+#   } else{
+#     p_val_print <- paste0(" == ", round(p_val, 3))
+#   }
+#   
+#   # Create the figure
+#   lmr <- ggplot(data = faithful_pred, aes(x = waiting, y = eruptions)) +
+#     geom_segment(data = bars_decrease_right, size = 1, alpha = 0.7,
+#                  aes(xend = waiting, y = eruptions_fit, yend = eruptions, colour = eruptions_error)) +
+#     geom_segment(data = bars_increase_right, size = 1, alpha = 0.7,
+#                  aes(xend = waiting, y = eruptions_fit, yend = eruptions, colour = eruptions_error)) +
+#     geom_segment(data = bars_decrease_left, size = 1, alpha = 0.7,
+#                  aes(xend = waiting, y = eruptions_fit, yend = eruptions, colour = eruptions_error)) +
+#     geom_segment(data = bars_increase_left, size = 1, alpha = 0.7,
+#                  aes(xend = waiting, y = eruptions_fit, yend = eruptions, colour = eruptions_error)) +
+#     geom_point() +
+#     geom_line(aes(y = eruptions_fit)) +
+#     annotate("text", x = 45, y = 5.25, label = paste0("slope == ", i, "~(min/min)"), parse = TRUE, hjust = 0) +
+#     annotate("text", x = 45, y = 5.00, label = paste0("intercept == ", intercept), parse = TRUE, hjust = 0) +
+#     annotate("text", x = 45, y = 4.75, label = paste0("italic(r)^2 == ", r2_val), parse = TRUE, hjust = 0) +
+#     annotate("text", x = 45, y = 4.50, label = paste0("italic(p)", p_val_print), parse = TRUE, hjust = 0) +
+#     annotate("text", x = 45, y = 4.25, label = paste0("RSE == ", rse_val), parse = TRUE, hjust = 0) +
+#     annotate("text", x = 45, y = 4.00, label = paste0("RSS == ", rss_val), parse = TRUE, hjust = 0) +
+#     # stat_smooth(method = "lm", colour = "salmon") +
+#     scale_colour_gradient2(low = "red", mid = "white", high = "blue", guide = FALSE) +
+#     coord_cartesian(ylim = c(1.2, 5.6)) +
+#     labs(title = "Old Faithful eruption data",
+#          subtitle = "Rotating linear fit",
+#          x = "Waiting time (minutes)",
+#          y = "Eruption duration (minutes)")
+#   print(lmr)
+# }
 
 # Create animation of the histogram
-animate_lm <- function() {
-  lapply(seq(0.00, 0.1, by = 0.01), function(i) {
-    lm_fig(i)
-  })
-}
+# animate_lm <- function() {
+#   lapply(seq(0.00, 0.15, by = 0.0001), function(i) {
+#     lm_fig(i)
+#   })
+# }
 
 # Note that this spits out in the main directory and is manually moved to the figures folder
-system.time(saveGIF(animate_lm(), interval = 1, ani.width = 600, movie.name = "lm_rotate.gif")) ## ~12 seconds
+# system.time(saveGIF(animate_lm(), interval = 1, ani.width = 600, movie.name = "lm_rotate.gif")) ## ~4 seconds
+# system.time(saveVideo(animate_lm(), interval = 0.1, ani.width = 600, video.name = "lm_rotate.mp4")) ~553 seconds
 
-knitr::include_graphics("figures/lm_rotate.gif")
+knitr::include_graphics("figures/lm_rotate.mp4")
 ```
 
 ### The intercept
