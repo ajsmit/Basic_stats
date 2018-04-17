@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 Therefore, we must next learn about the different types of data distributions we are likely to encounter in the wild.
 
 ## Discrete distributions
-A discrete random variable has a finite or countable number of possible values. As the name suggests, it models integer data. Below we provide options to generate and visualise data belonging to several classes of discrete distributions. Later (Chapter X) we will learn how to transform these data prior to performing the approapriate statistical analysis.
+A discrete random variable has a finite or countable number of possible values. As the name suggests, it models integer data. Below we provide options to generate and visualise data belonging to several classes of discrete distributions. Later (Chapter X) we will learn how to transform these data prior to performing the appropriate statistical analysis.
 
 ### Bernoulli distribution
 A Bernoulli random variable, $x$, takes the value 1 with probability $p$ and the value 0 with probability $q=1−p$. It is used to represent data resulting from a *single* experiment with binary (yes or no; black or white; positive or negative; success or failure; dead or alive;) outcomes, such as a coin toss---there are only two options, heads or tails. Nothing else. Here, $p$ represents the probability of the one outcome and $q$ the probability of the other outcome. The distribution of the possible outcomes, $x$, is given by:
@@ -445,7 +445,7 @@ knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
 
 ### Uniform distribution
 
-The continuous uniform distribution is sometime called a rectangular distribution. Simply, it states that all measurments of the same magnitude included with this distribution are equally probable. This is basically random numbers.
+The continuous uniform distribution is sometime called a rectangular distribution. Simply, it states that all measurements of the same magnitude included with this distribution are equally probable. This is basically random numbers.
 
 ```{r, echo=FALSE}
 # Create base distributions
@@ -871,7 +871,7 @@ knitr::include_graphics("figures/paranormal_distributions.jpeg")
 ```
 
 ## Finding one's data distribution
-data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does---there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only *compatible* with a certain distribution, and one can never answer the question "Does my data follow the distribution xy exactly?" as simply as providing a yes/no answer. So what now? How does one find one's data distribution? We can use the *Cullen and Frey graph* function that lives in the **fitdistrplus** package. This graph tells us whether the skweness and kurtosis of our data are consistent with that of a particular distribution. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.
+data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does---there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only *compatible* with a certain distribution, and one can never answer the question "Does my data follow the distribution xy exactly?" as simply as providing a yes/no answer. So what now? How does one find one's data distribution? We can use the *Cullen and Frey graph* function that lives in the **fitdistrplus** package. This graph tells us whether the skewness and kurtosis of our data are consistent with that of a particular distribution. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.
 
 
 ```{r}
@@ -939,7 +939,7 @@ abline(0, 1)
 
 ```
 
-Above we have also added a diagonal line to the qqplot. If the sampled data come from the population with the choosen distribution, the points should fall approximately along this reference line. The greater the departure from this reference line, the greater the evidence for the conclusion that the data set have come from a population with a different distribution.
+Above we have also added a diagonal line to the qqplot. If the sampled data come from the population with the chosen distribution, the points should fall approximately along this reference line. The greater the departure from this reference line, the greater the evidence for the conclusion that the data set have come from a population with a different distribution.
 
 ```{r}
 # curve(dnorm(100, m = 10, sd = 2), from = 0, to = 20, main = "Normal distribution")
@@ -955,4 +955,4 @@ Above we have also added a diagonal line to the qqplot. If the sampled data come
 
 ### Exercise 1
 
-Choose two different datasets and plot them as historgrams with density curves overlayed. Label them with the distribution they appear to be and stitch them together with `ggarrange()`.
+Choose two different datasets and plot them as histograms with density curves overlayed. Label them with the distribution they appear to be and stitch them together with `ggarrange()`.
