@@ -359,8 +359,6 @@ ggarrange(vio1, vio2, vio3, vio4, ncol = 2, nrow = 2, labels = "AUTO")
 
 <img src="04-graphics_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
-<!-- ## Category statistics -->
-
 ## Exercises
 
 ### Exercise 1

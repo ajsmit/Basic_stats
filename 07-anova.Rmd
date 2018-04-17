@@ -1,4 +1,4 @@
-# One-way ANOVA
+# ANOVA
 
 
 ```{r prelim-opts, echo=FALSE}
@@ -180,7 +180,7 @@ ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
 
 ## Exercises
 
-## Exercise 1
+### Exercise 1
 
 Write out the hypotheses that we tested for in this chapter and answer them based on the results we produced in class.
 
