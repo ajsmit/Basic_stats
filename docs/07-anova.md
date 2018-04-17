@@ -295,6 +295,36 @@ Let's consult the help file for `kruskalmc()` to understand what this print-out 
 
 The water becomes murky quickly when one wants to perform mutliple factor non-parametric comparison of means tests. TO that end, we will not cover the few existing methods here. Rather, one should avoid the necessity for these types of tests when designing an experiment.
 
+### The SA time data
+
+
+```r
+sa_time <- as_tibble(read_csv("data/SA_time.csv", col_types = list(col_double(), col_double(), col_double())))
+sa_time_long <- sa_time %>% 
+  gather(key = "term", value = "minutes") %>% 
+  filter(minutes < 300) %>% 
+  mutate(term = as.factor(term))
+
+my_comparisons <- list( c("now", "now_now"), c("now_now", "just_now"), c("now", "just_now") )
+
+ggboxplot(sa_time_long, x = "term", y = "minutes",
+          color = "term", palette = c("#00AFBB", "#E7B800", "#FC4E07"),
+          add = "jitter", shape = "term")
+```
+
+<img src="07-anova_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+
+```r
+ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
+         palette = c("#00AFBB", "#E7B800", "#FC4E07"),
+         add = "boxplot", add.params = list(fill = "white")) +
+  stat_compare_means(comparisons = my_comparisons, label = "p.signif") + # Add significance levels
+  stat_compare_means(label.y = 50)                                      # Add global the p-value 
+```
+
+<img src="07-anova_files/figure-html/unnamed-chunk-14-2.png" width="672" />
+
+
 ## Exercises
 
 ### Exercise 1
