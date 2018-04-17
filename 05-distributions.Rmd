@@ -856,7 +856,7 @@ p
 
 ### Paranormal distributions
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("figures/paranormal_distributions.jpeg")
 ```
 
