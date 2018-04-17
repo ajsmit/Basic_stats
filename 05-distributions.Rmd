@@ -334,62 +334,6 @@ p
 
 ## Continuous distributions
 
-### Uniform distribution
-
-```{r, echo=FALSE}
-# Create base distributions
-set.seed(666)
-unif_dat <- data.frame(dist = c(runif(10, 0, 10), runif(100, 0, 10), runif(1000, 0, 10),
-                                runif(10, 0, 50), runif(100, 0, 50), runif(1000, 0, 50),
-                                runif(10, 0, 100), runif(100, 0, 100), runif(1000, 0, 100)),
-                       unif_group = paste(rep(c(rep("n = 10", 10), rep("n = 100", 100), rep("n = 1000", 1000)), 3),
-                                          rep("min = 0", 3330),
-                                          c(rep("max = 10", 1110), rep("max = 50", 1110), rep("max = 100", 1110)), 
-                                          sep = ", "))
-
-# Create density curves
-unif_dens <- data.frame()
-for(i in 1:length(levels(unif_dat$unif_group))) {
-  x <- density(unif_dat$dist[unif_dat$unif_group == levels(unif_dat$unif_group)[i]])$x
-  y <- density(unif_dat$dist[unif_dat$unif_group == levels(unif_dat$unif_group)[i]])$y
-  df <- data.frame(x = x, y = y, unif_group = levels(unif_dat$unif_group)[i])
-  unif_dens <- rbind(unif_dens, df)
-}
-
-# Create all of the buttons
-l <- list()
-for(i in 1:length(levels(unif_dat$unif_group))) {
-  l[[i]] <- list(method = "restyle",
-                 args = list("transforms[0].value", unique(unif_dat$unif_group)[i]),
-                 label = unique(unif_dat$unif_group)[i])
-}
-
-# Run the figure
-p <- plot_ly(data = unif_dat, 
-             transforms = list(
-               list(type = 'filter',
-                    target = ~unif_group,
-                    operation = '=',
-                    value = unique(unif_dat$unif_group)[5]))) %>%
-  add_histogram(x = ~dist, name = "Histogram") %>%
-  add_boxplot(x = ~dist, yaxis = "y3", name = "Boxplot") %>% 
-  add_trace(data = unif_dens, x = ~x, y = ~y, mode = "lines", fill = "tozeroy", 
-            yaxis = "y2", name = "Density",
-            transforms = list(
-              list(type = 'filter',
-                   target = ~unif_group,
-                   operation = '=',
-                   value = unique(unif_dat$unif_group)[5]))) %>%
-  layout(title = "Uniform distribution",
-         xaxis = list(title = "value"), 
-         yaxis = list(title = "count"),
-         yaxis2 = list(overlaying = "y", zeroline = FALSE,
-                       showline = FALSE, showticklabels = FALSE, showgrid = FALSE),
-         yaxis3 = list(overlaying = "y"),
-         updatemenus = list(list(y = 1.05, x = 0.2, active = 4, buttons = l)))
-p
-```
-
 ### Normal distribution
 
 ```{r, echo=FALSE}
@@ -427,12 +371,11 @@ p
 # }
 
 # Note that this spits out in the main directory and is manually moved to the figures folder
-#
+
 # saveGIF(animate_hist())
 # system.time(saveGIF(animate_hist(), interval = 0.5, ani.width = 600, movie.name = "hist_norm_n.gif")) ## ~12 seconds
 knitr::include_graphics("figures/hist_norm_n.gif")
 ```
-
 
 ```{r, echo=FALSE}
 # Create base distributions
@@ -496,6 +439,62 @@ p
 
 ```{r PDF, echo = FALSE, fig.margin = TRUE, fig.cap = "Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)"}
 knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
+```
+
+### Uniform distribution
+
+```{r, echo=FALSE}
+# Create base distributions
+set.seed(666)
+unif_dat <- data.frame(dist = c(runif(10, 0, 10), runif(100, 0, 10), runif(1000, 0, 10),
+                                runif(10, 0, 50), runif(100, 0, 50), runif(1000, 0, 50),
+                                runif(10, 0, 100), runif(100, 0, 100), runif(1000, 0, 100)),
+                       unif_group = paste(rep(c(rep("n = 10", 10), rep("n = 100", 100), rep("n = 1000", 1000)), 3),
+                                          rep("min = 0", 3330),
+                                          c(rep("max = 10", 1110), rep("max = 50", 1110), rep("max = 100", 1110)), 
+                                          sep = ", "))
+
+# Create density curves
+unif_dens <- data.frame()
+for(i in 1:length(levels(unif_dat$unif_group))) {
+  x <- density(unif_dat$dist[unif_dat$unif_group == levels(unif_dat$unif_group)[i]])$x
+  y <- density(unif_dat$dist[unif_dat$unif_group == levels(unif_dat$unif_group)[i]])$y
+  df <- data.frame(x = x, y = y, unif_group = levels(unif_dat$unif_group)[i])
+  unif_dens <- rbind(unif_dens, df)
+}
+
+# Create all of the buttons
+l <- list()
+for(i in 1:length(levels(unif_dat$unif_group))) {
+  l[[i]] <- list(method = "restyle",
+                 args = list("transforms[0].value", unique(unif_dat$unif_group)[i]),
+                 label = unique(unif_dat$unif_group)[i])
+}
+
+# Run the figure
+p <- plot_ly(data = unif_dat, 
+             transforms = list(
+               list(type = 'filter',
+                    target = ~unif_group,
+                    operation = '=',
+                    value = unique(unif_dat$unif_group)[5]))) %>%
+  add_histogram(x = ~dist, name = "Histogram") %>%
+  add_boxplot(x = ~dist, yaxis = "y3", name = "Boxplot") %>% 
+  add_trace(data = unif_dens, x = ~x, y = ~y, mode = "lines", fill = "tozeroy", 
+            yaxis = "y2", name = "Density",
+            transforms = list(
+              list(type = 'filter',
+                   target = ~unif_group,
+                   operation = '=',
+                   value = unique(unif_dat$unif_group)[5]))) %>%
+  layout(title = "Uniform distribution",
+         xaxis = list(title = "value"), 
+         yaxis = list(title = "count"),
+         yaxis2 = list(overlaying = "y", zeroline = FALSE,
+                       showline = FALSE, showticklabels = FALSE, showgrid = FALSE),
+         yaxis3 = list(overlaying = "y"),
+         updatemenus = list(list(y = 1.05, x = 0.2, active = 4, buttons = l)))
+p
 ```
 
 ### Student T distribution
@@ -862,7 +861,7 @@ knitr::include_graphics("figures/paranormal_distributions.jpeg")
 ```
 
 ## Finding one's data distribution
-data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does---there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only *compatible* with a certain distribution, and one can never answer the question "Does my data follow the distribution xy exactly?" as simply as providing a yes/no answer. So what now? How does one find one's data distribution? We can use the *Cullen and Frey graph* function that lives in the **fitdistrplus** package. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.
+data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does---there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only *compatible* with a certain distribution, and one can never answer the question "Does my data follow the distribution xy exactly?" as simply as providing a yes/no answer. So what now? How does one find one's data distribution? We can use the *Cullen and Frey graph* function that lives in the **fitdistrplus** package. This graph tells us whether the skweness and kurtosis of our data are consistent with that of a particular distribution. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.
 
 
 ```{r}
@@ -881,7 +880,7 @@ y <- c(37.50,46.79,48.30,46.04,43.40,39.25,38.49,49.51,40.38,36.98,40.00,
 par(mfrow = c(2, 2))
 plot(x = c(1:length(y)), y = y)
 hist(y)
-descdist(y, discrete = FALSE)
+descdist(y, discrete = FALSE, boot = 100)
 ```
 
 ```{r}
@@ -910,6 +909,37 @@ plot(x = c(1:100), y = y)
 hist(y)
 descdist(y, discrete = FALSE)
 ```
+
+There is also a whole bunch of other approaches to use to try and identify the data distribution. Let us start with the gold standard first: normal data. We will demonstrate some visualisation approaches. The one that you already know is a basic histogram; it tells us something about the distribution's skewness, the tails, the mode(s) of the data, outliers, etc. Histograms can be compared to shapes associated with idealistic (simulated) distributions, as we will do here.
+
+```{r}
+y <-rnorm(n = 200, m = 13, sd = 2)
+par(mfrow = c(2, 2))
+# using some basic base graphics as ggplot2 is overkill;
+# we can get a histogram using hist() statement
+hist(y, main = "Histogram of observed data")
+plot(density(y), main = "Density estimate of data")
+plot(ecdf(y), main = "Empirical cumulative distribution function")
+# standardise the data
+z.norm <- (y - mean(y)) / sd(y) 
+# make a qqplot
+qqnorm(z.norm)
+# add a 45-degree reference line
+abline(0, 1)
+
+```
+
+Above we have also added a diagonal line to the qqplot. If the sampled data come from the population with the choosen distribution, the points should fall approximately along this reference line. The greater the departure from this reference line, the greater the evidence for the conclusion that the data set have come from a population with a different distribution.
+
+```{r}
+curve(dnorm(100, m = 10, sd = 2), from = 0, to = 20, main = "Normal distribution")
+curve(dgamma(100, scale = 1.5, shape = 2), from = 0, to = 15, main = "Gamma distribution")
+curve(dweibull(100, scale = 2.5, shape = 1.5), from = 0, to = 15, main = "Weibull distribution")
+```
+
+
+
+
 
 ## Exercises
 
