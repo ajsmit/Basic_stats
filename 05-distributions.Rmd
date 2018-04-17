@@ -419,11 +419,11 @@ p
 # }
 
 ## Create animation of the histogram
-# animate_hist <- function() {
-#   lapply(c(rep(10, 5), seq(20, 90, 10), seq(100, 900, 100), seq(900, 1000, 10), rep(1000, 5)), function(i) {
-#     hist_fig(i)
-#   })
-# }
+animate_hist <- function() {
+  lapply(c(rep(10, 5), seq(20, 90, 10), seq(100, 900, 100), seq(900, 1000, 10), rep(1000, 5)), function(i) {
+    hist_fig(i)
+  })
+}
 
 # Note that this spits out in the main directory and is manually moved to the figures folder
 #
