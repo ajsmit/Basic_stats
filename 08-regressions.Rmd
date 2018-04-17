@@ -24,6 +24,8 @@ The regression parameters $\alpha$ and $\beta$ are determined by *minimising the
 
 $$error~SS=\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}$$
 
+To see an animation demonstrating this click [here](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/lm_rotate.mp4).
+
 We will demonstrate the principle behind a simple linear regression by using the built-in dataset `faithful`. According to the R help file for the data, the dataset describes the "Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA."
 
 ```{r faithful-head, echo=TRUE, include=TRUE}
@@ -51,98 +53,135 @@ library(animation)
 # Can the animation not be saved as an AVI or MPEG, which may be smaller?
 
 # The function to animate the rotating line
-# lm_fig <- function(i){
-#   # set.seed(666)
-#   # norm_dat <- data.frame(dat = rnorm(n = i, mean = 10, sd = 1),
-#   #                        sample = "A")
-#   # tester...
-#   # i <- 0.075628
-#   #
-#   
-#   # Set the slope
-#   slope <- i
-#   
-#   # Calculate fitted values
-#   faithful_pred <- faithful %>%
-#     mutate(eruptions_pred = waiting*i, 
-#            eruptions_fit = eruptions_pred + mean(eruptions)-mean(eruptions_pred),
-#            eruptions_error = eruptions_fit - eruptions)
-#   
-#   # Set intercept value
-#   intercept <- round(mean(faithful_pred$eruptions)-mean(faithful_pred$eruptions_pred),2)
-#   
-#   # Pull out increasing and decreasing bars
-#   bars_decrease_right <- faithful_pred %>% 
-#     filter(waiting >= mean(waiting), eruptions_error <= 0) %>% 
-#     mutate(eruptions_error = abs(eruptions_error))
-#   bars_increase_right <- faithful_pred %>% 
-#     filter(waiting >= mean(waiting), eruptions_error >= 0) %>% 
-#     mutate(eruptions_error = -eruptions_error)
-#   bars_decrease_left <- faithful_pred %>% 
-#     filter(waiting <= mean(waiting), eruptions_error >= 0)
-#   bars_increase_left <- faithful_pred %>% 
-#     filter(waiting <= mean(waiting), eruptions_error <= 0)
-#   
-#   # Calculate stats for plotting
-#   rse_val <- round(sqrt(sum(faithful_pred$eruptions_error^2))/(nrow(faithful_pred)), 4)
-#     # Interesting... these following two lines produce the same results...
-#   # rss_val <- round(sum(faithful_pred$eruptions_error^2), 4)
-#   # rss_val <- round(sum(faithful_pred$eruptions_error^2)-((sum(faithful_pred$eruptions_error)^2)/nrow(faithful_pred)), 4)
-#   # This is a competing equation... seems more accurate
-#   rss_val <- round(sum((faithful_pred$eruptions_fit-mean(faithful_pred$eruptions))^2)/(nrow(faithful_pred)), 4)
-#   se_val <- sqrt(var(faithful_pred$eruptions_fit)/nrow(faithful_pred))
-#   f_val <- (rse_val/1)/(rss_val/(nrow(faithful_pred)-2))
-#   # test <- qf(0.95, 1, 270)
-#   p_val <- 1-pf(f_val, 1, (nrow(faithful_pred)-2))
-#   r2_val <- round(cor(faithful_pred$waiting, faithful_pred$eruptions)^2, 2)
-#   
-#   # Create p value for printing
-#   if(p_val < 0.001){
-#     p_val_print <- " < 0.001"
-#   } else{
-#     p_val_print <- paste0(" == ", round(p_val, 3))
-#   }
-#   
-#   # Create the figure
-#   lmr <- ggplot(data = faithful_pred, aes(x = waiting, y = eruptions)) +
-#     geom_segment(data = bars_decrease_right, size = 1, alpha = 0.7,
-#                  aes(xend = waiting, y = eruptions_fit, yend = eruptions, colour = eruptions_error)) +
-#     geom_segment(data = bars_increase_right, size = 1, alpha = 0.7,
-#                  aes(xend = waiting, y = eruptions_fit, yend = eruptions, colour = eruptions_error)) +
-#     geom_segment(data = bars_decrease_left, size = 1, alpha = 0.7,
-#                  aes(xend = waiting, y = eruptions_fit, yend = eruptions, colour = eruptions_error)) +
-#     geom_segment(data = bars_increase_left, size = 1, alpha = 0.7,
-#                  aes(xend = waiting, y = eruptions_fit, yend = eruptions, colour = eruptions_error)) +
-#     geom_point() +
-#     geom_line(aes(y = eruptions_fit)) +
-#     annotate("text", x = 45, y = 5.25, label = paste0("slope == ", i, "~(min/min)"), parse = TRUE, hjust = 0) +
-#     annotate("text", x = 45, y = 5.00, label = paste0("intercept == ", intercept), parse = TRUE, hjust = 0) +
-#     annotate("text", x = 45, y = 4.75, label = paste0("italic(r)^2 == ", r2_val), parse = TRUE, hjust = 0) +
-#     annotate("text", x = 45, y = 4.50, label = paste0("italic(p)", p_val_print), parse = TRUE, hjust = 0) +
-#     annotate("text", x = 45, y = 4.25, label = paste0("RSE == ", rse_val), parse = TRUE, hjust = 0) +
-#     annotate("text", x = 45, y = 4.00, label = paste0("RSS == ", rss_val), parse = TRUE, hjust = 0) +
-#     # stat_smooth(method = "lm", colour = "salmon") +
-#     scale_colour_gradient2(low = "red", mid = "white", high = "blue", guide = FALSE) +
-#     coord_cartesian(ylim = c(1.2, 5.6)) +
-#     labs(title = "Old Faithful eruption data",
-#          subtitle = "Rotating linear fit",
-#          x = "Waiting time (minutes)",
-#          y = "Eruption duration (minutes)")
-#   print(lmr)
-# }
+lm_fig <- function(i){
+  
+  # tester...
+  # i <- 0.075628
+  #
+
+  # Set the slope
+  slope <- i
+  
+  # Create random data
+  set.seed(666)
+  random_dat <- data.frame(eruptions = rnorm(50, 10, 1),
+                           waiting = rnorm(50, 10, 1),
+                           row_seq = seq(1, 50))
+  random_dat <- random_dat %>% 
+    mutate(eruptions = eruptions * row_seq, 
+           waiting = waiting * row_seq)
+
+  # Calculate fitted values
+  faithful_pred <- random_dat %>%
+    mutate(eruptions_pred = waiting*slope,
+           eruptions_fit = eruptions_pred + mean(eruptions) - mean(eruptions_pred),
+           eruptions_error = eruptions_fit - eruptions,
+           alpha_range = 1-(abs(eruptions_error)/max(abs(eruptions_error))))
+
+  # Set intercept value
+  intercept <- round(mean(faithful_pred$eruptions)-mean(faithful_pred$eruptions_pred),2)
+
+  # Pull out increasing and decreasing bars
+  bars_decrease_right <- faithful_pred %>%
+    filter(waiting >= mean(waiting), eruptions_error <= 0) %>%
+    mutate(eruptions_error = abs(eruptions_error))
+  bars_increase_right <- faithful_pred %>%
+    filter(waiting >= mean(waiting), eruptions_error >= 0) %>%
+    mutate(eruptions_error = -eruptions_error)
+  bars_decrease_left <- faithful_pred %>%
+    filter(waiting <= mean(waiting), eruptions_error >= 0)
+  bars_increase_left <- faithful_pred %>%
+    filter(waiting <= mean(waiting), eruptions_error <= 0)
+
+  # Calculate stats for plotting
+  rse_val <- round(sqrt(sum(faithful_pred$eruptions_error^2))/(nrow(faithful_pred)), 4)
+  se_val <- sqrt(var(faithful_pred$eruptions_fit)/nrow(faithful_pred))
+  
+  # Sum of Squares (SS)
+  total_ss_val <- round(sum((faithful_pred$eruptions-mean(faithful_pred$eruptions))^2), 2)
+  residual_ss_val <- round(sum(faithful_pred$eruptions_error^2), 2)
+  regression_ss_val <- round(sum((faithful_pred$eruptions_fit-mean(faithful_pred$eruptions))^2), 2)
+  
+  # Mean square (MS)
+  regression_ms_val <- regression_ss_val/1
+  residual_ms_val <- residual_ss_val/(nrow(faithful_pred)-2)
+  
+  # Final stats
+  f_val <- round(regression_ms_val/residual_ms_val, 2)
+  test <- qf(0.95, 1, 270)
+  p_val <- 1-pf(f_val, 1, (nrow(faithful_pred)-2))
+  r2_val <- round(regression_ss_val/total_ss_val, 2)
+
+  # Create p value for printing
+  if(p_val < 0.001){
+    p_val_print <- " < 0.001"
+  } else{
+    p_val_print <- paste0(" == ", round(p_val, 3))
+  }
+  
+  # Create square polygon dataframes
+  poly_1 <- faithful_pred %>% 
+    filter(waiting >= min(waiting))
+  poly_2 <- faithful_pred %>% 
+    filter(waiting <= min(waiting))
+
+  # Create the figure
+  lmr <- ggplot(data = faithful_pred, aes(x = waiting, y = eruptions)) +
+    # geom_rect(data = poly_1, alpha = 0.6, fill = "grey60",
+    #           aes(xmin = waiting, xmax = waiting+abs(eruptions_error), 
+    #               ymin = eruptions, ymax = eruptions_fit, colour = eruptions_error)) +
+    # geom_rect(data = poly_2, alpha = 0.6, fill = "grey60",
+    #           aes(xmin = waiting, xmax = waiting+abs(eruptions_error), 
+    #               ymin = eruptions, ymax = eruptions_fit, colour = -eruptions_error)) +
+    geom_rect(data = bars_decrease_right,
+              aes(xmin = waiting, xmax = waiting+abs(eruptions_error),
+                  ymin = eruptions, ymax = eruptions_fit, 
+                  fill = eruptions_error, alpha = alpha_range)) +
+    geom_segment(size = 0.2, alpha = 0.7, aes(xend = waiting, y = eruptions_fit, yend = eruptions)) +
+    # geom_segment(data = bars_increase_right, size = 0.2, alpha = 0.7,
+    #              aes(xend = waiting, y = eruptions_fit, yend = eruptions)) +
+    # geom_segment(data = bars_decrease_left, size = 0.2, alpha = 0.7,
+    #              aes(xend = waiting, y = eruptions_fit, yend = eruptions)) +
+    # geom_segment(data = bars_increase_left, size = 0.2, alpha = 0.7,
+    #              aes(xend = waiting, y = eruptions_fit, yend = eruptions)) +
+    # colour = eruptions_error
+    geom_point(shape = 21) +
+    geom_line(aes(y = eruptions_fit)) +
+    # annotate("text", x = 42, y = 5.5, label = paste0("slope == ", i, "~(min/min)"), parse = TRUE, hjust = 0) +
+    # annotate("text", x = 42, y = 5.25, label = paste0("intercept == ", intercept), parse = TRUE, hjust = 0) +
+    # annotate("text", x = 42, y = 5.00, label = paste0("italic(r)^2 == ", r2_val), parse = TRUE, hjust = 0) +
+    # annotate("text", x = 42, y = 4.75, label = paste0("residual~SS == ", residual_ss_val), parse = TRUE, hjust = 0) +
+    # annotate("text", x = 42, y = 4.50, label = paste0("regression~SS == ", regression_ss_val), parse = TRUE, hjust = 0) +
+    # annotate("text", x = 42, y = 4.25, label = paste0("d.f. == ", nrow(faithful_pred)-2), parse = TRUE, hjust = 0) +
+    # annotate("text", x = 42, y = 4.00, label = paste0("F == ", f_val), parse = TRUE, hjust = 0) +
+    # annotate("text", x = 42, y = 3.75, label = paste0("italic(p)", p_val_print), parse = TRUE, hjust = 0) +
+    # stat_smooth(method = "lm", colour = "salmon") +
+    # scale_colour_gradient2(low = "red", mid = "white", high = "blue", guide = FALSE) +
+    scale_fill_gradient2(low = "red", mid = "white", high = "blue", guide = FALSE) +
+    scale_alpha(guide = FALSE) +
+    # coord_cartesian(ylim = c(1.15, 5.65), xlim = c(40, 100)) +
+    coord_equal(xlim = c(-50, 650), ylim = c(-50, 650)) +
+    labs(title = "Rotating linear fit",
+         # subtitle = "Rotating linear fit",
+         x = "X",
+         y = "Y") +
+    theme_dark()
+  print(lmr)
+}
 
 # Create animation of the histogram
-# animate_lm <- function() {
-#   lapply(seq(0.00, 0.15, by = 0.0001), function(i) {
-#     lm_fig(i)
-#   })
-# }
+animate_lm <- function() {
+  # lapply(c(seq(0.00, 0.09, by = 0.001), rep(0.08, 1000)), function(i) {
+  lapply(c(seq(0.00, 1.5, by = 0.01), seq(1.4, 1.0, by = -0.01), rep(1.0, 10)), function(i) {
+    lm_fig(i)
+  })
+}
 
 # Note that this spits out in the main directory and is manually moved to the figures folder
 # system.time(saveGIF(animate_lm(), interval = 1, ani.width = 600, movie.name = "lm_rotate.gif")) ## ~4 seconds
-# system.time(saveVideo(animate_lm(), interval = 0.1, ani.width = 600, video.name = "lm_rotate.mp4")) ~553 seconds
+system.time(saveVideo(animate_lm(), interval = 0.5, ani.width = 600, video.name = "lm_rotate.mp4")) #~553 seconds
 
-knitr::include_graphics("figures/lm_rotate.mp4")
+# knitr::include_graphics("figures/lm_rotate.mp4")
 ```
 
 ### The intercept
