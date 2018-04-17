@@ -102,11 +102,9 @@ ggplot(data = faithful, aes(x = waiting, y = eruptions)) +
        y = "Eruption duration (minutes)")
 ```
 
-<img src="08-regressions_files/figure-html/unnamed-chunk-3-1.png" width="672" />
-
 ### Predicting from the linear model
 
-Knowing $\alpha$ and $\beta$ allows us to predict what the erruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., $eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$). Here's how:
+Knowing $\alpha$ and $\beta$ allows us to predict what the eruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., $eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$). Here's how:
 
 
 ```r
@@ -167,10 +165,11 @@ summary(eruption.lm)$r.squared
 R> [1] 0.8114608
 ```
 
-What does the $r^{2}$ tell us? It tells us the "fraction of variance explained by the model" (from the `summary.lm()` help file). In other words it is the proportion of variation in the dispersion (variance) of the measured dependent variable, $y$, that can be predicted from the measured independent variable, $x$ (or variables in the case of multiple regressions). It gives us an indication of how well the observed outcome variable is predicted by the observed influential variable, and in the case of a simple linear regression, the geometric relationship of $y$ on $x$ is a straight line. $r^{2}$ can take values from 0 to 1: a value of 0 tells us that there is absolutely no relationship between the two, whilst a value of 1 shows that there is a perfect fit and a scatter of points to denote the $y$ vs. $x$ relationship will all fall perfectly on a stright line.
+What does the $r^{2}$ tell us? It tells us the "fraction of variance explained by the model" (from the `summary.lm()` help file). In other words it is the proportion of variation in the dispersion (variance) of the measured dependent variable, $y$, that can be predicted from the measured independent variable, $x$ (or variables in the case of multiple regressions). It gives us an indication of how well the observed outcome variable is predicted by the observed influential variable, and in the case of a simple linear regression, the geometric relationship of $y$ on $x$ is a straight line. $r^{2}$ can take values from 0 to 1: a value of 0 tells us that there is absolutely no relationship between the two, whilst a value of 1 shows that there is a perfect fit and a scatter of points to denote the $y$ vs. $x$ relationship will all fall perfectly on a straight line.
 
 
 ```r
+library(tidyverse)
 n <- 100
 set.seed(666)
 rand.df <- data.frame(x = seq(1:n),
@@ -184,7 +183,7 @@ ggplot(data = rand.df, aes(x = x, y = y)) +
        y = "Y (dependent variable)")
 ```
 
-<img src="08-regressions_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="08-regressions_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
 <!-- insert a graph of a random relationship of y on x (a fitted line will have have a slope of 0 and the intercept will equal the mean, and the r2 will be 0) -->

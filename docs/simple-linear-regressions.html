@@ -183,16 +183,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1.5" data-path="distributions.html"><a href="distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>5.1.5</b> Poisson distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#continuous-distributions"><i class="fa fa-check"></i><b>5.2</b> Continuous distributions</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="distributions.html"><a href="distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>5.2.1</b> Uniform distribution</a></li>
-<li class="chapter" data-level="5.2.2" data-path="distributions.html"><a href="distributions.html#normal-distribution"><i class="fa fa-check"></i><b>5.2.2</b> Normal distribution</a></li>
+<li class="chapter" data-level="5.2.1" data-path="distributions.html"><a href="distributions.html#normal-distribution"><i class="fa fa-check"></i><b>5.2.1</b> Normal distribution</a></li>
+<li class="chapter" data-level="5.2.2" data-path="distributions.html"><a href="distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>5.2.2</b> Uniform distribution</a></li>
 <li class="chapter" data-level="5.2.3" data-path="distributions.html"><a href="distributions.html#student-t-distribution"><i class="fa fa-check"></i><b>5.2.3</b> Student T distribution</a></li>
 <li class="chapter" data-level="5.2.4" data-path="distributions.html"><a href="distributions.html#chi-squared-distribution"><i class="fa fa-check"></i><b>5.2.4</b> Chi-squared distribution</a></li>
 <li class="chapter" data-level="5.2.5" data-path="distributions.html"><a href="distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>5.2.5</b> Exponential distribution</a></li>
 <li class="chapter" data-level="5.2.6" data-path="distributions.html"><a href="distributions.html#f-distribution"><i class="fa fa-check"></i><b>5.2.6</b> F distribution</a></li>
 <li class="chapter" data-level="5.2.7" data-path="distributions.html"><a href="distributions.html#gamma-distribution"><i class="fa fa-check"></i><b>5.2.7</b> Gamma distribution</a></li>
 <li class="chapter" data-level="5.2.8" data-path="distributions.html"><a href="distributions.html#beta-distribution"><i class="fa fa-check"></i><b>5.2.8</b> Beta distribution</a></li>
+<li class="chapter" data-level="5.2.9" data-path="distributions.html"><a href="distributions.html#paranormal-distributions"><i class="fa fa-check"></i><b>5.2.9</b> Paranormal distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="distributions.html"><a href="distributions.html#paranormal-distributions"><i class="fa fa-check"></i><b>5.3</b> Paranormal distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="distributions.html"><a href="distributions.html#finding-ones-data-distribution"><i class="fa fa-check"></i><b>5.3</b> Finding one’s data distribution</a></li>
 <li class="chapter" data-level="5.4" data-path="distributions.html"><a href="distributions.html#exercises-2"><i class="fa fa-check"></i><b>5.4</b> Exercises</a><ul>
 <li class="chapter" data-level="5.4.1" data-path="distributions.html"><a href="distributions.html#exercise-1-2"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 1</a></li>
 </ul></li>
@@ -241,6 +242,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3" data-path="anova.html"><a href="anova.html#deeper-into-anova"><i class="fa fa-check"></i><b>7.3</b> Deeper into ANOVA</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="anova.html"><a href="anova.html#wilcox-rank-sum-test"><i class="fa fa-check"></i><b>7.3.1</b> Wilcox rank sum test</a></li>
 <li class="chapter" data-level="7.3.2" data-path="anova.html"><a href="anova.html#kruskall-wallis-rank-sum-test"><i class="fa fa-check"></i><b>7.3.2</b> Kruskall-Wallis rank sum test</a></li>
+<li class="chapter" data-level="7.3.3" data-path="anova.html"><a href="anova.html#the-sa-time-data"><i class="fa fa-check"></i><b>7.3.3</b> The SA time data</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="anova.html"><a href="anova.html#exercises-4"><i class="fa fa-check"></i><b>7.4</b> Exercises</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="anova.html"><a href="anova.html#exercise-1-4"><i class="fa fa-check"></i><b>7.4.1</b> Exercise 1</a></li>
@@ -380,11 +382,10 @@ r2 &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">
        <span class="dt">subtitle =</span> <span class="st">&quot;Linear regression&quot;</span>,
        <span class="dt">x =</span> <span class="st">&quot;Waiting time (minutes)&quot;</span>,
        <span class="dt">y =</span> <span class="st">&quot;Eruption duration (minutes)&quot;</span>)</code></pre></div>
-<p><img src="08-regressions_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="predicting-from-the-linear-model" class="section level3">
 <h3><span class="header-section-number">8.1.4</span> Predicting from the linear model</h3>
-<p>Knowing <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> allows us to predict what the erruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., <span class="math inline">\(eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon\)</span>). Here’s how:</p>
+<p>Knowing <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> allows us to predict what the eruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., <span class="math inline">\(eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon\)</span>). Here’s how:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use the accessor function to grab the coefficients:</span>
 erupt.coef &lt;-<span class="st"> </span><span class="kw">coefficients</span>(eruption.lm)
 erupt.coef</code></pre></div>
@@ -413,8 +414,9 @@ R&gt; 2.663661 4.176220 5.688779</code></pre>
 <p>In our Old Faithful example, the coefficient of determination is returned together with the summary of the <code>eruption.lm</code> object, but it may also be extracted as:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(eruption.lm)<span class="op">$</span>r.squared</code></pre></div>
 <pre><code>R&gt; [1] 0.8114608</code></pre>
-<p>What does the <span class="math inline">\(r^{2}\)</span> tell us? It tells us the “fraction of variance explained by the model” (from the <code>summary.lm()</code> help file). In other words it is the proportion of variation in the dispersion (variance) of the measured dependent variable, <span class="math inline">\(y\)</span>, that can be predicted from the measured independent variable, <span class="math inline">\(x\)</span> (or variables in the case of multiple regressions). It gives us an indication of how well the observed outcome variable is predicted by the observed influential variable, and in the case of a simple linear regression, the geometric relationship of <span class="math inline">\(y\)</span> on <span class="math inline">\(x\)</span> is a straight line. <span class="math inline">\(r^{2}\)</span> can take values from 0 to 1: a value of 0 tells us that there is absolutely no relationship between the two, whilst a value of 1 shows that there is a perfect fit and a scatter of points to denote the <span class="math inline">\(y\)</span> vs. <span class="math inline">\(x\)</span> relationship will all fall perfectly on a stright line.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">100</span>
+<p>What does the <span class="math inline">\(r^{2}\)</span> tell us? It tells us the “fraction of variance explained by the model” (from the <code>summary.lm()</code> help file). In other words it is the proportion of variation in the dispersion (variance) of the measured dependent variable, <span class="math inline">\(y\)</span>, that can be predicted from the measured independent variable, <span class="math inline">\(x\)</span> (or variables in the case of multiple regressions). It gives us an indication of how well the observed outcome variable is predicted by the observed influential variable, and in the case of a simple linear regression, the geometric relationship of <span class="math inline">\(y\)</span> on <span class="math inline">\(x\)</span> is a straight line. <span class="math inline">\(r^{2}\)</span> can take values from 0 to 1: a value of 0 tells us that there is absolutely no relationship between the two, whilst a value of 1 shows that there is a perfect fit and a scatter of points to denote the <span class="math inline">\(y\)</span> vs. <span class="math inline">\(x\)</span> relationship will all fall perfectly on a straight line.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+n &lt;-<span class="st"> </span><span class="dv">100</span>
 <span class="kw">set.seed</span>(<span class="dv">666</span>)
 rand.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span>n),
                       <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dt">n =</span> n, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="dv">3</span>))
@@ -425,7 +427,7 @@ rand.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span c
        <span class="dt">subtitle =</span> <span class="st">&quot;Linear regression&quot;</span>,
        <span class="dt">x =</span> <span class="st">&quot;X (independent variable)&quot;</span>,
        <span class="dt">y =</span> <span class="st">&quot;Y (dependent variable)&quot;</span>)</code></pre></div>
-<p><img src="08-regressions_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="08-regressions_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <!-- insert a graph of a random relationship of y on x (a fitted line will have have a slope of 0 and the intercept will equal the mean, and the r2 will be 0) -->
 <!-- insert a graph of a perfect relationship of y on x, r2 will be 1 -->
 <p>Regressions may take on any relationship, not only a linear one. For example, there are parabolic, hyperbolic, logistic, exponential, etc. relationships of <span class="math inline">\(y\)</span> on <span class="math inline">\(x\)</span>, and here, too, does <span class="math inline">\(r^{2}\)</span> tell us the same thing. If we assume that the samples were representatively drawn from a population (i.e. the sample fully captures the relationship of <span class="math inline">\(y\)</span> on <span class="math inline">\(x\)</span> that is present in the entire population), the <span class="math inline">\(r^{2}\)</span> will represent the relationship in the population too.</p>

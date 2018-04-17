@@ -28,7 +28,6 @@ To see an animation demonstrating this click [here](https://raw.githubuserconten
 ```{r, echo=FALSE, eval=FALSE, include=FALSE}
 library(tidyverse)
 library(animation)
-library(ggplot2)
 
 # The function to animate the rotating line
 lm_fig <- function(i) {
@@ -123,7 +122,7 @@ animate_lm <- function() {
 
 # Note that this spits out in the main directory and is manually moved to the figures folder
 # system.time(saveGIF(animate_lm(), interval = 1, ani.width = 600, movie.name = "lm_rotate.gif")) ## ~4 seconds
-system.time(saveVideo(animate_lm(), interval = 0.01, ani.width = 600, video.name = "lm_rotate.mp4")) #~553 seconds
+system.time(saveVideo(animate_lm(), interval = 0.01, ani.width = 600, video.name = "figures/lm_rotate.mp4")) #~553 seconds
 ```
 
 
@@ -215,6 +214,7 @@ summary(eruption.lm)$r.squared
 What does the $r^{2}$ tell us? It tells us the "fraction of variance explained by the model" (from the `summary.lm()` help file). In other words it is the proportion of variation in the dispersion (variance) of the measured dependent variable, $y$, that can be predicted from the measured independent variable, $x$ (or variables in the case of multiple regressions). It gives us an indication of how well the observed outcome variable is predicted by the observed influential variable, and in the case of a simple linear regression, the geometric relationship of $y$ on $x$ is a straight line. $r^{2}$ can take values from 0 to 1: a value of 0 tells us that there is absolutely no relationship between the two, whilst a value of 1 shows that there is a perfect fit and a scatter of points to denote the $y$ vs. $x$ relationship will all fall perfectly on a straight line.
 
 ```{r}
+library(tidyverse)
 n <- 100
 set.seed(666)
 rand.df <- data.frame(x = seq(1:n),
