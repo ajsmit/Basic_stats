@@ -8,6 +8,7 @@
 library(tidyverse)
 library(ggpubr)
 library(RColorBrewer)
+library(ggthemes)
 ```
 
 Here we shall provide examples of many kinds of graphical data summaries. We use **ggplot2** for these figures and will refrain from using the base R graphs. We shall provide examples of various themes so you can see what is available to use for your own plots. We also include various modifications of the default plots so you can get an idea of how to modify some of the plot characteristics, and we always make sure that our graphs are publication ready. The best way to learn is to work by example. Deeper understanding will emerge only from working through all of these example plots, and making your own changes here and there to see how your own modification will affect your graphs' appearance. Then find your own data and plot them. As always, liberally make use of the built-in help facility (the more you do, the easier it becomes, like riding a bicycle). Also, don't be shy to use Google.
@@ -48,7 +49,8 @@ plt1 <- ggplot(data = iris.cnt, aes(x = "", y = n, fill = Species)) +
   geom_bar(width = 1, stat = "identity") +
   labs(title = "Stacked bar graph", subtitle = "cumulative sum",
        x = NULL, y = "Count") +
-  theme_minimal()
+  theme_pubclean() + scale_color_few() +
+  scale_fill_few()
 
 # a stacked bar graph with the relative proportions of observations
 plt2 <- ggplot(data = iris.cnt, aes(x = "", y = prop, fill = Species)) +
@@ -56,7 +58,9 @@ plt2 <- ggplot(data = iris.cnt, aes(x = "", y = prop, fill = Species)) +
   scale_y_continuous(breaks = c(0.00, 0.33, 0.66, 1.00)) +
   labs(title = "Stacked bar graph", subtitle = "relative proportions",
        x = NULL, y = "Proportion") +
-  theme_minimal()
+  theme_pubclean() + scale_color_few() +
+  scale_fill_few()
+
 
 # a basic pie chart
 plt3 <- plt1 + coord_polar("y", start = 0) +
@@ -72,7 +76,8 @@ plt3 <- plt1 + coord_polar("y", start = 0) +
 plt4 <- ggplot(data = iris, aes(x = Species, fill = Species)) +
   geom_bar(show.legend = FALSE) +
   labs(title = "Side-by-side bars", subtitle = "n per species", y = "Count") +
-  theme_minimal()
+ theme_pubclean() + scale_color_few() +
+  scale_fill_few()
 
 ggarrange(plt1, plt2, plt3, plt4, nrow = 2, ncol = 2, labels = "AUTO")
 ```
@@ -99,7 +104,7 @@ hist1 <- ggplot(data = faithful, aes(x = eruptions)) +
   labs(title = "Old Faithful data",
        subtitle = "A vanilla frequency histogram",
        x = "Eruption duration (min)",
-       y = "Count") + theme_pubr()
+       y = "Count") + theme_pubclean()
 
 # when the binwidth is 1, the density histogram *is* the relative
 # frequency histogram
@@ -110,7 +115,8 @@ hist2 <- ggplot(data = faithful, aes(x = eruptions)) +
   labs(title = "Old Faithful data",
        subtitle = "Relative frequency histogram",
        x = "Eruption duration (min)",
-       y = "Count") + theme_pubr()
+       y = "Count") + theme_pubclean()
+
 
 # if binwidth is something other than 1, the relative frequency in
 # a histogram is ..density.. * binwidth
@@ -121,7 +127,7 @@ hist3 <- ggplot(data = faithful, aes(x = eruptions)) +
   labs(title = "Old Faithful data",
        subtitle = "Relative frequency histogram",
        x = "Eruption duration (min)",
-       y = "Relative contribution") + theme_pubr()
+       y = "Relative contribution") + theme_pubclean()
 
 # ECDF
 hist4 <- ggplot(data = faithful, aes(x = eruptions)) + 
@@ -129,7 +135,7 @@ hist4 <- ggplot(data = faithful, aes(x = eruptions)) +
   labs(title = "Old Faithful data",
        subtitle = "ECDF",
        x = "Eruption duration (min)",
-       y = "Relative contribution") + theme_pubr()
+       y = "Relative contribution") + theme_pubclean()
 
 ggarrange(hist1, hist2, hist3, hist4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
@@ -155,7 +161,8 @@ ggplot(data = iris.long, aes(x = size)) +
   labs(title = "Iris data",
        subtitle = "Grouped frequency histogram",
        x = "Size (mm)",
-       y = "Count")
+       y = "Count") +
+  theme_pubclean()
 ```
 
 <img src="04-graphics_files/figure-html/unnamed-chunk-6-1.png" width="672" />
@@ -185,8 +192,9 @@ plt2 <- ggplot(data = iris.long, aes(x = Species, y = size)) +
   geom_boxplot(fill = "red", alpha = 0.4, notch = TRUE) +
   geom_jitter(width = 0.1, shape = 21, colour = "blue", fill = NA, alpha = 0.2) +
   facet_wrap(~variable, nrow = 1) +
-  labs(y = "Size (mm)") + theme_minimal() +
-  theme(axis.text.x = element_text(face = "italic"))
+  labs(y = "Size (mm)") + theme_pubclean() +
+  theme(axis.text.x = element_text(face = "italic")) +
+  theme(axis.ticks.length=unit(-0.25, "cm"), axis.ticks.margin=unit(0.5, "cm"))
 
 ggarrange(plt1, plt2, nrow = 2, ncol = 1, labels = "AUTO")
 ```
@@ -209,12 +217,18 @@ This graph shows the relationship between two (matched) continuous variables. Th
 plt1 <- ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width, colour = Species)) +
   geom_point() +
   labs(x = "Petal length (mm)", y = "Petal width (mm)") +
-  theme(legend.position = c(0.18, 0.85))
+  theme(legend.position = c(0.18, 0.85)) +
+  scale_color_fivethirtyeight() +
+  scale_fill_fivethirtyeight() + 
+  theme_pubclean()
 
 plt2 <- ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width, colour = Species)) +
   geom_point(show.legend = FALSE) +
-  labs(x = "Petal length (mm)", y = "Petal width (mm)") +
-  geom_smooth(method = "lm", se = FALSE, show.legend = FALSE)
+  geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +
+  scale_color_fivethirtyeight() +
+  scale_fill_fivethirtyeight() +
+  labs(x = "Petal length (mm)", y = "Petal width (mm)") + 
+  theme_pubclean()
 
 ggarrange(plt1, plt2, ncol = 2, nrow = 1, labels = "AUTO")
 ```

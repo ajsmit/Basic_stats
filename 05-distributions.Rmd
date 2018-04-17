@@ -336,6 +336,8 @@ p
 
 ### Normal distribution
 
+Another name for this kind of distribution is a Gaussian distribution. A random sample with a Gaussian distribution is normally distributed. These values are identically distributed and independent---we say they are independent and identically distributed random variables (i.i.d.), and they have an expected mean given by $\mu$ (or $\hat{x}$ in Chapter 3.2.1) and a finite variance given by $\sigma^{2}$ (or $S^{2}$ in Chapter 3.3.1); if the number of samples drawn from a population is sufficiently large, the estimated mean and SD will be indistinguishable from the population (as per the central limit theorem).
+
 ```{r, echo=FALSE}
 # library(animation)
 # library(e1071)
@@ -443,6 +445,8 @@ knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
 
 ### Uniform distribution
 
+The continuous uniform distribution is sometime called a rectangular distribution. Simply, it states that all measurments of the same magnitude included with this distribution are equally probable. This is basically random numbers.
+
 ```{r, echo=FALSE}
 # Create base distributions
 set.seed(666)
@@ -498,6 +502,8 @@ p
 ```
 
 ### Student T distribution
+
+This is a continuous probability distribution that arises when estimating the mean of a normally distributed population in situations where the sample size is small and population standard deviation is unknown. It is used in the statistical significance testing between the means of different sets of samples, and not much so in the modelling of natural phenomena.
 
 ```{r, echo=FALSE}
 # Create base distributions
@@ -561,6 +567,8 @@ p
 
 ### Chi-squared distribution
 
+Mostly used in hypothesis testing, but not to encapsulate the distribution of data drawn to represent natural phenomena.
+
 ```{r, echo=FALSE}
 # Create base distributions
 set.seed(666)
@@ -622,6 +630,8 @@ p
 ```
 
 ### Exponential distribution
+
+This is a probability distribution that describes the time between events in a Poisson point process, i.e., a process in which events occur continuously and independently at a constant average rate.
 
 ```{r, echo=FALSE}
 # Create base distributions
@@ -932,9 +942,9 @@ abline(0, 1)
 Above we have also added a diagonal line to the qqplot. If the sampled data come from the population with the choosen distribution, the points should fall approximately along this reference line. The greater the departure from this reference line, the greater the evidence for the conclusion that the data set have come from a population with a different distribution.
 
 ```{r}
-curve(dnorm(100, m = 10, sd = 2), from = 0, to = 20, main = "Normal distribution")
-curve(dgamma(100, scale = 1.5, shape = 2), from = 0, to = 15, main = "Gamma distribution")
-curve(dweibull(100, scale = 2.5, shape = 1.5), from = 0, to = 15, main = "Weibull distribution")
+# curve(dnorm(100, m = 10, sd = 2), from = 0, to = 20, main = "Normal distribution")
+# curve(dgamma(100, scale = 1.5, shape = 2), from = 0, to = 15, main = "Gamma distribution")
+# curve(dweibull(100, scale = 2.5, shape = 1.5), from = 0, to = 15, main = "Weibull distribution")
 ```
 
 

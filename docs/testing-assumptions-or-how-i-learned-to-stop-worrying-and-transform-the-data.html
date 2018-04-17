@@ -57,41 +57,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -183,16 +211,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1.5" data-path="distributions.html"><a href="distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>5.1.5</b> Poisson distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#continuous-distributions"><i class="fa fa-check"></i><b>5.2</b> Continuous distributions</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="distributions.html"><a href="distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>5.2.1</b> Uniform distribution</a></li>
-<li class="chapter" data-level="5.2.2" data-path="distributions.html"><a href="distributions.html#normal-distribution"><i class="fa fa-check"></i><b>5.2.2</b> Normal distribution</a></li>
+<li class="chapter" data-level="5.2.1" data-path="distributions.html"><a href="distributions.html#normal-distribution"><i class="fa fa-check"></i><b>5.2.1</b> Normal distribution</a></li>
+<li class="chapter" data-level="5.2.2" data-path="distributions.html"><a href="distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>5.2.2</b> Uniform distribution</a></li>
 <li class="chapter" data-level="5.2.3" data-path="distributions.html"><a href="distributions.html#student-t-distribution"><i class="fa fa-check"></i><b>5.2.3</b> Student T distribution</a></li>
 <li class="chapter" data-level="5.2.4" data-path="distributions.html"><a href="distributions.html#chi-squared-distribution"><i class="fa fa-check"></i><b>5.2.4</b> Chi-squared distribution</a></li>
 <li class="chapter" data-level="5.2.5" data-path="distributions.html"><a href="distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>5.2.5</b> Exponential distribution</a></li>
 <li class="chapter" data-level="5.2.6" data-path="distributions.html"><a href="distributions.html#f-distribution"><i class="fa fa-check"></i><b>5.2.6</b> F distribution</a></li>
 <li class="chapter" data-level="5.2.7" data-path="distributions.html"><a href="distributions.html#gamma-distribution"><i class="fa fa-check"></i><b>5.2.7</b> Gamma distribution</a></li>
 <li class="chapter" data-level="5.2.8" data-path="distributions.html"><a href="distributions.html#beta-distribution"><i class="fa fa-check"></i><b>5.2.8</b> Beta distribution</a></li>
+<li class="chapter" data-level="5.2.9" data-path="distributions.html"><a href="distributions.html#paranormal-distributions"><i class="fa fa-check"></i><b>5.2.9</b> Paranormal distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="distributions.html"><a href="distributions.html#paranormal-distributions"><i class="fa fa-check"></i><b>5.3</b> Paranormal distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="distributions.html"><a href="distributions.html#finding-ones-data-distribution"><i class="fa fa-check"></i><b>5.3</b> Finding one’s data distribution</a></li>
 <li class="chapter" data-level="5.4" data-path="distributions.html"><a href="distributions.html#exercises-2"><i class="fa fa-check"></i><b>5.4</b> Exercises</a><ul>
 <li class="chapter" data-level="5.4.1" data-path="distributions.html"><a href="distributions.html#exercise-1-2"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 1</a></li>
 </ul></li>
@@ -241,60 +270,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3" data-path="anova.html"><a href="anova.html#deeper-into-anova"><i class="fa fa-check"></i><b>7.3</b> Deeper into ANOVA</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="anova.html"><a href="anova.html#wilcox-rank-sum-test"><i class="fa fa-check"></i><b>7.3.1</b> Wilcox rank sum test</a></li>
 <li class="chapter" data-level="7.3.2" data-path="anova.html"><a href="anova.html#kruskall-wallis-rank-sum-test"><i class="fa fa-check"></i><b>7.3.2</b> Kruskall-Wallis rank sum test</a></li>
+<li class="chapter" data-level="7.3.3" data-path="anova.html"><a href="anova.html#the-sa-time-data"><i class="fa fa-check"></i><b>7.3.3</b> The SA time data</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="anova.html"><a href="anova.html#exercises-4"><i class="fa fa-check"></i><b>7.4</b> Exercises</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="anova.html"><a href="anova.html#exercise-1-4"><i class="fa fa-check"></i><b>7.4.1</b> Exercise 1</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html"><i class="fa fa-check"></i><b>8</b> Simple linear regressions</a><ul>
-<li class="chapter" data-level="8.1" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-simple-linear-regression-equation"><i class="fa fa-check"></i><b>8.1</b> The simple linear regression equation</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-intercept"><i class="fa fa-check"></i><b>8.1.1</b> The intercept</a></li>
-<li class="chapter" data-level="8.1.2" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-regression-coefficient"><i class="fa fa-check"></i><b>8.1.2</b> The regression coefficient</a></li>
-<li class="chapter" data-level="8.1.3" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#a-graph-of-the-linear-regression"><i class="fa fa-check"></i><b>8.1.3</b> A graph of the linear regression</a></li>
-<li class="chapter" data-level="8.1.4" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#predicting-from-the-linear-model"><i class="fa fa-check"></i><b>8.1.4</b> Predicting from the linear model</a></li>
-<li class="chapter" data-level="8.1.5" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#the-coefficient-of-determination-r2"><i class="fa fa-check"></i><b>8.1.5</b> The coefficient of determination, <span class="math inline">\(r^{2}\)</span></a></li>
-<li class="chapter" data-level="8.1.6" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#significance-test-for-linear-regression"><i class="fa fa-check"></i><b>8.1.6</b> Significance test for linear regression</a></li>
-<li class="chapter" data-level="8.1.7" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#confidence-interval-for-linear-regression"><i class="fa fa-check"></i><b>8.1.7</b> Confidence interval for linear regression</a></li>
-<li class="chapter" data-level="8.1.8" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#prediction-interval-for-linear-regression"><i class="fa fa-check"></i><b>8.1.8</b> Prediction interval for linear regression</a></li>
-<li class="chapter" data-level="8.1.9" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#residual-plot"><i class="fa fa-check"></i><b>8.1.9</b> Residual plot</a></li>
-<li class="chapter" data-level="8.1.10" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#standardised-residual"><i class="fa fa-check"></i><b>8.1.10</b> Standardised residual</a></li>
-<li class="chapter" data-level="8.1.11" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#normal-probability-plot-of-residuals"><i class="fa fa-check"></i><b>8.1.11</b> Normal probability plot of residuals</a></li>
+<li class="chapter" data-level="8" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>8</b> Correlations</a></li>
+<li class="chapter" data-level="9" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>9</b> Confidence intervals</a></li>
+<li class="chapter" data-level="10" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>10</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
+<li class="chapter" data-level="10.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#the-two-main-assumptions"><i class="fa fa-check"></i><b>10.1</b> The two main assumptions</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality-1"><i class="fa fa-check"></i><b>10.1.1</b> Normality</a></li>
+<li class="chapter" data-level="10.1.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#homoscedasticity-1"><i class="fa fa-check"></i><b>10.1.2</b> Homoscedasticity</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html#using-an-additional-categorical-variable"><i class="fa fa-check"></i><b>8.2</b> Using an additional categorical variable</a></li>
+<li class="chapter" data-level="10.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#transforming-data"><i class="fa fa-check"></i><b>10.2</b> Transforming data</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#log-transform"><i class="fa fa-check"></i><b>10.2.1</b> Log transform</a></li>
+<li class="chapter" data-level="10.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>10.2.2</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>9</b> Correlations</a></li>
-<li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence intervals</a></li>
-<li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
-<li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#the-two-main-assumptions"><i class="fa fa-check"></i><b>11.1</b> The two main assumptions</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality-1"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
-<li class="chapter" data-level="11.1.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#homoscedasticity-1"><i class="fa fa-check"></i><b>11.1.2</b> Homoscedasticity</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#transforming-data"><i class="fa fa-check"></i><b>11.2</b> Transforming data</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#log-transform"><i class="fa fa-check"></i><b>11.2.1</b> Log transform</a></li>
-<li class="chapter" data-level="11.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>11.2.2</b> </a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-5"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-5"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
-<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-1"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="10.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-5"><i class="fa fa-check"></i><b>10.3</b> Exercises</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-5"><i class="fa fa-check"></i><b>10.3.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="10.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-1"><i class="fa fa-check"></i><b>10.3.2</b> Exercise 2</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>12</b> Linear mixed models</a><ul>
-<li class="chapter" data-level="12.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#wilcox-rank-sum-test-1"><i class="fa fa-check"></i><b>12.1</b> Wilcox rank sum test</a></li>
-<li class="chapter" data-level="12.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskall-wallis-rank-sum-test-1"><i class="fa fa-check"></i><b>12.2</b> Kruskall-Wallis rank sum test</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#single-factor-2"><i class="fa fa-check"></i><b>12.2.1</b> Single factor</a></li>
-<li class="chapter" data-level="12.2.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#multiple-factors-2"><i class="fa fa-check"></i><b>12.2.2</b> Multiple factors</a></li>
+<li class="chapter" data-level="11" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>11</b> Linear mixed models</a><ul>
+<li class="chapter" data-level="11.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#wilcox-rank-sum-test-1"><i class="fa fa-check"></i><b>11.1</b> Wilcox rank sum test</a></li>
+<li class="chapter" data-level="11.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskall-wallis-rank-sum-test-1"><i class="fa fa-check"></i><b>11.2</b> Kruskall-Wallis rank sum test</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#single-factor-2"><i class="fa fa-check"></i><b>11.2.1</b> Single factor</a></li>
+<li class="chapter" data-level="11.2.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#multiple-factors-2"><i class="fa fa-check"></i><b>11.2.2</b> Multiple factors</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#generalised-linear-models"><i class="fa fa-check"></i><b>12.3</b> Generalised linear models</a><ul>
-<li class="chapter" data-level="12.3.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#sign-test"><i class="fa fa-check"></i><b>12.3.1</b> Sign Test</a></li>
-<li class="chapter" data-level="12.3.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>12.3.2</b> Wilcoxon Signed-Rank Test</a></li>
-<li class="chapter" data-level="12.3.3" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#mann-whitney-wilcoxon-test"><i class="fa fa-check"></i><b>12.3.3</b> Mann-Whitney-Wilcoxon Test</a></li>
-<li class="chapter" data-level="12.3.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>12.3.4</b> Kruskal-Wallis Test</a></li>
-<li class="chapter" data-level="12.3.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#generalised-linear-models-glm"><i class="fa fa-check"></i><b>12.3.5</b> Generalised linear models (GLM)</a></li>
+<li class="chapter" data-level="11.3" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#generalised-linear-models"><i class="fa fa-check"></i><b>11.3</b> Generalised linear models</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#sign-test"><i class="fa fa-check"></i><b>11.3.1</b> Sign Test</a></li>
+<li class="chapter" data-level="11.3.2" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>11.3.2</b> Wilcoxon Signed-Rank Test</a></li>
+<li class="chapter" data-level="11.3.3" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#mann-whitney-wilcoxon-test"><i class="fa fa-check"></i><b>11.3.3</b> Mann-Whitney-Wilcoxon Test</a></li>
+<li class="chapter" data-level="11.3.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>11.3.4</b> Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="11.3.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#generalised-linear-models-glm"><i class="fa fa-check"></i><b>11.3.5</b> Generalised linear models (GLM)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-6"><i class="fa fa-check"></i><b>12.4</b> Exercises</a></li>
-<li class="chapter" data-level="12.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-6"><i class="fa fa-check"></i><b>12.5</b> Exercise 1</a></li>
+<li class="chapter" data-level="11.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-6"><i class="fa fa-check"></i><b>11.4</b> Exercises</a></li>
+<li class="chapter" data-level="11.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-6"><i class="fa fa-check"></i><b>11.5</b> Exercise 1</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="chi-squared.html"><a href="chi-squared.html"><i class="fa fa-check"></i><b>13</b> Chi-squared</a></li>
+<li class="chapter" data-level="12" data-path="chi-squared.html"><a href="chi-squared.html"><i class="fa fa-check"></i><b>12</b> Chi-squared</a></li>
 </ul>
 
       </nav>
@@ -313,28 +327,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data" class="section level1">
-<h1><span class="header-section-number">Chapter 11</span> Testing assumptions or: How I learned to stop worrying and transform the data</h1>
+<h1><span class="header-section-number">Chapter 10</span> Testing assumptions or: How I learned to stop worrying and transform the data</h1>
 <p>In this chapter we will learn how to test for the two most common assumptions we will make in the biological sciences.</p>
 <p>Our tests for these two assumptions fail often with real data. Therefore, we must often identify the way in which our data are distributed so we may better decide how to transform them in an attempt to coerce them into a format that will pass the assumptions.</p>
 <p>Before we begin, let’s go ahead and activate our packages and load our data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb180-2" data-line-number="2">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a></code></pre></div>
 <div id="the-two-main-assumptions" class="section level2">
-<h2><span class="header-section-number">11.1</span> The two main assumptions</h2>
+<h2><span class="header-section-number">10.1</span> The two main assumptions</h2>
 <div id="normality-1" class="section level3">
-<h3><span class="header-section-number">11.1.1</span> Normality</h3>
+<h3><span class="header-section-number">10.1.1</span> Normality</h3>
 <p>The quickest method of testing the normality of a variable is with the Shapiro-Wilk normality test. This will return two values, a W score and a <em>p</em>-value. FOr the purposes of this course we may safely ignore the W score and focus on the <em>p</em>-value. When <em>p</em> &gt;= 0.05 we may assume that the data are normally distributed. If <em>p</em> &lt; 0.05 then the data are not normally distrubted. Let’s look at all of the <code>chicks</code> data without filtering it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(chicks<span class="op">$</span>weight)</code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="kw">shapiro.test</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
 <pre><code>R&gt; 
 R&gt;  Shapiro-Wilk normality test
 R&gt; 
 R&gt; data:  chicks$weight
 R&gt; W = 0.90866, p-value &lt; 2.2e-16</code></pre>
 <p>Are these data normally distributed? How do we know? Now let’s filter the data based on the different diets for only the weights taken on the last day (21):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">chicks <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_wt =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(weight)[<span class="dv">2</span>]))</code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb183-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb183-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb183-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_wt =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(weight)[<span class="dv">2</span>]))</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 4 x 2
 R&gt;   Diet  norm_wt
 R&gt;   &lt;fct&gt;   &lt;dbl&gt;
@@ -345,12 +359,12 @@ R&gt; 4 4       0.186</code></pre>
 <p>How about now?</p>
 </div>
 <div id="homoscedasticity-1" class="section level3">
-<h3><span class="header-section-number">11.1.2</span> Homoscedasticity</h3>
+<h3><span class="header-section-number">10.1.2</span> Homoscedasticity</h3>
 <p>Here we need no fancy test. We must simply calculate the variance of the variables we want to use and see that they are not more than 3 – 4 times greater than one another.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">chicks <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">var_wt =</span> <span class="kw">var</span>(weight))</code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb185-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb185-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb185-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">var_wt =</span> <span class="kw">var</span>(weight))</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 4 x 2
 R&gt;   Diet  var_wt
 R&gt;   &lt;fct&gt;  &lt;dbl&gt;
@@ -362,22 +376,22 @@ R&gt; 4 4      1879.</code></pre>
 </div>
 </div>
 <div id="transforming-data" class="section level2">
-<h2><span class="header-section-number">11.2</span> Transforming data</h2>
+<h2><span class="header-section-number">10.2</span> Transforming data</h2>
 <div id="log-transform" class="section level3">
-<h3><span class="header-section-number">11.2.1</span> Log transform</h3>
+<h3><span class="header-section-number">10.2.1</span> Log transform</h3>
 </div>
 <div id="section" class="section level3">
-<h3><span class="header-section-number">11.2.2</span> </h3>
+<h3><span class="header-section-number">10.2.2</span> </h3>
 </div>
 </div>
 <div id="exercises-5" class="section level2">
-<h2><span class="header-section-number">11.3</span> Exercises</h2>
+<h2><span class="header-section-number">10.3</span> Exercises</h2>
 <div id="exercise-1-5" class="section level3">
-<h3><span class="header-section-number">11.3.1</span> Exercise 1</h3>
+<h3><span class="header-section-number">10.3.1</span> Exercise 1</h3>
 <p>Find one of the days of measurement where the chicken weights do not pass the assumptions of normality, and another day (not day 21!) in which they do.</p>
 </div>
 <div id="exercise-2-1" class="section level3">
-<h3><span class="header-section-number">11.3.2</span> Exercise 2</h3>
+<h3><span class="header-section-number">10.3.2</span> Exercise 2</h3>
 <p>Transform the data so that they may pass the assumptions.</p>
 
 </div>
@@ -435,7 +449,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

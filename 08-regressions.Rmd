@@ -28,6 +28,7 @@ To see an animation demonstrating this click [here](https://raw.githubuserconten
 ```{r, echo=FALSE, eval=FALSE, include=FALSE}
 library(tidyverse)
 library(animation)
+library(ggplot2)
 
 # The function to animate the rotating line
 lm_fig <- function(i) {
@@ -125,10 +126,7 @@ animate_lm <- function() {
 system.time(saveVideo(animate_lm(), interval = 0.01, ani.width = 600, video.name = "lm_rotate.mp4")) #~553 seconds
 ```
 
-```{r, echo=FALSE}
-# Does not seem to work
-knitr::include_url("https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/lm_rotate.mp4", height = "480px")
-```
+
 
 We will demonstrate the principle behind a simple linear regression by using the built-in dataset `faithful`. According to the R help file for the data, the dataset describes the "Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA."
 
@@ -157,7 +155,7 @@ The interpretation of the regression coefficient is simple. For every one unit o
 
 ### A graph of the linear regression
 
-```{r}
+```{r, eval=FALSE}
 slope <- round(eruption.lm$coef[2], 3)
 # p.val <- round(coefficients(summary(eruption.lm))[2, 4], 3) # it approx. 0, so...
 p.val = 0.001
