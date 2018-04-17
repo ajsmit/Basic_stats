@@ -83,7 +83,6 @@ p <- plot_ly(data = bern_dat,
 p
 ```
 
-
 ### Binomial distribution
 A binomial random variable, $x$, is the sum of $n$ independent Bernoulli random variables with parameter $p$. This data distribution results from repeating identical experiments that produce a binary outcome with probability $p$ a specified number of times, and choosing $n$ samples at random. As such, it represents a collection of Bernoulli trials.
 
@@ -153,6 +152,8 @@ p
 A negative binomial random variable, $x$, counts the number of successes in a sequence of independent Bernoulli trials with probability $p$ before $r$ failures occur. This distribution could for example be used to predict the number of heads that result from a series of coin tosses before three tails are observed:
 
 $$f(x;n,r,p)= {x+r-1\choose x}p^{x}(1-p)^{r}$$
+
+where $x$ is the number of successes, $r$ is the number of failures, and $p$ is the probability of success
 
 ```{r, echo = FALSE}
 # Create base distributions
@@ -854,12 +855,61 @@ p <- plot_ly(data = beta_dat,
 p
 ```
 
-## Paranormal distributions
+### Paranormal distributions
 
 ```{r}
 knitr::include_graphics("figures/paranormal_distributions.jpeg")
 ```
 
+## Finding one's data distribution
+data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does---there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only *compatible* with a certain distribution, and one can never answer the question "Does my data follow the distribution xy exactly?" as simply as providing a yes/no answer. So what now? How does one find one's data distribution? We can use the *Cullen and Frey graph* function that lives in the **fitdistrplus** package. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.
+
+
+```{r}
+library(fitdistrplus)
+library(logspline)
+
+# Generate log-normal data
+y <- c(37.50,46.79,48.30,46.04,43.40,39.25,38.49,49.51,40.38,36.98,40.00,
+38.49,37.74,47.92,44.53,44.91,44.91,40.00,41.51,47.92,36.98,43.40,
+42.26,41.89,38.87,43.02,39.25,40.38,42.64,36.98,44.15,44.91,43.40,
+49.81,38.87,40.00,52.45,53.13,47.92,52.45,44.91,29.54,27.13,35.60,
+45.34,43.37,54.15,42.77,42.88,44.26,27.14,39.31,24.80,16.62,30.30,
+36.39,28.60,28.53,35.84,31.10,34.55,52.65,48.81,43.42,52.49,38.00,
+38.65,34.54,37.70,38.11,43.05,29.95,32.48,24.63,35.33,41.34)
+
+par(mfrow = c(2, 2))
+plot(x = c(1:length(y)), y = y)
+hist(y)
+descdist(y, discrete = FALSE)
+```
+
+```{r}
+# normally distributed data
+y <- rnorm(100, 13, 2)
+par(mfrow = c(2, 2))
+plot(x = c(1:100), y = y)
+hist(y)
+descdist(y, discrete = FALSE)
+```
+
+```{r}
+# uniformly distributed data
+y <- runif(100)
+par(mfrow = c(2, 2))
+plot(x = c(1:100), y = y)
+hist(y)
+descdist(y, discrete = FALSE)
+```
+
+```{r, width = 6, height = 10}
+# uniformly distributed data
+y <- rexp(100, 0.7)
+par(mfrow = c(2, 2))
+plot(x = c(1:100), y = y)
+hist(y)
+descdist(y, discrete = FALSE)
+```
 
 ## Exercises
 
