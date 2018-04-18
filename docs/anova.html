@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-17">
+<meta name="date" content="2018-04-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -373,6 +373,12 @@ R&gt; 3-2  55.60000  -21.01591 132.21591 0.2263918
 R&gt; 4-2  23.85556  -54.85981 102.57092 0.8486781
 R&gt; 4-3 -31.74444 -110.45981  46.97092 0.7036249</code></pre>
 <p>The output of <code>tukeyHSD()</code> shows us that pairwise comparisons of all of the groups we are comparing. Let’s look at the help file for this function to better understand what the output means. Which of the groups are significantly different from one another? Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?</p>
+<p>Now that we’ve seen how to perform a single factor ANOVA, let’s watch some animations that highlight how certain aspects of our data may affect our results.</p>
+<ul>
+<li>When the <a href="https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_n_slide.avi">sample size</a> changes</li>
+<li>When the <a href="https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_mean_slide.avi">mean</a> of one sample changes</li>
+<li>When the <a href="https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_sd_slide.avi">variance</a> of one sample increases</li>
+</ul>
 </div>
 <div id="multiple-factors" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Multiple factors</h3>
@@ -525,13 +531,13 @@ my_comparisons &lt;-<span class="st"> </span><span class="kw">list</span>( <span
 <span class="kw">ggboxplot</span>(sa_time_long, <span class="dt">x =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;minutes&quot;</span>,
           <span class="dt">color =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),
           <span class="dt">add =</span> <span class="st">&quot;jitter&quot;</span>, <span class="dt">shape =</span> <span class="st">&quot;term&quot;</span>)</code></pre></div>
-<p><img src="07-anova_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="07-anova_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggviolin</span>(sa_time_long, <span class="dt">x =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;minutes&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;term&quot;</span>,
          <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),
          <span class="dt">add =</span> <span class="st">&quot;boxplot&quot;</span>, <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">stat_compare_means</span>(<span class="dt">comparisons =</span> my_comparisons, <span class="dt">label =</span> <span class="st">&quot;p.signif&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Add significance levels</span>
 <span class="st">  </span><span class="kw">stat_compare_means</span>(<span class="dt">label.y =</span> <span class="dv">50</span>)                                      <span class="co"># Add global the p-value </span></code></pre></div>
-<p><img src="07-anova_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+<p><img src="07-anova_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
 </div>
 </div>
 <div id="exercises-4" class="section level2">

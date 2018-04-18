@@ -254,7 +254,7 @@ The first argument we see in `t.test()` is `dat ~ sample`. Usually in R when we 
 
 Now that we have seen the nitty gritty of how a t-test is meant to work, click [here]() to watch a visualisation that demonstrates how the relationships between two different sample sets (based on their mean and variance) influence the results.
 
-```{r, echo=FALSE, include=FALSE}
+```{r, echo=FALSE, include=FALSE, eval=FALSE}
 library(beeswarm)
 
 # Create random data

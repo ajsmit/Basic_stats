@@ -96,6 +96,18 @@ R> 4-3 -31.74444 -110.45981  46.97092 0.7036249
 
 The output of `tukeyHSD()` shows us that pairwise comparisons of all of the groups we are comparing. Let's look at the help file for this function to better understand what the output means. Which of the groups are significantly different from one another? Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?
 
+Now that we've seen how to perform a single factor ANOVA, let's watch some animations that highlight how certain aspects of our data may affect our results.
+
+* When the [sample size](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_n_slide.avi) changes
+* When the [mean](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_mean_slide.avi) of one sample changes
+* When the [variance](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_sd_slide.avi) of one sample increases
+
+
+
+
+
+
+
 ### Multiple factors
 
 What if we have multiple grouping variables, and not just one? To run an ANOVA on multiple factors we will need to use `aov()` rather than `compare_means()`. To specify the different factors we put them in our formula and separate them with a `+`:
@@ -312,7 +324,7 @@ ggboxplot(sa_time_long, x = "term", y = "minutes",
           add = "jitter", shape = "term")
 ```
 
-<img src="07-anova_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="07-anova_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 ```r
 ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
@@ -322,7 +334,7 @@ ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
   stat_compare_means(label.y = 50)                                      # Add global the p-value 
 ```
 
-<img src="07-anova_files/figure-html/unnamed-chunk-14-2.png" width="672" />
+<img src="07-anova_files/figure-html/unnamed-chunk-17-2.png" width="672" />
 
 
 ## Exercises
