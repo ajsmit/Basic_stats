@@ -23,7 +23,7 @@ The regression parameters $\alpha$ and $\beta$ are determined by *minimising the
 
 $$error~SS=\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}$$
 
-To see an animation demonstrating this click [here](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/lm_rotate.mp4).
+To see an animation demonstrating this click [here](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/lm_rotate.avi).
 
 ```{r, echo=FALSE, eval=FALSE, include=FALSE}
 library(tidyverse)

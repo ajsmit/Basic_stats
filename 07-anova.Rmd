@@ -71,6 +71,246 @@ TukeyHSD(aov(weight ~ Diet, data = filter(chicks, Time == 21)))
 
 The output of `tukeyHSD()` shows us that pairwise comparisons of all of the groups we are comparing. Let's look at the help file for this function to better understand what the output means. Which of the groups are significantly different from one another? Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?
 
+Now that we've seen how to perform a single factor ANOVA, let's watch some animations that highlight how certain aspects of our data may affect our results.
+
+* When the [sample size](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_n_slide.avi) changes
+* When the [mean](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_mean_slide.avi) of one sample changes
+* When the [variance](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_sd_slide.avi) of one sample increases
+
+```{r, echo=FALSE, include=FALSE, eval=FALSE}
+library(tidyverse)
+library(animation)
+
+# Create random data
+set.seed(666)
+random_dat <- data.frame(A = rnorm(100, 10.0, 2), 
+                         B = rnorm(100, 10.2, 2),
+                         C = rnorm(100, 10.4, 2))
+# random_dat_long <- gather(random_dat, key = "sample", value = "dat")
+
+# tester...
+# i <- 20
+
+# The function to animate the rotating line
+aov_n_fig <- function(i) {
+
+# Create animated dataframe
+sub_dat <- random_dat %>% 
+  slice(1:i) %>% 
+  gather(key = "sample", value = "dat")
+
+# Calculate basic stats
+sub_stats <- sub_dat %>% 
+  group_by(sample) %>% 
+  summarise(sub_mean = round(mean(dat), 2),
+            sub_sd = round(sd(dat), 2),
+            sub_n = round(n(), 0))
+
+# Crerate fancy dataframe for use in ggplot2 text printing
+sub_stats_print <- sub_stats %>% 
+  gather(key = stat, value = value, -sample) %>% 
+  mutate(y = c(rep(18.9, 3), rep(17.9, 3), rep(16.9, 3)),
+         stat_word = c(rep("mean = ", 3), rep("sd = ", 3), rep("n = ", 3)),
+         stat_print = paste0(stat_word, value))
+
+# Run ANOVA
+sub_ANOVA <- compare_means(dat ~ sample, data = sub_dat, method = "anova")
+
+# Create p value for printing
+if(sub_ANOVA$p.adj < 0.001) {
+  p_val_print <- "p < 0.001"
+} else {
+  p_val_print <- paste0("p = ", sub_ANOVA$p.format)
+}
+
+# Create the figure
+aovb <- ggplot(data = sub_dat, aes(x = sample, y = dat, colour = sample)) +
+  geom_violin(fill = "grey70") + 
+  geom_boxplot(width = 0.1, colour = "black", fill = "white") +
+  geom_jitter(shape = 1, width = 0.1, colour = "red", alpha = 0.7, fill = NA) +
+  geom_hline(aes(yintercept = mean(sub_dat$dat)), size = 2, linetype = "dashed") +
+  geom_label(data = sub_stats_print, aes(label = stat_print, y = y), size = 4,
+             label.padding = unit(0.25, "lines"), fontface = "bold") +
+  scale_y_continuous(limits = c(3, 19)) +
+  labs(title = "Sliding ANOVA",
+       subtitle = p_val_print,
+       x = "Sample",
+       y = "value") +
+  # theme_pubclean() + 
+  theme_dark() +
+  theme(legend.position = "none")
+print(aovb)
+}
+
+# Create animation of the histogram
+animate_aov_n <- function() {
+  lapply(c(seq(30, 99, by = 1), rep(100, 30),
+           seq(99, 31, by = -1), rep(30, 30)), 
+         function(i) {
+    aov_n_fig(i)
+  })
+}
+
+# system.time(saveGIF(animate_lm(), interval = 1, ani.width = 600, movie.name = "lm_rotate.gif")) ## ~4 seconds
+system.time(saveVideo(animate_aov_n(), interval = 0.1, ani.width = 600, video.name = "figures/aov_n_slide.avi")) # ~73 seconds
+```
+
+```{r, echo=FALSE, include=FALSE, eval=FALSE}
+library(tidyverse)
+library(animation)
+
+# Create random data
+set.seed(666)
+random_dat <- data.frame(A = rnorm(100, 10.1, 2), 
+                         B = rnorm(100, 10.2, 2),
+                         C = rnorm(100, 10.3, 2))
+# random_dat_long <- gather(random_dat, key = "sample", value = "dat")
+
+# tester...
+# i <- 1
+
+# The function to animate the rotating line
+aov_mean_fig <- function(i) {
+
+# Create animated dataframe
+sub_dat <- random_dat %>% 
+  mutate(B = B-i) %>% 
+  gather(key = "sample", value = "dat")
+
+# Calculate basic stats
+sub_stats <- sub_dat %>% 
+  group_by(sample) %>% 
+  summarise(sub_mean = round(mean(dat), 2),
+            sub_sd = round(sd(dat), 2),
+            sub_n = round(n(), 0))
+
+# Crerate fancy dataframe for use in ggplot2 text printing
+sub_stats_print <- sub_stats %>% 
+  gather(key = stat, value = value, -sample) %>% 
+  mutate(y = c(rep(18.9, 3), rep(17.9, 3), rep(16.9, 3)),
+         stat_word = c(rep("mean = ", 3), rep("sd = ", 3), rep("n = ", 3)),
+         stat_print = paste0(stat_word, value))
+
+# Run ANOVA
+sub_ANOVA <- compare_means(dat ~ sample, data = sub_dat, method = "anova")
+
+# Create p value for printing
+if(sub_ANOVA$p.adj < 0.001) {
+  p_val_print <- "p < 0.001"
+} else {
+  p_val_print <- paste0("p = ", sub_ANOVA$p.format)
+}
+
+# Create the figure
+aovb <- ggplot(data = sub_dat, aes(x = sample, y = dat, colour = sample)) +
+  geom_violin(fill = "grey70") + 
+  geom_boxplot(width = 0.1, colour = "black", fill = "white") +
+  geom_jitter(shape = 1, width = 0.1, colour = "red", alpha = 0.7, fill = NA) +
+  geom_hline(aes(yintercept = mean(sub_dat$dat)), size = 2, linetype = "dashed") +
+  geom_label(data = sub_stats_print, aes(label = stat_print, y = y), size = 4,
+             label.padding = unit(0.25, "lines"), fontface = "bold") +
+  scale_y_continuous(limits = c(3, 19)) +
+  labs(title = "Sliding ANOVA",
+       subtitle = p_val_print,
+       x = "Sample",
+       y = "value") +
+  # theme_pubclean() + 
+  theme_dark() +
+  theme(legend.position = "none")
+print(aovb)
+}
+
+# Create animation of the histogram
+animate_aov_mean <- function() {
+  lapply(c(seq(0, -0.99, by = -0.01), rep(-1, 30),
+           seq(-0.99, -0.01, by = 0.01), rep(0, 30)), 
+         function(i) {
+    aov_mean_fig(i)
+  })
+}
+
+# system.time(saveGIF(animate_lm(), interval = 1, ani.width = 600, movie.name = "lm_rotate.gif")) ## ~4 seconds
+system.time(saveVideo(animate_aov_mean(), interval = 0.1, ani.width = 600, video.name = "figures/aov_mean_slide.avi")) # ~76 seconds
+```
+
+```{r, echo=FALSE, include=FALSE, eval=FALSE}
+library(tidyverse)
+library(animation)
+
+# Create random data
+set.seed(666)
+random_dat <- data.frame(A = rnorm(100, 9.8, 1.5), 
+                         B = rnorm(100, 10.4, 1.5),
+                         C = rnorm(100, 10.2, 1.5))
+# random_dat_long <- gather(random_dat, key = "sample", value = "dat")
+
+# tester...
+# i <- 1.5
+
+# The function to animate the rotating line
+aov_sd_fig <- function(i) {
+
+# Create animated dataframe
+sub_dat <- random_dat %>% 
+  mutate(C = (C*i)-10.2*(i-1)) %>% 
+  gather(key = "sample", value = "dat")
+
+# Calculate basic stats
+sub_stats <- sub_dat %>% 
+  group_by(sample) %>% 
+  summarise(sub_mean = round(mean(dat), 2),
+            sub_sd = round(sd(dat), 2),
+            sub_n = round(n(), 0))
+
+# Crerate fancy dataframe for use in ggplot2 text printing
+sub_stats_print <- sub_stats %>% 
+  gather(key = stat, value = value, -sample) %>% 
+  mutate(y = c(rep(18.9, 3), rep(17.9, 3), rep(16.9, 3)),
+         stat_word = c(rep("mean = ", 3), rep("sd = ", 3), rep("n = ", 3)),
+         stat_print = paste0(stat_word, value))
+
+# Run ANOVA
+sub_ANOVA <- compare_means(dat ~ sample, data = sub_dat, method = "anova")
+
+# Create p value for printing
+if(sub_ANOVA$p.adj < 0.001) {
+  p_val_print <- "p < 0.001"
+} else {
+  p_val_print <- paste0("p = ", sub_ANOVA$p.format)
+}
+
+# Create the figure
+aovb <- ggplot(data = sub_dat, aes(x = sample, y = dat, colour = sample)) +
+  geom_violin(fill = "grey70") + 
+  geom_boxplot(width = 0.1, colour = "black", fill = "white") +
+  geom_jitter(shape = 1, width = 0.1, colour = "red", alpha = 0.7, fill = NA) +
+  geom_hline(aes(yintercept = mean(sub_dat$dat)), size = 2, linetype = "dashed") +
+  geom_label(data = sub_stats_print, aes(label = stat_print, y = y), size = 4,
+             label.padding = unit(0.25, "lines"), fontface = "bold") +
+  scale_y_continuous(limits = c(0, 19)) +
+  labs(title = "Sliding ANOVA",
+       subtitle = p_val_print,
+       x = "Sample",
+       y = "value") +
+  # theme_pubclean() + 
+  theme_dark() +
+  theme(legend.position = "none")
+print(aovb)
+}
+
+# Create animation of the histogram
+animate_aov_sd <- function() {
+  lapply(c(seq(1.00, 1.98, by = 0.02), rep(2.00, 30),
+           seq(1.98, 1.02, by = -0.02), rep(1.00, 30)), 
+         function(i) {
+    aov_sd_fig(i)
+  })
+}
+
+# system.time(saveGIF(animate_lm(), interval = 1, ani.width = 600, movie.name = "lm_rotate.gif")) ## ~4 seconds
+system.time(saveVideo(animate_aov_sd(), interval = 0.1, ani.width = 600, video.name = "figures/aov_sd_slide.avi")) # ~89 seconds
+```
+
 ### Multiple factors
 
 What if we have multiple grouping variables, and not just one? To run an ANOVA on multiple factors we will need to use `aov()` rather than `compare_means()`. To specify the different factors we put them in our formula and separate them with a `+`:
