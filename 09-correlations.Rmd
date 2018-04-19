@@ -9,12 +9,64 @@ knitr::opts_chunk$set(
 )
 ```
 
-A chi-squared test is used when one wants to see if there is a realtionship between count data of two or more factors.
+A correlation is perform when we want to see what the potential strength of relationship between two variables is. This does not mean that one variable explains the other, we arrive at that through the use of regression, as seen in Chapter 8. In order to investigate correlations in biological data lets load the `ecklonia` dataset.
 
 ```{r}
-x <- c(A = 20, B = 15, C = 25)
-chisq.test(x)
+library(tidyverse)
+library(ggpubr)
 
+ecklonia <- read_csv("data/ecklonia.csv")
+```
+
+## Pearson
+
+When the values we are comparing are continuous, we may use a Pearson r test. This is the default and so requires little work on our end.
+
+```{r}
+cor(x = ecklonia$stipe_length, ecklonia$frond_length)
+```
+
+Above we have looked at the correlation between the length of _Ecklonia maxima_ stipes and the length of their fronds. A perfect positive (negative) relationship would produce a value of 1 (-1), whereas no relationship would produce a value of 0. The result above, r = `r round(cor(x = ecklonia$stipe_length, ecklonia$frond_length),2)` is relatively strong.
+
+## Spearman
+
+When the data we want to compare are not numeric, we will need to use a Spearman r test. This is not often a test one uses in biology because we tend to have continuous data within categories. In the code below we will change our `ecklonia` data so that they match the criteria for this test, and then have a look at the results.
+
+```{r}
+# Big medium small values
+```
+
+## One panel
+
+As is the case with everything else we have learned thus far, a good visualisation can go a long way to help us understand what the statistics are doing. Below we visualise the stipe length to frond length relationship.
+
+```{r, fig.cap="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship."}
+# Calculate Pearson r beforehand for plotting
+r_print <- paste0("r = ", 
+                  round(cor(x = ecklonia$stipe_length, ecklonia$frond_length),2))
+
+ggplot(data = ecklonia, aes(x = stipe_length, y = frond_length)) +
+  geom_smooth(method = "lm", colour = "grey90", se = F) +
+  geom_point(colour = "mediumorchid4") +
+  geom_label(x = 300, y = 240, label = r_print) +
+  labs(x = "Stipe length (cm)", y = "Frond length (cm)") +
+  theme_pubclean()
+```
+
+Just by eyeballing this scatterplot it should be clear that these data tend to increase at a roughly similar rate. Our Pearson r value is an indication of what that is.
+
+## Multi panel
+
+But why stop at one panel? It is relatively straightforward to plot these types of scatterplots for all of our variables in one quick go.
+
+```{r}
+# That one function that does the thing with the stuff...
+```
+
+Slightly more involved, but much more useful, is the generation of a heat map to show which variables correlate most whith which other variables. A heat map is a visualisation that uses a range of colours, usually blue to red, to demonstrate where more of something is. In this case, we use it to show where more coreelation is occurring between morphometric properties.
+
+```{r}
+# http://www.sthda.com/english/wiki/ggplot2-quick-correlation-matrix-heatmap-r-software-and-data-visualization
 
 ```
 
