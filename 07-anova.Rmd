@@ -436,4 +436,4 @@ teeth <- datasets::ToothGrowth
 
 ### Exercise 3
 
-Find or generate your own data that lend themselves to being analysed by a two-way ANOVA. Generate suitable hypotheses about your data, and analyse it. Supplement your analysis by provide a suitable descriptive statistical summary and graph(s) of your data.
+Find or generate your own data that lend themselves to being analysed by a two-way ANOVA. Generate suitable hypotheses about your data, and analyse it. Supplement your analysis by providing a suitable descriptive statistical summary and graph(s) of your data.
