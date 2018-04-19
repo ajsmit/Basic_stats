@@ -16,15 +16,16 @@ library(ggpubr)
 
 Whole big books have been written about Analysis of Variance (ANOVA). Although there are many ANOVA experimental designs available, biologists are taught to pay special attention to the design of experiments, and generally make sure that the experiments are fully factorial (in the case of two-way or higher ANOVAs) and balanced. For this reason we will focus in this Introductory Statistics course on one-way and factorial ANOVAs only.
 
-As t-tests, ANOVAs require that some assumptions are met:
+As *t*-tests, ANOVAs require that some assumptions are met:
 
 * Normally distributed data
+* Homogeneity of variances
 * Independence of data
 * In our case, we will encourage also that the data are balanced
 
 If some of the above assumptions are violated, then your course of action is either to transform the data (if non-normal) or to use a generalised linear model (also when non-normal), or to use a linear mixed model (when the assumption on non-independence cannot be guaranteed). We will get to some of these methods in later chapters. Linked to the above, ANOVAs are also sensitive to the presence of outliers (see our earlier discussion about the mean and how it differs from the median), so we need to ensure that outliers are not present (they can be removed, and there are many ways of finding them and eliminating them). If outliers are an important feature of the data, then a non-parametric test can be used, or some other test that works well with extreme values can be applied. 
 
-Rather than talking about t-tests and ANOVAs as separate things, let us acknowledge that they are similar ways of asking the same question. That question being, are the means of these two or more things we want to compare different, or the same? At this stage it is important to note that the independent variable is categorical (i.e. a factor denoting two or more different treatments or sampling conditions) and that the dependent variable is continuous. You may perhaps be more familiar with this question when it is presented as a set of hypotheses.
+Rather than talking about *t*-tests and ANOVAs as separate things, let us acknowledge that they are similar ways of asking the same question. That question being, are the means of these two or more things we want to compare different, or the same? At this stage it is important to note that the independent variable is categorical (i.e. a factor denoting two or more different treatments or sampling conditions) and that the dependent variable is continuous. You may perhaps be more familiar with this question when it is presented as a set of hypotheses.
 
 > H0: Group A is not different from group B.
 >
@@ -32,9 +33,9 @@ Rather than talking about t-tests and ANOVAs as separate things, let us acknowle
 
 This is a scientific question in the simplest sense. Often, for basic inquiries such as that posed above, we need to see if one group differs significantly from another. The way in which we accomplish this is by looking at the mean and variance within a set of data compared against another similar set. In order to do so appropriately however we need to first assume that both sets of data are normally distributed, and that the variance found within each set of data is similar. These are the two primary assumptions we learned about in Chapter 6, and if they are met then we may use parametric tests. We will learn in Chapter 9 what we can do if these assumptions are not meant and we cannot adequately transform our data, meaning we will need to use non-parametric tests.
 
-## t-test
+## Remember the *t*-test
 
-A t-test is used when wants to compare two different sample sets against one another. This is also known as a two-factor or two level test. When one wants to compare multiple, more than two, sample sets against one another an ANOVA is required (see below). In order to illustrate how to perform a t-test in R we are going to once again use the `chicks` data, but only Diet 1 and 2 from day 21.
+As you know, a *t*-test is used when we want to compare two different sample sets against one another. This is also known as a two-factor or two level test. When one wants to compare multiple (more than two) sample sets against one another an ANOVA is required (see below). Remember how to perform a *t*-test in R: we will revisit this test using the `chicks` data, but only for Diets 1 and 2 from day 21.
 
 ```{r}
 # First grab the data
@@ -45,31 +46,76 @@ chicks_sub <- chicks %>%
   filter(Diet %in% c(1, 2), Time == 21)
 ```
 
-Once we have filtered our data we may now perform the t-test. Traditionally this would be performed with `t.test()`, but recent developments in R have made any testing for the comparison of means more convenient by wrapping everything up into the one single function `compare_means()`. We may use only this one single function for many of the tests we will perform in this chapter as well as Chapter 9. To use `compare_means()` for a t-test we must simply specify this in the `method` argument, as seen below:
+Once we have filtered our data we may now perform the *t*-test. Traditionally this would be performed with `t.test()`, but recent developments in R have made any testing for the comparison of means more convenient by wrapping everything up into the one single function `compare_means()`. We may use only this one single function for many of the tests we will perform in this chapter as well as Chapter 9. To use `compare_means()` for a *t*-test we must simply specify this in the `method` argument, as seen below:
 
 ```{r}
 compare_means(weight ~ Diet, data = chicks_sub, method = "t.test")
 ```
 
-As one may recall from the Intro R Workshop, whenever we want to give a formula to a function in R, we use the `~`. The formula used above, `weight ~ Diet`, reads in plain English as "weight as a function of diet". This is perhaps easier to understand as "Y as a function of X". This means that we are assuming whatever is to the left of the `~` is the dependant variable, and whatever is to the right is the independent variable. We then tell `compare_means()` to run a t-test on our `chicks_sub` dataframe and it does the rest. We see in the output above that this function gives us a rather tidy read-out of the information we require to test a potential hypothesis. Let's take a moment to look through the help file for this function and see what all of this means. Did the Diet 1 and 2 produce significantly fatter birds?
+As one may recall from the previous chapter, whenever we want to give a formula to a function in R, we use the `~`. The formula used above, `weight ~ Diet`, reads in plain English as "weight as a function of diet". This is perhaps easier to understand as "Y as a function of X". This means that we are assuming whatever is to the left of the `~` is the dependant variable, and whatever is to the right is the independent variable. We then tell `compare_means()` to run a *t*-test on our `chicks_sub` dataframe and it does the rest. We see in the output above that this function gives us a rather tidy read-out of the information we require to test a potential hypothesis. Let's take a moment to look through the help file for this function and see what all of this means. Did the Diet 1 and 2 produce significantly fatter birds?
 
 ## ANOVA
 
+In the `chicks` data we have four diets, not only two as in the *t*-test example just performed. Why not then simply do a *t*-test multiple times, once for each pair of diets given to the chickens? The problem is that the chances of committing a Type I error increases as more multiple comparisons are done. So, the overall chance of rejecting the null hypothesis increases. Why? If one sets $\alpha=0.05$ (the significance level below which the null hypothesis is no longer accepted), one will still reject the null hypothesis 5% of the time when it is in fact true (i.e. when there is no difference between the groups). When many pairwise comparisons are made, the probability of rejecting the null hypothesis at least once is higher because we take this 5% risk each time we repeat a *t*-test. In the case of the chicken diets, we would have to perform six *t*-tests, and the error rate would increase to slightly less than $6\times5\%$. If you insist in creating more work for yourself and do *t*-tests many times, one way to overcome the problem of committing Type I errors that stems from multiple comparisons is to apply a Bonferroni correction.
+
+Or better still, we do an ANOVA that controls for these Type I errors so that it remains at 5%.
+
+A suitable null hypothesis for our chicken weight data is:
+
+$$H_{0}:\mu_{1}=\mu_{2}=\mu_{3}=\mu_{4}$$
+where $\mu_{1...4}$ are the means of the four diets.
+
+At this point I was very tempted to put many equations here, but I ommitted them for your sake. Let us turn to some examples.
+
 ### Single factor
 
-In the previous section we learned how to calculate the difference between two sample sets. But what if, as is often the case, we want to compare three or more? Again, the `chicks` data provide an excellent example of how to do this. The base R function for an ANOVA is `aov()`, but we will rather continue to use `compare_means()`. To look for significant differences between all four diets on the last day of sampling we use this one line of code:
+<!-- ```{r} -->
+<!-- # enter the mass at the end of the experiment -->
+<!-- feed_1 <- c(60.8, 57.0, 65.0, 58.6, 61.7) -->
+<!-- feed_2 <- c(68.7, 67.7, 74.0, 66.3, 69.8) -->
+<!-- feed_3 <- c(102.6, 102.1, 100.2, 96.5) -->
+<!-- feed_4 <- c(87.9, 84.2, 83.1, 85.7, 90.3) -->
+
+<!-- # make a dataframe -->
+<!-- bacon <- as.tibble(data.frame(feed = c(rep("Feed 1", length(feed_1)), -->
+<!--                              rep("Feed 2", length(feed_2)), -->
+<!--                              rep("Feed 3", length(feed_3)), -->
+<!--                              rep("Feed 4", length(feed_4))), -->
+<!--                     mass = c(feed_1, feed_2, feed_3, feed_4))) -->
+<!-- ``` -->
+
+We continue with the chicken data. The *t*-test showed that Diets 1 and 2 resulted in the same chicken masses at the end of the experiment at Day 21. What about the other two diets? Our null hypothesis is that, at Day 21, $\mu_{1}=\mu_{2}=\mu_{3}=\mu_{4}$. Is there a statistical difference between chickens fed these four diets, or do we retain the null hypothesis? The R function for an ANOVA is `aov()`. To look for significant differences between all four diets on the last day of sampling we use this one line of code:
 
 ```{r}
-compare_means(weight ~ Diet, data = filter(chicks, Time == 21), method = "anova")
+chicks.aov <- aov(weight ~ Diet, data = filter(chicks, Time == 21))
+summary(chicks.aov)
 ```
 
-When we now look at all four diets, rather than only 1 and 2, do they produce significantly different chicken weights after 21 days? If this seems to easy to be true, it's because we aren't quite done yet. The next step one must take is to run a Tukey test on the results of the ANOVA by wrapping `tukeyHSD()` around `aov()`:
+> **Task:** What does the outcome say about the chicken masses? Which ones are different from each other?
+>
+> **Task:** Devise a graphical display of this outcome.
+
+If this seems too easy to be true, it's because we aren't quite done yet. You could use your graphical display to eyeball where the significant differences are, or we can turn to a more 'precise' approach. The next step one could take is to run a Tukey HSD test on the results of the ANOVA by wrapping `tukeyHSD()` around `aov()`:
 
 ```{r}
-TukeyHSD(aov(weight ~ Diet, data = filter(chicks, Time == 21)))
+TukeyHSD(chicks.aov)
 ```
 
-The output of `tukeyHSD()` shows us that pairwise comparisons of all of the groups we are comparing. Let's look at the help file for this function to better understand what the output means. Which of the groups are significantly different from one another? Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?
+The output of `tukeyHSD()` shows us that pairwise comparisons of all of the groups we are comparing.
+
+> **Task:** Look at the help file for this function to better understand what the output means.
+>
+> **Task:** How does one interpret the results? What does this tell us about the effect that that different diets has on the chicken weights at Day 21?
+>
+> **Task:** Figure out a way to plot the Tukey HSD outcomes.
+>
+> **Task:** Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?
+>
+> **Task:** Produce a graphical display of the Tukey HSD result.
+
+<!-- ```{r} -->
+<!-- # plot(TukeyHSD(chicks.aov)) -->
+<!-- ``` -->
 
 Now that we've seen how to perform a single factor ANOVA, let's watch some animations that highlight how certain aspects of our data may affect our results.
 
