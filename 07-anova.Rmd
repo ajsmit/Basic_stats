@@ -108,7 +108,7 @@ Now that we've seen how to perform a single factor ANOVA, let's watch some anima
 * When the [mean](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_mean_slide.avi) of one sample changes
 * When the [variance](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_sd_slide.avi) of one sample increases
 
-```{r}
+```{r, echo=FALSE, include=FALSE, eval=FALSE}
 library(tidyverse)
 library(animation)
 
