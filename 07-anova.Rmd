@@ -69,26 +69,11 @@ At this point I was very tempted to put many equations here, but I ommitted them
 
 ### Single factor
 
-<!-- ```{r} -->
-<!-- # enter the mass at the end of the experiment -->
-<!-- feed_1 <- c(60.8, 57.0, 65.0, 58.6, 61.7) -->
-<!-- feed_2 <- c(68.7, 67.7, 74.0, 66.3, 69.8) -->
-<!-- feed_3 <- c(102.6, 102.1, 100.2, 96.5) -->
-<!-- feed_4 <- c(87.9, 84.2, 83.1, 85.7, 90.3) -->
-
-<!-- # make a dataframe -->
-<!-- bacon <- as.tibble(data.frame(feed = c(rep("Feed 1", length(feed_1)), -->
-<!--                              rep("Feed 2", length(feed_2)), -->
-<!--                              rep("Feed 3", length(feed_3)), -->
-<!--                              rep("Feed 4", length(feed_4))), -->
-<!--                     mass = c(feed_1, feed_2, feed_3, feed_4))) -->
-<!-- ``` -->
-
 We continue with the chicken data. The *t*-test showed that Diets 1 and 2 resulted in the same chicken masses at the end of the experiment at Day 21. What about the other two diets? Our null hypothesis is that, at Day 21, $\mu_{1}=\mu_{2}=\mu_{3}=\mu_{4}$. Is there a statistical difference between chickens fed these four diets, or do we retain the null hypothesis? The R function for an ANOVA is `aov()`. To look for significant differences between all four diets on the last day of sampling we use this one line of code:
 
 ```{r}
-chicks.aov <- aov(weight ~ Diet, data = filter(chicks, Time == 21))
-summary(chicks.aov)
+chicks.aov1 <- aov(weight ~ Diet, data = filter(chicks, Time == 21))
+summary(chicks.aov1)
 ```
 
 > **Task:** What does the outcome say about the chicken masses? Which ones are different from each other?
@@ -98,7 +83,7 @@ summary(chicks.aov)
 If this seems too easy to be true, it's because we aren't quite done yet. You could use your graphical display to eyeball where the significant differences are, or we can turn to a more 'precise' approach. The next step one could take is to run a Tukey HSD test on the results of the ANOVA by wrapping `tukeyHSD()` around `aov()`:
 
 ```{r}
-TukeyHSD(chicks.aov)
+TukeyHSD(chicks.aov1)
 ```
 
 The output of `tukeyHSD()` shows us that pairwise comparisons of all of the groups we are comparing.
@@ -283,21 +268,49 @@ system.time(saveVideo(animate_aov_sd(), interval = 0.1, ani.width = 600, video.n
 
 ### Multiple factors
 
-What if we have multiple grouping variables, and not just one? To run an ANOVA on multiple factors we will need to use `aov()` rather than `compare_means()`. To specify the different factors we put them in our formula and separate them with a `+`:
+What if we have multiple grouping variables, and not just one? In the case of the chicken data, there is also time that seems to be having an effect. 
+
+> **Task:** How is time having an effect?
+>
+> **Task:** What hypotheses can we construct around time?
+
+Let us look at some variations around questions concerning time. We might ask, at a particular time step, are there differences amongst the effect due to diet on chicken mass? Let's see when diets are starting the have an effect by examining the outcomes at times 0, 2, 10, and 21:
 
 ```{r}
-summary(aov(weight ~ Diet + as.factor(Time), data = filter(chicks, Time %in% c(20, 21))))
+summary(aov(weight ~ Diet, data = filter(chicks, Time %in% c(0))))
+summary(aov(weight ~ Diet, data = filter(chicks, Time %in% c(2))))
+summary(aov(weight ~ Diet, data = filter(chicks, Time %in% c(10))))
+summary(aov(weight ~ Diet, data = filter(chicks, Time %in% c(21))))
 ```
 
-What question are we asking with the above line of code? What is the answer? Also, why did we wrap `Time` in `as.factor()`?
+> **Task:** What do you conclude from the above series of ANOVAs?
+>
+> **Task:** What problem is associated with running multiple tests in the way that we have done here?
 
-It is also possible to look at what the effect is between grouping variables, and not just within the individual grouping variables. To do this we replace the `+` in our formula with `*`:
+Or we may ask, regardless of diet (i.e. disregarding the effect of diet by clumping all chickens together), is time having an effect?
 
 ```{r}
-summary(aov(weight ~ Diet * as.factor(Time), data = filter(chicks, Time %in% c(20, 21))))
+chicks.aov2 <- aov(weight ~ as.factor(Time), data = filter(chicks, Time %in% c(0, 2, 10, 21)))
+summary(chicks.aov2)
 ```
 
-How do these results differ from the previous set?
+> **Task:** What do you conclude from the above ANOVA?
+
+Or, to save ourselves a lot of time and reduce the coding effort, we may simply run a two-way ANOVA and look at the effects of `Diet` and `Time` simultaneously. To specify the different factors we put them in our formula and separate them with a `+`:
+
+```{r}
+summary(aov(weight ~ Diet + as.factor(Time), data = filter(chicks, Time %in% c(0, 21))))
+```
+
+> **Task:** What question are we asking with the above line of code? What is the answer? Also, why did we wrap `Time` in `as.factor()`?
+
+It is also possible to look at what the interaction effect between grouping variables (i.e. in this case the effect of time on diet---does the effect of time depend on which diet we are looking at?), and not just within the individual grouping variables. To do this we replace the `+` in our formula with `*`:
+
+```{r}
+summary(aov(weight ~ Diet * as.factor(Time), data = filter(chicks, Time %in% c(4, 21))))
+```
+
+> **Task:** How do these results differ from the previous set?
 
 One may also run a post-hoc Tukey test on these results the same as for a single factor ANOVA:
 
@@ -305,7 +318,7 @@ One may also run a post-hoc Tukey test on these results the same as for a single
 TukeyHSD(aov(weight ~ Diet * as.factor(Time), data = filter(chicks, Time %in% c(20, 21))))
 ```
 
-Jikes! That's a massive amount of results. What does all of this mean, and why is it so verbose?
+> **Task:** Jikes! That's a massive amount of results. What does all of this mean, and why is it so verbose?
 
 ## Deeper into ANOVA
 
@@ -363,7 +376,7 @@ Let's consult the help file for `kruskalmc()` to understand what this print-out 
 
 #### Multiple factors
 
-The water becomes murky quickly when one wants to perform multiple factor non-parametric comparison of means tests. TO that end, we will not cover the few existing methods here. Rather, one should avoid the necessity for these types of tests when designing an experiment.
+The water becomes murky quickly when one wants to perform multiple factor non-parametric comparison of means tests. To that end, we will not cover the few existing methods here. Rather, one should avoid the necessity for these types of tests when designing an experiment.
 
 ### The SA time data
 
@@ -392,5 +405,35 @@ ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
 
 ### Exercise 1
 
-Write out the hypotheses that we tested for in this chapter and answer them based on the results we produced in class.
+Here is bunch of data for pigs raised on different diets. The experiment is similar to the chicken one. Does feed type have an effect on the mass of pigs at the end of the experiment?
 
+```{r}
+# enter the mass at the end of the experiment
+feed_1 <- c(60.8, 57.0, 65.0, 58.6, 61.7)
+feed_2 <- c(68.7, 67.7, 74.0, 66.3, 69.8)
+feed_3 <- c(102.6, 102.1, 100.2, 96.5)
+feed_4 <- c(87.9, 84.2, 83.1, 85.7, 90.3)
+
+# make a dataframe
+bacon <- as.tibble(data.frame(
+  feed = c(
+  rep("Feed 1", length(feed_1)),
+  rep("Feed 2", length(feed_2)),
+  rep("Feed 3", length(feed_3)),
+  rep("Feed 4", length(feed_4))
+  ),
+  mass = c(feed_1, feed_2, feed_3, feed_4)
+  ))
+```
+
+### Exercise 2
+
+Construct suitable null and alternative hypotheses for the built-in `ToothGrowth` data, and test your hypotheses using an ANOVA.
+
+```{r}
+teeth <- datasets::ToothGrowth
+```
+
+### Exercise 3
+
+Find or generate your own data that lend themselves to being analysed by a two-way ANOVA. Generate suitable hypotheses about your data, and analyse it. Supplement your analysis by provide a suitable descriptive statistical summary and graph(s) of your data.

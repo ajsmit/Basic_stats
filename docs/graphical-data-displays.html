@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-18">
+<meta name="date" content="2018-04-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,41 +57,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -234,7 +262,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>7</b> ANOVA</a><ul>
-<li class="chapter" data-level="7.1" data-path="anova.html"><a href="anova.html#t-test"><i class="fa fa-check"></i><b>7.1</b> t-test</a></li>
+<li class="chapter" data-level="7.1" data-path="anova.html"><a href="anova.html#remember-the-t-test"><i class="fa fa-check"></i><b>7.1</b> Remember the <em>t</em>-test</a></li>
 <li class="chapter" data-level="7.2" data-path="anova.html"><a href="anova.html#anova-1"><i class="fa fa-check"></i><b>7.2</b> ANOVA</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="anova.html"><a href="anova.html#single-factor"><i class="fa fa-check"></i><b>7.2.1</b> Single factor</a></li>
 <li class="chapter" data-level="7.2.2" data-path="anova.html"><a href="anova.html#multiple-factors"><i class="fa fa-check"></i><b>7.2.2</b> Multiple factors</a></li>
@@ -246,6 +274,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="anova.html"><a href="anova.html#exercises-4"><i class="fa fa-check"></i><b>7.4</b> Exercises</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="anova.html"><a href="anova.html#exercise-1-4"><i class="fa fa-check"></i><b>7.4.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="7.4.2" data-path="anova.html"><a href="anova.html#exercise-2-1"><i class="fa fa-check"></i><b>7.4.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="7.4.3" data-path="anova.html"><a href="anova.html#exercise-3"><i class="fa fa-check"></i><b>7.4.3</b> Exercise 3</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html"><i class="fa fa-check"></i><b>8</b> Simple linear regressions</a><ul>
@@ -277,7 +307,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-5"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-5"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
-<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-1"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-2"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>12</b> Linear mixed models</a><ul>
@@ -316,23 +346,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="graphical-data-displays" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Graphical data displays</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(ggpubr)
-<span class="kw">library</span>(RColorBrewer)
-<span class="kw">library</span>(ggthemes)</code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="kw">library</span>(ggpubr)</a>
+<a class="sourceLine" id="cb61-3" data-line-number="3"><span class="kw">library</span>(RColorBrewer)</a>
+<a class="sourceLine" id="cb61-4" data-line-number="4"><span class="kw">library</span>(ggthemes)</a></code></pre></div>
 <p>Here we shall provide examples of many kinds of graphical data summaries. We use <strong>ggplot2</strong> for these figures and will refrain from using the base R graphs. We shall provide examples of various themes so you can see what is available to use for your own plots. We also include various modifications of the default plots so you can get an idea of how to modify some of the plot characteristics, and we always make sure that our graphs are publication ready. The best way to learn is to work by example. Deeper understanding will emerge only from working through all of these example plots, and making your own changes here and there to see how your own modification will affect your graphs’ appearance. Then find your own data and plot them. As always, liberally make use of the built-in help facility (the more you do, the easier it becomes, like riding a bicycle). Also, don’t be shy to use Google.</p>
 <div id="qualitative-data-1" class="section level2">
 <h2><span class="header-section-number">4.1</span> Qualitative data</h2>
 <p>Qualitative data that describe group representivity to various categories are best presented as frequency distribution histograms (I interchangeably use histograms, frequency histograms, and frequency distribution histograms). Histograms apply to categorical data. Although it can be presented numerically in tabular form, one more frequently creates a bar or pie graph of the number of occurrences in a collection of non-overlapping classes or categories. Both the data and graphical displays will be demonstrated here.</p>
 <p>The first case of a frequency distribution histogram is one that shows the raw counts per each of the categories that are represented in the data. The count within each of the categories (represented by a bar graph called a histogram) sums to the sample size, <span class="math inline">\(n\)</span>. In the second case, we may want to report those data as proportions. Here we show the frequency proportion in a collection of non-overlapping categories. For example, we have a sample size of 12 (<span class="math inline">\(n=12\)</span>). In this sample, two are coloured blue, six red, and five purple. The relative proportions are <span class="math inline">\(2/12=0.1666667\)</span> blue, <span class="math inline">\(6/12=0.5\)</span> red, and <span class="math inline">\(5/12=0.4166667\)</span> purple. The important thing to note here is that the relative proportions sum to 1, i.e. <span class="math inline">\(0.1666667+0.5+0.4166667=1\)</span>. These data may be presented as a table or as a graph.</p>
 <p>Let us demonstrate the numerical and graphical summaries using the built-in <code>iris</code> data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the numerical summary produced by a piped series of functions;</span>
-<span class="co"># create a summary of the data (i.e. number of replicates per species)</span>
-<span class="co"># used for (A), (B) and (C), below</span>
-iris.cnt &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># automagically creates a column, n, with the counts</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n)) <span class="co"># creates the relative proportion of each species</span>
-iris.cnt</code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># the numerical summary produced by a piped series of functions;</span></a>
+<a class="sourceLine" id="cb62-2" data-line-number="2"><span class="co"># create a summary of the data (i.e. number of replicates per species)</span></a>
+<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="co"># used for (A), (B) and (C), below</span></a>
+<a class="sourceLine" id="cb62-4" data-line-number="4">iris.cnt &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb62-5" data-line-number="5"><span class="st">  </span><span class="kw">count</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># automagically creates a column, n, with the counts</span></a>
+<a class="sourceLine" id="cb62-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n)) <span class="co"># creates the relative proportion of each species</span></a>
+<a class="sourceLine" id="cb62-7" data-line-number="7">iris.cnt</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 3 x 3
 R&gt;   Species        n  prop
 R&gt;   &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;
@@ -340,42 +370,42 @@ R&gt; 1 setosa        50 0.333
 R&gt; 2 versicolor    50 0.333
 R&gt; 3 virginica     50 0.333</code></pre>
 <!-- show example of frequency distribution bar graph -->
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a stacked bar graph with the cumulative sum of observations</span>
-plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.cnt, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> n, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">width =</span> <span class="dv">1</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Stacked bar graph&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;cumulative sum&quot;</span>,
-       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_few</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_few</span>()
-
-<span class="co"># a stacked bar graph with the relative proportions of observations</span>
-plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.cnt, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> prop, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">width =</span> <span class="dv">1</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.00</span>, <span class="fl">0.33</span>, <span class="fl">0.66</span>, <span class="fl">1.00</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Stacked bar graph&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;relative proportions&quot;</span>,
-       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Proportion&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_few</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_few</span>()
-
-
-<span class="co"># a basic pie chart</span>
-plt3 &lt;-<span class="st"> </span>plt1 <span class="op">+</span><span class="st"> </span><span class="kw">coord_polar</span>(<span class="st">&quot;y&quot;</span>, <span class="dt">start =</span> <span class="dv">0</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Friends don&#39;t let...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...friends make pie charts&quot;</span>,
-       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Blues&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()
-<span class="co"># if you seriously want a pie chart, rather use the base R function, `pie()`</span>
-
-<span class="co"># here now a bar graph...</span>
-<span class="co"># the default mapping of `geom_bar` is `stat = count`, which is a</span>
-<span class="co"># bar for each fo the categories (`Species`), with `count` along y</span>
-plt4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Side-by-side bars&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;n per species&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span>
-<span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_few</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_few</span>()
-
-<span class="kw">ggarrange</span>(plt1, plt2, plt3, plt4, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co"># a stacked bar graph with the cumulative sum of observations</span></a>
+<a class="sourceLine" id="cb64-2" data-line-number="2">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.cnt, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> n, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">width =</span> <span class="dv">1</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Stacked bar graph&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;cumulative sum&quot;</span>,</a>
+<a class="sourceLine" id="cb64-5" data-line-number="5">       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_few</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_fill_few</span>()</a>
+<a class="sourceLine" id="cb64-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb64-9" data-line-number="9"><span class="co"># a stacked bar graph with the relative proportions of observations</span></a>
+<a class="sourceLine" id="cb64-10" data-line-number="10">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.cnt, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> prop, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">width =</span> <span class="dv">1</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-12" data-line-number="12"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.00</span>, <span class="fl">0.33</span>, <span class="fl">0.66</span>, <span class="fl">1.00</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-13" data-line-number="13"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Stacked bar graph&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;relative proportions&quot;</span>,</a>
+<a class="sourceLine" id="cb64-14" data-line-number="14">       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Proportion&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-15" data-line-number="15"><span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_few</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-16" data-line-number="16"><span class="st">  </span><span class="kw">scale_fill_few</span>()</a>
+<a class="sourceLine" id="cb64-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb64-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb64-19" data-line-number="19"><span class="co"># a basic pie chart</span></a>
+<a class="sourceLine" id="cb64-20" data-line-number="20">plt3 &lt;-<span class="st"> </span>plt1 <span class="op">+</span><span class="st"> </span><span class="kw">coord_polar</span>(<span class="st">&quot;y&quot;</span>, <span class="dt">start =</span> <span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-21" data-line-number="21"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Friends don&#39;t let...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...friends make pie charts&quot;</span>,</a>
+<a class="sourceLine" id="cb64-22" data-line-number="22">       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-23" data-line-number="23"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Blues&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-24" data-line-number="24"><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb64-25" data-line-number="25"><span class="co"># if you seriously want a pie chart, rather use the base R function, `pie()`</span></a>
+<a class="sourceLine" id="cb64-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb64-27" data-line-number="27"><span class="co"># here now a bar graph...</span></a>
+<a class="sourceLine" id="cb64-28" data-line-number="28"><span class="co"># the default mapping of `geom_bar` is `stat = count`, which is a</span></a>
+<a class="sourceLine" id="cb64-29" data-line-number="29"><span class="co"># bar for each fo the categories (`Species`), with `count` along y</span></a>
+<a class="sourceLine" id="cb64-30" data-line-number="30">plt4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-31" data-line-number="31"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-32" data-line-number="32"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Side-by-side bars&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;n per species&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-33" data-line-number="33"><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_few</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-34" data-line-number="34"><span class="st">  </span><span class="kw">scale_fill_few</span>()</a>
+<a class="sourceLine" id="cb64-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb64-36" data-line-number="36"><span class="kw">ggarrange</span>(plt1, plt2, plt3, plt4, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-3"></span>
 <img src="04-graphics_files/figure-html/unnamed-chunk-3-1.png" alt="Examples of histograms for the built-in Iris data. A) A default frequency histogram showing the count of samples for each of the three species. B) A relative frequency histogram of the same data; here, the sum of counts of samples available for each of the three species is 1. C) A boring pie chart. D) A frequency histogram of raw data counts shown as a series of side-by-side bars." width="672" />
 <p class="caption">
@@ -389,46 +419,46 @@ Figure 4.1: Examples of histograms for the built-in Iris data. A) A default freq
 <h3><span class="header-section-number">4.2.1</span> Frequency distributions (histograms)</h3>
 <p>As with discrete data, we have a choice of absolute (Fig. 4.2A) and relative (Fig. 4.2 B-C) frequency histograms. There’s also the empirical cumulative distribution function (ECDF) (Fig. 4.2 D) that uses relative proportions, but in this instance it is the relative proportion that each individual observation has towards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called <em>bins</em>. See the Old Faithful data, for example. The eruptions last between 1.6 and 5.1 minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The <strong>ggplot2</strong> <code>geom_histogram()</code> function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure 4.2 A-D).</p>
 <!-- show example of numerical summary -->
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a normal frequency histogram, with count along y</span>
-hist1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;A vanilla frequency histogram&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()
-
-<span class="co"># when the binwidth is 1, the density histogram *is* the relative</span>
-<span class="co"># frequency histogram</span>
-hist2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),
-                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>,
-                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency histogram&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()
-
-
-<span class="co"># if binwidth is something other than 1, the relative frequency in</span>
-<span class="co"># a histogram is ..density.. * binwidth</span>
-hist3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span>..density..),
-                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>,
-                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency histogram&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Relative contribution&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()
-
-<span class="co"># ECDF</span>
-hist4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">stat_ecdf</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;ECDF&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Relative contribution&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()
-
-<span class="kw">ggarrange</span>(hist1, hist2, hist3, hist4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co"># a normal frequency histogram, with count along y</span></a>
+<a class="sourceLine" id="cb65-2" data-line-number="2">hist1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb65-5" data-line-number="5">       <span class="dt">subtitle =</span> <span class="st">&quot;A vanilla frequency histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb65-6" data-line-number="6">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb65-7" data-line-number="7">       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()</a>
+<a class="sourceLine" id="cb65-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb65-9" data-line-number="9"><span class="co"># when the binwidth is 1, the density histogram *is* the relative</span></a>
+<a class="sourceLine" id="cb65-10" data-line-number="10"><span class="co"># frequency histogram</span></a>
+<a class="sourceLine" id="cb65-11" data-line-number="11">hist2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),</a>
+<a class="sourceLine" id="cb65-13" data-line-number="13">                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb65-14" data-line-number="14">                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-15" data-line-number="15"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb65-16" data-line-number="16">       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb65-17" data-line-number="17">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb65-18" data-line-number="18">       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()</a>
+<a class="sourceLine" id="cb65-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb65-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb65-21" data-line-number="21"><span class="co"># if binwidth is something other than 1, the relative frequency in</span></a>
+<a class="sourceLine" id="cb65-22" data-line-number="22"><span class="co"># a histogram is ..density.. * binwidth</span></a>
+<a class="sourceLine" id="cb65-23" data-line-number="23">hist3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-24" data-line-number="24"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span>..density..),</a>
+<a class="sourceLine" id="cb65-25" data-line-number="25">                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb65-26" data-line-number="26">                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-27" data-line-number="27"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb65-28" data-line-number="28">       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb65-29" data-line-number="29">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb65-30" data-line-number="30">       <span class="dt">y =</span> <span class="st">&quot;Relative contribution&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()</a>
+<a class="sourceLine" id="cb65-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb65-32" data-line-number="32"><span class="co"># ECDF</span></a>
+<a class="sourceLine" id="cb65-33" data-line-number="33">hist4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb65-34" data-line-number="34"><span class="st">  </span><span class="kw">stat_ecdf</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-35" data-line-number="35"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb65-36" data-line-number="36">       <span class="dt">subtitle =</span> <span class="st">&quot;ECDF&quot;</span>,</a>
+<a class="sourceLine" id="cb65-37" data-line-number="37">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb65-38" data-line-number="38">       <span class="dt">y =</span> <span class="st">&quot;Relative contribution&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()</a>
+<a class="sourceLine" id="cb65-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb65-40" data-line-number="40"><span class="kw">ggarrange</span>(hist1, hist2, hist3, hist4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-5"></span>
 <img src="04-graphics_files/figure-html/unnamed-chunk-5-1.png" alt="Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1." width="672" />
 <p class="caption">
@@ -436,20 +466,20 @@ Figure 4.2: Examples of histograms for the Old Faithful data. A) A default frequ
 </p>
 </div>
 <p>What if we have continuous data belonging with multiple categories? The <code>iris</code> data provide a nice set of measurements that we may use to demonstrate a grouped frequency histogram. These data are size measurements (cm) of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of three species of <em>Iris</em>. The species are <em>Iris setosa</em>, <em>I. versicolor</em>, and <em>I. virginica</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first we make long data</span>
-iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;size&quot;</span>, <span class="op">-</span>Species)
-
-<span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> size)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="co"># ommitting this creates a stacked histogram</span>
-                 <span class="dt">colour =</span> <span class="ot">NA</span>, <span class="dt">bins =</span> <span class="dv">20</span>,
-                 <span class="kw">aes</span>(<span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Grouped frequency histogram&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Size (mm)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>()</code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># first we make long data</span></a>
+<a class="sourceLine" id="cb66-2" data-line-number="2">iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb66-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;size&quot;</span>, <span class="op">-</span>Species)</a>
+<a class="sourceLine" id="cb66-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb66-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> size)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb66-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="co"># ommitting this creates a stacked histogram</span></a>
+<a class="sourceLine" id="cb66-7" data-line-number="7">                 <span class="dt">colour =</span> <span class="ot">NA</span>, <span class="dt">bins =</span> <span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb66-8" data-line-number="8">                 <span class="kw">aes</span>(<span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb66-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable) <span class="op">+</span></a>
+<a class="sourceLine" id="cb66-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,</a>
+<a class="sourceLine" id="cb66-11" data-line-number="11">       <span class="dt">subtitle =</span> <span class="st">&quot;Grouped frequency histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb66-12" data-line-number="12">       <span class="dt">x =</span> <span class="st">&quot;Size (mm)&quot;</span>,</a>
+<a class="sourceLine" id="cb66-13" data-line-number="13">       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb66-14" data-line-number="14"><span class="st">  </span><span class="kw">theme_pubclean</span>()</a></code></pre></div>
 <p><img src="04-graphics_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="box-plots" class="section level3">
@@ -460,20 +490,20 @@ iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span
 <p>“The upper whisker extends from the hinge to the largest value no further than 1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 * IQR of the hinge. Data beyond the end of the whiskers are called ‘outlying’ points and are plotted individually.”</p>
 <p>“In a notched box plot, the notches extend 1.58 * IQR / sqrt(n). This gives a roughly 95% confidence interval for comparing medians.”</p>
 <p>Here be examples:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>, <span class="dt">notch =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
-
-plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> size)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks.length=</span><span class="kw">unit</span>(<span class="op">-</span><span class="fl">0.25</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">axis.ticks.margin=</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>))
-
-<span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>, <span class="dt">notch =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-4" data-line-number="4"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a>
+<a class="sourceLine" id="cb67-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb67-6" data-line-number="6">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> size)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-11" data-line-number="11"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-12" data-line-number="12"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks.length=</span><span class="kw">unit</span>(<span class="op">-</span><span class="fl">0.25</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">axis.ticks.margin=</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb67-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb67-14" data-line-number="14"><span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-7"></span>
 <img src="04-graphics_files/figure-html/unnamed-chunk-7-1.png" alt="Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="672" />
 <p class="caption">
@@ -486,23 +516,23 @@ Figure 4.3: Examples of box plots made for the Iris data. A) A default box plot 
 <div id="pairwise-scatter-plots" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Pairwise Scatter plots</h3>
 <p>This graph shows the relationship between two (matched) continuous variables. The statistical strength of the relationship can be indicated by a correlation (no causal relationship implied as is the case here) or a regression (when a causal link of <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span> is demonstrated).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.18</span>, <span class="fl">0.85</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_color_fivethirtyeight</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_fivethirtyeight</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>()
-
-plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_color_fivethirtyeight</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_fivethirtyeight</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>()
-
-<span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-4" data-line-number="4"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.18</span>, <span class="fl">0.85</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_color_fivethirtyeight</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_fill_fivethirtyeight</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb68-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_pubclean</span>()</a>
+<a class="sourceLine" id="cb68-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb68-9" data-line-number="9">plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-12" data-line-number="12"><span class="st">  </span><span class="kw">scale_color_fivethirtyeight</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-13" data-line-number="13"><span class="st">  </span><span class="kw">scale_fill_fivethirtyeight</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-14" data-line-number="14"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb68-15" data-line-number="15"><span class="st">  </span><span class="kw">theme_pubclean</span>()</a>
+<a class="sourceLine" id="cb68-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb68-17" data-line-number="17"><span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-8"></span>
 <img src="04-graphics_files/figure-html/unnamed-chunk-8-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="576" />
 <p class="caption">
@@ -513,27 +543,27 @@ Figure 4.4: Examples of scatterplots made for the Iris data. A) A default scatte
 <div id="bar-graphs" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> Bar graphs</h3>
 <p>Bar graphs display the mean plus/minus some measure of variation around the mean—typically the standard error or the standard deviation. The mean±SE and mean±SD are typically used for normally-distributed data. Here I provide an example bar graph for one of the Iris data set’s variables:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first make nice labels for the facets because the default ones</span>
-<span class="co"># in the dataframe are not so nice; use the `labeller()` function</span>
-<span class="co"># to receive the new variable names defined here</span>
-facet.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Petal.Length =</span> <span class="st">&quot;Petal length&quot;</span>,
-                 <span class="dt">Petal.Width =</span> <span class="st">&quot;Petal width&quot;</span>,
-                 <span class="dt">Sepal.Length =</span> <span class="st">&quot;Sepal length&quot;</span>,
-                 <span class="dt">Sepal.Width =</span> <span class="st">&quot;Sepal width&quot;</span>)
-
-<span class="co"># start with the `iris.long` long data that were produced above</span>
-<span class="co"># we create summaries of mean and SD and squirt it directly</span>
-<span class="co"># into the ggplot functions</span>
-iris.long <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Species, variable) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.size =</span> <span class="kw">mean</span>(size),
-            <span class="dt">sd.size =</span> <span class="kw">sd</span>(size)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> mean.size)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean.size <span class="op">-</span><span class="st"> </span>sd.size, <span class="dt">ymax =</span> mean.size <span class="op">+</span><span class="st"> </span>sd.size), <span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">variable =</span> facet.names)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;A box plot...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...of the Iris data&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="co"># first make nice labels for the facets because the default ones</span></a>
+<a class="sourceLine" id="cb69-2" data-line-number="2"><span class="co"># in the dataframe are not so nice; use the `labeller()` function</span></a>
+<a class="sourceLine" id="cb69-3" data-line-number="3"><span class="co"># to receive the new variable names defined here</span></a>
+<a class="sourceLine" id="cb69-4" data-line-number="4">facet.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Petal.Length =</span> <span class="st">&quot;Petal length&quot;</span>,</a>
+<a class="sourceLine" id="cb69-5" data-line-number="5">                 <span class="dt">Petal.Width =</span> <span class="st">&quot;Petal width&quot;</span>,</a>
+<a class="sourceLine" id="cb69-6" data-line-number="6">                 <span class="dt">Sepal.Length =</span> <span class="st">&quot;Sepal length&quot;</span>,</a>
+<a class="sourceLine" id="cb69-7" data-line-number="7">                 <span class="dt">Sepal.Width =</span> <span class="st">&quot;Sepal width&quot;</span>)</a>
+<a class="sourceLine" id="cb69-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb69-9" data-line-number="9"><span class="co"># start with the `iris.long` long data that were produced above</span></a>
+<a class="sourceLine" id="cb69-10" data-line-number="10"><span class="co"># we create summaries of mean and SD and squirt it directly</span></a>
+<a class="sourceLine" id="cb69-11" data-line-number="11"><span class="co"># into the ggplot functions</span></a>
+<a class="sourceLine" id="cb69-12" data-line-number="12">iris.long <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb69-13" data-line-number="13"><span class="st">  </span><span class="kw">group_by</span>(Species, variable) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb69-14" data-line-number="14"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.size =</span> <span class="kw">mean</span>(size),</a>
+<a class="sourceLine" id="cb69-15" data-line-number="15">            <span class="dt">sd.size =</span> <span class="kw">sd</span>(size)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb69-16" data-line-number="16"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> mean.size)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb69-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb69-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean.size <span class="op">-</span><span class="st"> </span>sd.size, <span class="dt">ymax =</span> mean.size <span class="op">+</span><span class="st"> </span>sd.size), <span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb69-19" data-line-number="19"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">variable =</span> facet.names)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb69-20" data-line-number="20"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;A box plot...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...of the Iris data&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb69-21" data-line-number="21"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-9"></span>
 <img src="04-graphics_files/figure-html/unnamed-chunk-9-1.png" alt="Box plots of the mean±SD of the four Iris variables." width="672" />
 <p class="caption">
@@ -544,48 +574,48 @@ Figure 4.5: Box plots of the mean±SD of the four Iris variables.
 <div id="density-graphs" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> Density graphs</h3>
 <p>Often when we are displaying a distribution of data we are interested in the “shape” of the data more than the actual count of values in a specific category, as shown by a standard histogram. When one wishes to more organically visualise the frequency of values in a sample set a density graphs is used. These may also be thought of as smooth histograms. These work well with histograms and rug plots, as we may see in the figure below. It is important to note with density plots that they show the relative density of the distribution along the Y axis, and <em>not</em> the counts of the data. This can of course be changed, as seen below, but is not the default setting. Sometimes it can be informative to see how different the count and density distributions appear.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a normal density graph</span>
-dens1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;A vanilla density plot&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
-
-<span class="co"># a density and rug plot combo</span>
-dens2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_rug</span>(<span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;A density and rug plot&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
-
-<span class="co"># a relative frequency histogram overlayed with a density plot</span>
-dens3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),
-                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>,
-                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;turquoise&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency with density&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
-
-<span class="co"># a normal frequency histogram with density overlayed</span>
-<span class="co"># note that the density curve must be adjusted by</span>
-<span class="co"># the number of data points times the bin width</span>
-dens4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..count..),
-                 <span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;turquoise&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density.. <span class="op">*</span><span class="st"> </span><span class="kw">nrow</span>(datasets<span class="op">::</span>faithful) <span class="op">*</span><span class="st"> </span><span class="fl">0.2</span>), <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>,
-               <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Frequency with density&quot;</span>,
-       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
-
-<span class="kw">ggarrange</span>(dens1, dens2, dens3, dens4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="co"># a normal density graph</span></a>
+<a class="sourceLine" id="cb70-2" data-line-number="2">dens1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb70-5" data-line-number="5">       <span class="dt">subtitle =</span> <span class="st">&quot;A vanilla density plot&quot;</span>,</a>
+<a class="sourceLine" id="cb70-6" data-line-number="6">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb70-7" data-line-number="7">       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()</a>
+<a class="sourceLine" id="cb70-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb70-9" data-line-number="9"><span class="co"># a density and rug plot combo</span></a>
+<a class="sourceLine" id="cb70-10" data-line-number="10">dens2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_rug</span>(<span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-13" data-line-number="13"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb70-14" data-line-number="14">       <span class="dt">subtitle =</span> <span class="st">&quot;A density and rug plot&quot;</span>,</a>
+<a class="sourceLine" id="cb70-15" data-line-number="15">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb70-16" data-line-number="16">       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()</a>
+<a class="sourceLine" id="cb70-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb70-18" data-line-number="18"><span class="co"># a relative frequency histogram overlayed with a density plot</span></a>
+<a class="sourceLine" id="cb70-19" data-line-number="19">dens3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-20" data-line-number="20"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),</a>
+<a class="sourceLine" id="cb70-21" data-line-number="21">                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb70-22" data-line-number="22">                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;turquoise&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-23" data-line-number="23"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-24" data-line-number="24"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb70-25" data-line-number="25">       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency with density&quot;</span>,</a>
+<a class="sourceLine" id="cb70-26" data-line-number="26">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb70-27" data-line-number="27">       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()</a>
+<a class="sourceLine" id="cb70-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb70-29" data-line-number="29"><span class="co"># a normal frequency histogram with density overlayed</span></a>
+<a class="sourceLine" id="cb70-30" data-line-number="30"><span class="co"># note that the density curve must be adjusted by</span></a>
+<a class="sourceLine" id="cb70-31" data-line-number="31"><span class="co"># the number of data points times the bin width</span></a>
+<a class="sourceLine" id="cb70-32" data-line-number="32">dens4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-33" data-line-number="33"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..count..),</a>
+<a class="sourceLine" id="cb70-34" data-line-number="34">                 <span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;turquoise&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-35" data-line-number="35"><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density.. <span class="op">*</span><span class="st"> </span><span class="kw">nrow</span>(datasets<span class="op">::</span>faithful) <span class="op">*</span><span class="st"> </span><span class="fl">0.2</span>), <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>,</a>
+<a class="sourceLine" id="cb70-36" data-line-number="36">               <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-37" data-line-number="37"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,</a>
+<a class="sourceLine" id="cb70-38" data-line-number="38">       <span class="dt">subtitle =</span> <span class="st">&quot;Frequency with density&quot;</span>,</a>
+<a class="sourceLine" id="cb70-39" data-line-number="39">       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,</a>
+<a class="sourceLine" id="cb70-40" data-line-number="40">       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()</a>
+<a class="sourceLine" id="cb70-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb70-42" data-line-number="42"><span class="kw">ggarrange</span>(dens1, dens2, dens3, dens4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-10"></span>
 <img src="04-graphics_files/figure-html/unnamed-chunk-10-1.png" alt="A bevy of density graphs option based on the iris data. A) A lone density graph. B) A density graph accompanied by a rug plot. C) A histogram with a density graph overlay. D) A ridge plot." width="672" />
 <p class="caption">
@@ -596,42 +626,42 @@ Figure 4.6: A bevy of density graphs option based on the iris data. A) A lone de
 <div id="violin-plots" class="section level3">
 <h3><span class="header-section-number">4.2.6</span> Violin plots</h3>
 <p>The density graph is not limited to it’s use with histograms. We may combine this concept with box plots, too. These are known as violin plots and are very useful when we want to show the distribution of multiple categories of the same variable alongside one another. Violin plots may show the same information as box plots but take things one step further by allowing the shape of the boxplot to also show the distribution of the data within the sample set. We will use the <code>iris</code> data below to highlight the different types of violin plots one may use.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A basic violin plot</span>
-vio1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Basic violin plot&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
-
-<span class="co"># Aviolin plot showing the quartiles as lines</span>
-vio2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>, <span class="dt">draw_quantiles =</span> <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Violin plot with quartiles&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
-
-<span class="co"># Box plots nested within violin plots</span>
-vio3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;grey30&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Box plots nested within violin plots&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
-
-<span class="co"># Boxes in violins with the raw data jittered about</span>
-vio4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="ot">NA</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&quot;Violins, boxes, and jittered data&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
-
-<span class="kw">ggarrange</span>(vio1, vio2, vio3, vio4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="co"># A basic violin plot</span></a>
+<a class="sourceLine" id="cb71-2" data-line-number="2">vio1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb71-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,</a>
+<a class="sourceLine" id="cb71-6" data-line-number="6">       <span class="dt">subtitle =</span> <span class="st">&quot;Basic violin plot&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-7" data-line-number="7"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a>
+<a class="sourceLine" id="cb71-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb71-9" data-line-number="9"><span class="co"># Aviolin plot showing the quartiles as lines</span></a>
+<a class="sourceLine" id="cb71-10" data-line-number="10">vio2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>, <span class="dt">draw_quantiles =</span> <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb71-12" data-line-number="12"><span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-13" data-line-number="13"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,</a>
+<a class="sourceLine" id="cb71-14" data-line-number="14">       <span class="dt">subtitle =</span> <span class="st">&quot;Violin plot with quartiles&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-15" data-line-number="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a>
+<a class="sourceLine" id="cb71-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb71-17" data-line-number="17"><span class="co"># Box plots nested within violin plots</span></a>
+<a class="sourceLine" id="cb71-18" data-line-number="18">vio3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-19" data-line-number="19"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb71-20" data-line-number="20"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;grey30&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-21" data-line-number="21"><span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-22" data-line-number="22"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,</a>
+<a class="sourceLine" id="cb71-23" data-line-number="23">       <span class="dt">subtitle =</span> <span class="st">&quot;Box plots nested within violin plots&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-24" data-line-number="24"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a>
+<a class="sourceLine" id="cb71-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb71-26" data-line-number="26"><span class="co"># Boxes in violins with the raw data jittered about</span></a>
+<a class="sourceLine" id="cb71-27" data-line-number="27">vio4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-28" data-line-number="28"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb71-29" data-line-number="29"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-30" data-line-number="30"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-31" data-line-number="31"><span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-32" data-line-number="32"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,</a>
+<a class="sourceLine" id="cb71-33" data-line-number="33">       <span class="dt">subtitle =</span> <span class="st">&quot;Violins, boxes, and jittered data&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-34" data-line-number="34"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</a>
+<a class="sourceLine" id="cb71-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb71-36" data-line-number="36"><span class="kw">ggarrange</span>(vio1, vio2, vio3, vio4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</a></code></pre></div>
 <p><img src="04-graphics_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 </div>
@@ -696,7 +726,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

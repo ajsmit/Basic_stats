@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-18">
+<meta name="date" content="2018-04-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,41 +57,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -234,7 +262,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>7</b> ANOVA</a><ul>
-<li class="chapter" data-level="7.1" data-path="anova.html"><a href="anova.html#t-test"><i class="fa fa-check"></i><b>7.1</b> t-test</a></li>
+<li class="chapter" data-level="7.1" data-path="anova.html"><a href="anova.html#remember-the-t-test"><i class="fa fa-check"></i><b>7.1</b> Remember the <em>t</em>-test</a></li>
 <li class="chapter" data-level="7.2" data-path="anova.html"><a href="anova.html#anova-1"><i class="fa fa-check"></i><b>7.2</b> ANOVA</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="anova.html"><a href="anova.html#single-factor"><i class="fa fa-check"></i><b>7.2.1</b> Single factor</a></li>
 <li class="chapter" data-level="7.2.2" data-path="anova.html"><a href="anova.html#multiple-factors"><i class="fa fa-check"></i><b>7.2.2</b> Multiple factors</a></li>
@@ -246,6 +274,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="anova.html"><a href="anova.html#exercises-4"><i class="fa fa-check"></i><b>7.4</b> Exercises</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="anova.html"><a href="anova.html#exercise-1-4"><i class="fa fa-check"></i><b>7.4.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="7.4.2" data-path="anova.html"><a href="anova.html#exercise-2-1"><i class="fa fa-check"></i><b>7.4.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="7.4.3" data-path="anova.html"><a href="anova.html#exercise-3"><i class="fa fa-check"></i><b>7.4.3</b> Exercise 3</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simple-linear-regressions.html"><a href="simple-linear-regressions.html"><i class="fa fa-check"></i><b>8</b> Simple linear regressions</a><ul>
@@ -277,7 +307,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-5"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-5"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
-<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-1"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-2"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>12</b> Linear mixed models</a><ul>
@@ -317,48 +347,61 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="anova" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> ANOVA</h1>
 <p>Whole big books have been written about Analysis of Variance (ANOVA). Although there are many ANOVA experimental designs available, biologists are taught to pay special attention to the design of experiments, and generally make sure that the experiments are fully factorial (in the case of two-way or higher ANOVAs) and balanced. For this reason we will focus in this Introductory Statistics course on one-way and factorial ANOVAs only.</p>
-<p>As t-tests, ANOVAs require that some assumptions are met:</p>
+<p>As <em>t</em>-tests, ANOVAs require that some assumptions are met:</p>
 <ul>
 <li>Normally distributed data</li>
+<li>Homogeneity of variances</li>
 <li>Independence of data</li>
 <li>In our case, we will encourage also that the data are balanced</li>
 </ul>
 <p>If some of the above assumptions are violated, then your course of action is either to transform the data (if non-normal) or to use a generalised linear model (also when non-normal), or to use a linear mixed model (when the assumption on non-independence cannot be guaranteed). We will get to some of these methods in later chapters. Linked to the above, ANOVAs are also sensitive to the presence of outliers (see our earlier discussion about the mean and how it differs from the median), so we need to ensure that outliers are not present (they can be removed, and there are many ways of finding them and eliminating them). If outliers are an important feature of the data, then a non-parametric test can be used, or some other test that works well with extreme values can be applied.</p>
-<p>Rather than talking about t-tests and ANOVAs as separate things, let us acknowledge that they are similar ways of asking the same question. That question being, are the means of these two or more things we want to compare different, or the same? At this stage it is important to note that the independent variable is categorical (i.e. a factor denoting two or more different treatments or sampling conditions) and that the dependent variable is continuous. You may perhaps be more familiar with this question when it is presented as a set of hypotheses.</p>
+<p>Rather than talking about <em>t</em>-tests and ANOVAs as separate things, let us acknowledge that they are similar ways of asking the same question. That question being, are the means of these two or more things we want to compare different, or the same? At this stage it is important to note that the independent variable is categorical (i.e. a factor denoting two or more different treatments or sampling conditions) and that the dependent variable is continuous. You may perhaps be more familiar with this question when it is presented as a set of hypotheses.</p>
 <blockquote>
 <p>H0: Group A is not different from group B.</p>
 <p>H1: Group A is different from group B.</p>
 </blockquote>
 <p>This is a scientific question in the simplest sense. Often, for basic inquiries such as that posed above, we need to see if one group differs significantly from another. The way in which we accomplish this is by looking at the mean and variance within a set of data compared against another similar set. In order to do so appropriately however we need to first assume that both sets of data are normally distributed, and that the variance found within each set of data is similar. These are the two primary assumptions we learned about in Chapter 6, and if they are met then we may use parametric tests. We will learn in Chapter 9 what we can do if these assumptions are not meant and we cannot adequately transform our data, meaning we will need to use non-parametric tests.</p>
-<div id="t-test" class="section level2">
-<h2><span class="header-section-number">7.1</span> t-test</h2>
-<p>A t-test is used when wants to compare two different sample sets against one another. This is also known as a two-factor or two level test. When one wants to compare multiple, more than two, sample sets against one another an ANOVA is required (see below). In order to illustrate how to perform a t-test in R we are going to once again use the <code>chicks</code> data, but only Diet 1 and 2 from day 21.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First grab the data</span>
-chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)
-
-<span class="co"># Then subset out only the sample sets to be compared</span>
-chicks_sub &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Diet <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>)</code></pre></div>
-<p>Once we have filtered our data we may now perform the t-test. Traditionally this would be performed with <code>t.test()</code>, but recent developments in R have made any testing for the comparison of means more convenient by wrapping everything up into the one single function <code>compare_means()</code>. We may use only this one single function for many of the tests we will perform in this chapter as well as Chapter 9. To use <code>compare_means()</code> for a t-test we must simply specify this in the <code>method</code> argument, as seen below:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> chicks_sub, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>)</code></pre></div>
+<div id="remember-the-t-test" class="section level2">
+<h2><span class="header-section-number">7.1</span> Remember the <em>t</em>-test</h2>
+<p>As you know, a <em>t</em>-test is used when we want to compare two different sample sets against one another. This is also known as a two-factor or two level test. When one wants to compare multiple (more than two) sample sets against one another an ANOVA is required (see below). Remember how to perform a <em>t</em>-test in R: we will revisit this test using the <code>chicks</code> data, but only for Diets 1 and 2 from day 21.</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="co"># First grab the data</span></a>
+<a class="sourceLine" id="cb149-2" data-line-number="2">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a>
+<a class="sourceLine" id="cb149-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb149-4" data-line-number="4"><span class="co"># Then subset out only the sample sets to be compared</span></a>
+<a class="sourceLine" id="cb149-5" data-line-number="5">chicks_sub &lt;-<span class="st"> </span>chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb149-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(Diet <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>)</a></code></pre></div>
+<p>Once we have filtered our data we may now perform the <em>t</em>-test. Traditionally this would be performed with <code>t.test()</code>, but recent developments in R have made any testing for the comparison of means more convenient by wrapping everything up into the one single function <code>compare_means()</code>. We may use only this one single function for many of the tests we will perform in this chapter as well as Chapter 9. To use <code>compare_means()</code> for a <em>t</em>-test we must simply specify this in the <code>method</code> argument, as seen below:</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> chicks_sub, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>)</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.    group1 group2     p p.adj p.format p.signif method
 R&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
 R&gt; 1 weight 1      2      0.218 0.218 0.22     ns       T-test</code></pre>
-<p>As one may recall from the Intro R Workshop, whenever we want to give a formula to a function in R, we use the <code>~</code>. The formula used above, <code>weight ~ Diet</code>, reads in plain English as “weight as a function of diet”. This is perhaps easier to understand as “Y as a function of X”. This means that we are assuming whatever is to the left of the <code>~</code> is the dependant variable, and whatever is to the right is the independent variable. We then tell <code>compare_means()</code> to run a t-test on our <code>chicks_sub</code> dataframe and it does the rest. We see in the output above that this function gives us a rather tidy read-out of the information we require to test a potential hypothesis. Let’s take a moment to look through the help file for this function and see what all of this means. Did the Diet 1 and 2 produce significantly fatter birds?</p>
+<p>As one may recall from the previous chapter, whenever we want to give a formula to a function in R, we use the <code>~</code>. The formula used above, <code>weight ~ Diet</code>, reads in plain English as “weight as a function of diet”. This is perhaps easier to understand as “Y as a function of X”. This means that we are assuming whatever is to the left of the <code>~</code> is the dependant variable, and whatever is to the right is the independent variable. We then tell <code>compare_means()</code> to run a <em>t</em>-test on our <code>chicks_sub</code> dataframe and it does the rest. We see in the output above that this function gives us a rather tidy read-out of the information we require to test a potential hypothesis. Let’s take a moment to look through the help file for this function and see what all of this means. Did the Diet 1 and 2 produce significantly fatter birds?</p>
 </div>
 <div id="anova-1" class="section level2">
 <h2><span class="header-section-number">7.2</span> ANOVA</h2>
+<p>In the <code>chicks</code> data we have four diets, not only two as in the <em>t</em>-test example just performed. Why not then simply do a <em>t</em>-test multiple times, once for each pair of diets given to the chickens? The problem is that the chances of committing a Type I error increases as more multiple comparisons are done. So, the overall chance of rejecting the null hypothesis increases. Why? If one sets <span class="math inline">\(\alpha=0.05\)</span> (the significance level below which the null hypothesis is no longer accepted), one will still reject the null hypothesis 5% of the time when it is in fact true (i.e. when there is no difference between the groups). When many pairwise comparisons are made, the probability of rejecting the null hypothesis at least once is higher because we take this 5% risk each time we repeat a <em>t</em>-test. In the case of the chicken diets, we would have to perform six <em>t</em>-tests, and the error rate would increase to slightly less than <span class="math inline">\(6\times5\%\)</span>. If you insist in creating more work for yourself and do <em>t</em>-tests many times, one way to overcome the problem of committing Type I errors that stems from multiple comparisons is to apply a Bonferroni correction.</p>
+<p>Or better still, we do an ANOVA that controls for these Type I errors so that it remains at 5%.</p>
+<p>A suitable null hypothesis for our chicken weight data is:</p>
+<p><span class="math display">\[H_{0}:\mu_{1}=\mu_{2}=\mu_{3}=\mu_{4}\]</span>
+where <span class="math inline">\(\mu_{1...4}\)</span> are the means of the four diets.</p>
+<p>At this point I was very tempted to put many equations here, but I ommitted them for your sake. Let us turn to some examples.</p>
 <div id="single-factor" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Single factor</h3>
-<p>In the previous section we learned how to calculate the difference between two sample sets. But what if, as is often the case, we want to compare three or more? Again, the <code>chicks</code> data provide an excellent example of how to do this. The base R function for an ANOVA is <code>aov()</code>, but we will rather continue to use <code>compare_means()</code>. To look for significant differences between all four diets on the last day of sampling we use this one line of code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>), <span class="dt">method =</span> <span class="st">&quot;anova&quot;</span>)</code></pre></div>
-<pre><code>R&gt; # A tibble: 1 x 6
-R&gt;   .y.          p   p.adj p.format p.signif method
-R&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
-R&gt; 1 weight 0.00686 0.00686 0.0069   **       Anova</code></pre>
-<p>When we now look at all four diets, rather than only 1 and 2, do they produce significantly different chicken weights after 21 days? If this seems to easy to be true, it’s because we aren’t quite done yet. The next step one must take is to run a Tukey test on the results of the ANOVA by wrapping <code>tukeyHSD()</code> around <code>aov()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>)))</code></pre></div>
+<p>We continue with the chicken data. The <em>t</em>-test showed that Diets 1 and 2 resulted in the same chicken masses at the end of the experiment at Day 21. What about the other two diets? Our null hypothesis is that, at Day 21, <span class="math inline">\(\mu_{1}=\mu_{2}=\mu_{3}=\mu_{4}\)</span>. Is there a statistical difference between chickens fed these four diets, or do we retain the null hypothesis? The R function for an ANOVA is <code>aov()</code>. To look for significant differences between all four diets on the last day of sampling we use this one line of code:</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">chicks.aov1 &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>))</a>
+<a class="sourceLine" id="cb152-2" data-line-number="2"><span class="kw">summary</span>(chicks.aov1)</a></code></pre></div>
+<pre><code>R&gt;             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+R&gt; Diet         3  57164   19055   4.655 0.00686 **
+R&gt; Residuals   41 167839    4094                   
+R&gt; ---
+R&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<blockquote>
+<p><strong>Task:</strong> What does the outcome say about the chicken masses? Which ones are different from each other?</p>
+<p><strong>Task:</strong> Devise a graphical display of this outcome.</p>
+</blockquote>
+<p>If this seems too easy to be true, it’s because we aren’t quite done yet. You could use your graphical display to eyeball where the significant differences are, or we can turn to a more ‘precise’ approach. The next step one could take is to run a Tukey HSD test on the results of the ANOVA by wrapping <code>tukeyHSD()</code> around <code>aov()</code>:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="kw">TukeyHSD</span>(chicks.aov1)</a></code></pre></div>
 <pre><code>R&gt;   Tukey multiple comparisons of means
 R&gt;     95% family-wise confidence level
 R&gt; 
@@ -372,37 +415,145 @@ R&gt; 4-1  60.80556  -10.57710 132.18821 0.1192661
 R&gt; 3-2  55.60000  -21.01591 132.21591 0.2263918
 R&gt; 4-2  23.85556  -54.85981 102.57092 0.8486781
 R&gt; 4-3 -31.74444 -110.45981  46.97092 0.7036249</code></pre>
-<p>The output of <code>tukeyHSD()</code> shows us that pairwise comparisons of all of the groups we are comparing. Let’s look at the help file for this function to better understand what the output means. Which of the groups are significantly different from one another? Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?</p>
+<p>The output of <code>tukeyHSD()</code> shows us that pairwise comparisons of all of the groups we are comparing.</p>
+<blockquote>
+<p><strong>Task:</strong> Look at the help file for this function to better understand what the output means.</p>
+<p><strong>Task:</strong> How does one interpret the results? What does this tell us about the effect that that different diets has on the chicken weights at Day 21?</p>
+<p><strong>Task:</strong> Figure out a way to plot the Tukey HSD outcomes.</p>
+<p><strong>Task:</strong> Why does the ANOVA return a significant result, but the Tukey test shows that not all of the groups are significantly different from one another?</p>
+<p><strong>Task:</strong> Produce a graphical display of the Tukey HSD result.</p>
+</blockquote>
+<!-- ```{r} -->
+<!-- # plot(TukeyHSD(chicks.aov)) -->
+<!-- ``` -->
 <p>Now that we’ve seen how to perform a single factor ANOVA, let’s watch some animations that highlight how certain aspects of our data may affect our results.</p>
 <ul>
 <li>When the <a href="https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_n_slide.avi">sample size</a> changes</li>
 <li>When the <a href="https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_mean_slide.avi">mean</a> of one sample changes</li>
 <li>When the <a href="https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_sd_slide.avi">variance</a> of one sample increases</li>
 </ul>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb156-2" data-line-number="2"><span class="kw">library</span>(animation)</a>
+<a class="sourceLine" id="cb156-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb156-4" data-line-number="4"><span class="co"># Function that serves as the basis for the sliding ANOVA figures</span></a>
+<a class="sourceLine" id="cb156-5" data-line-number="5">slide_fig &lt;-<span class="st"> </span><span class="cf">function</span>(df){</a>
+<a class="sourceLine" id="cb156-6" data-line-number="6">  </a>
+<a class="sourceLine" id="cb156-7" data-line-number="7"><span class="co"># Calculate basic stats</span></a>
+<a class="sourceLine" id="cb156-8" data-line-number="8">sub_stats &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb156-9" data-line-number="9"><span class="st">  </span><span class="kw">group_by</span>(title, sample) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb156-10" data-line-number="10"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sub_mean =</span> <span class="kw">round</span>(<span class="kw">mean</span>(dat), <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb156-11" data-line-number="11">            <span class="dt">sub_sd =</span> <span class="kw">round</span>(<span class="kw">sd</span>(dat), <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb156-12" data-line-number="12">            <span class="dt">sub_n =</span> <span class="kw">round</span>(<span class="kw">n</span>(), <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb156-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb156-14" data-line-number="14"><span class="co"># Crerate fancy dataframe for use in ggplot2 text printing</span></a>
+<a class="sourceLine" id="cb156-15" data-line-number="15">sub_stats_print &lt;-<span class="st"> </span>sub_stats <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb156-16" data-line-number="16"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> stat, <span class="dt">value =</span> value, <span class="op">-</span>sample, <span class="op">-</span>title) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb156-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">y =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="fl">18.9</span>, <span class="dv">3</span>), <span class="kw">rep</span>(<span class="fl">17.9</span>, <span class="dv">3</span>), <span class="kw">rep</span>(<span class="fl">16.9</span>, <span class="dv">3</span>)),</a>
+<a class="sourceLine" id="cb156-18" data-line-number="18">         <span class="dt">stat_word =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;mean = &quot;</span>, <span class="dv">3</span>), <span class="kw">rep</span>(<span class="st">&quot;sd = &quot;</span>, <span class="dv">3</span>), <span class="kw">rep</span>(<span class="st">&quot;n = &quot;</span>, <span class="dv">3</span>)),</a>
+<a class="sourceLine" id="cb156-19" data-line-number="19">         <span class="dt">stat_print =</span> <span class="kw">paste0</span>(stat_word, value))</a>
+<a class="sourceLine" id="cb156-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb156-21" data-line-number="21"><span class="co"># Run ANOVA</span></a>
+<a class="sourceLine" id="cb156-22" data-line-number="22">sub_aov &lt;-<span class="st"> </span><span class="kw">summary</span>(<span class="kw">aov</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> df))</a>
+<a class="sourceLine" id="cb156-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb156-24" data-line-number="24"><span class="co"># Create final stats for printing</span></a>
+<a class="sourceLine" id="cb156-25" data-line-number="25">df_val_print &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;d.f. = &quot;</span>, sub_aov[[<span class="dv">1</span>]]<span class="op">$</span>Df[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb156-26" data-line-number="26">ss_val_print &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;SS = &quot;</span>, <span class="kw">round</span>(sub_aov[[<span class="dv">1</span>]]<span class="op">$</span><span class="st">`</span><span class="dt">Sum Sq</span><span class="st">`</span>[<span class="dv">1</span>], <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb156-27" data-line-number="27">f_val_print &lt;-<span class="st">  </span><span class="kw">paste0</span>(<span class="st">&quot;F = &quot;</span>, <span class="kw">round</span>(sub_aov[[<span class="dv">1</span>]]<span class="op">$</span><span class="st">`</span><span class="dt">F value</span><span class="st">`</span>[<span class="dv">1</span>], <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb156-28" data-line-number="28"><span class="cf">if</span>(sub_aov[[<span class="dv">1</span>]]<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.001</span>) {</a>
+<a class="sourceLine" id="cb156-29" data-line-number="29">  p_val_print &lt;-<span class="st"> &quot;p &lt; 0.001&quot;</span></a>
+<a class="sourceLine" id="cb156-30" data-line-number="30">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb156-31" data-line-number="31">  p_val_print &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;p = &quot;</span>, <span class="kw">round</span>(sub_aov[[<span class="dv">1</span>]]<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>], <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb156-32" data-line-number="32">}</a>
+<a class="sourceLine" id="cb156-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb156-34" data-line-number="34"><span class="co"># Create the figure</span></a>
+<a class="sourceLine" id="cb156-35" data-line-number="35">aovb &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="kw">aes</span>(<span class="dt">x =</span> sample, <span class="dt">y =</span> dat, <span class="dt">colour =</span> sample)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-36" data-line-number="36"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(df<span class="op">$</span>dat)), <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-37" data-line-number="37"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb156-38" data-line-number="38"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">notch =</span> T) <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-39" data-line-number="39"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">width =</span> <span class="fl">0.01</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-40" data-line-number="40"><span class="st">  </span><span class="kw">geom_label</span>(<span class="dt">data =</span> sub_stats_print, <span class="kw">aes</span>(<span class="dt">label =</span> stat_print, <span class="dt">y =</span> y), <span class="dt">size =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb156-41" data-line-number="41">             <span class="dt">label.padding =</span> <span class="kw">unit</span>(<span class="fl">0.25</span>, <span class="st">&quot;lines&quot;</span>), <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-42" data-line-number="42"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">19</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-43" data-line-number="43"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> sub_stats_print<span class="op">$</span>title,</a>
+<a class="sourceLine" id="cb156-44" data-line-number="44">       <span class="dt">subtitle =</span> <span class="kw">paste</span>(df_val_print, ss_val_print, </a>
+<a class="sourceLine" id="cb156-45" data-line-number="45">                        f_val_print, p_val_print, <span class="dt">sep =</span> <span class="st">&quot;, &quot;</span>),</a>
+<a class="sourceLine" id="cb156-46" data-line-number="46">       <span class="dt">x =</span> <span class="st">&quot;Sample&quot;</span>,</a>
+<a class="sourceLine" id="cb156-47" data-line-number="47">       <span class="dt">y =</span> <span class="st">&quot;value&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-48" data-line-number="48"><span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb156-49" data-line-number="49"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a>
+<a class="sourceLine" id="cb156-50" data-line-number="50"><span class="kw">print</span>(aovb)</a>
+<a class="sourceLine" id="cb156-51" data-line-number="51">}</a></code></pre></div>
 </div>
 <div id="multiple-factors" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Multiple factors</h3>
-<p>What if we have multiple grouping variables, and not just one? To run an ANOVA on multiple factors we will need to use <code>aov()</code> rather than <code>compare_means()</code>. To specify the different factors we put them in our formula and separate them with a <code>+</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet <span class="op">+</span><span class="st"> </span><span class="kw">as.factor</span>(Time), <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">21</span>))))</code></pre></div>
-<pre><code>R&gt;                 Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-R&gt; Diet             3 113270   37757  10.436 6.33e-06 ***
-R&gt; as.factor(Time)  1   1488    1488   0.411    0.523    
-R&gt; Residuals       86 311147    3618                     
+<p>What if we have multiple grouping variables, and not just one? In the case of the chicken data, there is also time that seems to be having an effect.</p>
+<blockquote>
+<p><strong>Task:</strong> How is time having an effect?</p>
+<p><strong>Task:</strong> What hypotheses can we construct around time?</p>
+</blockquote>
+<p>Let us look at some variations around questions concerning time. We might ask, at a particular time step, are there differences amongst the effect due to diet on chicken mass? Let’s see when diets are starting the have an effect by examining the outcomes at times 0, 2, 10, and 21:</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>))))</a></code></pre></div>
+<pre><code>R&gt;             Df Sum Sq Mean Sq F value Pr(&gt;F)
+R&gt; Diet         3   4.32   1.440   1.132  0.346
+R&gt; Residuals   46  58.50   1.272</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>))))</a></code></pre></div>
+<pre><code>R&gt;             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+R&gt; Diet         3  158.4   52.81   4.781 0.00555 **
+R&gt; Residuals   46  508.1   11.05                   
 R&gt; ---
 R&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>What question are we asking with the above line of code? What is the answer? Also, why did we wrap <code>Time</code> in <code>as.factor()</code>?</p>
-<p>It is also possible to look at what the effect is between grouping variables, and not just within the individual grouping variables. To do this we replace the <code>+</code> in our formula with <code>*</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet <span class="op">*</span><span class="st"> </span><span class="kw">as.factor</span>(Time), <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">21</span>))))</code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>))))</a></code></pre></div>
+<pre><code>R&gt;             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+R&gt; Diet         3   8314    2771    6.46 0.000989 ***
+R&gt; Residuals   45  19304     429                     
+R&gt; ---
+R&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>))))</a></code></pre></div>
+<pre><code>R&gt;             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+R&gt; Diet         3  57164   19055   4.655 0.00686 **
+R&gt; Residuals   41 167839    4094                   
+R&gt; ---
+R&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<blockquote>
+<p><strong>Task:</strong> What do you conclude from the above series of ANOVAs?</p>
+<p><strong>Task:</strong> What problem is associated with running multiple tests in the way that we have done here?</p>
+</blockquote>
+<p>Or we may ask, regardless of diet (i.e. disregarding the effect of diet by clumping all chickens together), is time having an effect?</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1">chicks.aov2 &lt;-<span class="st"> </span><span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span><span class="kw">as.factor</span>(Time), <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">21</span>)))</a>
+<a class="sourceLine" id="cb165-2" data-line-number="2"><span class="kw">summary</span>(chicks.aov2)</a></code></pre></div>
+<pre><code>R&gt;                  Df Sum Sq Mean Sq F value Pr(&gt;F)    
+R&gt; as.factor(Time)   3 939259  313086   234.8 &lt;2e-16 ***
+R&gt; Residuals       190 253352    1333                   
+R&gt; ---
+R&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<blockquote>
+<p><strong>Task:</strong> What do you conclude from the above ANOVA?</p>
+</blockquote>
+<p>Or, to save ourselves a lot of time and reduce the coding effort, we may simply run a two-way ANOVA and look at the effects of <code>Diet</code> and <code>Time</code> simultaneously. To specify the different factors we put them in our formula and separate them with a <code>+</code>:</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet <span class="op">+</span><span class="st"> </span><span class="kw">as.factor</span>(Time), <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">21</span>))))</a></code></pre></div>
+<pre><code>R&gt;                 Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+R&gt; Diet             3  39595   13198   5.987 0.00091 ***
+R&gt; as.factor(Time)  1 734353  734353 333.120 &lt; 2e-16 ***
+R&gt; Residuals       90 198402    2204                    
+R&gt; ---
+R&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<blockquote>
+<p><strong>Task:</strong> What question are we asking with the above line of code? What is the answer? Also, why did we wrap <code>Time</code> in <code>as.factor()</code>?</p>
+</blockquote>
+<p>It is also possible to look at what the interaction effect between grouping variables (i.e. in this case the effect of time on diet—does the effect of time depend on which diet we are looking at?), and not just within the individual grouping variables. To do this we replace the <code>+</code> in our formula with <code>*</code>:</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet <span class="op">*</span><span class="st"> </span><span class="kw">as.factor</span>(Time), <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">21</span>))))</a></code></pre></div>
 <pre><code>R&gt;                      Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-R&gt; Diet                  3 113270   37757  10.076 9.88e-06 ***
-R&gt; as.factor(Time)       1   1488    1488   0.397    0.530    
-R&gt; Diet:as.factor(Time)  3    117      39   0.010    0.999    
-R&gt; Residuals            83 311030    3747                     
+R&gt; Diet                  3  40914   13638   6.968 0.000298 ***
+R&gt; as.factor(Time)       1 582221  582221 297.472  &lt; 2e-16 ***
+R&gt; Diet:as.factor(Time)  3  25530    8510   4.348 0.006684 ** 
+R&gt; Residuals            86 168322    1957                     
 R&gt; ---
 R&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>How do these results differ from the previous set?</p>
+<blockquote>
+<p><strong>Task:</strong> How do these results differ from the previous set?</p>
+</blockquote>
 <p>One may also run a post-hoc Tukey test on these results the same as for a single factor ANOVA:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet <span class="op">*</span><span class="st"> </span><span class="kw">as.factor</span>(Time), <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">21</span>))))</code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet <span class="op">*</span><span class="st"> </span><span class="kw">as.factor</span>(Time), <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">21</span>))))</a></code></pre></div>
 <pre><code>R&gt;   Tukey multiple comparisons of means
 R&gt;     95% family-wise confidence level
 R&gt; 
@@ -451,25 +602,27 @@ R&gt; 4:21-1:21  60.805556  -18.50952 140.120628 0.2629945
 R&gt; 3:21-2:21  55.600000  -29.52987 140.729869 0.4679025
 R&gt; 4:21-2:21  23.855556  -63.60707 111.318182 0.9896157
 R&gt; 4:21-3:21 -31.744444 -119.20707  55.718182 0.9486128</code></pre>
-<p>Jikes! That’s a massive amount of results. What does all of this mean, and why is it so verbose?</p>
+<blockquote>
+<p><strong>Task:</strong> Jikes! That’s a massive amount of results. What does all of this mean, and why is it so verbose?</p>
+</blockquote>
 </div>
 </div>
 <div id="deeper-into-anova" class="section level2">
 <h2><span class="header-section-number">7.3</span> Deeper into ANOVA</h2>
 <p>In the first main section of this chapter we learned how to test hypotheses based on the comparisons of means between sets of data when we were able to meet our two base assumptions. These parametric tests are preferred over non-parametric tests because they are more robust. However, when we simply aren’t able to meet these assumptions we must not despair. Non-parametric tests are still useful. In this chapter we will learn how to run non-parametric tests for two sample and multiple sample datasets. To start, let’s load our libraries and <code>chicks</code> data if we have not already.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First activate libraries</span>
-<span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(ggpubr)
-
-<span class="co"># Then load data</span>
-chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="co"># First activate libraries</span></a>
+<a class="sourceLine" id="cb173-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb173-3" data-line-number="3"><span class="kw">library</span>(ggpubr)</a>
+<a class="sourceLine" id="cb173-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb173-5" data-line-number="5"><span class="co"># Then load data</span></a>
+<a class="sourceLine" id="cb173-6" data-line-number="6">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a></code></pre></div>
 <p>With our libraries and data loaded, let’s find a day in which at least one of our assumptions are violated.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Then check for failing assumptions</span>
-chicks <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_wt =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(weight)[<span class="dv">2</span>]),
-            <span class="dt">var_wt =</span> <span class="kw">var</span>(weight))</code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1"><span class="co"># Then check for failing assumptions</span></a>
+<a class="sourceLine" id="cb174-2" data-line-number="2">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb174-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb174-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb174-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_wt =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(weight)[<span class="dv">2</span>]),</a>
+<a class="sourceLine" id="cb174-6" data-line-number="6">            <span class="dt">var_wt =</span> <span class="kw">var</span>(weight))</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 4 x 3
 R&gt;   Diet  norm_wt var_wt
 R&gt;   &lt;fct&gt;   &lt;dbl&gt;  &lt;dbl&gt;
@@ -480,7 +633,7 @@ R&gt; 4 4     0.0739   1.11</code></pre>
 <div id="wilcox-rank-sum-test" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Wilcox rank sum test</h3>
 <p>The non-parametric version of a t-test is a Wilcox rank sum test. To perform this test in R we may again use <code>compare_means()</code> and specify the test we want:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, Diet <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)), <span class="dt">method =</span> <span class="st">&quot;wilcox.test&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, Diet <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)), <span class="dt">method =</span> <span class="st">&quot;wilcox.test&quot;</span>)</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.    group1 group2     p p.adj p.format p.signif method  
 R&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;   
@@ -492,15 +645,15 @@ R&gt; 1 weight 1      2      0.235 0.235 0.23     ns       Wilcoxon</code></pre>
 <div id="single-factor-1" class="section level4">
 <h4><span class="header-section-number">7.3.2.1</span> Single factor</h4>
 <p>The non-parametric version of an ANOVA is a Kruskall-Wallis rank sum test. As you may have by now surmised, this may be done with <code>compare_means()</code> as seen below:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>), <span class="dt">method =</span> <span class="st">&quot;kruskal.test&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1"><span class="kw">compare_means</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>), <span class="dt">method =</span> <span class="st">&quot;kruskal.test&quot;</span>)</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 6
 R&gt;   .y.        p p.adj p.format p.signif method        
 R&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;         
 R&gt; 1 weight 0.475 0.475 0.48     ns       Kruskal-Wallis</code></pre>
 <p>As with the ANOVA, this first step with the Kruskall-Wallis test is not the last. We must again run a post-hoc test on our results. This time we will need to use <code>pgirmess::kruskalmc()</code>, which means we will need to load a new library.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pgirmess)
-
-<span class="kw">kruskalmc</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>))</code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">library</span>(pgirmess)</a>
+<a class="sourceLine" id="cb180-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb180-3" data-line-number="3"><span class="kw">kruskalmc</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>))</a></code></pre></div>
 <pre><code>R&gt; Multiple comparison test after Kruskal-Wallis 
 R&gt; p.value: 0.05 
 R&gt; Comparisons
@@ -515,36 +668,61 @@ R&gt; 3-4    2.75     17.19933      FALSE</code></pre>
 </div>
 <div id="multiple-factors-1" class="section level4">
 <h4><span class="header-section-number">7.3.2.2</span> Multiple factors</h4>
-<p>The water becomes murky quickly when one wants to perform multiple factor non-parametric comparison of means tests. TO that end, we will not cover the few existing methods here. Rather, one should avoid the necessity for these types of tests when designing an experiment.</p>
+<p>The water becomes murky quickly when one wants to perform multiple factor non-parametric comparison of means tests. To that end, we will not cover the few existing methods here. Rather, one should avoid the necessity for these types of tests when designing an experiment.</p>
 </div>
 </div>
 <div id="the-sa-time-data" class="section level3">
 <h3><span class="header-section-number">7.3.3</span> The SA time data</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_time &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">read_csv</span>(<span class="st">&quot;data/SA_time.csv&quot;</span>, <span class="dt">col_types =</span> <span class="kw">list</span>(<span class="kw">col_double</span>(), <span class="kw">col_double</span>(), <span class="kw">col_double</span>())))
-sa_time_long &lt;-<span class="st"> </span>sa_time <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;minutes&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(minutes <span class="op">&lt;</span><span class="st"> </span><span class="dv">300</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">term =</span> <span class="kw">as.factor</span>(term))
-
-my_comparisons &lt;-<span class="st"> </span><span class="kw">list</span>( <span class="kw">c</span>(<span class="st">&quot;now&quot;</span>, <span class="st">&quot;now_now&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;now_now&quot;</span>, <span class="st">&quot;just_now&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;now&quot;</span>, <span class="st">&quot;just_now&quot;</span>) )
-
-<span class="kw">ggboxplot</span>(sa_time_long, <span class="dt">x =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;minutes&quot;</span>,
-          <span class="dt">color =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),
-          <span class="dt">add =</span> <span class="st">&quot;jitter&quot;</span>, <span class="dt">shape =</span> <span class="st">&quot;term&quot;</span>)</code></pre></div>
-<p><img src="07-anova_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggviolin</span>(sa_time_long, <span class="dt">x =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;minutes&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;term&quot;</span>,
-         <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),
-         <span class="dt">add =</span> <span class="st">&quot;boxplot&quot;</span>, <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_compare_means</span>(<span class="dt">comparisons =</span> my_comparisons, <span class="dt">label =</span> <span class="st">&quot;p.signif&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Add significance levels</span>
-<span class="st">  </span><span class="kw">stat_compare_means</span>(<span class="dt">label.y =</span> <span class="dv">50</span>)                                      <span class="co"># Add global the p-value </span></code></pre></div>
-<p><img src="07-anova_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">sa_time &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">read_csv</span>(<span class="st">&quot;data/SA_time.csv&quot;</span>, <span class="dt">col_types =</span> <span class="kw">list</span>(<span class="kw">col_double</span>(), <span class="kw">col_double</span>(), <span class="kw">col_double</span>())))</a>
+<a class="sourceLine" id="cb182-2" data-line-number="2">sa_time_long &lt;-<span class="st"> </span>sa_time <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb182-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;minutes&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb182-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(minutes <span class="op">&lt;</span><span class="st"> </span><span class="dv">300</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb182-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">term =</span> <span class="kw">as.factor</span>(term))</a>
+<a class="sourceLine" id="cb182-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb182-7" data-line-number="7">my_comparisons &lt;-<span class="st"> </span><span class="kw">list</span>( <span class="kw">c</span>(<span class="st">&quot;now&quot;</span>, <span class="st">&quot;now_now&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;now_now&quot;</span>, <span class="st">&quot;just_now&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;now&quot;</span>, <span class="st">&quot;just_now&quot;</span>) )</a>
+<a class="sourceLine" id="cb182-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb182-9" data-line-number="9"><span class="kw">ggboxplot</span>(sa_time_long, <span class="dt">x =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;minutes&quot;</span>,</a>
+<a class="sourceLine" id="cb182-10" data-line-number="10">          <span class="dt">color =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</a>
+<a class="sourceLine" id="cb182-11" data-line-number="11">          <span class="dt">add =</span> <span class="st">&quot;jitter&quot;</span>, <span class="dt">shape =</span> <span class="st">&quot;term&quot;</span>)</a></code></pre></div>
+<p><img src="07-anova_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1"><span class="kw">ggviolin</span>(sa_time_long, <span class="dt">x =</span> <span class="st">&quot;term&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;minutes&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;term&quot;</span>,</a>
+<a class="sourceLine" id="cb183-2" data-line-number="2">         <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</a>
+<a class="sourceLine" id="cb183-3" data-line-number="3">         <span class="dt">add =</span> <span class="st">&quot;boxplot&quot;</span>, <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb183-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_compare_means</span>(<span class="dt">comparisons =</span> my_comparisons, <span class="dt">label =</span> <span class="st">&quot;p.signif&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Add significance levels</span></a>
+<a class="sourceLine" id="cb183-5" data-line-number="5"><span class="st">  </span><span class="kw">stat_compare_means</span>(<span class="dt">label.y =</span> <span class="dv">50</span>)                                      <span class="co"># Add global the p-value </span></a></code></pre></div>
+<p><img src="07-anova_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
 </div>
 </div>
 <div id="exercises-4" class="section level2">
 <h2><span class="header-section-number">7.4</span> Exercises</h2>
 <div id="exercise-1-4" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Exercise 1</h3>
-<p>Write out the hypotheses that we tested for in this chapter and answer them based on the results we produced in class.</p>
+<p>Here is bunch of data for pigs raised on different diets. The experiment is similar to the chicken one. Does feed type have an effect on the mass of pigs at the end of the experiment?</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1"><span class="co"># enter the mass at the end of the experiment</span></a>
+<a class="sourceLine" id="cb184-2" data-line-number="2">feed_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">60.8</span>, <span class="fl">57.0</span>, <span class="fl">65.0</span>, <span class="fl">58.6</span>, <span class="fl">61.7</span>)</a>
+<a class="sourceLine" id="cb184-3" data-line-number="3">feed_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">68.7</span>, <span class="fl">67.7</span>, <span class="fl">74.0</span>, <span class="fl">66.3</span>, <span class="fl">69.8</span>)</a>
+<a class="sourceLine" id="cb184-4" data-line-number="4">feed_<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">102.6</span>, <span class="fl">102.1</span>, <span class="fl">100.2</span>, <span class="fl">96.5</span>)</a>
+<a class="sourceLine" id="cb184-5" data-line-number="5">feed_<span class="dv">4</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">87.9</span>, <span class="fl">84.2</span>, <span class="fl">83.1</span>, <span class="fl">85.7</span>, <span class="fl">90.3</span>)</a>
+<a class="sourceLine" id="cb184-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb184-7" data-line-number="7"><span class="co"># make a dataframe</span></a>
+<a class="sourceLine" id="cb184-8" data-line-number="8">bacon &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(<span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb184-9" data-line-number="9">  <span class="dt">feed =</span> <span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb184-10" data-line-number="10">  <span class="kw">rep</span>(<span class="st">&quot;Feed 1&quot;</span>, <span class="kw">length</span>(feed_<span class="dv">1</span>)),</a>
+<a class="sourceLine" id="cb184-11" data-line-number="11">  <span class="kw">rep</span>(<span class="st">&quot;Feed 2&quot;</span>, <span class="kw">length</span>(feed_<span class="dv">2</span>)),</a>
+<a class="sourceLine" id="cb184-12" data-line-number="12">  <span class="kw">rep</span>(<span class="st">&quot;Feed 3&quot;</span>, <span class="kw">length</span>(feed_<span class="dv">3</span>)),</a>
+<a class="sourceLine" id="cb184-13" data-line-number="13">  <span class="kw">rep</span>(<span class="st">&quot;Feed 4&quot;</span>, <span class="kw">length</span>(feed_<span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb184-14" data-line-number="14">  ),</a>
+<a class="sourceLine" id="cb184-15" data-line-number="15">  <span class="dt">mass =</span> <span class="kw">c</span>(feed_<span class="dv">1</span>, feed_<span class="dv">2</span>, feed_<span class="dv">3</span>, feed_<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb184-16" data-line-number="16">  ))</a></code></pre></div>
+</div>
+<div id="exercise-2-1" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Exercise 2</h3>
+<p>Construct suitable null and alternative hypotheses for the built-in <code>ToothGrowth</code> data, and test your hypotheses using an ANOVA.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1">teeth &lt;-<span class="st"> </span>datasets<span class="op">::</span>ToothGrowth</a></code></pre></div>
+</div>
+<div id="exercise-3" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> Exercise 3</h3>
+<p>Find or generate your own data that lend themselves to being analysed by a two-way ANOVA. Generate suitable hypotheses about your data, and analyse it. Supplement your analysis by provide a suitable descriptive statistical summary and graph(s) of your data.</p>
 
 </div>
 </div>
@@ -601,7 +779,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

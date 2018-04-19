@@ -1,7 +1,7 @@
 --- 
 title: "Basic Statistics"
 author: "AJ Smit and Robert Schlegel"
-date: "2018-04-18"
+date: "2018-04-19"
 bibliography:
 - LaTeX/bibliography.bib
 - LaTeX/packages.bib

@@ -16,13 +16,13 @@ bookdown::gitbook:
     family: serif
     size: 2
   sharing:
-    facebook: yes
+    facebook: no
     twitter: yes
     google: yes
     weibo: no
     instapper: no
     vk: no
-    all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper']
+    all: ['google', 'twitter']
 bookdown::html_chapters:
   css: [css/style.css, css/toc.css]
 tufte::tufte_html:
