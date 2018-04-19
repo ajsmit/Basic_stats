@@ -320,7 +320,11 @@ TukeyHSD(aov(weight ~ Diet * as.factor(Time), data = filter(chicks, Time %in% c(
 
 > **Task:** Jikes! That's a massive amount of results. What does all of this mean, and why is it so verbose?
 
-## Deeper into ANOVA
+#### About interaction terms
+
+<!-- AJS to insert stuff here -->
+
+## Alternatives to ANOVA
 
 In the first main section of this chapter we learned how to test hypotheses based on the comparisons of means between sets of data when we were able to meet our two base assumptions. These parametric tests are preferred over non-parametric tests because they are more robust. However, when we simply aren't able to meet these assumptions we must not despair. Non-parametric tests are still useful. In this chapter we will learn how to run non-parametric tests for two sample and multiple sample datasets. To start, let's load our libraries and `chicks` data if we have not already.
 
