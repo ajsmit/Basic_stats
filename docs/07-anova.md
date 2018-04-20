@@ -135,59 +135,6 @@ Now that we've seen how to perform a single factor ANOVA, let's watch some anima
 * When the [variance](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_sd_slide.avi) of one sample increases
 
 
-```r
-library(tidyverse)
-library(animation)
-
-# Function that serves as the basis for the sliding ANOVA figures
-slide_fig <- function(df){
-  
-# Calculate basic stats
-sub_stats <- df %>% 
-  group_by(title, sample) %>% 
-  summarise(sub_mean = round(mean(dat), 2),
-            sub_sd = round(sd(dat), 2),
-            sub_n = round(n(), 0))
-
-# Crerate fancy dataframe for use in ggplot2 text printing
-sub_stats_print <- sub_stats %>% 
-  gather(key = stat, value = value, -sample, -title) %>% 
-  mutate(y = c(rep(18.9, 3), rep(17.9, 3), rep(16.9, 3)),
-         stat_word = c(rep("mean = ", 3), rep("sd = ", 3), rep("n = ", 3)),
-         stat_print = paste0(stat_word, value))
-
-# Run ANOVA
-sub_aov <- summary(aov(dat ~ sample, data = df))
-
-# Create final stats for printing
-df_val_print <- paste0("d.f. = ", sub_aov[[1]]$Df[1])
-ss_val_print <- paste0("SS = ", round(sub_aov[[1]]$`Sum Sq`[1], 2))
-f_val_print <-  paste0("F = ", round(sub_aov[[1]]$`F value`[1], 2))
-if(sub_aov[[1]]$`Pr(>F)`[1] < 0.001) {
-  p_val_print <- "p < 0.001"
-} else {
-  p_val_print <- paste0("p = ", round(sub_aov[[1]]$`Pr(>F)`[1], 3))
-}
-
-# Create the figure
-aovb <- ggplot(data = df, aes(x = sample, y = dat, colour = sample)) +
-  geom_hline(aes(yintercept = mean(df$dat)), size = 1, linetype = "dashed") +
-  geom_violin(fill = "grey70", alpha = 0.8) + 
-  geom_boxplot(width = 0.1, colour = "black", fill = "white", notch = T) +
-  geom_jitter(shape = 16, width = 0.01, colour = "red", alpha = 0.2) +
-  geom_label(data = sub_stats_print, aes(label = stat_print, y = y), size = 4,
-             label.padding = unit(0.25, "lines"), fontface = "bold") +
-  scale_y_continuous(limits = c(0, 19)) +
-  labs(title = sub_stats_print$title,
-       subtitle = paste(df_val_print, ss_val_print, 
-                        f_val_print, p_val_print, sep = ", "),
-       x = "Sample",
-       y = "value") +
-  theme_pubclean() +
-  theme(legend.position = "none")
-print(aovb)
-}
-```
 
 
 
@@ -372,7 +319,152 @@ R> 4:21-3:21 -31.744444 -119.20707  55.718182 0.9486128
 
 > **Task:** Jikes! That's a massive amount of results. What does all of this mean, and why is it so verbose?
 
-## Deeper into ANOVA
+#### About interaction terms
+
+<!-- AJS to insert stuff here -->
+
+### Examples
+
+#### Snakes!
+
+These data could be analysed by a two-way ANOVA without replication, or a repeated measures ANOVA. Here I will analyse it by using a two-way ANOVA without replication.
+
+Place and Abramson (2008) placed diamondback rattlesnakes (*Crotalus atrox*) in a “rattlebox,” a box with a lid that would slide open and shut every 5 minutes. At first, the snake would rattle its tail each time the box opened. After a while, the snake would become habituated to the box opening and stop rattling its tail. They counted the number of box openings until a snake stopped rattling; fewer box openings means the snake was more quickly habituated. They repeated this experiment on each snake on four successive days, which is treated as an influential variable here. Place and Abramson (2008) used 10 snakes, but some of them never became habituated; to simplify this example, data from the six snakes that did become habituated on each day are used.
+
+First, we read in the data, making sure to convert the column named `day` to a factor. Why? Because ANOVAs work with factor independent variables, while `day` as it is encoded by default is in fact a continuous variable.
+
+
+```r
+snakes <- read_csv("data/snakes.csv")
+snakes$day = as.factor(snakes$day)
+```
+
+The first thing we do is to create some summaries of the data. Refer to the summary statistics Chapter.
+
+
+```r
+snakes.summary <- snakes %>% 
+  group_by(day, snake) %>% 
+  summarise(mean_openings = mean(openings),
+            sd_openings = sd(openings)) %>% 
+  ungroup()
+snakes.summary
+```
+
+```
+R> # A tibble: 24 x 4
+R>    day   snake mean_openings sd_openings
+R>    <fct> <chr>         <dbl>       <dbl>
+R>  1 1     D1              85.          NA
+R>  2 1     D11             40.          NA
+R>  3 1     D12             65.          NA
+R>  4 1     D3             107.          NA
+R>  5 1     D5              61.          NA
+R>  6 1     D8              22.          NA
+R>  7 2     D1              58.          NA
+R>  8 2     D11             45.          NA
+R>  9 2     D12             27.          NA
+R> 10 2     D3              51.          NA
+R> # ... with 14 more rows
+```
+
+> **Task:** Something seems... off. What's going on here? Please explain this outcome.
+
+To fix this problem, let us ignore the grouping by both `snake` and `day`.
+
+
+```r
+snakes.summary <- snakes %>% 
+  group_by(day) %>% 
+  summarise(mean_openings = mean(openings),
+            sd_openings = sd(openings)) %>% 
+  ungroup()
+snakes.summary
+```
+
+```
+R> # A tibble: 4 x 3
+R>   day   mean_openings sd_openings
+R>   <fct>         <dbl>       <dbl>
+R> 1 1              63.3        30.5
+R> 2 2              47.0        12.2
+R> 3 3              34.5        26.0
+R> 4 4              25.3        18.1
+```
+
+```r
+library(Rmisc)
+snakes.summary2 <- summarySE(data = snakes, measurevar = "openings", groupvars = c("day"))
+```
+
+Now we turn to some visual data summaries.
+
+
+```r
+ggplot(data = snakes, aes(x = day, y = openings)) +
+  geom_segment(data = snakes.summary2, aes(x = day, xend = day, y = openings - ci, yend = openings + ci, colour = day),
+              size = 2.0, linetype = "solid", show.legend = F) +
+  geom_boxplot(aes(fill = day), alpha = 0.6, show.legend = F) + 
+  geom_jitter(width = 0.05)
+```
+
+<img src="07-anova_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+
+What are our null hypotheses?
+
+1. H0: There is no difference between snakes with respect to the number of openings at which they habituate.
+2. H0: There is no difference between days in terms of the number of openings at which the snakes habituate.
+
+Fit the ANOVA model to test these hypotheses:
+
+
+```r
+snakes.aov <- aov(openings ~ day + snake, data = snakes)
+summary(snakes.aov)
+```
+
+```
+R>             Df Sum Sq Mean Sq F value Pr(>F)  
+R> day          3   4878  1625.9   3.320 0.0487 *
+R> snake        5   3042   608.4   1.242 0.3382  
+R> Residuals   15   7346   489.7                 
+R> ---
+R> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+Now we need to test of the assumptions hold true (i.e. erros are normally distributed and heteroscedastic):
+
+
+```r
+# Checking assumptions...
+# make a histogram of the residuals;
+# they must be normal
+snakes.res <- residuals(snakes.aov)
+hist(snakes.res)
+```
+
+<img src="07-anova_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+
+```r
+# make a plot of residuals and the fitted values;
+# # they must be normal and homoscedastic
+plot(fitted(snakes.aov), residuals(snakes.aov))
+```
+
+<img src="07-anova_files/figure-html/unnamed-chunk-20-2.png" width="672" />
+
+Where exactly are these differences?
+
+
+```r
+snakes.tukey <- TukeyHSD(snakes.aov, which = "day")
+plot(snakes.tukey)
+```
+
+<img src="07-anova_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+
+
+## Alternatives to ANOVA
 
 In the first main section of this chapter we learned how to test hypotheses based on the comparisons of means between sets of data when we were able to meet our two base assumptions. These parametric tests are preferred over non-parametric tests because they are more robust. However, when we simply aren't able to meet these assumptions we must not despair. Non-parametric tests are still useful. In this chapter we will learn how to run non-parametric tests for two sample and multiple sample datasets. To start, let's load our libraries and `chicks` data if we have not already.
 
@@ -399,13 +491,8 @@ chicks %>%
 ```
 
 ```
-R> # A tibble: 4 x 3
-R>   Diet  norm_wt var_wt
-R>   <fct>   <dbl>  <dbl>
-R> 1 1     0.0138   0.989
-R> 2 2     0.138    2.23 
-R> 3 3     0.00527  1.07 
-R> 4 4     0.0739   1.11
+R>       norm_wt   var_wt
+R> 1 0.000221918 1.282041
 ```
 
 ### Wilcox rank sum test
@@ -489,7 +576,7 @@ ggboxplot(sa_time_long, x = "term", y = "minutes",
           add = "jitter", shape = "term")
 ```
 
-<img src="07-anova_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<img src="07-anova_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
 ```r
 ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
@@ -499,7 +586,7 @@ ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
   stat_compare_means(label.y = 50)                                      # Add global the p-value 
 ```
 
-<img src="07-anova_files/figure-html/unnamed-chunk-20-2.png" width="672" />
+<img src="07-anova_files/figure-html/unnamed-chunk-27-2.png" width="672" />
 
 
 ## Exercises
@@ -539,4 +626,4 @@ teeth <- datasets::ToothGrowth
 
 ### Exercise 3
 
-Find or generate your own data that lend themselves to being analysed by a two-way ANOVA. Generate suitable hypotheses about your data, and analyse it. Supplement your analysis by provide a suitable descriptive statistical summary and graph(s) of your data.
+Find or generate your own data that lend themselves to being analysed by a two-way ANOVA. Generate suitable hypotheses about your data, and analyse it. Supplement your analysis by providing a suitable descriptive statistical summary and graph(s) of your data.
