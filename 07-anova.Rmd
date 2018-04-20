@@ -324,6 +324,92 @@ TukeyHSD(aov(weight ~ Diet * as.factor(Time), data = filter(chicks, Time %in% c(
 
 <!-- AJS to insert stuff here -->
 
+### Examples
+
+#### Snakes!
+
+These data could be analysed by a two-way ANOVA without replication, or a repeated measures ANOVA. Here I will analyse it by using a two-way ANOVA without replication.
+
+Place and Abramson (2008) placed diamondback rattlesnakes (*Crotalus atrox*) in a “rattlebox,” a box with a lid that would slide open and shut every 5 minutes. At first, the snake would rattle its tail each time the box opened. After a while, the snake would become habituated to the box opening and stop rattling its tail. They counted the number of box openings until a snake stopped rattling; fewer box openings means the snake was more quickly habituated. They repeated this experiment on each snake on four successive days, which is treated as an influential variable here. Place and Abramson (2008) used 10 snakes, but some of them never became habituated; to simplify this example, data from the six snakes that did become habituated on each day are used.
+
+First, we read in the data, making sure to convert the column named `day` to a factor. Why? Because ANOVAs work with factor independent variables, while `day` as it is encoded by default is in fact a continuous variable.
+
+```{r}
+snakes <- read_csv("data/snakes.csv")
+snakes$day = as.factor(snakes$day)
+```
+
+The first thing we do is to create some summaries of the data. Refer to the summary statistics Chapter.
+
+```{r}
+snakes.summary <- snakes %>% 
+  group_by(day, snake) %>% 
+  summarise(mean_openings = mean(openings),
+            sd_openings = sd(openings)) %>% 
+  ungroup()
+snakes.summary
+```
+
+> **Task:** Something seems... off. What's going on here? Please explain this outcome.
+
+To fix this problem, let us ignore the grouping by both `snake` and `day`.
+
+```{r}
+snakes.summary <- snakes %>% 
+  group_by(day) %>% 
+  summarise(mean_openings = mean(openings),
+            sd_openings = sd(openings)) %>% 
+  ungroup()
+snakes.summary
+
+library(Rmisc)
+snakes.summary2 <- summarySE(data = snakes, measurevar = "openings", groupvars = c("day"))
+```
+
+Now we turn to some visual data summaries.
+
+```{r}
+ggplot(data = snakes, aes(x = day, y = openings)) +
+  geom_segment(data = snakes.summary2, aes(x = day, xend = day, y = openings - ci, yend = openings + ci, colour = day),
+              size = 2.0, linetype = "solid", show.legend = F) +
+  geom_boxplot(aes(fill = day), alpha = 0.6, show.legend = F) + 
+  geom_jitter(width = 0.05)
+```
+
+What are our null hypotheses?
+
+1. H0: There is no difference between snakes with respect to the number of openings at which they habituate.
+2. H0: There is no difference between days in terms of the number of openings at which the snakes habituate.
+
+Fit the ANOVA model to test these hypotheses:
+
+```{r}
+snakes.aov <- aov(openings ~ day + snake, data = snakes)
+summary(snakes.aov)
+```
+
+Now we need to test of the assumptions hold true (i.e. erros are normally distributed and heteroscedastic):
+
+```{r}
+# Checking assumptions...
+# make a histogram of the residuals;
+# they must be normal
+snakes.res <- residuals(snakes.aov)
+hist(snakes.res)
+
+# make a plot of residuals and the fitted values;
+# # they must be normal and homoscedastic
+plot(fitted(snakes.aov), residuals(snakes.aov))
+```
+
+Where exactly are these differences?
+
+```{r}
+snakes.tukey <- TukeyHSD(snakes.aov, which = "day")
+plot(snakes.tukey)
+```
+
+
 ## Alternatives to ANOVA
 
 In the first main section of this chapter we learned how to test hypotheses based on the comparisons of means between sets of data when we were able to meet our two base assumptions. These parametric tests are preferred over non-parametric tests because they are more robust. However, when we simply aren't able to meet these assumptions we must not despair. Non-parametric tests are still useful. In this chapter we will learn how to run non-parametric tests for two sample and multiple sample datasets. To start, let's load our libraries and `chicks` data if we have not already.
