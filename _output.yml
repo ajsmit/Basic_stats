@@ -1,4 +1,4 @@
-bookdown::tufte_book2:
+bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   toc: yes
@@ -23,6 +23,7 @@ bookdown::gitbook:
     instapper: no
     vk: no
     all: ['google', 'twitter']
+always_allow_html: yes
 bookdown::html_chapters:
   css: [css/style.css, css/toc.css]
 tufte::tufte_html:

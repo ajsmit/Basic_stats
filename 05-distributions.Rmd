@@ -7,6 +7,8 @@ knitr::opts_chunk$set(
   warning = FALSE, 
   message = FALSE
 )
+# install.packages("webshot")
+webshot::install_phantomjs()
 ```
 
 Therefore, we must next learn about the different types of data distributions we are likely to encounter in the wild.
@@ -866,7 +868,7 @@ p
 
 ### Paranormal distributions
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, width = 2}
 knitr::include_graphics("figures/paranormal_distributions.jpeg")
 ```
 
