@@ -15,7 +15,8 @@
 knitr::opts_chunk$set(
   comment = "R>", 
   warning = FALSE, 
-  message = FALSE
+  message = FALSE,
+  out.width = '70%'
 )
 #
 ```
@@ -124,16 +125,12 @@ Whereas plagiarism will not be tolerated, students ARE encouraged to work togeth
 
 This document, which as available as an HTML file that's viewable on a web browser of your choice (anything will do, but we discourage using Internet Explorer) and as a PDF (accessible from the link at the top of any of the website's pages) that may be printed, was prepared by the software tools available to R via RStudio. We use the package called `bookdown` that may be accessed and read about [here](https://bookdown.org/yihui/bookdown/) to produce this documentation. The entire source code to reproduce this book is available from my [GitHub repo](https://github.com/ajsmit/Basic_stats).
 
-```{r rmarkdown, echo = TRUE, fig.margin = TRUE, fig.cap = "Bookdown hex."}
-knitr::include_graphics("figures/bookdown_hex_logo.png")
-```
-
 You will notice that this repository uses [GitHub](https://github.com), and you are advised to set up your own repository for R scripts and all your data. We will touch on GitHub and the principles of reproducible research later, and GitHub forms a core ingredient of such a workflow.
 
-The R session information when compiling this book is shown below:
-```{r prelim-session}
-sessionInfo()
-```
+<!-- The R session information when compiling this book is shown below: -->
+<!-- ```{r prelim-session} -->
+<!-- sessionInfo() -->
+<!-- ``` -->
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

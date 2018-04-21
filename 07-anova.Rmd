@@ -5,7 +5,8 @@
 knitr::opts_chunk$set(
   comment = "R>", 
   warning = FALSE, 
-  message = FALSE
+  message = FALSE,
+  out.width = '70%'
 )
 ```
 
@@ -108,7 +109,7 @@ Now that we've seen how to perform a single factor ANOVA, let's watch some anima
 * When the [mean](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_mean_slide.avi) of one sample changes
 * When the [variance](https://raw.githubusercontent.com/ajsmit/Basic_stats/master/figures/aov_sd_slide.avi) of one sample increases
 
-```{r, echo=FALSE, include=FALSE, eval=FALSE}
+```{r anova-plot1, echo=FALSE, include=FALSE, eval=FALSE}
 library(tidyverse)
 library(animation)
 
@@ -163,7 +164,7 @@ print(aovb)
 ```
 
 
-```{r, echo=FALSE, include=FALSE, eval=FALSE}
+```{r anova-plot2, echo=FALSE, include=FALSE, eval=FALSE}
 # Create random data
 set.seed(666)
 random_n_dat <- data.frame(A = rnorm(100, 10.0, 2), 
@@ -197,7 +198,7 @@ animate_aov_n <- function() {
 system.time(saveVideo(animate_aov_n(), interval = 0.1, ani.width = 600, video.name = "figures/aov_n_slide.avi")) # ~73 seconds
 ```
 
-```{r, echo=FALSE, include=FALSE, eval=FALSE}
+```{r anova-plot3, echo=FALSE, include=FALSE, eval=FALSE}
 # Create random data
 set.seed(666)
 random_mean_dat <- data.frame(A = rnorm(100, 10.1, 2), 
@@ -231,7 +232,7 @@ animate_aov_mean <- function() {
 system.time(saveVideo(animate_aov_mean(), interval = 0.1, ani.width = 600, video.name = "figures/aov_mean_slide.avi")) # ~105 seconds
 ```
 
-```{r, echo=FALSE, include=FALSE, eval=FALSE}
+```{r anova-plot4, echo=FALSE, include=FALSE, eval=FALSE}
 # Create random data
 set.seed(666)
 random_sd_dat <- data.frame(A = rnorm(100, 9.8, 1.5), 
@@ -368,7 +369,7 @@ snakes.summary2 <- summarySE(data = snakes, measurevar = "openings", groupvars =
 
 Now we turn to some visual data summaries.
 
-```{r}
+```{r anova-plot5}
 ggplot(data = snakes, aes(x = day, y = openings)) +
   geom_segment(data = snakes.summary2, aes(x = day, xend = day, y = openings - ci, yend = openings + ci, colour = day),
               size = 2.0, linetype = "solid", show.legend = F) +
@@ -390,7 +391,7 @@ summary(snakes.aov)
 
 Now we need to test of the assumptions hold true (i.e. erros are normally distributed and heteroscedastic). Also, where are the differences?
 
-```{r}
+```{r anova-plot6}
 par(mfrow = c(2, 2))
 # Checking assumptions...
 # make a histogram of the residuals;
@@ -467,7 +468,7 @@ The water becomes murky quickly when one wants to perform multiple factor non-pa
 
 ### The SA time data
 
-```{r}
+```{r anova-plot7}
 sa_time <- as_tibble(read_csv("data/SA_time.csv", col_types = list(col_double(), col_double(), col_double())))
 sa_time_long <- sa_time %>% 
   gather(key = "term", value = "minutes") %>% 

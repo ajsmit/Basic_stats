@@ -1,7 +1,7 @@
 --- 
 title: "Basic Statistics"
 author: "AJ Smit and Robert Schlegel"
-date: "2018-04-20"
+date: "2018-04-21"
 bibliography:
 - LaTeX/bibliography.bib
 - LaTeX/packages.bib
@@ -15,8 +15,8 @@ github-repo: ajsmit/Basic_stats
 language: Australian
 link-citations: yes
 linkcolor: cyan
-lof: yes
-lot: yes
+lof: no
+lot: no
 papersize: A4
 site: bookdown::bookdown_site
 subtitle: A primer in basic statistics for BCB (Hons) 2018
@@ -28,7 +28,10 @@ urlcolor: cyan
 
 # Preface {-}
 
-<img src="figures/walberg_assumptions.jpeg" width="308" />
+
+
+
+\includegraphics[width=0.7\linewidth]{figures/walberg_assumptions} 
 
 This is a workshop about the practice of the basic statistics used by biologists, and not about the theory and mathematical underpinnings of the methods used. Each of the Chapters will cover a basic kind of statistical approach, and the main classes of data it applies to. Since much insight and understanding can be gained from visualising our data, we will also explore the main types of graphical summaries that best accompany the statistical methodologies. It is our intention to demonstrate how we go about analysing our data. 
 

@@ -5,7 +5,8 @@
 knitr::opts_chunk$set(
   comment = "R>", 
   warning = FALSE, 
-  message = FALSE
+  message = FALSE,
+  out.width = '70%'
 )
 ```
 
@@ -62,7 +63,7 @@ Irrespective of the kind of *t*-test, we have to make a couple of important assu
 
 Remember from Chapter 5 what a normal distribution is/looks like? Let's have a peek below to remind ourselves:
 
-```{r, fig.cap="Interactive histogram showing two randomly generated normal distributions."}
+```{r t-test-plot1, fig.cap="Interactive histogram showing two randomly generated normal distributions."}
 # Random normal data
 set.seed(666)
 r_dat <- data.frame(dat = c(rnorm(n = 1000, mean = 10, sd = 3),
@@ -74,9 +75,7 @@ h <- ggplot(data = r_dat, aes(x = dat, fill = sample)) +
   geom_histogram(position = "dodge", binwidth = 1, alpha = 0.8) +
   geom_density(aes(y = 1*..count.., fill = sample), colour = NA, alpha = 0.4) +
   labs(x = "value")
-
-# Make it interactive
-ggplotly(h)
+h
 ```
 
 Whereas histograms may be a pretty way to check the normality of our data, there is actually a statistical test for this, which is preferable to a visual inspection alone. But remember that you should _always_ visualise your data before performing any statistics on them. To check the normality of the data we use the Shapiro-Wilk test. This test produces a $W$ value and a _p_-value. We are only interested in the _p_-value as this is how we are to determine the normality of the data. The Shapiro–Wilk test tests the null hypothesis that a sample $x_{1},..., x_{n}$ comes from a normally distributed population. i.e. that the normality *does not* differ significantly from normal. If the _p_-value is __above__ 0.05 we may assume the data to be normally distributed. In order to demonstrate what the output of `shapiro.test()` looks like we will run it on all of the random data we generated.
@@ -168,15 +167,15 @@ t.test(r_one$dat, mu = 30)
 
 What do the results of these two different tests show? Let's visualise these data to get a better understanding.
 
-```{r, fig.cap="Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30."}
+```{r t-test-plot2, fig.cap="Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30."}
 ggplot(data = r_one, aes(y = dat, x = sample)) +
   geom_boxplot(fill = "lightsalmon") +
   # population  mean (mu) = 20
   geom_hline(yintercept = 20, colour = "blue", 
-             size = 3, linetype = "dashed") +
+             size = 1, linetype = "dashed") +
   # population  mean (mu) = 30
   geom_hline(yintercept = 30, colour = "red", 
-             size = 3, linetype = "dashed") +
+             size = 1, linetype = "dashed") +
   labs(y = "Value", x = NULL) +
   coord_flip()
 ```
@@ -254,7 +253,7 @@ The first argument we see in `t.test()` is `dat ~ sample`. Usually in R when we 
 
 Now that we have seen the nitty gritty of how a t-test is meant to work, click [here]() to watch a visualisation that demonstrates how the relationships between two different sample sets (based on their mean and variance) influence the results.
 
-```{r, echo=FALSE, include=FALSE, eval=FALSE}
+```{r t-test-plot3, echo=FALSE, include=FALSE, eval=FALSE}
 library(beeswarm)
 
 # Create random data
@@ -399,7 +398,7 @@ ecklonia <- read_csv("data/ecklonia.csv") %>%
 
 With our data loaded, let's visualise them in order to ensure that these are indeed the data we are after. Visualising the data will also help us to formulate a hypothesis.
 
-```{r, fig.cap="Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay."}
+```{r t-test-plot5, fig.cap="Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay."}
 ggplot(data = ecklonia, aes(x = variable, y = value, fill = site)) +
   geom_boxplot() +
   coord_flip()
@@ -411,7 +410,7 @@ The first thing we should notice from the figure above is that our different mea
 
 Looking at the figure above it appears that for almost all measurements of length, Batsata Rock far exceeds that of Boulders Beach however, the stipe masses between the two sites appear to be more similar. Let's pull out just this variable and create a new boxplot.
 
-```{r, fig.cap="Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay."}
+```{r t-test-plot6, fig.cap="Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay."}
 # filter the data
 ecklonia_sub <- ecklonia %>% 
   filter(variable == "stipe_mass")

@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Simple linear regressions
 
 
@@ -5,8 +10,13 @@
 knitr::opts_chunk$set(
   comment = "R>", 
   warning = FALSE, 
-  message = FALSE
+  message = FALSE,
+  out.width = '70%'
 )
+```
+
+```{r}
+library(tidyverse)
 ```
 
 Regressions test the statistical significance of the *dependence* of one continuous variable on one or many independent continuous variables.
@@ -154,7 +164,7 @@ The interpretation of the regression coefficient is simple. For every one unit o
 
 ### A graph of the linear regression
 
-```{r, eval=FALSE}
+```{r lm-plot1}
 slope <- round(eruption.lm$coef[2], 3)
 # p.val <- round(coefficients(summary(eruption.lm))[2, 4], 3) # it approx. 0, so...
 p.val = 0.001
@@ -213,7 +223,7 @@ summary(eruption.lm)$r.squared
 
 What does the $r^{2}$ tell us? It tells us the "fraction of variance explained by the model" (from the `summary.lm()` help file). In other words it is the proportion of variation in the dispersion (variance) of the measured dependent variable, $y$, that can be predicted from the measured independent variable, $x$ (or variables in the case of multiple regressions). It gives us an indication of how well the observed outcome variable is predicted by the observed influential variable, and in the case of a simple linear regression, the geometric relationship of $y$ on $x$ is a straight line. $r^{2}$ can take values from 0 to 1: a value of 0 tells us that there is absolutely no relationship between the two, whilst a value of 1 shows that there is a perfect fit and a scatter of points to denote the $y$ vs. $x$ relationship will all fall perfectly on a straight line.
 
-```{r}
+```{r lm-plot2}
 library(tidyverse)
 n <- 100
 set.seed(666)
@@ -281,8 +291,4 @@ The intervals are wider. The difference between confidence and prediction interv
 * When you use a categorical variable, in R the intercept represents the default position for a given value in the categorical column. Every other value then gets a modifier to the base prediction.
 
 <!-- for example the iris data set -->
-
-```{r}
-
-```
 

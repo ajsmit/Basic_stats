@@ -5,7 +5,8 @@
 knitr::opts_chunk$set(
   comment = "R>", 
   warning = FALSE, 
-  message = FALSE
+  message = FALSE,
+  out.width = '70%'
 )
 ```
 
@@ -97,7 +98,7 @@ cor.test(ecklonia$primary_blade_length, ecklonia$primary_blade_width, method = "
 
 As is the case with everything else we have learned thus far, a good visualisation can go a long way to help us understand what the statistics are doing. Below we visualise the stipe length to frond length relationship.
 
-```{r, fig.cap="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship."}
+```{r corr-plot1, fig.cap="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship."}
 # Calculate Pearson r beforehand for plotting
 r_print <- paste0("r = ", 
                   round(cor(x = ecklonia$stipe_length, ecklonia$frond_length),2))
@@ -117,7 +118,7 @@ Just by eye-balling this scatterplot it should be clear that these data tend to 
 
 But why stop at one panel? It is relatively straightforward to quickly plot correlation results for all of our variables in one go. In order to show which variables correlate most with which other variables all at once, without creating chaos, we will create what is known as a heat map. This visualisation uses a range of colours, usually blue to red, to demonstrate where more of something is. In this case, we use it to show where more correlation is occurring between morphometric properties of the kelp _Ecklonia maxima_.
 
-```{r, fig.cap="Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive)."}
+```{r corr-plot2, fig.cap="Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive)."}
 corrplot(ecklonia_pearson, method = "circle")
 ```
 

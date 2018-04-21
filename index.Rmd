@@ -15,8 +15,8 @@ github-repo: ajsmit/Basic_stats
 language: Australian
 link-citations: yes
 linkcolor: cyan
-lof: yes
-lot: yes
+lof: no
+lot: no
 papersize: A4
 site: bookdown::bookdown_site
 subtitle: A primer in basic statistics for BCB (Hons) 2018
@@ -28,7 +28,16 @@ urlcolor: cyan
 
 # Preface {-}
 
-```{r rmarkdown, echo = FALSE, fig.width = 2}
+```{r prelim-opts, echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "R>", 
+  warning = FALSE, 
+  message = FALSE,
+  out.width = '70%'
+)
+```
+
+```{r rmarkdown, echo = FALSE}
 knitr::include_graphics("figures/walberg_assumptions.jpeg")
 ```
 

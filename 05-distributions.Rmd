@@ -1,14 +1,15 @@
 # Distributions
 
 
-```{r prelim-opts, echo=FALSE}
+```{r prelim-opts, echo=FALSE, eval=FALSE}
 knitr::opts_chunk$set(
   comment = "R>", 
   warning = FALSE, 
-  message = FALSE
+  message = FALSE,
+  out.width = '70%'
 )
 # install.packages("webshot")
-webshot::install_phantomjs()
+# webshot::install_phantomjs()
 ```
 
 Therefore, we must next learn about the different types of data distributions we are likely to encounter in the wild.
@@ -27,8 +28,7 @@ f(x;p)=
   \end{cases}
 $$
 
-```{r, echo=FALSE}
-# Load libraries
+```{r, echo=FALSE, eval=FALSE}
 library(tidyverse)
 library(plotly)
 library(Rlab)
@@ -90,7 +90,7 @@ A binomial random variable, $x$, is the sum of $n$ independent Bernoulli random 
 
 $$f(x;n,p)= {n\choose x}p^{x}(1-p)^{n-x}$$
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 binom_dat <- data.frame(dist = c(rbinom(10, 10, 0.1), rbinom(100, 10, 0.1), rbinom(1000, 10, 0.1),
@@ -157,7 +157,7 @@ $$f(x;n,r,p)= {x+r-1\choose x}p^{x}(1-p)^{r}$$
 
 where $x$ is the number of successes, $r$ is the number of failures, and $p$ is the probability of success
 
-```{r, echo = FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 nbinom_dat <- data.frame(dist = c(rnbinom(10, 10, 0.1), rnbinom(100, 10, 0.1), rnbinom(1000, 10, 0.1),
@@ -222,7 +222,7 @@ A geometric random variable, $x$, represents the number of trials that are requi
 
 $$f(x;p)=(1-p)^{x}p$$
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 geom_dat <- data.frame(dist = c(rgeom(10, 0.1), rgeom(100, 0.1), rgeom(1000, 0.1),
@@ -281,7 +281,7 @@ A Poisson random variable, $x$, tallies the number of events occurring in a fixe
 
 $$f(x;\lambda)=\frac{\lambda^{x}e^{-\lambda}}{x!}$$
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 pois_dat <- data.frame(dist = c(rpois(10, 10), rpois(100, 10), rpois(1000, 10),
@@ -340,7 +340,7 @@ p
 
 Another name for this kind of distribution is a Gaussian distribution. A random sample with a Gaussian distribution is normally distributed. These values are identically distributed and independent---we say they are independent and identically distributed random variables (i.i.d.), and they have an expected mean given by $\mu$ (or $\hat{x}$ in Chapter 3.2.1) and a finite variance given by $\sigma^{2}$ (or $S^{2}$ in Chapter 3.3.1); if the number of samples drawn from a population is sufficiently large, the estimated mean and SD will be indistinguishable from the population (as per the central limit theorem).
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # library(animation)
 # library(e1071)
 
@@ -381,7 +381,7 @@ Another name for this kind of distribution is a Gaussian distribution. A random 
 knitr::include_graphics("figures/hist_norm_n.gif")
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 norm_dat <- data.frame(dist = c(rnorm(10, 10, 1), rnorm(100, 10, 1), rnorm(1000, 10, 1),
@@ -441,15 +441,18 @@ p <- plot_ly(data = norm_dat,
 p
 ```
 
-```{r PDF, echo = FALSE, fig.margin = TRUE, fig.cap = "Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: [Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function)"}
-knitr::include_graphics("figures/Boxplot_vs_PDF.svg")
-```
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.7\linewidth]{figures/Boxplot_vs_PDF.png}
+\end{center}
+\caption{Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: wikipedia/Probability_density_function.}
+\end{figure}
 
 ### Uniform distribution
 
 The continuous uniform distribution is sometime called a rectangular distribution. Simply, it states that all measurements of the same magnitude included with this distribution are equally probable. This is basically random numbers.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 unif_dat <- data.frame(dist = c(runif(10, 0, 10), runif(100, 0, 10), runif(1000, 0, 10),
@@ -507,7 +510,7 @@ p
 
 This is a continuous probability distribution that arises when estimating the mean of a normally distributed population in situations where the sample size is small and population standard deviation is unknown. It is used in the statistical significance testing between the means of different sets of samples, and not much so in the modelling of natural phenomena.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 t_dat <- data.frame(dist =    c(rt(10, 5, 0), rt(100, 5, 0), rt(1000, 5, 0),
@@ -571,7 +574,7 @@ p
 
 Mostly used in hypothesis testing, but not to encapsulate the distribution of data drawn to represent natural phenomena.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 chisq_dat <- data.frame(dist = c(rchisq(10, 5, 0), rchisq(100, 5, 0), rchisq(1000, 5, 0),
@@ -635,7 +638,7 @@ p
 
 This is a probability distribution that describes the time between events in a Poisson point process, i.e., a process in which events occur continuously and independently at a constant average rate.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 exp_dat <- data.frame(dist = c(rexp(10, 1), rexp(100, 1), rexp(1000, 1),
@@ -690,7 +693,7 @@ p
 
 ### F distribution
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 f_dat <- data.frame(dist =     c(rf(10, 5, 5), rf(100, 5, 5), rf(1000, 5, 5),
@@ -752,7 +755,7 @@ p
 
 ### Gamma distribution
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 gamma_dat <- data.frame(dist = c(rgamma(10, 1), rgamma(100, 1), rgamma(1000, 1),
@@ -807,7 +810,7 @@ p
 
 ### Beta distribution
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # Create base distributions
 set.seed(666)
 beta_dat <- data.frame(dist = c(rbeta(10, 1, 1), rbeta(100, 1, 1), rbeta(1000, 1, 1),
@@ -868,15 +871,17 @@ p
 
 ### Paranormal distributions
 
-```{r, echo=FALSE, width = 2}
-knitr::include_graphics("figures/paranormal_distributions.jpeg")
-```
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.7\linewidth]{figures/paranormal_distributions.jpeg}
+\end{center}
+\end{figure}
 
 ## Finding one's data distribution
 data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does---there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only *compatible* with a certain distribution, and one can never answer the question "Does my data follow the distribution xy exactly?" as simply as providing a yes/no answer. So what now? How does one find one's data distribution? We can use the *Cullen and Frey graph* function that lives in the **fitdistrplus** package. This graph tells us whether the skewness and kurtosis of our data are consistent with that of a particular distribution. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.
 
 
-```{r}
+```{r dist-plot1}
 library(fitdistrplus)
 library(logspline)
 
@@ -895,7 +900,7 @@ hist(y)
 descdist(y, discrete = FALSE, boot = 100)
 ```
 
-```{r}
+```{r dist-plot2}
 # normally distributed data
 y <- rnorm(100, 13, 2)
 par(mfrow = c(2, 2))
@@ -904,7 +909,7 @@ hist(y)
 descdist(y, discrete = FALSE)
 ```
 
-```{r}
+```{r dist-plot3}
 # uniformly distributed data
 y <- runif(100)
 par(mfrow = c(2, 2))
@@ -913,7 +918,7 @@ hist(y)
 descdist(y, discrete = FALSE)
 ```
 
-```{r, width = 6, height = 10}
+```{r dist-plot4, width = 6, height = 10}
 # uniformly distributed data
 y <- rexp(100, 0.7)
 par(mfrow = c(2, 2))
@@ -924,7 +929,7 @@ descdist(y, discrete = FALSE)
 
 There is also a whole bunch of other approaches to use to try and identify the data distribution. Let us start with the gold standard first: normal data. We will demonstrate some visualisation approaches. The one that you already know is a basic histogram; it tells us something about the distribution's skewness, the tails, the mode(s) of the data, outliers, etc. Histograms can be compared to shapes associated with idealistic (simulated) distributions, as we will do here.
 
-```{r}
+```{r dist-plot5}
 y <-rnorm(n = 200, m = 13, sd = 2)
 par(mfrow = c(2, 2))
 # using some basic base graphics as ggplot2 is overkill;

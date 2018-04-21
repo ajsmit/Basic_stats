@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-20">
+<meta name="date" content="2018-04-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,13 +47,6 @@
 
 
 
-<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -359,24 +352,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this chapter we will learn how to test for the two most common assumptions we will make in the biological sciences.</p>
 <p>Our tests for these two assumptions fail often with real data. Therefore, we must often identify the way in which our data are distributed so we may better decide how to transform them in an attempt to coerce them into a format that will pass the assumptions.</p>
 <p>Before we begin, let’s go ahead and activate our packages and load our data.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb235-2" data-line-number="2">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb233-2" data-line-number="2">chicks &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ChickWeight)</a></code></pre></div>
 <div id="the-two-main-assumptions" class="section level2">
 <h2><span class="header-section-number">11.1</span> The two main assumptions</h2>
 <div id="normality-1" class="section level3">
 <h3><span class="header-section-number">11.1.1</span> Normality</h3>
 <p>The quickest method of testing the normality of a variable is with the Shapiro-Wilk normality test. This will return two values, a W score and a <em>p</em>-value. FOr the purposes of this course we may safely ignore the W score and focus on the <em>p</em>-value. When <em>p</em> &gt;= 0.05 we may assume that the data are normally distributed. If <em>p</em> &lt; 0.05 then the data are not normally distrubted. Let’s look at all of the <code>chicks</code> data without filtering it:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="kw">shapiro.test</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="kw">shapiro.test</span>(chicks<span class="op">$</span>weight)</a></code></pre></div>
 <pre><code>R&gt; 
 R&gt;  Shapiro-Wilk normality test
 R&gt; 
 R&gt; data:  chicks$weight
 R&gt; W = 0.90866, p-value &lt; 2.2e-16</code></pre>
 <p>Are these data normally distributed? How do we know? Now let’s filter the data based on the different diets for only the weights taken on the last day (21):</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb238-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb238-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_wt =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(weight)[<span class="dv">2</span>]))</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb236-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb236-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb236-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_wt =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(weight)[<span class="dv">2</span>]))</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 4 x 2
 R&gt;   Diet  norm_wt
 R&gt;   &lt;fct&gt;   &lt;dbl&gt;
@@ -389,10 +382,10 @@ R&gt; 4 4       0.186</code></pre>
 <div id="homoscedasticity-1" class="section level3">
 <h3><span class="header-section-number">11.1.2</span> Homoscedasticity</h3>
 <p>Here we need no fancy test. We must simply calculate the variance of the variables we want to use and see that they are not more than 3 – 4 times greater than one another.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb240-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb240-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb240-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">var_wt =</span> <span class="kw">var</span>(weight))</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">chicks <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">==</span><span class="st"> </span><span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb238-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Diet) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb238-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">var_wt =</span> <span class="kw">var</span>(weight))</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 4 x 2
 R&gt;   Diet  var_wt
 R&gt;   &lt;fct&gt;  &lt;dbl&gt;
