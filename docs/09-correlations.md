@@ -5,7 +5,7 @@
 
 A correlation is performed when we want to investigate potential relationships between variables from the same sample. This does not mean that one variable explains the other, we arrive at that through the use of regression, as seen in Chapter 8. Like all statistical tests, correlation requires a series of assumptions as well:
 
-* pair-wise data
+* pairwise data
 * absence of outliers
 * linearity
 * normality of distribution
@@ -27,7 +27,7 @@ library(corrplot)
 ecklonia <- read_csv("data/ecklonia.csv")
 ```
 
-We will also create a subsetted version of our data by removing all of the categorical variables. If we have a dataframe where each column represents pair-wise continuous/ordinal measurements with all of the other columns we may very quickly and easily perform a much wider range of correlation analyses.
+We will also create a subsetted version of our data by removing all of the categorical variables. If we have a dataframe where each column represents pairwise continuous/ordinal measurements with all of the other columns we may very quickly and easily perform a much wider range of correlation analyses.
 
 
 ```r
@@ -37,7 +37,7 @@ ecklonia_sub <- ecklonia %>%
 
 ## Pearson correlation
 
-When the values we are comparing are continuous, we may use a Pearson test. This is the default and so requires little work on our end. The resulting statistic from this test is known as the correlation coefficient.
+When the values we are comparing are continuous, we may use a Pearson test. This is the default and so requires little work on our end. The resulting statistic from this test is known as the correlation coefficent.
 
 
 ```r
@@ -63,7 +63,7 @@ R>       cor
 R> 0.6524911
 ```
 
-Above we have tested the correlation between the length of _Ecklonia maxima_ stipes and the length of their fronds. A perfect positive (negative) relationship would produce a value of 1 (-1), whereas no relationship would produce a value of 0. The result above, `cor = 0.65` is relatively strong. That being said, should our dataset contain multiple variables, as `ecklonia` does, we may investigate all of the correlations simultaneously. Remember that in order to do so we want to ensure that we may perform the same test on each of our paired variables. In this case we will use `ecklonia_sub` as we know that it contains only continuous data and so are appropriate for use with a Pearson test. By default R will use all of the data we give it and perform a Pearson test so we do not need to specify any further arguments. Note however that this will only output the correlation coefficients, and does not produce a full test of each correlation. This will however be useful for us to have just now.
+Above we have tested the correlation between the length of _Ecklonia maxima_ stipes and the length of their fronds. A perfect positive (negative) relationship would produce a value of 1 (-1), whereas no relationship would produce a value of 0. The result above, `cor = 0.65` is relatively strong. That being said, should our dataset contain multiple variables, as `ecklonia` does, we may investigate all of the correlations simultaneously. Remember that in order to do so we want to ensure that we may perform the same test on each of our paired variables. In this case we will use `ecklonia_sub` as we know that it contains only continuous data and so are appropriate for use with a Pearson test. By default R will use all of the data we give it and perform a Pearson test so we do not need to specify any further arguments. Note however that this will only output the correlation coefficents, and does not produce a full test of each correlation. This will however be useful for us to have just now.
 
 
 ```r
@@ -137,7 +137,7 @@ R> 0.29239
 
 ## Kendall rank correlation
 
-This test will work for both continuous and ordinal data. A sort of dealers choice of correlation tests. It's main purpose is to allow us to perform a correlation on non-normally distributed data. Let's look at the normality of our `ecklonia` variables and pull out those that are not normal in order to see how the results of this test may differ from our Pearson tests.
+This test will work for both continuous and ordinal data. A sort of dealers choic of correlation tests. It's main purpose is to allow us to perform a correlation on non-normally distributed data. Let's look at the normality of our `ecklonia` variables and pull out those that are not normal in order to see how the results of this test may differ from our Pearson tests.
 
 
 ```r
@@ -167,19 +167,21 @@ From this analysis we may see that the values for primary blade length are not n
 
 
 ```r
-cor.test(ecklonia$primary_blade_length, ecklonia$primary_blade_width, method = "kendall")
+cor.test(ecklonia$primary_blade_length, ecklonia$primary_blade_width)
 ```
 
 ```
 R> 
-R> 	Kendall's rank correlation tau
+R> 	Pearson's product-moment correlation
 R> 
 R> data:  ecklonia$primary_blade_length and ecklonia$primary_blade_width
-R> z = 2.3601, p-value = 0.01827
-R> alternative hypothesis: true tau is not equal to 0
+R> t = 1.7671, df = 24, p-value = 0.08993
+R> alternative hypothesis: true correlation is not equal to 0
+R> 95 percent confidence interval:
+R>  -0.055311  0.642250
 R> sample estimates:
-R>       tau 
-R> 0.3426171
+R>       cor 
+R> 0.3393106
 ```
 
 ## One panel visual
@@ -201,24 +203,26 @@ ggplot(data = ecklonia, aes(x = stipe_length, y = frond_length)) +
   theme_pubclean()
 ```
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{09-correlations_files/figure-latex/corr-plot1-1} \caption{Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship.}(\#fig:corr-plot1)
-\end{figure}
+<div class="figure">
+<img src="09-correlations_files/figure-html/unnamed-chunk-8-1.png" alt="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-8)Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship.</p>
+</div>
 
-Just by eye-balling this scatterplot it should be clear that these data tend to increase at a roughly similar rate. Our Pearson r value is an indication of what that is.
+Just by eyeballing this scatterplot it should be clear that these data tend to increase at a roughly similar rate. Our Pearson r value is an indication of what that is.
 
 ## Multiple panel visual
 
-But why stop at one panel? It is relatively straightforward to quickly plot correlation results for all of our variables in one go. In order to show which variables correlate most with which other variables all at once, without creating chaos, we will create what is known as a heat map. This visualisation uses a range of colours, usually blue to red, to demonstrate where more of something is. In this case, we use it to show where more correlation is occurring between morphometric properties of the kelp _Ecklonia maxima_.
+But why stop at one panel? It is relatively straightforward to quickly plot correlation results for all of our variables in one go. In order to show which variables correlate most whith which other variables all at once, without creating chaos, we will create what is known as a heat map. This visualisation uses a range of colours, usually blue to red, to demonstrate where more of something is. In this case, we use it to show where more correlation is occurring between morphometric properties of the kelp _Ecklonia maxima_.
 
 
 ```r
 corrplot(ecklonia_pearson, method = "circle")
 ```
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{09-correlations_files/figure-latex/corr-plot2-1} \caption{Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive).}(\#fig:corr-plot2)
-\end{figure}
+<div class="figure">
+<img src="09-correlations_files/figure-html/unnamed-chunk-9-1.png" alt="Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive)." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-9)Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive).</p>
+</div>
 
 > **Task:** What does the series of dark blue circles through the middle of this plot mean?
 >

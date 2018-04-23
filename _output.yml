@@ -3,7 +3,6 @@ bookdown::pdf_book:
   citation_package: natbib
   toc: yes
   fig_caption: yes
-  template: LaTeX/default-1.17.0.2.tex
 bookdown::gitbook:
   css: css/style.css
   split_by: chapter
@@ -24,6 +23,7 @@ bookdown::gitbook:
     instapper: no
     vk: no
     all: ['google', 'twitter']
+always_allow_html: yes
 bookdown::html_chapters:
   css: [css/style.css, css/toc.css]
 tufte::tufte_html:

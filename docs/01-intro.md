@@ -123,11 +123,45 @@ Whereas plagiarism will not be tolerated, students ARE encouraged to work togeth
 
 This document, which as available as an HTML file that's viewable on a web browser of your choice (anything will do, but we discourage using Internet Explorer) and as a PDF (accessible from the link at the top of any of the website's pages) that may be printed, was prepared by the software tools available to R via RStudio. We use the package called `bookdown` that may be accessed and read about [here](https://bookdown.org/yihui/bookdown/) to produce this documentation. The entire source code to reproduce this book is available from my [GitHub repo](https://github.com/ajsmit/Basic_stats).
 
+
+```r
+knitr::include_graphics("figures/bookdown_hex_logo.png")
+```
+
+<div class="figure">
+<img src="figures/bookdown_hex_logo.png" alt="Bookdown hex." width="100" />
+<p class="caption">(\#fig:rmarkdown)Bookdown hex.</p>
+</div>
+
 You will notice that this repository uses [GitHub](https://github.com), and you are advised to set up your own repository for R scripts and all your data. We will touch on GitHub and the principles of reproducible research later, and GitHub forms a core ingredient of such a workflow.
 
-<!-- The R session information when compiling this book is shown below: -->
-<!-- ```{r prelim-session} -->
-<!-- sessionInfo() -->
-<!-- ``` -->
+The R session information when compiling this book is shown below:
+
+```r
+sessionInfo()
+```
+
+```
+R> R version 3.4.4 (2018-03-15)
+R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
+R> Running under: macOS Sierra 10.12.6
+R> 
+R> Matrix products: default
+R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
+R> LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+R> 
+R> locale:
+R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+R> 
+R> attached base packages:
+R> [1] stats     grDevices utils     datasets  graphics  base     
+R> 
+R> loaded via a namespace (and not attached):
+R>  [1] Rcpp_0.12.16    bookdown_0.7    png_0.1-7       digest_0.6.15  
+R>  [5] rprojroot_1.3-2 backports_1.1.2 magrittr_1.5    evaluate_0.10.1
+R>  [9] highr_0.6       stringi_1.1.7   rmarkdown_1.9   tools_3.4.4    
+R> [13] stringr_1.3.0   xfun_0.1        yaml_2.1.18     compiler_3.4.4 
+R> [17] htmltools_0.3.6 knitr_1.20      methods_3.4.4
+```
 
 

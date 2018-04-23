@@ -1,17 +1,7 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Simple linear regressions
 
 
 
-
-
-```r
-library(tidyverse)
-```
 
 Regressions test the statistical significance of the *dependence* of one continuous variable on one or many independent continuous variables.
 
@@ -112,9 +102,6 @@ ggplot(data = faithful, aes(x = waiting, y = eruptions)) +
        y = "Eruption duration (minutes)")
 ```
 
-
-\includegraphics[width=0.7\linewidth]{08-regressions_files/figure-latex/lm-plot1-1} 
-
 ### Predicting from the linear model
 
 Knowing $\alpha$ and $\beta$ allows us to predict what the eruption duration will be for a certain amount of waiting. Since the slope of the line is positive we can expect that the longer the waiting time is between eruptions the longer the eruption would be. But how can we quantify this? We start by extracting the coefficients (both the intercept and the regression coefficient). Then we use these values to reassemble the regression equation that we have written out above (i.e., $eruption_{n}=\beta \cdot waiting_{n}+\alpha+\epsilon$). Here's how:
@@ -196,8 +183,7 @@ ggplot(data = rand.df, aes(x = x, y = y)) +
        y = "Y (dependent variable)")
 ```
 
-
-\includegraphics[width=0.7\linewidth]{08-regressions_files/figure-latex/lm-plot2-1} 
+<img src="08-regressions_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
 <!-- insert a graph of a random relationship of y on x (a fitted line will have have a slope of 0 and the intercept will equal the mean, and the r2 will be 0) -->
@@ -264,4 +250,6 @@ The intervals are wider. The difference between confidence and prediction interv
 * When you use a categorical variable, in R the intercept represents the default position for a given value in the categorical column. Every other value then gets a modifier to the base prediction.
 
 <!-- for example the iris data set -->
+
+
 

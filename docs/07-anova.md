@@ -408,8 +408,7 @@ ggplot(data = snakes, aes(x = day, y = openings)) +
   geom_jitter(width = 0.05)
 ```
 
-
-\includegraphics[width=0.7\linewidth]{07-anova_files/figure-latex/anova-plot5-1} 
+<img src="07-anova_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 What are our null hypotheses?
 
@@ -433,27 +432,36 @@ R> ---
 R> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-Now we need to test of the assumptions hold true (i.e. erros are normally distributed and heteroscedastic). Also, where are the differences?
+Now we need to test of the assumptions hold true (i.e. erros are normally distributed and heteroscedastic):
 
 
 ```r
-par(mfrow = c(2, 2))
 # Checking assumptions...
 # make a histogram of the residuals;
 # they must be normal
 snakes.res <- residuals(snakes.aov)
-hist(snakes.res, col = "red")
-
-# make a plot of residuals and the fitted values;
-# # they must be normal and homoscedastic
-plot(fitted(snakes.aov), residuals(snakes.aov), col = "red")
-
-snakes.tukey <- TukeyHSD(snakes.aov, which = "day", conf.level = 0.90)
-plot(snakes.tukey, las = 1, col = "red")
+hist(snakes.res)
 ```
 
+<img src="07-anova_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
-\includegraphics[width=0.7\linewidth]{07-anova_files/figure-latex/anova-plot6-1} 
+```r
+# make a plot of residuals and the fitted values;
+# # they must be normal and homoscedastic
+plot(fitted(snakes.aov), residuals(snakes.aov))
+```
+
+<img src="07-anova_files/figure-html/unnamed-chunk-20-2.png" width="672" />
+
+Where exactly are these differences?
+
+
+```r
+snakes.tukey <- TukeyHSD(snakes.aov, which = "day")
+plot(snakes.tukey)
+```
+
+<img src="07-anova_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 
 ## Alternatives to ANOVA
@@ -568,8 +576,7 @@ ggboxplot(sa_time_long, x = "term", y = "minutes",
           add = "jitter", shape = "term")
 ```
 
-
-\includegraphics[width=0.7\linewidth]{07-anova_files/figure-latex/anova-plot7-1} 
+<img src="07-anova_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
 ```r
 ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
@@ -579,8 +586,7 @@ ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
   stat_compare_means(label.y = 50)                                      # Add global the p-value 
 ```
 
-
-\includegraphics[width=0.7\linewidth]{07-anova_files/figure-latex/anova-plot7-2} 
+<img src="07-anova_files/figure-html/unnamed-chunk-27-2.png" width="672" />
 
 
 ## Exercises

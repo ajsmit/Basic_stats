@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-21">
+<meta name="date" content="2018-04-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -351,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 9</span> Correlations</h1>
 <p>A correlation is performed when we want to investigate potential relationships between variables from the same sample. This does not mean that one variable explains the other, we arrive at that through the use of regression, as seen in Chapter 8. Like all statistical tests, correlation requires a series of assumptions as well:</p>
 <ul>
-<li>pair-wise data</li>
+<li>pairwise data</li>
 <li>absence of outliers</li>
 <li>linearity</li>
 <li>normality of distribution</li>
@@ -363,25 +370,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p>In order to investigate correlations in biological data lets load the <code>ecklonia</code> dataset.</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1"><span class="co"># Load libraries</span></a>
-<a class="sourceLine" id="cb213-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb213-3" data-line-number="3"><span class="kw">library</span>(ggpubr)</a>
-<a class="sourceLine" id="cb213-4" data-line-number="4"><span class="kw">library</span>(corrplot)</a>
-<a class="sourceLine" id="cb213-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb213-6" data-line-number="6"><span class="co"># Load data</span></a>
-<a class="sourceLine" id="cb213-7" data-line-number="7">ecklonia &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/ecklonia.csv&quot;</span>)</a></code></pre></div>
-<p>We will also create a subsetted version of our data by removing all of the categorical variables. If we have a dataframe where each column represents pair-wise continuous/ordinal measurements with all of the other columns we may very quickly and easily perform a much wider range of correlation analyses.</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">ecklonia_sub &lt;-<span class="st"> </span>ecklonia <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb214-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>species, <span class="op">-</span><span class="st"> </span>site, <span class="op">-</span><span class="st"> </span>ID)</a></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1"><span class="co"># Load libraries</span></a>
+<a class="sourceLine" id="cb215-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb215-3" data-line-number="3"><span class="kw">library</span>(ggpubr)</a>
+<a class="sourceLine" id="cb215-4" data-line-number="4"><span class="kw">library</span>(corrplot)</a>
+<a class="sourceLine" id="cb215-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb215-6" data-line-number="6"><span class="co"># Load data</span></a>
+<a class="sourceLine" id="cb215-7" data-line-number="7">ecklonia &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/ecklonia.csv&quot;</span>)</a></code></pre></div>
+<p>We will also create a subsetted version of our data by removing all of the categorical variables. If we have a dataframe where each column represents pairwise continuous/ordinal measurements with all of the other columns we may very quickly and easily perform a much wider range of correlation analyses.</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1">ecklonia_sub &lt;-<span class="st"> </span>ecklonia <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb216-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>species, <span class="op">-</span><span class="st"> </span>site, <span class="op">-</span><span class="st"> </span>ID)</a></code></pre></div>
 <div id="pearson-correlation" class="section level2">
 <h2><span class="header-section-number">9.1</span> Pearson correlation</h2>
-<p>When the values we are comparing are continuous, we may use a Pearson test. This is the default and so requires little work on our end. The resulting statistic from this test is known as the correlation coefficient.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1"><span class="co"># Perform correlation analysis on two specific variables</span></a>
-<a class="sourceLine" id="cb215-2" data-line-number="2">  <span class="co"># Note that we do not need the final two arguments in this function to be stated</span></a>
-<a class="sourceLine" id="cb215-3" data-line-number="3">  <span class="co"># as they are the defaut settings.</span></a>
-<a class="sourceLine" id="cb215-4" data-line-number="4">  <span class="co"># They are only shown here to illustrate that they exist.</span></a>
-<a class="sourceLine" id="cb215-5" data-line-number="5"><span class="kw">cor.test</span>(<span class="dt">x =</span> ecklonia<span class="op">$</span>stipe_length, ecklonia<span class="op">$</span>frond_length,</a>
-<a class="sourceLine" id="cb215-6" data-line-number="6">    <span class="dt">use =</span> <span class="st">&quot;everything&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
+<p>When the values we are comparing are continuous, we may use a Pearson test. This is the default and so requires little work on our end. The resulting statistic from this test is known as the correlation coefficent.</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1"><span class="co"># Perform correlation analysis on two specific variables</span></a>
+<a class="sourceLine" id="cb217-2" data-line-number="2">  <span class="co"># Note that we do not need the final two arguments in this function to be stated</span></a>
+<a class="sourceLine" id="cb217-3" data-line-number="3">  <span class="co"># as they are the defaut settings.</span></a>
+<a class="sourceLine" id="cb217-4" data-line-number="4">  <span class="co"># They are only shown here to illustrate that they exist.</span></a>
+<a class="sourceLine" id="cb217-5" data-line-number="5"><span class="kw">cor.test</span>(<span class="dt">x =</span> ecklonia<span class="op">$</span>stipe_length, ecklonia<span class="op">$</span>frond_length,</a>
+<a class="sourceLine" id="cb217-6" data-line-number="6">    <span class="dt">use =</span> <span class="st">&quot;everything&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
 <pre><code>R&gt; 
 R&gt;  Pearson&#39;s product-moment correlation
 R&gt; 
@@ -393,9 +400,9 @@ R&gt;  0.3548169 0.8300525
 R&gt; sample estimates:
 R&gt;       cor 
 R&gt; 0.6524911</code></pre>
-<p>Above we have tested the correlation between the length of <em>Ecklonia maxima</em> stipes and the length of their fronds. A perfect positive (negative) relationship would produce a value of 1 (-1), whereas no relationship would produce a value of 0. The result above, <code>cor = 0.65</code> is relatively strong. That being said, should our dataset contain multiple variables, as <code>ecklonia</code> does, we may investigate all of the correlations simultaneously. Remember that in order to do so we want to ensure that we may perform the same test on each of our paired variables. In this case we will use <code>ecklonia_sub</code> as we know that it contains only continuous data and so are appropriate for use with a Pearson test. By default R will use all of the data we give it and perform a Pearson test so we do not need to specify any further arguments. Note however that this will only output the correlation coefficients, and does not produce a full test of each correlation. This will however be useful for us to have just now.</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1">ecklonia_pearson &lt;-<span class="st"> </span><span class="kw">cor</span>(ecklonia_sub)</a>
-<a class="sourceLine" id="cb217-2" data-line-number="2">ecklonia_pearson</a></code></pre></div>
+<p>Above we have tested the correlation between the length of <em>Ecklonia maxima</em> stipes and the length of their fronds. A perfect positive (negative) relationship would produce a value of 1 (-1), whereas no relationship would produce a value of 0. The result above, <code>cor = 0.65</code> is relatively strong. That being said, should our dataset contain multiple variables, as <code>ecklonia</code> does, we may investigate all of the correlations simultaneously. Remember that in order to do so we want to ensure that we may perform the same test on each of our paired variables. In this case we will use <code>ecklonia_sub</code> as we know that it contains only continuous data and so are appropriate for use with a Pearson test. By default R will use all of the data we give it and perform a Pearson test so we do not need to specify any further arguments. Note however that this will only output the correlation coefficents, and does not produce a full test of each correlation. This will however be useful for us to have just now.</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1">ecklonia_pearson &lt;-<span class="st"> </span><span class="kw">cor</span>(ecklonia_sub)</a>
+<a class="sourceLine" id="cb219-2" data-line-number="2">ecklonia_pearson</a></code></pre></div>
 <pre><code>R&gt;                      stipe_length stipe_diameter frond_length     digits
 R&gt; stipe_length            1.0000000      0.5853577   0.65249111 0.24273818
 R&gt; stipe_diameter          0.5853577      1.0000000   0.39032107 0.24098021
@@ -433,11 +440,11 @@ R&gt; epiphyte_length       0.4392029      1.00000000</code></pre>
 <div id="spearman-rank-correlation" class="section level2">
 <h2><span class="header-section-number">9.2</span> Spearman rank correlation</h2>
 <p>When the data we want to compare are not continuous, but rather ordinal, we will need to use a Spearman test. This is not often a test one uses in biology because we tend to want to compare continuous data within categories. In the code below we will add a column of ordinal data to our <code>ecklonia</code> data to so that we may look at this test.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="co"># Create ordinal data</span></a>
-<a class="sourceLine" id="cb219-2" data-line-number="2">ecklonia<span class="op">$</span>length &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">cut</span>((ecklonia<span class="op">$</span>stipe_length<span class="op">+</span>ecklonia<span class="op">$</span>frond_length), <span class="dt">breaks =</span> <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb219-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb219-4" data-line-number="4"><span class="co"># Run test on any variable</span></a>
-<a class="sourceLine" id="cb219-5" data-line-number="5"><span class="kw">cor.test</span>(ecklonia<span class="op">$</span>length, ecklonia<span class="op">$</span>digits)</a></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="co"># Create ordinal data</span></a>
+<a class="sourceLine" id="cb221-2" data-line-number="2">ecklonia<span class="op">$</span>length &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">cut</span>((ecklonia<span class="op">$</span>stipe_length<span class="op">+</span>ecklonia<span class="op">$</span>frond_length), <span class="dt">breaks =</span> <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb221-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb221-4" data-line-number="4"><span class="co"># Run test on any variable</span></a>
+<a class="sourceLine" id="cb221-5" data-line-number="5"><span class="kw">cor.test</span>(ecklonia<span class="op">$</span>length, ecklonia<span class="op">$</span>digits)</a></code></pre></div>
 <pre><code>R&gt; 
 R&gt;  Pearson&#39;s product-moment correlation
 R&gt; 
@@ -455,12 +462,12 @@ R&gt; 0.29239</code></pre>
 </div>
 <div id="kendall-rank-correlation" class="section level2">
 <h2><span class="header-section-number">9.3</span> Kendall rank correlation</h2>
-<p>This test will work for both continuous and ordinal data. A sort of dealers choice of correlation tests. It’s main purpose is to allow us to perform a correlation on non-normally distributed data. Let’s look at the normality of our <code>ecklonia</code> variables and pull out those that are not normal in order to see how the results of this test may differ from our Pearson tests.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1">ecklonia_norm &lt;-<span class="st"> </span>ecklonia_sub <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb221-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb221-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(variable) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb221-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">variable_norm =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(value)[<span class="dv">2</span>]))</a>
-<a class="sourceLine" id="cb221-5" data-line-number="5">ecklonia_norm</a></code></pre></div>
+<p>This test will work for both continuous and ordinal data. A sort of dealers choic of correlation tests. It’s main purpose is to allow us to perform a correlation on non-normally distributed data. Let’s look at the normality of our <code>ecklonia</code> variables and pull out those that are not normal in order to see how the results of this test may differ from our Pearson tests.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">ecklonia_norm &lt;-<span class="st"> </span>ecklonia_sub <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb223-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb223-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(variable) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb223-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">variable_norm =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(value)[<span class="dv">2</span>]))</a>
+<a class="sourceLine" id="cb223-5" data-line-number="5">ecklonia_norm</a></code></pre></div>
 <pre><code>R&gt; # A tibble: 9 x 2
 R&gt;   variable             variable_norm
 R&gt;   &lt;chr&gt;                        &lt;dbl&gt;
@@ -474,47 +481,49 @@ R&gt; 7 stipe_diameter             0.170
 R&gt; 8 stipe_length               0.213  
 R&gt; 9 stipe_mass                 0.817</code></pre>
 <p>From this analysis we may see that the values for primary blade length are not normally distributed. In order to make up for this violation of our assumption of normality we may use the Spearman test.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">cor.test</span>(ecklonia<span class="op">$</span>primary_blade_length, ecklonia<span class="op">$</span>primary_blade_width, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="kw">cor.test</span>(ecklonia<span class="op">$</span>primary_blade_length, ecklonia<span class="op">$</span>primary_blade_width)</a></code></pre></div>
 <pre><code>R&gt; 
-R&gt;  Kendall&#39;s rank correlation tau
+R&gt;  Pearson&#39;s product-moment correlation
 R&gt; 
 R&gt; data:  ecklonia$primary_blade_length and ecklonia$primary_blade_width
-R&gt; z = 2.3601, p-value = 0.01827
-R&gt; alternative hypothesis: true tau is not equal to 0
+R&gt; t = 1.7671, df = 24, p-value = 0.08993
+R&gt; alternative hypothesis: true correlation is not equal to 0
+R&gt; 95 percent confidence interval:
+R&gt;  -0.055311  0.642250
 R&gt; sample estimates:
-R&gt;       tau 
-R&gt; 0.3426171</code></pre>
+R&gt;       cor 
+R&gt; 0.3393106</code></pre>
 </div>
 <div id="one-panel-visual" class="section level2">
 <h2><span class="header-section-number">9.4</span> One panel visual</h2>
 <p>As is the case with everything else we have learned thus far, a good visualisation can go a long way to help us understand what the statistics are doing. Below we visualise the stipe length to frond length relationship.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="co"># Calculate Pearson r beforehand for plotting</span></a>
-<a class="sourceLine" id="cb225-2" data-line-number="2">r_print &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;r = &quot;</span>, </a>
-<a class="sourceLine" id="cb225-3" data-line-number="3">                  <span class="kw">round</span>(<span class="kw">cor</span>(<span class="dt">x =</span> ecklonia<span class="op">$</span>stipe_length, ecklonia<span class="op">$</span>frond_length),<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb225-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb225-5" data-line-number="5"><span class="co"># Then create a single panel showing one correlation</span></a>
-<a class="sourceLine" id="cb225-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> ecklonia, <span class="kw">aes</span>(<span class="dt">x =</span> stipe_length, <span class="dt">y =</span> frond_length)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb225-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;grey90&quot;</span>, <span class="dt">se =</span> F) <span class="op">+</span></a>
-<a class="sourceLine" id="cb225-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;mediumorchid4&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb225-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_label</span>(<span class="dt">x =</span> <span class="dv">300</span>, <span class="dt">y =</span> <span class="dv">240</span>, <span class="dt">label =</span> r_print) <span class="op">+</span></a>
-<a class="sourceLine" id="cb225-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Stipe length (cm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frond length (cm)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb225-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_pubclean</span>()</a></code></pre></div>
-<div class="figure"><span id="fig:corr-plot1"></span>
-<img src="09-correlations_files/figure-html/corr-plot1-1.png" alt="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship." width="70%" />
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="co"># Calculate Pearson r beforehand for plotting</span></a>
+<a class="sourceLine" id="cb227-2" data-line-number="2">r_print &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;r = &quot;</span>, </a>
+<a class="sourceLine" id="cb227-3" data-line-number="3">                  <span class="kw">round</span>(<span class="kw">cor</span>(<span class="dt">x =</span> ecklonia<span class="op">$</span>stipe_length, ecklonia<span class="op">$</span>frond_length),<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb227-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb227-5" data-line-number="5"><span class="co"># Then create a single panel showing one correlation</span></a>
+<a class="sourceLine" id="cb227-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> ecklonia, <span class="kw">aes</span>(<span class="dt">x =</span> stipe_length, <span class="dt">y =</span> frond_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb227-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;grey90&quot;</span>, <span class="dt">se =</span> F) <span class="op">+</span></a>
+<a class="sourceLine" id="cb227-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;mediumorchid4&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb227-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_label</span>(<span class="dt">x =</span> <span class="dv">300</span>, <span class="dt">y =</span> <span class="dv">240</span>, <span class="dt">label =</span> r_print) <span class="op">+</span></a>
+<a class="sourceLine" id="cb227-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Stipe length (cm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frond length (cm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb227-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_pubclean</span>()</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="09-correlations_files/figure-html/unnamed-chunk-8-1.png" alt="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship." width="672" />
 <p class="caption">
-Figure 9.1: Scatterplot showing relationship between <em>Ecklonia maxima</em> stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship.
+Figure 4.4: Scatterplot showing relationship between <em>Ecklonia maxima</em> stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship.
 </p>
 </div>
-<p>Just by eye-balling this scatterplot it should be clear that these data tend to increase at a roughly similar rate. Our Pearson r value is an indication of what that is.</p>
+<p>Just by eyeballing this scatterplot it should be clear that these data tend to increase at a roughly similar rate. Our Pearson r value is an indication of what that is.</p>
 </div>
 <div id="multiple-panel-visual" class="section level2">
 <h2><span class="header-section-number">9.5</span> Multiple panel visual</h2>
-<p>But why stop at one panel? It is relatively straightforward to quickly plot correlation results for all of our variables in one go. In order to show which variables correlate most with which other variables all at once, without creating chaos, we will create what is known as a heat map. This visualisation uses a range of colours, usually blue to red, to demonstrate where more of something is. In this case, we use it to show where more correlation is occurring between morphometric properties of the kelp <em>Ecklonia maxima</em>.</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="kw">corrplot</span>(ecklonia_pearson, <span class="dt">method =</span> <span class="st">&quot;circle&quot;</span>)</a></code></pre></div>
-<div class="figure"><span id="fig:corr-plot2"></span>
-<img src="09-correlations_files/figure-html/corr-plot2-1.png" alt="Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive)." width="70%" />
+<p>But why stop at one panel? It is relatively straightforward to quickly plot correlation results for all of our variables in one go. In order to show which variables correlate most whith which other variables all at once, without creating chaos, we will create what is known as a heat map. This visualisation uses a range of colours, usually blue to red, to demonstrate where more of something is. In this case, we use it to show where more correlation is occurring between morphometric properties of the kelp <em>Ecklonia maxima</em>.</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="kw">corrplot</span>(ecklonia_pearson, <span class="dt">method =</span> <span class="st">&quot;circle&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="09-correlations_files/figure-html/unnamed-chunk-9-1.png" alt="Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive)." width="672" />
 <p class="caption">
-Figure 9.2: Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive).
+Figure 4.5: Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive).
 </p>
 </div>
 <blockquote>

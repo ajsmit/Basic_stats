@@ -1,4 +1,4 @@
-# Descriptive statistics: central tendency and dispersion
+# Descriptive statistics: A focus on measures of central tendency and dispersion
 
 
 > *"I think it is much more interesting to live with uncertainty than to live with answers that might be wrong."*
@@ -260,12 +260,10 @@ R> 1  71.1
 
 The interpretation of the concepts of mean and median are fairly straight forward and intuitive. Not so for the measures of variance. What does $S$ represent? Firstly, the unit of measurement of $S$ is the same as that of $\bar{x}$ (but the variance doesn't share this characteristic). If temperature is measured in °C, then $S$ also takes a unit of °C. Since $S$ measures the dispersion *around* the mean, we write it as $\bar{x} \pm S$ (note that often the mean and standard deviation are written with the letters *mu* and *sigma*, respectively; i.e. $\mu \pm \sigma$). The smaller $S$ the closer the sample data are to $\bar{x}$, and the larger the value is the further away they will spread out from $\bar{x}$. So, it tells us about the proportion of observations above and below $\bar{x}$. But what proportion? We invoke the the 68-95-99.7 rule: ~68% of the population (as represented by a random sample of $n$ observations taken from the population) falls within 1$S$ of $\bar{x}$ (i.e. ~34% below $\bar{x}$ and ~34% above $\bar{x}$); ~95% of the population falls within 2$S$; and ~99.7% falls within 3$S$.
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=0.7\linewidth]{figures/Standard_deviation_diagram.png}
-\end{center}
-\caption{The proportions of data representation by the standard deviation. Credit: wikipedia/Standard_deviation}
-\end{figure}
+<div class="figure">
+<img src="figures/Standard_deviation_diagram.svg" alt="The proportions of data representation by the standard deviation. Credit: [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)"  />
+<p class="caption">(\#fig:rmarkdown)The proportions of data representation by the standard deviation. Credit: [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)</p>
+</div>
 
 Like the mean, $S$ is affected by extreme values and outliers, so before we attach $S$ as a summary statistic to describe some data, we need to ensure that the data are in fact normally distributed. We will talk about how to do this in Chapter 6, where we will go over the numerous ways to check the assumption of normality. When the data are found to be non-normal, we need to find appropriate ways to express the spread of the data. Enter the quartiles.
 
@@ -449,7 +447,10 @@ plt1 <- chicks %>%
   geom_jitter(width = 0.05) + # geom_point() if jitter not required
   labs(y = "Chicken mass (g)") + 
   theme_pubr()
+```
 
+
+```r
 plt2 <- ggplot(data = grp_stat, aes(x = Diet, y = mean_wt)) +
   geom_bar(position = position_dodge(), stat = "identity", 
            col = NA, fill = "salmon") +
@@ -459,7 +460,10 @@ plt2 <- ggplot(data = grp_stat, aes(x = Diet, y = mean_wt)) +
   theme_pubr()
 # position_dodge() places bars side-by-side
 # stat = "identity" prevents the default count from being plotted
+```
 
+
+```r
 plt3 <- chicks %>%
   filter(Time == 21) %>% 
   ggplot(aes(x = Diet, y = weight)) +
@@ -467,7 +471,10 @@ plt3 <- chicks %>%
   geom_jitter(width = 0.05, fill = "white", col = "blue", shape = 21) +
   labs(y = "Chicken mass (g)") + 
   theme_pubr()
+```
 
+
+```r
 plt4 <- chicks %>%
   filter(Time %in% c(10, 21)) %>% 
   ggplot(aes(x = Diet, y = weight, fill = as.factor(Time))) +
@@ -482,9 +489,10 @@ plt4 <- chicks %>%
 ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{03-discriptive_files/figure-latex/descriptive-plot1-1} \caption{A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.}(\#fig:descriptive-plot1)
-\end{figure}
+<div class="figure">
+<img src="03-discriptive_files/figure-html/unnamed-chunk-20-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-20)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.</p>
+</div>
 
 ## Exercises
 
