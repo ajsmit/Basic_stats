@@ -1,29 +1,29 @@
 --- 
 title: "Basic Statistics"
+subtitle: A primer in basic statistics for BCB (Hons) 2018
 author: "AJ Smit and Robert Schlegel"
+description: "A Book about Basic Statistics."
+thanks: Replication files are available on the author's GitHub account
 date: "2018-04-23"
 bibliography:
 - LaTeX/bibliography.bib
 - LaTeX/packages.bib
-citecolor: green
+site: bookdown::bookdown_site
+citecolor: purple
+urlcolor: blue
 cover-image: figures/NSFW.jpg
 biblio-style: apalike
-description: 'This is a book about basic statistics: theory and practice.'
-fontsize: 10pt
+papersize: A4
 geometry: margin=4cm
+fontsize: 10pt
 github-repo: ajsmit/Basic_stats
 language: Australian
 link-citations: yes
 linkcolor: cyan
+tables: yes
 lof: no
 lot: no
-papersize: A4
-site: bookdown::bookdown_site
-subtitle: A primer in basic statistics for BCB (Hons) 2018
-tables: yes
-thanks: Replication files are available on the author's GitHub account
 always_allow_html: yes
-urlcolor: cyan
 ---
 
 # Preface {-}

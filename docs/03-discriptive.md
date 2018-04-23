@@ -460,6 +460,8 @@ plt2 <- ggplot(data = grp_stat, aes(x = Diet, y = mean_wt)) +
 # position_dodge() places bars side-by-side
 # stat = "identity" prevents the default count from being plotted
 
+# a description of the components of a boxplot is provided in the help file
+# geom_boxplot()
 plt3 <- chicks %>%
   filter(Time == 21) %>% 
   ggplot(aes(x = Diet, y = weight)) +
@@ -475,15 +477,12 @@ plt4 <- chicks %>%
   geom_jitter(shape = 21, width = 0.1) +
   labs(y = "Chicken mass (g)", fill = "Time") +
   theme_pubr()
-```
 
-
-```r
 ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{03-discriptive_files/figure-latex/descriptive-plot1-1} \caption{A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean.}(\#fig:descriptive-plot1)
+\includegraphics[width=0.7\linewidth]{03-discriptive_files/figure-latex/descriptive-plot1-1} \caption{A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing whiskers indicating 1 ±SD. C) Box and whisker plot of the chicken mass data.}(\#fig:descriptive-plot1)
 \end{figure}
 
 ## Exercises

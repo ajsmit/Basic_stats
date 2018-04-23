@@ -301,7 +301,7 @@ grp_stat
 
 There are several kinds of graphical displays for your data. We will show some which are able to display the spread of the raw data, the mean or median, as well as the appropriate accompanying indicators of variation around the mean or median.
 
-```{r, message=FALSE}
+```{r descriptive-plot1, fig.cap = "A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing whiskers indicating 1 ±SD. C) Box and whisker plot of the chicken mass data."}
 library(ggpubr) # needed for arranging multi-panel plots
 plt1 <- chicks %>%
   filter(Time == 21) %>% 
@@ -322,6 +322,8 @@ plt2 <- ggplot(data = grp_stat, aes(x = Diet, y = mean_wt)) +
 # position_dodge() places bars side-by-side
 # stat = "identity" prevents the default count from being plotted
 
+# a description of the components of a boxplot is provided in the help file
+# geom_boxplot()
 plt3 <- chicks %>%
   filter(Time == 21) %>% 
   ggplot(aes(x = Diet, y = weight)) +
@@ -337,9 +339,7 @@ plt4 <- chicks %>%
   geom_jitter(shape = 21, width = 0.1) +
   labs(y = "Chicken mass (g)", fill = "Time") +
   theme_pubr()
-```
 
-```{r descriptive-plot1, message = FALSE, fig.cap = "A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing 'whiskers' indicating ±1 SD. C) Box and whisker plot of the chicken mass data. Please see the help file for `geom_boxplot()` for what the graph components mean."}
 ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 

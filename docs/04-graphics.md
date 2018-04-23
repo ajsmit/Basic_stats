@@ -138,7 +138,7 @@ ggarrange(hist1, hist2, hist3, hist4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{04-graphics_files/figure-latex/graphics-plot2-1} \caption{Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.}(\#fig:graphics-plot2)
+\includegraphics[width=0.7\linewidth]{04-graphics_files/figure-latex/graphics-plot2-1} \caption{Example histograms for the Old Faithful data. A) A default frequency histogram with the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.}(\#fig:graphics-plot2)
 \end{figure}
 
 What if we have continuous data belonging with multiple categories? The `iris` data provide a nice set of measurements that we may use to demonstrate a grouped frequency histogram. These data are size measurements (cm) of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of three species of *Iris*. The species are *Iris setosa*, *I. versicolor*, and *I. virginica*.
@@ -161,8 +161,9 @@ ggplot(data = iris.long, aes(x = size)) +
   theme_pubclean()
 ```
 
-
-\includegraphics[width=0.7\linewidth]{04-graphics_files/figure-latex/graphics-plot3-1} 
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{04-graphics_files/figure-latex/graphics-plot3-1} \caption{Panelled grouped histograms for the four Iris variables.}(\#fig:graphics-plot3)
+\end{figure}
 
 ### Box plots
 
@@ -263,7 +264,7 @@ iris.long %>%
 ```
 
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{04-graphics_files/figure-latex/graphics-plot6-1} \caption{Box plots of the mean±SD of the four Iris variables.}(\#fig:graphics-plot6)
+\includegraphics[width=0.7\linewidth]{04-graphics_files/figure-latex/graphics-plot6-1} \caption{Box plots of the mean ± SD of the four Iris variables.}(\#fig:graphics-plot6)
 \end{figure}
 
 ### Density graphs
@@ -364,8 +365,9 @@ vio4 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, colour = Species)
 ggarrange(vio1, vio2, vio3, vio4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
-
-\includegraphics[width=0.7\linewidth]{04-graphics_files/figure-latex/graphics-plot8-1} 
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{04-graphics_files/figure-latex/graphics-plot8-1} \caption{Variations of violin plots.}(\#fig:graphics-plot8)
+\end{figure}
 
 ## Exercises
 

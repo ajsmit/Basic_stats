@@ -6,7 +6,7 @@
 Therefore, we must next learn about the different types of data distributions we are likely to encounter in the wild.
 
 ## Discrete distributions
-A discrete random variable has a finite or countable number of possible values. As the name suggests, it models integer data. Below we provide options to generate and visualise data belonging to several classes of discrete distributions. Later (Chapter X) we will learn how to transform these data prior to performing the appropriate statistical analysis.
+A discrete random variable has a finite or countable number of possible values. As the name suggests, it models integer data. Below we provide options to generate and visualise data belonging to several classes of discrete distributions. Later (Chapter 11) we will learn how to transform these data prior to performing the appropriate statistical analysis.
 
 ### Bernoulli distribution
 A Bernoulli random variable, $x$, takes the value 1 with probability $p$ and the value 0 with probability $q=1−p$. It is used to represent data resulting from a *single* experiment with binary (yes or no; black or white; positive or negative; success or failure; dead or alive;) outcomes, such as a coin toss---there are only two options, heads or tails. Nothing else. Here, $p$ represents the probability of the one outcome and $q$ the probability of the other outcome. The distribution of the possible outcomes, $x$, is given by:
@@ -66,7 +66,7 @@ Another name for this kind of distribution is a Gaussian distribution. A random 
 \begin{center}
 \includegraphics[width=0.7\linewidth]{figures/Boxplot_vs_PDF.png}
 \end{center}
-\caption{Boxplot and probability density function of a normal distribution *N*(0, σ^2^). Credit: wikipedia/Probability_density_function.}
+\caption{Boxplot and probability density function of a normal distribution. Credit: Wikipedia.}
 \end{figure}
 
 ### Uniform distribution
@@ -178,12 +178,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  8.74732   max:  17.75209 
-## median:  12.62501 
-## mean:  12.93918 
-## estimated sd:  1.785816 
-## estimated skewness:  0.2939299 
-## estimated kurtosis:  2.866868
+## min:  8.503248   max:  18.29135 
+## median:  13.35981 
+## mean:  13.20023 
+## estimated sd:  2.085534 
+## estimated skewness:  0.1202547 
+## estimated kurtosis:  2.772078
 ```
 
 ![](05-distributions_files/figure-latex/dist-plot2-1.pdf)<!-- --> 
@@ -201,12 +201,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  0.01929355   max:  0.9924383 
-## median:  0.5573897 
-## mean:  0.5407441 
-## estimated sd:  0.2805327 
-## estimated skewness:  -0.09710851 
-## estimated kurtosis:  1.854152
+## min:  0.005880884   max:  0.993874 
+## median:  0.5038945 
+## mean:  0.5082694 
+## estimated sd:  0.2943109 
+## estimated skewness:  -0.01172497 
+## estimated kurtosis:  1.898179
 ```
 
 ![](05-distributions_files/figure-latex/dist-plot3-1.pdf)<!-- --> 
@@ -224,12 +224,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  0.06593831   max:  7.179655 
-## median:  0.9290058 
-## mean:  1.425462 
-## estimated sd:  1.442759 
-## estimated skewness:  1.583478 
-## estimated kurtosis:  5.596362
+## min:  0.03435814   max:  5.51007 
+## median:  0.8386743 
+## mean:  1.295512 
+## estimated sd:  1.210403 
+## estimated skewness:  1.434539 
+## estimated kurtosis:  4.849173
 ```
 
 ![](05-distributions_files/figure-latex/dist-plot4-1.pdf)<!-- --> 

@@ -84,7 +84,7 @@ ggarrange(plt1, plt2, plt3, plt4, nrow = 2, ncol = 2, labels = "AUTO")
 As with discrete data, we have a choice of absolute (Fig. 4.2A) and relative (Fig. 4.2 B-C) frequency histograms. There's also the empirical cumulative distribution function (ECDF) (Fig. 4.2 D) that uses relative proportions, but in this instance it is the relative proportion that each individual observation has towards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called *bins*. See the Old Faithful data, for example. The eruptions last between `r min(faithful$eruptions)` and `r max(faithful$eruptions)` minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The **ggplot2** `geom_histogram()` function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure 4.2 A-D).
 
 <!-- show example of numerical summary -->
-```{r graphics-plot2, fig.margin = TRUE, fig.cap="Examples of histograms for the Old Faithful data. A) A default frequency histogram showing the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1."}
+```{r graphics-plot2, fig.margin = TRUE, fig.cap="Example histograms for the Old Faithful data. A) A default frequency histogram with the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1."}
 # a normal frequency histogram, with count along y
 hist1 <- ggplot(data = faithful, aes(x = eruptions)) +
   geom_histogram(colour = "black", fill = "salmon", alpha = 0.6) +
@@ -129,7 +129,7 @@ ggarrange(hist1, hist2, hist3, hist4, ncol = 2, nrow = 2, labels = "AUTO")
 
 What if we have continuous data belonging with multiple categories? The `iris` data provide a nice set of measurements that we may use to demonstrate a grouped frequency histogram. These data are size measurements (cm) of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of three species of *Iris*. The species are *Iris setosa*, *I. versicolor*, and *I. virginica*.
 
-```{r graphics-plot3}
+```{r graphics-plot3, fig.cap="Panelled grouped histograms for the four Iris variables."}
 # first we make long data
 iris.long <- iris %>% 
   gather(key = "variable", value = "size", -Species)
@@ -209,7 +209,7 @@ ggarrange(plt1, plt2, ncol = 2, nrow = 1, labels = "AUTO")
 
 Bar graphs display the mean plus/minus some measure of variation around the mean---typically the standard error or the standard deviation. The mean±SE and mean±SD are typically used for normally-distributed data. Here I provide an example bar graph for one of the Iris data set's variables:
 
-```{r graphics-plot6, fig.margin = TRUE, fig.cap="Box plots of the mean±SD of the four Iris variables."}
+```{r graphics-plot6, fig.margin = TRUE, fig.cap="Box plots of the mean ± SD of the four Iris variables."}
 # first make nice labels for the facets because the default ones
 # in the dataframe are not so nice; use the `labeller()` function
 # to receive the new variable names defined here
@@ -286,7 +286,7 @@ ggarrange(dens1, dens2, dens3, dens4, ncol = 2, nrow = 2, labels = "AUTO")
 
 The density graph is not limited to it's use with histograms. We may combine this concept with box plots, too. These are known as violin plots and are very useful when we want to show the distribution of multiple categories of the same variable alongside one another. Violin plots may show the same information as box plots but take things one step further by allowing the shape of the boxplot to also show the distribution of the data within the sample set. We will use the `iris` data below to highlight the different types of violin plots one may use.
 
-```{r graphics-plot8}
+```{r graphics-plot8, fig.cap="Variations of violin plots."}
 # A basic violin plot
 vio1 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
   geom_violin() + 
