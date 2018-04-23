@@ -17,7 +17,7 @@
   % \defaultfontfeatures{Ligatures=Common}
   \setmainfont[Ligatures=TeX]{Minion Pro}
   \setsansfont[Ligatures=TeX,Scale=MatchLowercase]{Myriad Pro}
-  \setmonofont[Scale=MatchLowercase]{Fira Code}
+  \setmonofont[Scale=.85]{Ubuntu Mono}
   % custom ampersand
   \newcommand{\amper}{{\fontspec[Scale=.95]{Hoefler Text}\selectfont\itshape\&}}
 \else
@@ -230,13 +230,13 @@ $else$
   \predate{}\postdate{}
 $endif$
 
-% UNCOMMENT IF FIGURE ABOVE TITLE IS NOT REQUIRED
-\pretitle{%
-  \begin{center}
-  \LARGE
-  \includegraphics[width=5cm]{figures/769_life_finds_a_way.png}\\[\bigskipamount]
-}
-\posttitle{\end{center}}
+% COMMENT IF FIGURE ABOVE TITLE IS NOT REQUIRED
+% \pretitle{%
+%   \begin{center}
+%   \LARGE
+%   \includegraphics[width=5cm]{figures/769_life_finds_a_way.png}\\[\bigskipamount]
+% }
+% \posttitle{\end{center}}
 
 % ANY HEADER/PREAMBLE LaTeX code can be added to the file
 % specified here by
