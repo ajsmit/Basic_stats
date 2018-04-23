@@ -178,12 +178,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  8.842778   max:  19.93329 
-## median:  13.16531 
-## mean:  13.24215 
-## estimated sd:  1.975978 
-## estimated skewness:  0.4108295 
-## estimated kurtosis:  3.710457
+## min:  8.74732   max:  17.75209 
+## median:  12.62501 
+## mean:  12.93918 
+## estimated sd:  1.785816 
+## estimated skewness:  0.2939299 
+## estimated kurtosis:  2.866868
 ```
 
 ![](05-distributions_files/figure-latex/dist-plot2-1.pdf)<!-- --> 
@@ -201,12 +201,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  0.0332448   max:  0.9986093 
-## median:  0.5579959 
-## mean:  0.5253148 
-## estimated sd:  0.2766083 
-## estimated skewness:  -0.07070151 
-## estimated kurtosis:  1.876304
+## min:  0.01929355   max:  0.9924383 
+## median:  0.5573897 
+## mean:  0.5407441 
+## estimated sd:  0.2805327 
+## estimated skewness:  -0.09710851 
+## estimated kurtosis:  1.854152
 ```
 
 ![](05-distributions_files/figure-latex/dist-plot3-1.pdf)<!-- --> 
@@ -224,12 +224,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  0.006051339   max:  5.389817 
-## median:  1.09551 
-## mean:  1.424184 
-## estimated sd:  1.253374 
-## estimated skewness:  1.270221 
-## estimated kurtosis:  4.279132
+## min:  0.06593831   max:  7.179655 
+## median:  0.9290058 
+## mean:  1.425462 
+## estimated sd:  1.442759 
+## estimated skewness:  1.583478 
+## estimated kurtosis:  5.596362
 ```
 
 ![](05-distributions_files/figure-latex/dist-plot4-1.pdf)<!-- --> 
