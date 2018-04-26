@@ -408,8 +408,7 @@ ggplot(data = snakes, aes(x = day, y = openings)) +
   geom_jitter(width = 0.05)
 ```
 
-
-\includegraphics[width=0.7\linewidth]{07-anova_files/figure-latex/anova-plot5-1} 
+<img src="07-anova_files/figure-html/anova-plot5-1.svg" width="70%" />
 
 What are our null hypotheses?
 
@@ -452,8 +451,7 @@ snakes.tukey <- TukeyHSD(snakes.aov, which = "day", conf.level = 0.90)
 plot(snakes.tukey, las = 1, col = "red")
 ```
 
-
-\includegraphics[width=0.7\linewidth]{07-anova_files/figure-latex/anova-plot6-1} 
+<img src="07-anova_files/figure-html/anova-plot6-1.svg" width="70%" />
 
 
 ## Alternatives to ANOVA
@@ -568,8 +566,7 @@ ggboxplot(sa_time_long, x = "term", y = "minutes",
           add = "jitter", shape = "term")
 ```
 
-
-\includegraphics[width=0.7\linewidth]{07-anova_files/figure-latex/anova-plot7-1} 
+<img src="07-anova_files/figure-html/anova-plot7-1.svg" width="70%" />
 
 ```r
 ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
@@ -579,8 +576,7 @@ ggviolin(sa_time_long, x = "term", y = "minutes", fill = "term",
   stat_compare_means(label.y = 50)                                      # Add global the p-value 
 ```
 
-
-\includegraphics[width=0.7\linewidth]{07-anova_files/figure-latex/anova-plot7-2} 
+<img src="07-anova_files/figure-html/anova-plot7-2.svg" width="70%" />
 
 
 ## Exercises

@@ -10,31 +10,80 @@ knitr::opts_chunk$set(
 )
 ```
 
-A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. To calculate a confidence interval requires three things:  
+A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. If we were to repeaqtedly sample the same population ove and over and calculated a mean every time, the 95% CI indicates the range that 95% of those means would fall into.
 
 ```{r}
-# First we set the sample mean
-sample_mean <- 10
+Input <- ("
+Student  Sex     Teacher  Steps  Rating
+a        female  Jacob    8000   7
+b        female  Jacob    9000  10
+c        female  Jacob   10000   9
+d        female  Jacob    7000   5
+e        female  Jacob    6000   4
+f        female  Jacob    8000   8
+g        male    Jacob    7000   6
+h        male    Jacob    5000   5
+i        male    Jacob    9000  10
+j        male    Jacob    7000   8
+k        female  Sadam    8000   7
+l        female  Sadam    9000   8
+m        female  Sadam    9000   8
+n        female  Sadam    8000   9
+o        male    Sadam    6000   5
+p        male    Sadam    8000   9
+q        male    Sadam    7000   6
+r        female  Donald   10000  10
+s        female  Donald    9000  10
+t        female  Donald    8000   8
+u        female  Donald    8000   7
+v        female  Donald    6000   7
+w        male    Donald    6000   8
+x        male    Donald    8000  10
+y        male    Donald    7000   7
+z        male    Donald    7000   7
+")
 
-# Then the sample standard deviation
-sample_sd <- 2
-
-# Then the number of samples
-sample_n <- 20
+data <- read.table(textConnection(Input),header = TRUE)
+summary(data)
 ```
-
-Once we know these things we must then use the following formula to calculate th CI:
 
 ```{r}
-error <- qnorm(0.975)*sample_sd/sqrt(sample_n)
-```
+library(rcompanion)
+# ungrouped data is indicated with a 1 on the right side of the formula, or the group = NULL argument.
+groupwiseMean(Steps ~ 1,data = data, conf = 0.95, digits = 3)
 
-With the CI known, we then substract/add it from the sample mean in order to find the upper and lower limits:
+# one-way data
+groupwiseMean(Steps ~ Sex, data = data, conf = 0.95,digits = 3)
+
+# two-way data
+groupwiseMean(Steps ~ Teacher + Sex, data = data, conf = 0.95,digits = 3)
+```
 
 ```{r}
-lower <- sample_mean-error
-upper <- sample_mean+error
-lower
-upper
+# by bootstrapping
+groupwiseMean(Steps ~ Sex,
+              data = data,
+              conf = 0.95,
+              digits = 3,
+              R = 10000,
+              boot = TRUE,
+              traditional = FALSE,
+              normal = FALSE,
+              basic = FALSE,
+              percentile = FALSE,
+              bca = TRUE)
+
+groupwiseMean(Steps ~ Teacher + Sex,
+              data = data,
+              conf = 0.95,
+              digits = 3,
+              R = 10000,
+              boot = TRUE,
+              traditional = FALSE,
+              normal = FALSE,
+              basic = FALSE,
+              percentile = FALSE,
+              bca = TRUE)
 ```
+
 

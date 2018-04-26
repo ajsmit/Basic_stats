@@ -264,7 +264,7 @@ The interpretation of the concepts of mean and median are fairly straight forwar
 \begin{center}
 \includegraphics[width=0.7\linewidth]{figures/Standard_deviation_diagram.png}
 \end{center}
-\caption{The proportions of data representation by the standard deviation. Credit: wikipedia/Standard_deviation}
+\caption{Caption here.}
 \end{figure}
 
 Like the mean, $S$ is affected by extreme values and outliers, so before we attach $S$ as a summary statistic to describe some data, we need to ensure that the data are in fact normally distributed. We will talk about how to do this in Chapter 6, where we will go over the numerous ways to check the assumption of normality. When the data are found to be non-normal, we need to find appropriate ways to express the spread of the data. Enter the quartiles.
@@ -481,9 +481,10 @@ plt4 <- chicks %>%
 ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{03-discriptive_files/figure-latex/descriptive-plot1-1} \caption{A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing whiskers indicating 1 ±SD. C) Box and whisker plot of the chicken mass data.}(\#fig:descriptive-plot1)
-\end{figure}
+<div class="figure">
+<img src="03-discriptive_files/figure-html/descriptive-plot1-1.svg" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing whiskers indicating 1 ±SD. C) Box and whisker plot of the chicken mass data." width="70%" />
+<p class="caption">(\#fig:descriptive-plot1)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing whiskers indicating 1 ±SD. C) Box and whisker plot of the chicken mass data.</p>
+</div>
 
 ## Exercises
 

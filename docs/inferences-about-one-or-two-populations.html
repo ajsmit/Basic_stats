@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Basic Statistics</title>
-  <meta name="description" content="This is a book about basic statistics: theory and practice.">
+  <meta name="description" content="A Book about Basic Statistics.">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Basic Statistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="figures/NSFW.jpg" />
-  <meta property="og:description" content="This is a book about basic statistics: theory and practice." />
+  <meta property="og:description" content="A Book about Basic Statistics." />
   <meta name="github-repo" content="ajsmit/Basic_stats" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Basic Statistics" />
   
-  <meta name="twitter:description" content="This is a book about basic statistics: theory and practice." />
+  <meta name="twitter:description" content="A Book about Basic Statistics." />
   <meta name="twitter:image" content="figures/NSFW.jpg" />
 
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-23">
+<meta name="date" content="2018-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,69 +50,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -300,13 +272,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence intervals</a></li>
 <li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
-<li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#the-two-main-assumptions"><i class="fa fa-check"></i><b>11.1</b> The two main assumptions</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#backgroud"><i class="fa fa-check"></i><b>11.1</b> Backgroud</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality-1"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
 <li class="chapter" data-level="11.1.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#homoscedasticity-1"><i class="fa fa-check"></i><b>11.1.2</b> Homoscedasticity</a></li>
+<li class="chapter" data-level="11.1.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#epic-fail.-now-what"><i class="fa fa-check"></i><b>11.1.3</b> Epic fail. Now what?</a></li>
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#transforming-data"><i class="fa fa-check"></i><b>11.2</b> Transforming data</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#log-transform"><i class="fa fa-check"></i><b>11.2.1</b> Log transform</a></li>
-<li class="chapter" data-level="11.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>11.2.2</b> </a></li>
+<li class="chapter" data-level="11.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#arcsine-transform"><i class="fa fa-check"></i><b>11.2.2</b> Arcsine transform</a></li>
+<li class="chapter" data-level="11.2.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#cube-root"><i class="fa fa-check"></i><b>11.2.3</b> Cube root</a></li>
+<li class="chapter" data-level="11.2.4" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#square-root-transform"><i class="fa fa-check"></i><b>11.2.4</b> Square root transform</a></li>
+<li class="chapter" data-level="11.2.5" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>11.2.5</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-6"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-6"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
@@ -349,8 +325,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="inferences-about-one-or-two-populations" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Inferences about one or two populations</h1>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb80-2" data-line-number="2"><span class="kw">library</span>(plotly)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(plotly)</code></pre></div>
 <p>At the heart of many basic scientific inquiries is the simple question “Is A different from B?” The scientific notation for this question is:</p>
 <ul>
 <li>H0: Group A is not different from group B.</li>
@@ -369,13 +345,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Biologists typically define the probability of one in twenty (0.05) as the cutoff level to reject the null hypothesis.</p>
 <p>To answer this fundamental question one often uses a <em>t</em>-test. There are several variations of <em>t</em>-tests, depending on the nature of our samples and the type of question being asked:</p>
 <ul>
-<li><strong>One-sample <em>t</em>-tests:</strong> only one sample set of data that we wish to compare against a known population mean:
-<ul>
+<li><strong>One-sample <em>t</em>-tests:</strong> only one sample set of data that we wish to compare against a known population mean:</li>
 <li>one-sided one-sample <em>t</em>-tests</li>
 <li>two-sided one-sample <em>t</em>-tests</li>
-</ul></li>
-<li><strong>Two-sample <em>t</em>-tests:</strong> the means of two groups are compared against each other:
-<ul>
+<li><strong>Two-sample <em>t</em>-tests:</strong> the means of two groups are compared against each other:</li>
 <li>independent sample <em>t</em>-tests
 <ul>
 <li>one-sided two-sample <em>t</em>-tests</li>
@@ -385,7 +358,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>one-sided</li>
 <li>two-sided</li>
-</ul></li>
 </ul></li>
 </ul>
 <p>Before we cover each of these, we need to understand some of the assumptions behind <em>t</em>-tests. We shall cover that next.</p>
@@ -403,37 +375,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="normality" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Normality</h3>
 <p>Remember from Chapter 5 what a normal distribution is/looks like? Let’s have a peek below to remind ourselves:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co"># Random normal data</span></a>
-<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">666</span>)</a>
-<a class="sourceLine" id="cb81-3" data-line-number="3">r_dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dat =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb81-4" data-line-number="4">                            <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">8</span>, <span class="dt">sd =</span> <span class="dv">2</span>)),</a>
-<a class="sourceLine" id="cb81-5" data-line-number="5">                    <span class="dt">sample =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1000</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">1000</span>)))</a>
-<a class="sourceLine" id="cb81-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb81-7" data-line-number="7"><span class="co"># Create histogram</span></a>
-<a class="sourceLine" id="cb81-8" data-line-number="8">h &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> r_dat, <span class="kw">aes</span>(<span class="dt">x =</span> dat, <span class="dt">fill =</span> sample)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.8</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="dv">1</span><span class="op">*</span>..count.., <span class="dt">fill =</span> sample), <span class="dt">colour =</span> <span class="ot">NA</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-11" data-line-number="11"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;value&quot;</span>)</a>
-<a class="sourceLine" id="cb81-12" data-line-number="12">h</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Random normal data</span>
+<span class="kw">set.seed</span>(<span class="dv">666</span>)
+r_dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dat =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">3</span>),
+                            <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">8</span>, <span class="dt">sd =</span> <span class="dv">2</span>)),
+                    <span class="dt">sample =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1000</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">1000</span>)))
+
+<span class="co"># Create histogram</span>
+h &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> r_dat, <span class="kw">aes</span>(<span class="dt">x =</span> dat, <span class="dt">fill =</span> sample)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.8</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="dv">1</span><span class="op">*</span>..count.., <span class="dt">fill =</span> sample), <span class="dt">colour =</span> <span class="ot">NA</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;value&quot;</span>)
+h</code></pre></div>
 <div class="figure"><span id="fig:t-test-plot1"></span>
-<img src="06-t_tests_files/figure-html/t-test-plot1-1.png" alt="Interactive histogram showing two randomly generated normal distributions." width="70%" />
+<img src="06-t_tests_files/figure-html/t-test-plot1-1.svg" alt="Interactive histogram showing two randomly generated normal distributions." width="70%" />
 <p class="caption">
 Figure 6.1: Interactive histogram showing two randomly generated normal distributions.
 </p>
 </div>
 <p>Whereas histograms may be a pretty way to check the normality of our data, there is actually a statistical test for this, which is preferable to a visual inspection alone. But remember that you should <em>always</em> visualise your data before performing any statistics on them. To check the normality of the data we use the Shapiro-Wilk test. This test produces a <span class="math inline">\(W\)</span> value and a <em>p</em>-value. We are only interested in the <em>p</em>-value as this is how we are to determine the normality of the data. The Shapiro–Wilk test tests the null hypothesis that a sample <span class="math inline">\(x_{1},..., x_{n}\)</span> comes from a normally distributed population. i.e. that the normality <em>does not</em> differ significantly from normal. If the <em>p</em>-value is <strong>above</strong> 0.05 we may assume the data to be normally distributed. In order to demonstrate what the output of <code>shapiro.test()</code> looks like we will run it on all of the random data we generated.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="kw">shapiro.test</span>(r_dat<span class="op">$</span>dat)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(r_dat<span class="op">$</span>dat)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  Shapiro-Wilk normality test
 R&gt; 
 R&gt; data:  r_dat$dat
 R&gt; W = 0.9942, p-value = 4.649e-07</code></pre>
 <p>Note that this shows that the data are <em>not</em> normally distributed. This is because we have incorrectly run this function simultaneously on two different samples of data. To perform this test correctly, and in the tidy way, we need to select only the second piece of information from the <code>shapiro.test()</code> output and ensure that it is presented as a numeric value:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co"># we use the square bracket notation to select only the p-value;</span></a>
-<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="co"># had we used `[1]` we&#39;d have gotten W</span></a>
-<a class="sourceLine" id="cb84-3" data-line-number="3">r_dat <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb84-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(sample) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb84-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_dat =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(dat)[<span class="dv">2</span>]))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># we use the square bracket notation to select only the p-value;</span>
+<span class="co"># had we used `[1]` we&#39;d have gotten W</span>
+r_dat <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(sample) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">norm_dat =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(dat)[<span class="dv">2</span>]))</code></pre></div>
 <pre><code>R&gt; # A tibble: 2 x 2
 R&gt;   sample norm_dat
 R&gt;   &lt;fct&gt;     &lt;dbl&gt;
@@ -445,9 +417,9 @@ R&gt; 2 B         0.461</code></pre>
 <div id="homoscedasticity" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Homoscedasticity</h3>
 <p>Besides requiring that our data are normally distributed, we must also ensured that they are homoscedastic. This word means that the scedasticity (variance) of things are homogeneous (similar). In practical terms this means that the variance of the samples we are comparing should not be more than two to four times greater than one another. In R, we use the function <code>var()</code> to check the variance in a sample:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">r_dat <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sample) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sample_var =</span> <span class="kw">var</span>(dat))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r_dat <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(sample) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sample_var =</span> <span class="kw">var</span>(dat))</code></pre></div>
 <pre><code>R&gt; # A tibble: 2 x 2
 R&gt;   sample sample_var
 R&gt;   &lt;fct&gt;       &lt;dbl&gt;
@@ -459,17 +431,17 @@ R&gt; 2 B            3.97</code></pre>
 <div id="two-for-one" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Two for one</h3>
 <p>Because these two assumptions of normality and homoscedasticty are performed in tandem with one another, it is helpful to have a function that checks for both simultaneously. Below we see how just such a function would be written:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">two_assum &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb88-2" data-line-number="2">  x_var &lt;-<span class="st"> </span><span class="kw">var</span>(x)</a>
-<a class="sourceLine" id="cb88-3" data-line-number="3">  x_norm &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(x)[<span class="dv">2</span>])</a>
-<a class="sourceLine" id="cb88-4" data-line-number="4">  result &lt;-<span class="st"> </span><span class="kw">c</span>(x_var, x_norm)</a>
-<a class="sourceLine" id="cb88-5" data-line-number="5">  <span class="kw">return</span>(result)</a>
-<a class="sourceLine" id="cb88-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">two_assum &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  x_var &lt;-<span class="st"> </span><span class="kw">var</span>(x)
+  x_norm &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(x)[<span class="dv">2</span>])
+  result &lt;-<span class="st"> </span><span class="kw">c</span>(x_var, x_norm)
+  <span class="kw">return</span>(result)
+}</code></pre></div>
 <p>To use our new function in a tidy way we use the following code:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">r_dat <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sample) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb89-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sample_var =</span> <span class="kw">two_assum</span>(dat)[<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb89-4" data-line-number="4">            <span class="dt">sample_norm =</span> <span class="kw">two_assum</span>(dat)[<span class="dv">2</span>])</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r_dat <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(sample) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sample_var =</span> <span class="kw">two_assum</span>(dat)[<span class="dv">1</span>],
+            <span class="dt">sample_norm =</span> <span class="kw">two_assum</span>(dat)[<span class="dv">2</span>])</code></pre></div>
 <pre><code>R&gt; # A tibble: 2 x 3
 R&gt;   sample sample_var sample_norm
 R&gt;   &lt;fct&gt;       &lt;dbl&gt;       &lt;dbl&gt;
@@ -477,29 +449,29 @@ R&gt; 1 A            8.72       0.375
 R&gt; 2 B            3.97       0.461</code></pre>
 <p>Do these data meet our assumptions? How do we know this?</p>
 <p>Once we have tested our assumptions we may perform a <em>t</em>-test to ascertain whether or not our samples are significantly different from one another. The base R function for this is <code>t.test()</code>; however, by utilising the <strong><code>ggpubr</code></strong> package we gain access to <code>compare_means()</code>, which allows us to perform any sort of test that compares sample sets of data and outputs the results as a dataframe. We will see throughout this and the following chapters why this is so useful.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggpubr)</code></pre></div>
 </div>
 </div>
 <div id="one-sample-t-tests" class="section level2">
 <h2><span class="header-section-number">6.2</span> One-sample <em>t</em>-tests</h2>
 <p>Generally when we use a <em>t</em>-test it will be a two-sample <em>t</em>-test (see below). Occasionally, however, we may have only one sample set of data that we wish to compare against a known population mean, which is generally denoted as <span class="math inline">\(\mu\)</span>, or <code>mu</code> in the function call to the <em>t</em>-test in R:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># create a single sample of random normal data</span></a>
-<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">666</span>)</a>
-<a class="sourceLine" id="cb92-3" data-line-number="3">r_one &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dat =</span> <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="dv">5</span>),</a>
-<a class="sourceLine" id="cb92-4" data-line-number="4">                    <span class="dt">sample =</span> <span class="st">&quot;A&quot;</span>)</a>
-<a class="sourceLine" id="cb92-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb92-6" data-line-number="6"><span class="co"># check normality</span></a>
-<a class="sourceLine" id="cb92-7" data-line-number="7"><span class="kw">shapiro.test</span>(r_one<span class="op">$</span>dat)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a single sample of random normal data</span>
+<span class="kw">set.seed</span>(<span class="dv">666</span>)
+r_one &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dat =</span> <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">20</span>, <span class="dt">sd =</span> <span class="dv">5</span>),
+                    <span class="dt">sample =</span> <span class="st">&quot;A&quot;</span>)
+
+<span class="co"># check normality</span>
+<span class="kw">shapiro.test</span>(r_one<span class="op">$</span>dat)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  Shapiro-Wilk normality test
 R&gt; 
 R&gt; data:  r_one$dat
 R&gt; W = 0.94911, p-value = 0.3538</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="co"># No variance to compare</span></a>
-<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="co"># ...</span></a>
-<a class="sourceLine" id="cb94-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb94-4" data-line-number="4"><span class="co"># compare random data against a population mean of 20</span></a>
-<a class="sourceLine" id="cb94-5" data-line-number="5"><span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">20</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># No variance to compare</span>
+<span class="co"># ...</span>
+
+<span class="co"># compare random data against a population mean of 20</span>
+<span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">20</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  One Sample t-test
 R&gt; 
@@ -511,8 +483,8 @@ R&gt;  16.91306 23.10133
 R&gt; sample estimates:
 R&gt; mean of x 
 R&gt;  20.00719</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># compare random data against a population mean of 30</span></a>
-<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># compare random data against a population mean of 30</span>
+<span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  One Sample t-test
 R&gt; 
@@ -525,18 +497,18 @@ R&gt; sample estimates:
 R&gt; mean of x 
 R&gt;  20.00719</code></pre>
 <p>What do the results of these two different tests show? Let’s visualise these data to get a better understanding.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> r_one, <span class="kw">aes</span>(<span class="dt">y =</span> dat, <span class="dt">x =</span> sample)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;lightsalmon&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb98-3" data-line-number="3"><span class="st">  </span><span class="co"># population  mean (mu) = 20</span></a>
-<a class="sourceLine" id="cb98-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">20</span>, <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, </a>
-<a class="sourceLine" id="cb98-5" data-line-number="5">             <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb98-6" data-line-number="6"><span class="st">  </span><span class="co"># population  mean (mu) = 30</span></a>
-<a class="sourceLine" id="cb98-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">30</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, </a>
-<a class="sourceLine" id="cb98-8" data-line-number="8">             <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb98-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Value&quot;</span>, <span class="dt">x =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb98-10" data-line-number="10"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> r_one, <span class="kw">aes</span>(<span class="dt">y =</span> dat, <span class="dt">x =</span> sample)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;lightsalmon&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="co"># population  mean (mu) = 20</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">20</span>, <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, 
+             <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="co"># population  mean (mu) = 30</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">30</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, 
+             <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Value&quot;</span>, <span class="dt">x =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
 <div class="figure"><span id="fig:t-test-plot2"></span>
-<img src="06-t_tests_files/figure-html/t-test-plot2-1.png" alt="Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30." width="70%" />
+<img src="06-t_tests_files/figure-html/t-test-plot2-1.svg" alt="Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30." width="70%" />
 <p class="caption">
 Figure 6.2: Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30.
 </p>
@@ -545,8 +517,8 @@ Figure 6.2: Boxplot of random normal data with. A hypothetical population mean o
 <div id="one-sided-one-sample-t-tests" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> One-sided one-sample <em>t</em>-tests</h3>
 <p>As we may remember from Chapter 5, a distribution has two tails. When we are testing for significance we are generally looking for a result that lays in the far end of either of these tails. Occasionally, however, we may want to know if the result lays specifically in one of the tails. Explicitly the leading or trailing tail. For example, is the mean value of our sample population significantly <em>greater than</em> the value <span class="math inline">\(\mu\)</span>? Or, is the mean value of our sample population significantly <em>less than</em> the value <span class="math inline">\(\mu\)</span>? To specify this in R we must add an argument as seen below:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="co"># check against the trailing tail</span></a>
-<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check against the trailing tail</span>
+<span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  One Sample t-test
 R&gt; 
@@ -558,8 +530,8 @@ R&gt;      -Inf 22.56339
 R&gt; sample estimates:
 R&gt; mean of x 
 R&gt;  20.00719</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="co"># check against the leading tail</span></a>
-<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check against the leading tail</span>
+<span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  One Sample t-test
 R&gt; 
@@ -579,8 +551,8 @@ R&gt;  20.00719</code></pre>
 <div id="two-sided-one-sample-t-tests" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Two-sided one-sample <em>t</em>-tests</h3>
 <p>In R, the default setting for any comparison of means test is that it is two-sided so we do not need to state this explicitly. For the sake of thoroughness let’s see how to do this below. Note that the results for the two following tests are identical:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co"># R assumes we want a to-sided test</span></a>
-<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># R assumes we want a to-sided test</span>
+<span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  One Sample t-test
 R&gt; 
@@ -592,8 +564,8 @@ R&gt;  16.91306 23.10133
 R&gt; sample estimates:
 R&gt; mean of x 
 R&gt;  20.00719</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># but we can be explicit as we choose</span></a>
-<a class="sourceLine" id="cb105-2" data-line-number="2"><span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># but we can be explicit as we choose</span>
+<span class="kw">t.test</span>(r_one<span class="op">$</span>dat, <span class="dt">mu =</span> <span class="dv">30</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  One Sample t-test
 R&gt; 
@@ -611,26 +583,24 @@ R&gt;  20.00719</code></pre>
 <h2><span class="header-section-number">6.3</span> Two-sample <em>t</em>-tests</h2>
 <p>A two-sample <em>t</em>-test is used when we have samples from two different populations that we would like to compare against one another. This is the most common use of a <em>t</em>-test. Two sample <em>t</em>-tests can accommodate samples with equal variances or samples with unequal variances (as determined by the test for heteroscedasticity that we performed earlier).</p>
 <p>In the case of samples that share the same variance we perform a classical <em>t</em>-test (otherwise known as Student’s <em>t</em>-test); the equation to calculate the <em>t</em>-statistic is this one:</p>
-<p><span class="math display">\[t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}}{n}+\frac{S^{2}}{m}}}\]</span>
-<span class="math inline">\(\bar{A}\)</span> and <span class="math inline">\(\bar{B}\)</span> are the means for groups <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, respectively; <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are the sample sizes of the two sets of samples, respectively; and <span class="math inline">\(S^{2}\)</span> is the pooled variance, which is calculated as:</p>
-<p><span class="math display">\[S^{2}=\frac{(n-1)S_{A}^{2}+(m-1)S_{B}^{2} }{n+m-2}\]</span>
-The degrees of freedom, <span class="math inline">\(d.f.\)</span>, in the equation for the shared variance is <span class="math inline">\(n_{A}+n_{B}-2\)</span>.</p>
+<p><span class="math display">\[t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}}{n}+\frac{S^{2}}{m}}}\]</span> <span class="math inline">\(\bar{A}\)</span> and <span class="math inline">\(\bar{B}\)</span> are the means for groups <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, respectively; <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are the sample sizes of the two sets of samples, respectively; and <span class="math inline">\(S^{2}\)</span> is the pooled variance, which is calculated as:</p>
+<p><span class="math display">\[S^{2}=\frac{(n-1)S_{A}^{2}+(m-1)S_{B}^{2} }{n+m-2}\]</span> The degrees of freedom, <span class="math inline">\(d.f.\)</span>, in the equation for the shared variance is <span class="math inline">\(n_{A}+n_{B}-2\)</span>.</p>
 <p>When variances are unequal we perform the Welch’s <em>t</em>-test; Welch’s <em>t</em>-statistics is calculated as per this equation:</p>
 <p><span class="math display">\[t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}_{A}}{n}+\frac{S^{2}_{B}}{m}}}\]</span></p>
 <p>Above, <span class="math inline">\(S_{A}\)</span> and <span class="math inline">\(S_{B}\)</span> are the variances of groups <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, respectively (see Section X). The degrees of freedom to use with Welch’s <em>t</em>-test is obtained using the Welch–Satterthwaite equation as:</p>
 <p><span class="math display">\[d.f. = \frac{\left( \frac{S^{2}_{A}}{n}+\frac{S^{2}_{B}}{m} \right)^{2}}{\left( \frac{S^{4}_{A}}{n-1} + \frac{S^{4}_{B}}{m-1} \right)}\]</span></p>
 <p>What do we do with this <em>t</em>-statistic? In the olden days we had to calculate the <span class="math inline">\(t\)</span>-statistics and the <span class="math inline">\(d.f.\)</span> by hand. These two values, the <span class="math inline">\(d.f.\)</span> and <span class="math inline">\(t\)</span>-value had to be read off a table of pre-calculated <span class="math inline">\(t\)</span>-values, probabilities and degrees of freedom <a href="https://home.ubalt.edu/ntsbarsh/Business-stat/StatistialTables.pdf">as in here</a>. Luckily, the <em>t</em>-test function nowadays does this all automagically. But if you are feeling nostalgic over times that you have sadly never experienced, please calculate the <span class="math inline">\(t\)</span>-statistic and the <span class="math inline">\(d.f.\)</span> yourself and give the table a go.</p>
 <p>Back to the present day and the wonders of modern technology. Let’s generate some new random normal data and test to see if the data belonging to the two groups differ significantly from one-another. First, we apply the <em>t</em>-test function as usual:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="co"># random normal data</span></a>
-<a class="sourceLine" id="cb107-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">666</span>)</a>
-<a class="sourceLine" id="cb107-3" data-line-number="3">r_two &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dat =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">4</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb107-4" data-line-number="4">                            <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">1</span>)),</a>
-<a class="sourceLine" id="cb107-5" data-line-number="5">                    <span class="dt">sample =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">20</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">20</span>)))</a>
-<a class="sourceLine" id="cb107-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb107-7" data-line-number="7"><span class="co"># perform t-test</span></a>
-<a class="sourceLine" id="cb107-8" data-line-number="8"><span class="co"># note how we set the `var.equal` argument to TRUE because we know </span></a>
-<a class="sourceLine" id="cb107-9" data-line-number="9"><span class="co"># our data has the same SD (they are simulated as such!)</span></a>
-<a class="sourceLine" id="cb107-10" data-line-number="10"><span class="kw">t.test</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># random normal data</span>
+<span class="kw">set.seed</span>(<span class="dv">666</span>)
+r_two &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dat =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">4</span>, <span class="dt">sd =</span> <span class="dv">1</span>),
+                            <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">1</span>)),
+                    <span class="dt">sample =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">20</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">20</span>)))
+
+<span class="co"># perform t-test</span>
+<span class="co"># note how we set the `var.equal` argument to TRUE because we know </span>
+<span class="co"># our data has the same SD (they are simulated as such!)</span>
+<span class="kw">t.test</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  Two Sample t-test
 R&gt; 
@@ -642,17 +612,17 @@ R&gt;  -1.51699175  0.02670136
 R&gt; sample estimates:
 R&gt; mean in group A mean in group B 
 R&gt;        4.001438        4.746584</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="co"># if the variances are not equal, simply set `var.equal` to false</span></a>
-<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="co"># and a Welch&#39;s t-test will be performed</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># if the variances are not equal, simply set `var.equal` to false</span>
+<span class="co"># and a Welch&#39;s t-test will be performed</span></code></pre></div>
 <p>The first argument we see in <code>t.test()</code> is <code>dat ~ sample</code>. Usually in R when we see a <code>~</code> (tilde) we are creating what is known as a formula. A formula tells R how it should look for interactions between data and factors. For example <code>Y ~ X</code> reads: <span class="math inline">\(Y\)</span> as a function of <span class="math inline">\(X\)</span>. In our code above we see <code>dat ~ sample</code>. This means we are telling R that the <em>t</em>-test we want it to perform is when the <code>dat</code> column is a function of the <code>sample</code> column. In plain English we are dividing up the <code>dat</code> column into the two different samples we have, and then running a <em>t</em>-test on these samples. Another way of stating this is that the value of <code>dat</code> depends on the grouping it belong to (<code>A</code> or <code>B</code>). We will see this same formula notation cropping up later under ANOVAs, linear models, etc.</p>
 <p>Now that we have seen the nitty gritty of how a t-test is meant to work, click <a href="">here</a> to watch a visualisation that demonstrates how the relationships between two different sample sets (based on their mean and variance) influence the results.</p>
 <blockquote>
 <p><strong>TASK:</strong> Create a visualisation to graphically demonstrate the outcome of this <em>t</em>-test.</p>
 </blockquote>
 <p>Now we do the same test using a convenient function that comes with the <strong>ggpubr</strong> package, called <code>compare_means()</code>, to perform the same <em>t</em>-test:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="co"># perform t-test using `compare_means()`</span></a>
-<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="co"># note that compare_means() takes the same arguments as t.test()</span></a>
-<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># perform t-test using `compare_means()`</span>
+<span class="co"># note that compare_means() takes the same arguments as t.test()</span>
+<span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.   group1 group2      p  p.adj p.format p.signif method
 R&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
@@ -661,14 +631,14 @@ R&gt; 1 dat   A      B      0.0580 0.0580 0.058    ns       T-test</code></pre>
 <div id="one-sided-two-sample-t-tests" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> One-sided two-sample <em>t</em>-tests</h3>
 <p>Just as with the one-sample <em>t</em>-tests above, we may also specify which tail of the distribution we are interested in when we compare the means of our two samples. We do so by providing the same arguments as previously:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="co"># is the mean of sample B smaller than that of sample A?</span></a>
-<a class="sourceLine" id="cb112-2" data-line-number="2"><span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># is the mean of sample B smaller than that of sample A?</span>
+<span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.   group1 group2     p p.adj p.format p.signif method
 R&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
 R&gt; 1 dat   A      B      0.971 0.971 0.97     ns       T-test</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="co"># is the mean of sample B greater than that of sample A?</span></a>
-<a class="sourceLine" id="cb114-2" data-line-number="2"><span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># is the mean of sample B greater than that of sample A?</span>
+<span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.   group1 group2      p  p.adj p.format p.signif method
 R&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
@@ -678,14 +648,14 @@ R&gt; 1 dat   A      B      0.0290 0.0290 0.029    *        T-test</code></pre>
 <div id="two-sided-two-sample-t-tests" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Two-sided two-sample <em>t</em>-tests</h3>
 <p>Again, as stated above, the default setting in R for comparisons of means is that the test is two-sided. If one wants to state this explicitly it may be done as previously. Note that the results are identical.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="co"># default settings</span></a>
-<a class="sourceLine" id="cb116-2" data-line-number="2"><span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># default settings</span>
+<span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.   group1 group2      p  p.adj p.format p.signif method
 R&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
 R&gt; 1 dat   A      B      0.0584 0.0584 0.058    ns       T-test</code></pre>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="co"># explicitly state a two-sided test</span></a>
-<a class="sourceLine" id="cb118-2" data-line-number="2"><span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># explicitly state a two-sided test</span>
+<span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.   group1 group2      p  p.adj p.format p.signif method
 R&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
@@ -696,7 +666,7 @@ R&gt; 1 dat   A      B      0.0584 0.0584 0.058    ns       T-test</code></pre>
 <h2><span class="header-section-number">6.4</span> Paired <em>t</em>-tests</h2>
 <p>Paired <em>t</em>-tests are done when comparing matched samples, and in other words, when our second assumption of <em>t</em>-tests is violated: the observations are independent of one another—in paired samples, clearly they are not independent. This test is also sometimes called a dependent sample <em>t</em>-test.</p>
 <p>For example, we design a survey to determine if, in a group of 20 people, individuals’ right arms differ in length from that of their left arms. For person A, we measure her right arm and her left arm. For person B we measure his right arm and his left arm. So we go all the way to person 20. A right arm belonging with one individual is always matched against a left arm in the same individual. The samples are paired so we use a paired <em>t</em>-test. Another example: we follow the growth of a sample of 20 piglets over three weeks to see if they weigh more after three weeks than they did at the start of the assessment period. We measure the first piglet, named Halal, at the start of the three week period and again after. We do the same for the second piglet, Kosher. And so it goes. Each piglet has a paired set of measurements, one before matched with one after. In both these examples the data in the two groups (left arm and right arm; or before and after) are not independent, so we need to account for this in the analysis. In practice, how do we perform such a <em>t</em>-test? Who can think of a dataset we’ve used in the past that we would use a paired <em>t</em>-test for?</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">compare_means</span>(dat <span class="op">~</span><span class="st"> </span>sample, <span class="dt">data =</span> r_two, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.   group1 group2      p  p.adj p.format p.signif method
 R&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
@@ -705,18 +675,18 @@ R&gt; 1 dat   A      B      0.0391 0.0391 0.039    *        T-test</code></pre>
 <div id="comparison-of-two-population-proportions" class="section level2">
 <h2><span class="header-section-number">6.5</span> Comparison of two population proportions</h2>
 <p>All of the tests we covered above are designed to deal with continuous data, such as fish lengths or chlorophyll content. If we want to compare proportions (probabilities of success) of different samples against each other, or some known population mean, we need <code>prop.test()</code>. Let’s create a dummy dataset to get a better idea of how this function works. Below we create some data showing the result of placing two different subjects, Jack and Jill, in separate sealed rooms for two hours (120 minutes). Once every minute a mosquito is let into the room before being extracted again. The columns <code>yes</code> and <code>no</code> show if the mosquito bit the subject during that one minute. Who says science can’t be fun!</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">mosquito &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">85</span>, <span class="dv">50</span>, <span class="dv">35</span>), <span class="dt">ncol =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb122-2" data-line-number="2"><span class="kw">colnames</span>(mosquito) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)</a>
-<a class="sourceLine" id="cb122-3" data-line-number="3"><span class="kw">rownames</span>(mosquito) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Jack&quot;</span>, <span class="st">&quot;Jill&quot;</span>)</a>
-<a class="sourceLine" id="cb122-4" data-line-number="4">mosquito</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mosquito &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">85</span>, <span class="dv">50</span>, <span class="dv">35</span>), <span class="dt">ncol =</span> <span class="dv">2</span>)
+<span class="kw">colnames</span>(mosquito) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)
+<span class="kw">rownames</span>(mosquito) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Jack&quot;</span>, <span class="st">&quot;Jill&quot;</span>)
+mosquito</code></pre></div>
 <pre><code>R&gt;      yes no
 R&gt; Jack  70 50
 R&gt; Jill  85 35</code></pre>
 <div id="one-sample-and-two-sample-tests" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> One-sample and two-sample tests</h3>
 <p>As with <em>t</em>-tests, proportion tests may also be based on one sample, or two. If we have only one sample we must specify the total number of trials as well as what the expected population probability of success is. Because these are individual values, and not matrices, we will show what this would look like without using any objects but will rather give each argument within <code>prop.test()</code> a single exact value. In the arguments within <code>prop.test()</code>, <code>x</code> denotes the number of successes recorded, <code>n</code> shows the total number of individual trials performed, and <code>p</code> is the expected probability. It is easiest to consider this as though it were a series of 100 coin tosses.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="co"># When the probability matches the population</span></a>
-<a class="sourceLine" id="cb124-2" data-line-number="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">45</span>, <span class="dt">n =</span> <span class="dv">100</span>, <span class="dt">p =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># When the probability matches the population</span>
+<span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">45</span>, <span class="dt">n =</span> <span class="dv">100</span>, <span class="dt">p =</span> <span class="fl">0.5</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  1-sample proportions test with continuity correction
 R&gt; 
@@ -728,8 +698,8 @@ R&gt;  0.3514281 0.5524574
 R&gt; sample estimates:
 R&gt;    p 
 R&gt; 0.45</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="co"># When it doesn&#39;t</span></a>
-<a class="sourceLine" id="cb126-2" data-line-number="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">33</span>, <span class="dt">n =</span> <span class="dv">100</span>, <span class="dt">p =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># When it doesn&#39;t</span>
+<span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">33</span>, <span class="dt">n =</span> <span class="dv">100</span>, <span class="dt">p =</span> <span class="fl">0.5</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  1-sample proportions test with continuity correction
 R&gt; 
@@ -742,8 +712,8 @@ R&gt; sample estimates:
 R&gt;    p 
 R&gt; 0.33</code></pre>
 <p>If we have two samples that we would like to compare against one another we enter them into the function as follows:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="co"># NB: Note that the `mosquito` data are a matrix, NOT a data.frame</span></a>
-<a class="sourceLine" id="cb128-2" data-line-number="2"><span class="kw">prop.test</span>(mosquito)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># NB: Note that the `mosquito` data are a matrix, NOT a data.frame</span>
+<span class="kw">prop.test</span>(mosquito)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  2-sample test for equality of proportions with continuity
 R&gt;  correction
@@ -761,8 +731,8 @@ R&gt; 0.5833333 0.7083333</code></pre>
 <div id="one-sided-and-two-sided-tests" class="section level3">
 <h3><span class="header-section-number">6.5.2</span> One-sided and two-sided tests</h3>
 <p>AS with all other tests that compare values, proportion tests may be specified as either one or two-sided. Just to be clear, the default setting for <code>prop.test()</code>, like everything else, is a two-sided test. See code below to confirm that the results are identical with or without the added argument:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="co"># Default</span></a>
-<a class="sourceLine" id="cb130-2" data-line-number="2"><span class="kw">prop.test</span>(mosquito)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Default</span>
+<span class="kw">prop.test</span>(mosquito)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  2-sample test for equality of proportions with continuity
 R&gt;  correction
@@ -775,8 +745,8 @@ R&gt;  -0.253309811  0.003309811
 R&gt; sample estimates:
 R&gt;    prop 1    prop 2 
 R&gt; 0.5833333 0.7083333</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="co"># Explicitly state two-sided test</span></a>
-<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="kw">prop.test</span>(mosquito, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Explicitly state two-sided test</span>
+<span class="kw">prop.test</span>(mosquito, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  2-sample test for equality of proportions with continuity
 R&gt;  correction
@@ -790,8 +760,8 @@ R&gt; sample estimates:
 R&gt;    prop 1    prop 2 
 R&gt; 0.5833333 0.7083333</code></pre>
 <p>Should we want to specify only one of the tails to be considered, we do so precisely the same as with t-tests. Below are examples of what this code would look like:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="co"># Jack is bit less than Jill</span></a>
-<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="kw">prop.test</span>(mosquito, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Jack is bit less than Jill</span>
+<span class="kw">prop.test</span>(mosquito, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  2-sample test for equality of proportions with continuity
 R&gt;  correction
@@ -804,8 +774,8 @@ R&gt;  -1.00000000 -0.01597923
 R&gt; sample estimates:
 R&gt;    prop 1    prop 2 
 R&gt; 0.5833333 0.7083333</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="co"># Jack is bit more than Jill</span></a>
-<a class="sourceLine" id="cb136-2" data-line-number="2"><span class="kw">prop.test</span>(mosquito, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Jack is bit more than Jill</span>
+<span class="kw">prop.test</span>(mosquito, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  2-sample test for equality of proportions with continuity
 R&gt;  correction
@@ -827,17 +797,17 @@ R&gt; 0.5833333 0.7083333</code></pre>
 <div id="loading-data" class="section level3">
 <h3><span class="header-section-number">6.6.1</span> Loading data</h3>
 <p>Before we can run any analyses we will need to load our data. We are also going to convert these data from their wide format into a long format because this is more useful for the rest of our workflow.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">ecklonia &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/ecklonia.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb138-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, <span class="op">-</span>species, <span class="op">-</span>site, <span class="op">-</span>ID)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ecklonia &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/ecklonia.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, <span class="op">-</span>species, <span class="op">-</span>site, <span class="op">-</span>ID)</code></pre></div>
 </div>
 <div id="visualising-data" class="section level3">
 <h3><span class="header-section-number">6.6.2</span> Visualising data</h3>
 <p>With our data loaded, let’s visualise them in order to ensure that these are indeed the data we are after. Visualising the data will also help us to formulate a hypothesis.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> ecklonia, <span class="kw">aes</span>(<span class="dt">x =</span> variable, <span class="dt">y =</span> value, <span class="dt">fill =</span> site)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb139-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb139-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> ecklonia, <span class="kw">aes</span>(<span class="dt">x =</span> variable, <span class="dt">y =</span> value, <span class="dt">fill =</span> site)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
 <div class="figure"><span id="fig:t-test-plot5"></span>
-<img src="06-t_tests_files/figure-html/t-test-plot5-1.png" alt="Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
+<img src="06-t_tests_files/figure-html/t-test-plot5-1.svg" alt="Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
 <p class="caption">
 Figure 6.3: Boxplots showing differences in morphometric properties of the kelp <em>Ecklonia maxima</em> at two sites in False Bay.
 </p>
@@ -847,19 +817,19 @@ Figure 6.3: Boxplots showing differences in morphometric properties of the kelp 
 <div id="formulating-a-hypothesis" class="section level3">
 <h3><span class="header-section-number">6.6.3</span> Formulating a hypothesis</h3>
 <p>Looking at the figure above it appears that for almost all measurements of length, Batsata Rock far exceeds that of Boulders Beach however, the stipe masses between the two sites appear to be more similar. Let’s pull out just this variable and create a new boxplot.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="co"># filter the data</span></a>
-<a class="sourceLine" id="cb140-2" data-line-number="2">ecklonia_sub &lt;-<span class="st"> </span>ecklonia <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb140-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(variable <span class="op">==</span><span class="st"> &quot;stipe_mass&quot;</span>)</a>
-<a class="sourceLine" id="cb140-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb140-5" data-line-number="5"><span class="co"># then create a new figure</span></a>
-<a class="sourceLine" id="cb140-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> ecklonia_sub, <span class="kw">aes</span>(<span class="dt">x =</span> variable, <span class="dt">y =</span> value, <span class="dt">fill =</span> site)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb140-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb140-8" data-line-number="8"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb140-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;stipe mass (kg)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb140-10" data-line-number="10"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb140-11" data-line-number="11">        <span class="dt">axis.ticks.y =</span> <span class="kw">element_blank</span>())</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># filter the data</span>
+ecklonia_sub &lt;-<span class="st"> </span>ecklonia <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(variable <span class="op">==</span><span class="st"> &quot;stipe_mass&quot;</span>)
+
+<span class="co"># then create a new figure</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> ecklonia_sub, <span class="kw">aes</span>(<span class="dt">x =</span> variable, <span class="dt">y =</span> value, <span class="dt">fill =</span> site)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;stipe mass (kg)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.ticks.y =</span> <span class="kw">element_blank</span>())</code></pre></div>
 <div class="figure"><span id="fig:t-test-plot6"></span>
-<img src="06-t_tests_files/figure-html/t-test-plot6-1.png" alt="Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
+<img src="06-t_tests_files/figure-html/t-test-plot6-1.svg" alt="Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
 <p class="caption">
 Figure 6.4: Boxplots showing the difference in stipe mass (kg) of the kelp <em>Ecklonia maxima</em> at two sites in False Bay.
 </p>
@@ -890,10 +860,10 @@ Figure 6.4: Boxplots showing the difference in stipe mass (kg) of the kelp <em>E
 <li>that the data are <strong>homoscedastic</strong>, and in particular, that there are no outliers.</li>
 </ul>
 <p>We know that the first two assumptions are met because our data are measurements of mass at two different sites. Before we can run our one-sided <em>t</em>-test we must meet the last two assumptions. Lucky us, we have a function tat will do that automagically.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1">ecklonia_sub <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb141-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(site) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb141-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">stipe_mass_var =</span> <span class="kw">two_assum</span>(value)[<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb141-4" data-line-number="4">            <span class="dt">stipe_mass_norm =</span> <span class="kw">two_assum</span>(value)[<span class="dv">2</span>])</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ecklonia_sub <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(site) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">stipe_mass_var =</span> <span class="kw">two_assum</span>(value)[<span class="dv">1</span>],
+            <span class="dt">stipe_mass_norm =</span> <span class="kw">two_assum</span>(value)[<span class="dv">2</span>])</code></pre></div>
 <pre><code>R&gt; # A tibble: 2 x 3
 R&gt;   site           stipe_mass_var stipe_mass_norm
 R&gt;   &lt;chr&gt;                   &lt;dbl&gt;           &lt;dbl&gt;
@@ -904,8 +874,8 @@ R&gt; 2 Boulders Beach           2.64           0.527</code></pre>
 <div id="running-an-analysis" class="section level3">
 <h3><span class="header-section-number">6.6.6</span> Running an analysis</h3>
 <p>With our assumptions checked, we may now analyse our data. We’ll see below how to do this with both of the functions we’ve learned in this chapter for comparing means of two sample sets.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="co"># traditional output</span></a>
-<a class="sourceLine" id="cb143-2" data-line-number="2"><span class="kw">t.test</span>(value <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> ecklonia_sub, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># traditional output</span>
+<span class="kw">t.test</span>(value <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> ecklonia_sub, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</code></pre></div>
 <pre><code>R&gt; 
 R&gt;  Two Sample t-test
 R&gt; 
@@ -917,8 +887,8 @@ R&gt;  0.09752735        Inf
 R&gt; sample estimates:
 R&gt;   mean in group Batsata Rock mean in group Boulders Beach 
 R&gt;                     6.116154                     4.996154</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="co"># dataframe output</span></a>
-<a class="sourceLine" id="cb145-2" data-line-number="2"><span class="kw">compare_means</span>(value <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> ecklonia_sub, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># dataframe output</span>
+<span class="kw">compare_means</span>(value <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> ecklonia_sub, <span class="dt">method =</span> <span class="st">&quot;t.test&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 1 x 8
 R&gt;   .y.   group1         group2            p  p.adj p.format p.signif method
 R&gt;   &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
@@ -1005,7 +975,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

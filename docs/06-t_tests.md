@@ -73,9 +73,10 @@ h <- ggplot(data = r_dat, aes(x = dat, fill = sample)) +
 h
 ```
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{06-t_tests_files/figure-latex/t-test-plot1-1} \caption{Interactive histogram showing two randomly generated normal distributions.}(\#fig:t-test-plot1)
-\end{figure}
+<div class="figure">
+<img src="06-t_tests_files/figure-html/t-test-plot1-1.svg" alt="Interactive histogram showing two randomly generated normal distributions." width="70%" />
+<p class="caption">(\#fig:t-test-plot1)Interactive histogram showing two randomly generated normal distributions.</p>
+</div>
 
 Whereas histograms may be a pretty way to check the normality of our data, there is actually a statistical test for this, which is preferable to a visual inspection alone. But remember that you should _always_ visualise your data before performing any statistics on them. To check the normality of the data we use the Shapiro-Wilk test. This test produces a $W$ value and a _p_-value. We are only interested in the _p_-value as this is how we are to determine the normality of the data. The Shapiro–Wilk test tests the null hypothesis that a sample $x_{1},..., x_{n}$ comes from a normally distributed population. i.e. that the normality *does not* differ significantly from normal. If the _p_-value is __above__ 0.05 we may assume the data to be normally distributed. In order to demonstrate what the output of `shapiro.test()` looks like we will run it on all of the random data we generated.
 
@@ -259,9 +260,10 @@ ggplot(data = r_one, aes(y = dat, x = sample)) +
   coord_flip()
 ```
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{06-t_tests_files/figure-latex/t-test-plot2-1} \caption{Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30.}(\#fig:t-test-plot2)
-\end{figure}
+<div class="figure">
+<img src="06-t_tests_files/figure-html/t-test-plot2-1.svg" alt="Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30." width="70%" />
+<p class="caption">(\#fig:t-test-plot2)Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30.</p>
+</div>
 
 The boxplot above shows the distribution of our random data against two potential population means. Does this help now to illustrate the results of our one-sample *t*-tests?
 
@@ -718,9 +720,10 @@ ggplot(data = ecklonia, aes(x = variable, y = value, fill = site)) +
   coord_flip()
 ```
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{06-t_tests_files/figure-latex/t-test-plot5-1} \caption{Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay.}(\#fig:t-test-plot5)
-\end{figure}
+<div class="figure">
+<img src="06-t_tests_files/figure-html/t-test-plot5-1.svg" alt="Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
+<p class="caption">(\#fig:t-test-plot5)Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay.</p>
+</div>
 
 The first thing we should notice from the figure above is that our different measurements are on very different scales. This makes comparing all of our data visually rather challenging. Even given this complication, one should readily be able to make out that the measurement values at Batsata Rock appear to be greater than at Boulders Beach. Within the framework of the scientific process, that is what we would call an "observation", and is the first step towards formulating a hypothesis. The next step is to refine our observation into a hypothesis. By what measurement are the kelps greater at one site than the other?
 
@@ -743,9 +746,10 @@ ggplot(data = ecklonia_sub, aes(x = variable, y = value, fill = site)) +
         axis.ticks.y = element_blank())
 ```
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{06-t_tests_files/figure-latex/t-test-plot6-1} \caption{Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay.}(\#fig:t-test-plot6)
-\end{figure}
+<div class="figure">
+<img src="06-t_tests_files/figure-html/t-test-plot6-1.svg" alt="Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
+<p class="caption">(\#fig:t-test-plot6)Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay.</p>
+</div>
 
 Now we have a more interesting comparison at hand. The question I think of when I look at these data is "Are the stipe masses at Batsata Rock greater than at Boulders Beach?". The hypothesis necessary to answer this question would look like this:
 

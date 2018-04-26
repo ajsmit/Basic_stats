@@ -12,12 +12,6 @@ bookdown::gitbook:
   dev: svglite
   split_by: chapter
   config:
-  toc:
-    collapse: subsection
-    before: |
-      <li><a href="./">A Book about Basic Statistics.</a></li>
-    after: |
-      <li><a href="https://github.com/ajsmit/Basic_stats" target="blank">Published with bookdown</a></li>
   toolbar:
     position: fixed
   edit: null

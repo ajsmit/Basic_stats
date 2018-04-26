@@ -130,10 +130,6 @@ library(fitdistrplus)
 ## Loading required package: survival
 ```
 
-```
-## Loading required package: methods
-```
-
 ```r
 library(logspline)
 
@@ -163,7 +159,7 @@ descdist(y, discrete = FALSE, boot = 100)
 ## estimated kurtosis:  3.565162
 ```
 
-![](05-distributions_files/figure-latex/dist-plot1-1.pdf)<!-- --> 
+<img src="05-distributions_files/figure-html/dist-plot1-1.svg" width="672" />
 
 
 ```r
@@ -178,15 +174,15 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  8.503248   max:  18.29135 
-## median:  13.35981 
-## mean:  13.20023 
-## estimated sd:  2.085534 
-## estimated skewness:  0.1202547 
-## estimated kurtosis:  2.772078
+## min:  6.811353   max:  17.94468 
+## median:  13.14573 
+## mean:  13.00014 
+## estimated sd:  2.072014 
+## estimated skewness:  -0.2067601 
+## estimated kurtosis:  3.447086
 ```
 
-![](05-distributions_files/figure-latex/dist-plot2-1.pdf)<!-- --> 
+<img src="05-distributions_files/figure-html/dist-plot2-1.svg" width="672" />
 
 
 ```r
@@ -201,15 +197,15 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  0.005880884   max:  0.993874 
-## median:  0.5038945 
-## mean:  0.5082694 
-## estimated sd:  0.2943109 
-## estimated skewness:  -0.01172497 
-## estimated kurtosis:  1.898179
+## min:  0.007471428   max:  0.9779237 
+## median:  0.5765924 
+## mean:  0.5461938 
+## estimated sd:  0.2956347 
+## estimated skewness:  -0.2558881 
+## estimated kurtosis:  1.882409
 ```
 
-![](05-distributions_files/figure-latex/dist-plot3-1.pdf)<!-- --> 
+<img src="05-distributions_files/figure-html/dist-plot3-1.svg" width="672" />
 
 
 ```r
@@ -224,15 +220,15 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  0.03435814   max:  5.51007 
-## median:  0.8386743 
-## mean:  1.295512 
-## estimated sd:  1.210403 
-## estimated skewness:  1.434539 
-## estimated kurtosis:  4.849173
+## min:  0.003817688   max:  7.600519 
+## median:  0.9800161 
+## mean:  1.448086 
+## estimated sd:  1.554647 
+## estimated skewness:  1.715048 
+## estimated kurtosis:  6.066733
 ```
 
-![](05-distributions_files/figure-latex/dist-plot4-1.pdf)<!-- --> 
+<img src="05-distributions_files/figure-html/dist-plot4-1.svg" width="672" />
 
 There is also a whole bunch of other approaches to use to try and identify the data distribution. Let us start with the gold standard first: normal data. We will demonstrate some visualisation approaches. The one that you already know is a basic histogram; it tells us something about the distribution's skewness, the tails, the mode(s) of the data, outliers, etc. Histograms can be compared to shapes associated with idealistic (simulated) distributions, as we will do here.
 
@@ -253,7 +249,7 @@ qqnorm(z.norm)
 abline(0, 1)
 ```
 
-![](05-distributions_files/figure-latex/dist-plot5-1.pdf)<!-- --> 
+<img src="05-distributions_files/figure-html/dist-plot5-1.svg" width="672" />
 
 Above we have also added a diagonal line to the qqplot. If the sampled data come from the population with the chosen distribution, the points should fall approximately along this reference line. The greater the departure from this reference line, the greater the evidence for the conclusion that the data set have come from a population with a different distribution.
 

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Basic Statistics" />
+<meta property="og:type" content="book" />
+
+<meta property="og:image" content="figures/NSFW.jpg" />
+<meta property="og:description" content="A Book about Basic Statistics." />
+<meta name="github-repo" content="ajsmit/Basic_stats" />
+
+<meta name="author" content="AJ Smit and Robert Schlegel" />
+
+<meta name="date" content="2018-04-26" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="A Book about Basic Statistics.">
+
+<title>Basic Statistics</title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#preface">Preface</a></li>
+<li><a href="prerequisites.html#prerequisites">Prerequisites</a></li>
+<li class="has-sub"><a href="1-introduction.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="1-1-venue-date-and-time.html#venue-date-and-time"><span class="toc-section-number">1.1</span> Venue, date and time</a></li>
+<li><a href="1-2-course-outline.html#course-outline"><span class="toc-section-number">1.2</span> Course outline</a></li>
+<li><a href="1-3-about-this-workshop.html#about-this-workshop"><span class="toc-section-number">1.3</span> About this Workshop</a></li>
+<li><a href="1-4-this-is-biology-why-more-r-coding.html#this-is-biology-why-more-r-coding"><span class="toc-section-number">1.4</span> This is biology: why more R coding?</a></li>
+<li><a href="1-5-installing-r-and-rstudio.html#installing-r-and-rstudio"><span class="toc-section-number">1.5</span> Installing R and RStudio</a></li>
+<li><a href="1-6-resources.html#resources"><span class="toc-section-number">1.6</span> Resources</a></li>
+<li><a href="1-7-style-and-code-conventions.html#style-and-code-conventions"><span class="toc-section-number">1.7</span> Style and code conventions</a></li>
+<li><a href="1-8-assessment-and-teaching-philosophy.html#assessment-and-teaching-philosophy"><span class="toc-section-number">1.8</span> Assessment and teaching philosophy</a></li>
+<li><a href="1-9-about-this-document.html#about-this-document"><span class="toc-section-number">1.9</span> About this document</a></li>
+</ul></li>
+<li class="has-sub"><a href="2-types-of-data.html#types-of-data"><span class="toc-section-number">2</span> Types of data</a><ul>
+<li class="has-sub"><a href="2-1-data-classes.html#data-classes"><span class="toc-section-number">2.1</span> Data classes</a><ul>
+<li><a href="2-1-data-classes.html#numerical-data"><span class="toc-section-number">2.1.1</span> Numerical data</a></li>
+<li><a href="2-1-data-classes.html#qualitative-data"><span class="toc-section-number">2.1.2</span> Qualitative data</a></li>
+<li><a href="2-1-data-classes.html#binary-data"><span class="toc-section-number">2.1.3</span> Binary data</a></li>
+<li><a href="2-1-data-classes.html#character-values"><span class="toc-section-number">2.1.4</span> Character values</a></li>
+<li><a href="2-1-data-classes.html#missing-values"><span class="toc-section-number">2.1.5</span> Missing values</a></li>
+<li><a href="2-1-data-classes.html#complex-numbers"><span class="toc-section-number">2.1.6</span> Complex numbers</a></li>
+</ul></li>
+<li class="has-sub"><a href="2-2-viewing-our-data.html#viewing-our-data"><span class="toc-section-number">2.2</span> Viewing our data</a><ul>
+<li><a href="2-2-viewing-our-data.html#from-the-environment-pane"><span class="toc-section-number">2.2.1</span> From the Environment pane</a></li>
+<li><a href="2-2-viewing-our-data.html#head-and-tail"><span class="toc-section-number">2.2.2</span> <code>head()</code> and <code>tail()</code></a></li>
+<li><a href="2-2-viewing-our-data.html#colnames"><span class="toc-section-number">2.2.3</span> <code>colnames()</code></a></li>
+<li><a href="2-2-viewing-our-data.html#summary"><span class="toc-section-number">2.2.4</span> <code>summary()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="3-descriptive-statistics-central-tendency-and-dispersion.html#descriptive-statistics-central-tendency-and-dispersion"><span class="toc-section-number">3</span> Descriptive statistics: central tendency and dispersion</a><ul>
+<li><a href="3-1-samples-and-populations.html#samples-and-populations"><span class="toc-section-number">3.1</span> Samples and populations</a></li>
+<li class="has-sub"><a href="3-2-measures-of-central-tendency.html#measures-of-central-tendency"><span class="toc-section-number">3.2</span> Measures of central tendency</a><ul>
+<li><a href="3-2-measures-of-central-tendency.html#the-mean"><span class="toc-section-number">3.2.1</span> The mean</a></li>
+<li><a href="3-2-measures-of-central-tendency.html#the-median"><span class="toc-section-number">3.2.2</span> The median</a></li>
+<li><a href="3-2-measures-of-central-tendency.html#skewness"><span class="toc-section-number">3.2.3</span> Skewness</a></li>
+<li><a href="3-2-measures-of-central-tendency.html#kurtosis"><span class="toc-section-number">3.2.4</span> Kurtosis</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-3-measures-of-variation-and-spread.html#measures-of-variation-and-spread"><span class="toc-section-number">3.3</span> Measures of variation and spread</a><ul>
+<li><a href="3-3-measures-of-variation-and-spread.html#the-variance-and-standard-deviation"><span class="toc-section-number">3.3.1</span> The variance and standard deviation</a></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#quantiles"><span class="toc-section-number">3.3.2</span> Quantiles</a></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#the-minimum-maximum-and-range"><span class="toc-section-number">3.3.3</span> The minimum, maximum and range</a></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#covariance"><span class="toc-section-number">3.3.4</span> Covariance</a></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#correlation"><span class="toc-section-number">3.3.5</span> Correlation</a></li>
+</ul></li>
+<li><a href="3-4-missing-values-1.html#missing-values-1"><span class="toc-section-number">3.4</span> Missing values</a></li>
+<li class="has-sub"><a href="3-5-descriptive-statistics-by-group.html#descriptive-statistics-by-group"><span class="toc-section-number">3.5</span> Descriptive statistics by group</a><ul>
+<li><a href="3-5-descriptive-statistics-by-group.html#groupwise-summary-statistics"><span class="toc-section-number">3.5.1</span> Groupwise summary statistics</a></li>
+<li><a href="3-5-descriptive-statistics-by-group.html#displays-of-group-summaries"><span class="toc-section-number">3.5.2</span> Displays of group summaries</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-6-exercises.html#exercises"><span class="toc-section-number">3.6</span> Exercises</a><ul>
+<li><a href="3-6-exercises.html#exercise-1"><span class="toc-section-number">3.6.1</span> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="4-graphical-data-displays.html#graphical-data-displays"><span class="toc-section-number">4</span> Graphical data displays</a><ul>
+<li><a href="4-1-qualitative-data-1.html#qualitative-data-1"><span class="toc-section-number">4.1</span> Qualitative data</a></li>
+<li class="has-sub"><a href="4-2-continuous-data-1.html#continuous-data-1"><span class="toc-section-number">4.2</span> Continuous data</a><ul>
+<li><a href="4-2-continuous-data-1.html#frequency-distributions-histograms"><span class="toc-section-number">4.2.1</span> Frequency distributions (histograms)</a></li>
+<li><a href="4-2-continuous-data-1.html#box-plots"><span class="toc-section-number">4.2.2</span> Box plots</a></li>
+<li><a href="4-2-continuous-data-1.html#pairwise-scatter-plots"><span class="toc-section-number">4.2.3</span> Pairwise Scatter plots</a></li>
+<li><a href="4-2-continuous-data-1.html#bar-graphs"><span class="toc-section-number">4.2.4</span> Bar graphs</a></li>
+<li><a href="4-2-continuous-data-1.html#density-graphs"><span class="toc-section-number">4.2.5</span> Density graphs</a></li>
+<li><a href="4-2-continuous-data-1.html#violin-plots"><span class="toc-section-number">4.2.6</span> Violin plots</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-3-exercises-1.html#exercises-1"><span class="toc-section-number">4.3</span> Exercises</a><ul>
+<li><a href="4-3-exercises-1.html#exercise-1-1"><span class="toc-section-number">4.3.1</span> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="5-distributions.html#distributions"><span class="toc-section-number">5</span> Distributions</a><ul>
+<li class="has-sub"><a href="5-1-discrete-distributions.html#discrete-distributions"><span class="toc-section-number">5.1</span> Discrete distributions</a><ul>
+<li><a href="5-1-discrete-distributions.html#bernoulli-distribution"><span class="toc-section-number">5.1.1</span> Bernoulli distribution</a></li>
+<li><a href="5-1-discrete-distributions.html#binomial-distribution"><span class="toc-section-number">5.1.2</span> Binomial distribution</a></li>
+<li><a href="5-1-discrete-distributions.html#negative-binomial-distribution"><span class="toc-section-number">5.1.3</span> Negative binomial distribution</a></li>
+<li><a href="5-1-discrete-distributions.html#geometric-distribution"><span class="toc-section-number">5.1.4</span> Geometric distribution</a></li>
+<li><a href="5-1-discrete-distributions.html#poisson-distribution"><span class="toc-section-number">5.1.5</span> Poisson distribution</a></li>
+</ul></li>
+<li class="has-sub"><a href="5-2-continuous-distributions.html#continuous-distributions"><span class="toc-section-number">5.2</span> Continuous distributions</a><ul>
+<li><a href="5-2-continuous-distributions.html#normal-distribution"><span class="toc-section-number">5.2.1</span> Normal distribution</a></li>
+<li><a href="5-2-continuous-distributions.html#uniform-distribution"><span class="toc-section-number">5.2.2</span> Uniform distribution</a></li>
+<li><a href="5-2-continuous-distributions.html#student-t-distribution"><span class="toc-section-number">5.2.3</span> Student T distribution</a></li>
+<li><a href="5-2-continuous-distributions.html#chi-squared-distribution"><span class="toc-section-number">5.2.4</span> Chi-squared distribution</a></li>
+<li><a href="5-2-continuous-distributions.html#exponential-distribution"><span class="toc-section-number">5.2.5</span> Exponential distribution</a></li>
+<li><a href="5-2-continuous-distributions.html#f-distribution"><span class="toc-section-number">5.2.6</span> F distribution</a></li>
+<li><a href="5-2-continuous-distributions.html#gamma-distribution"><span class="toc-section-number">5.2.7</span> Gamma distribution</a></li>
+<li><a href="5-2-continuous-distributions.html#beta-distribution"><span class="toc-section-number">5.2.8</span> Beta distribution</a></li>
+<li><a href="5-2-continuous-distributions.html#paranormal-distributions"><span class="toc-section-number">5.2.9</span> Paranormal distributions</a></li>
+</ul></li>
+<li><a href="5-3-finding-ones-data-distribution.html#finding-ones-data-distribution"><span class="toc-section-number">5.3</span> Finding one’s data distribution</a></li>
+<li class="has-sub"><a href="5-4-exercises-2.html#exercises-2"><span class="toc-section-number">5.4</span> Exercises</a><ul>
+<li><a href="5-4-exercises-2.html#exercise-1-2"><span class="toc-section-number">5.4.1</span> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="6-inferences-about-one-or-two-populations.html#inferences-about-one-or-two-populations"><span class="toc-section-number">6</span> Inferences about one or two populations</a><ul>
+<li class="has-sub"><a href="6-1-assumptions.html#assumptions"><span class="toc-section-number">6.1</span> Assumptions</a><ul>
+<li><a href="6-1-assumptions.html#normality"><span class="toc-section-number">6.1.1</span> Normality</a></li>
+<li><a href="6-1-assumptions.html#homoscedasticity"><span class="toc-section-number">6.1.2</span> Homoscedasticity</a></li>
+<li><a href="6-1-assumptions.html#two-for-one"><span class="toc-section-number">6.1.3</span> Two for one</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-2-one-sample-t-tests.html#one-sample-t-tests"><span class="toc-section-number">6.2</span> One-sample <em>t</em>-tests</a><ul>
+<li><a href="6-2-one-sample-t-tests.html#one-sided-one-sample-t-tests"><span class="toc-section-number">6.2.1</span> One-sided one-sample <em>t</em>-tests</a></li>
+<li><a href="6-2-one-sample-t-tests.html#two-sided-one-sample-t-tests"><span class="toc-section-number">6.2.2</span> Two-sided one-sample <em>t</em>-tests</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-3-two-sample-t-tests.html#two-sample-t-tests"><span class="toc-section-number">6.3</span> Two-sample <em>t</em>-tests</a><ul>
+<li><a href="6-3-two-sample-t-tests.html#one-sided-two-sample-t-tests"><span class="toc-section-number">6.3.1</span> One-sided two-sample <em>t</em>-tests</a></li>
+<li><a href="6-3-two-sample-t-tests.html#two-sided-two-sample-t-tests"><span class="toc-section-number">6.3.2</span> Two-sided two-sample <em>t</em>-tests</a></li>
+</ul></li>
+<li><a href="6-4-paired-t-tests.html#paired-t-tests"><span class="toc-section-number">6.4</span> Paired <em>t</em>-tests</a></li>
+<li class="has-sub"><a href="6-5-comparison-of-two-population-proportions.html#comparison-of-two-population-proportions"><span class="toc-section-number">6.5</span> Comparison of two population proportions</a><ul>
+<li><a href="6-5-comparison-of-two-population-proportions.html#one-sample-and-two-sample-tests"><span class="toc-section-number">6.5.1</span> One-sample and two-sample tests</a></li>
+<li><a href="6-5-comparison-of-two-population-proportions.html#one-sided-and-two-sided-tests"><span class="toc-section-number">6.5.2</span> One-sided and two-sided tests</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-6-a-t-test-workflow.html#a-t-test-workflow"><span class="toc-section-number">6.6</span> A <em>t</em>-test workflow</a><ul>
+<li><a href="6-6-a-t-test-workflow.html#loading-data"><span class="toc-section-number">6.6.1</span> Loading data</a></li>
+<li><a href="6-6-a-t-test-workflow.html#visualising-data"><span class="toc-section-number">6.6.2</span> Visualising data</a></li>
+<li><a href="6-6-a-t-test-workflow.html#formulating-a-hypothesis"><span class="toc-section-number">6.6.3</span> Formulating a hypothesis</a></li>
+<li><a href="6-6-a-t-test-workflow.html#choosing-a-test"><span class="toc-section-number">6.6.4</span> Choosing a test</a></li>
+<li><a href="6-6-a-t-test-workflow.html#checking-assumptions"><span class="toc-section-number">6.6.5</span> Checking assumptions</a></li>
+<li><a href="6-6-a-t-test-workflow.html#running-an-analysis"><span class="toc-section-number">6.6.6</span> Running an analysis</a></li>
+<li><a href="6-6-a-t-test-workflow.html#interpreting-the-results"><span class="toc-section-number">6.6.7</span> Interpreting the results</a></li>
+<li><a href="6-6-a-t-test-workflow.html#drawing-conclusions"><span class="toc-section-number">6.6.8</span> Drawing conclusions</a></li>
+<li><a href="6-6-a-t-test-workflow.html#going-further"><span class="toc-section-number">6.6.9</span> Going further</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-7-exercises-3.html#exercises-3"><span class="toc-section-number">6.7</span> Exercises</a><ul>
+<li><a href="6-7-exercises-3.html#exercise-1-3"><span class="toc-section-number">6.7.1</span> Exercise 1</a></li>
+<li><a href="6-7-exercises-3.html#exercise-2"><span class="toc-section-number">6.7.2</span> Exercise 2</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="7-anova.html#anova"><span class="toc-section-number">7</span> ANOVA</a><ul>
+<li><a href="7-1-remember-the-t-test.html#remember-the-t-test"><span class="toc-section-number">7.1</span> Remember the <em>t</em>-test</a></li>
+<li class="has-sub"><a href="7-2-anova-1.html#anova-1"><span class="toc-section-number">7.2</span> ANOVA</a><ul>
+<li><a href="7-2-anova-1.html#single-factor"><span class="toc-section-number">7.2.1</span> Single factor</a></li>
+<li><a href="7-2-anova-1.html#multiple-factors"><span class="toc-section-number">7.2.2</span> Multiple factors</a></li>
+<li><a href="7-2-anova-1.html#examples"><span class="toc-section-number">7.2.3</span> Examples</a></li>
+</ul></li>
+<li class="has-sub"><a href="7-3-alternatives-to-anova.html#alternatives-to-anova"><span class="toc-section-number">7.3</span> Alternatives to ANOVA</a><ul>
+<li><a href="7-3-alternatives-to-anova.html#wilcox-rank-sum-test"><span class="toc-section-number">7.3.1</span> Wilcox rank sum test</a></li>
+<li><a href="7-3-alternatives-to-anova.html#kruskall-wallis-rank-sum-test"><span class="toc-section-number">7.3.2</span> Kruskall-Wallis rank sum test</a></li>
+<li><a href="7-3-alternatives-to-anova.html#the-sa-time-data"><span class="toc-section-number">7.3.3</span> The SA time data</a></li>
+</ul></li>
+<li class="has-sub"><a href="7-4-exercises-4.html#exercises-4"><span class="toc-section-number">7.4</span> Exercises</a><ul>
+<li><a href="7-4-exercises-4.html#exercise-1-4"><span class="toc-section-number">7.4.1</span> Exercise 1</a></li>
+<li><a href="7-4-exercises-4.html#exercise-2-1"><span class="toc-section-number">7.4.2</span> Exercise 2</a></li>
+<li><a href="7-4-exercises-4.html#exercise-3"><span class="toc-section-number">7.4.3</span> Exercise 3</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="8-simple-linear-regressions.html#simple-linear-regressions"><span class="toc-section-number">8</span> Simple linear regressions</a><ul>
+<li class="has-sub"><a href="8-1-the-simple-linear-regression-equation.html#the-simple-linear-regression-equation"><span class="toc-section-number">8.1</span> The simple linear regression equation</a><ul>
+<li><a href="8-1-the-simple-linear-regression-equation.html#the-intercept"><span class="toc-section-number">8.1.1</span> The intercept</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#the-regression-coefficient"><span class="toc-section-number">8.1.2</span> The regression coefficient</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#a-graph-of-the-linear-regression"><span class="toc-section-number">8.1.3</span> A graph of the linear regression</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#predicting-from-the-linear-model"><span class="toc-section-number">8.1.4</span> Predicting from the linear model</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#the-coefficient-of-determination-r2"><span class="toc-section-number">8.1.5</span> The coefficient of determination, <span class="math inline">\(r^{2}\)</span></a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#significance-test-for-linear-regression"><span class="toc-section-number">8.1.6</span> Significance test for linear regression</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#confidence-interval-for-linear-regression"><span class="toc-section-number">8.1.7</span> Confidence interval for linear regression</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#prediction-interval-for-linear-regression"><span class="toc-section-number">8.1.8</span> Prediction interval for linear regression</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#residual-plot"><span class="toc-section-number">8.1.9</span> Residual plot</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#standardised-residual"><span class="toc-section-number">8.1.10</span> Standardised residual</a></li>
+<li><a href="8-1-the-simple-linear-regression-equation.html#normal-probability-plot-of-residuals"><span class="toc-section-number">8.1.11</span> Normal probability plot of residuals</a></li>
+</ul></li>
+<li><a href="8-2-using-an-additional-categorical-variable.html#using-an-additional-categorical-variable"><span class="toc-section-number">8.2</span> Using an additional categorical variable</a></li>
+</ul></li>
+<li class="has-sub"><a href="9-correlations.html#correlations"><span class="toc-section-number">9</span> Correlations</a><ul>
+<li><a href="9-1-pearson-correlation.html#pearson-correlation"><span class="toc-section-number">9.1</span> Pearson correlation</a></li>
+<li><a href="9-2-spearman-rank-correlation.html#spearman-rank-correlation"><span class="toc-section-number">9.2</span> Spearman rank correlation</a></li>
+<li><a href="9-3-kendall-rank-correlation.html#kendall-rank-correlation"><span class="toc-section-number">9.3</span> Kendall rank correlation</a></li>
+<li><a href="9-4-one-panel-visual.html#one-panel-visual"><span class="toc-section-number">9.4</span> One panel visual</a></li>
+<li><a href="9-5-multiple-panel-visual.html#multiple-panel-visual"><span class="toc-section-number">9.5</span> Multiple panel visual</a></li>
+<li class="has-sub"><a href="9-6-exercises-5.html#exercises-5"><span class="toc-section-number">9.6</span> Exercises</a><ul>
+<li><a href="9-6-exercises-5.html#exercise-1-5"><span class="toc-section-number">9.6.1</span> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li><a href="10-confidence-intervals.html#confidence-intervals"><span class="toc-section-number">10</span> Confidence intervals</a></li>
+<li class="has-sub"><a href="11-testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data"><span class="toc-section-number">11</span> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
+<li class="has-sub"><a href="11-1-the-two-main-assumptions.html#the-two-main-assumptions"><span class="toc-section-number">11.1</span> The two main assumptions</a><ul>
+<li><a href="11-1-the-two-main-assumptions.html#normality-1"><span class="toc-section-number">11.1.1</span> Normality</a></li>
+<li><a href="11-1-the-two-main-assumptions.html#homoscedasticity-1"><span class="toc-section-number">11.1.2</span> Homoscedasticity</a></li>
+</ul></li>
+<li class="has-sub"><a href="11-2-transforming-data.html#transforming-data"><span class="toc-section-number">11.2</span> Transforming data</a><ul>
+<li><a href="11-2-transforming-data.html#log-transform"><span class="toc-section-number">11.2.1</span> Log transform</a></li>
+<li><a href="11-2-transforming-data.html#section"><span class="toc-section-number">11.2.2</span> </a></li>
+</ul></li>
+<li class="has-sub"><a href="11-3-exercises-6.html#exercises-6"><span class="toc-section-number">11.3</span> Exercises</a><ul>
+<li><a href="11-3-exercises-6.html#exercise-1-6"><span class="toc-section-number">11.3.1</span> Exercise 1</a></li>
+<li><a href="11-3-exercises-6.html#exercise-2-2"><span class="toc-section-number">11.3.2</span> Exercise 2</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="12-linear-mixed-models.html#linear-mixed-models"><span class="toc-section-number">12</span> Linear mixed models</a><ul>
+<li><a href="12-1-wilcox-rank-sum-test-1.html#wilcox-rank-sum-test-1"><span class="toc-section-number">12.1</span> Wilcox rank sum test</a></li>
+<li class="has-sub"><a href="12-2-kruskall-wallis-rank-sum-test-1.html#kruskall-wallis-rank-sum-test-1"><span class="toc-section-number">12.2</span> Kruskall-Wallis rank sum test</a><ul>
+<li><a href="12-2-kruskall-wallis-rank-sum-test-1.html#single-factor-2"><span class="toc-section-number">12.2.1</span> Single factor</a></li>
+<li><a href="12-2-kruskall-wallis-rank-sum-test-1.html#multiple-factors-2"><span class="toc-section-number">12.2.2</span> Multiple factors</a></li>
+</ul></li>
+<li class="has-sub"><a href="12-3-generalised-linear-models.html#generalised-linear-models"><span class="toc-section-number">12.3</span> Generalised linear models</a><ul>
+<li><a href="12-3-generalised-linear-models.html#sign-test"><span class="toc-section-number">12.3.1</span> Sign Test</a></li>
+<li><a href="12-3-generalised-linear-models.html#wilcoxon-signed-rank-test"><span class="toc-section-number">12.3.2</span> Wilcoxon Signed-Rank Test</a></li>
+<li><a href="12-3-generalised-linear-models.html#mann-whitney-wilcoxon-test"><span class="toc-section-number">12.3.3</span> Mann-Whitney-Wilcoxon Test</a></li>
+<li><a href="12-3-generalised-linear-models.html#kruskal-wallis-test"><span class="toc-section-number">12.3.4</span> Kruskal-Wallis Test</a></li>
+<li><a href="12-3-generalised-linear-models.html#generalised-linear-models-glm"><span class="toc-section-number">12.3.5</span> Generalised linear models (GLM)</a></li>
+</ul></li>
+<li><a href="12-4-exercises-7.html#exercises-7"><span class="toc-section-number">12.4</span> Exercises</a></li>
+<li><a href="12-5-exercise-1-7.html#exercise-1-7"><span class="toc-section-number">12.5</span> Exercise 1</a></li>
+</ul></li>
+<li><a href="13-chi-squared.html#chi-squared"><span class="toc-section-number">13</span> Chi-squared</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="continuous-data-1" class="section level2">
+<h2><span class="header-section-number">4.2</span> Continuous data</h2>
+<div id="frequency-distributions-histograms" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Frequency distributions (histograms)</h3>
+<p>As with discrete data, we have a choice of absolute (Fig. 4.2A) and relative (Fig. 4.2 B-C) frequency histograms. There’s also the empirical cumulative distribution function (ECDF) (Fig. 4.2 D) that uses relative proportions, but in this instance it is the relative proportion that each individual observation has towards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called <em>bins</em>. See the Old Faithful data, for example. The eruptions last between 1.6 and 5.1 minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The <strong>ggplot2</strong> <code>geom_histogram()</code> function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure 4.2 A-D).</p>
+<!-- show example of numerical summary -->
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a normal frequency histogram, with count along y</span>
+hist1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;A vanilla frequency histogram&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()
+
+<span class="co"># when the binwidth is 1, the density histogram *is* the relative</span>
+<span class="co"># frequency histogram</span>
+hist2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),
+                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>,
+                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency histogram&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()
+
+
+<span class="co"># if binwidth is something other than 1, the relative frequency in</span>
+<span class="co"># a histogram is ..density.. * binwidth</span>
+hist3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span>..density..),
+                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>,
+                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency histogram&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Relative contribution&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()
+
+<span class="co"># ECDF</span>
+hist4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_ecdf</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;ECDF&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Relative contribution&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>()
+
+<span class="kw">ggarrange</span>(hist1, hist2, hist3, hist4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:graphics-plot2"></span>
+<img src="04-graphics_files/figure-html/graphics-plot2-1.png" alt="Example histograms for the Old Faithful data. A) A default frequency histogram with the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1." width="70%" />
+<p class="caption">
+Figure 4.2: Example histograms for the Old Faithful data. A) A default frequency histogram with the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.
+</p>
+</div>
+<p>What if we have continuous data belonging with multiple categories? The <code>iris</code> data provide a nice set of measurements that we may use to demonstrate a grouped frequency histogram. These data are size measurements (cm) of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of three species of <em>Iris</em>. The species are <em>Iris setosa</em>, <em>I. versicolor</em>, and <em>I. virginica</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first we make long data</span>
+iris.long &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;size&quot;</span>, <span class="op">-</span>Species)
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> size)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="co"># ommitting this creates a stacked histogram</span>
+                 <span class="dt">colour =</span> <span class="ot">NA</span>, <span class="dt">bins =</span> <span class="dv">20</span>,
+                 <span class="kw">aes</span>(<span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Grouped frequency histogram&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Size (mm)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>()</code></pre></div>
+<div class="figure"><span id="fig:graphics-plot3"></span>
+<img src="04-graphics_files/figure-html/graphics-plot3-1.png" alt="Panelled grouped histograms for the four Iris variables." width="70%" />
+<p class="caption">
+Figure 4.3: Panelled grouped histograms for the four Iris variables.
+</p>
+</div>
+</div>
+<div id="box-plots" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Box plots</h3>
+<p>Box plots are sometimes called box-and-whisker plots. These graphs are a a graphical representation of the data based on its quartiles as well as its smallest and largest values. The keen eye can glance the ‘shape’ of the data distribution; they provide an alternative view to that given by the frequency distribution. A variation of the basic box-and-whisker plot is to superimpose a jittered scatter plot of the raw data on each bar.</p>
+<p>From the <code>geom_boxplot</code> documentation, which says it best (type <code>?geom_boxplot</code>):</p>
+<p>“The lower and upper hinges correspond to the first and third quartiles (the 25th and 75th percentiles).”</p>
+<p>“The upper whisker extends from the hinge to the largest value no further than 1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 * IQR of the hinge. Data beyond the end of the whiskers are called ‘outlying’ points and are plotted individually.”</p>
+<p>“In a notched box plot, the notches extend 1.58 * IQR / sqrt(n). This gives a roughly 95% confidence interval for comparing medians.”</p>
+<p>Here be examples:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>, <span class="dt">notch =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
+
+plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris.long, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> size)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.4</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubclean</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks.length=</span><span class="kw">unit</span>(<span class="op">-</span><span class="fl">0.25</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">axis.ticks.margin=</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>))
+
+<span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:graphics-plot4"></span>
+<img src="04-graphics_files/figure-html/graphics-plot4-1.png" alt="Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="70%" />
+<p class="caption">
+Figure 4.4: Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.
+</p>
+</div>
+<p>Box-and-whisker plots have traditionally been used to display data that are not normally distributed, but I like to use them for any old data, even normal data. I prefer these over the old-fashioned bar graphs (as seen later in this section).</p>
+<p>The <strong>ggpubr</strong> package provides many convenience functions for the drawing of publication quality graphs, many of which include summaries of pairwise comparisons (e.g. in t-tests and ANOVAs). Please see <a href="http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/">here</a> and <a href="http://www.sthda.com/english/rpkgs/ggpubr/">here</a>.</p>
+</div>
+<div id="pairwise-scatter-plots" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Pairwise Scatter plots</h3>
+<p>This graph shows the relationship between two (matched) continuous variables. The statistical strength of the relationship can be indicated by a correlation (no causal relationship implied as is the case here) or a regression (when a causal link of <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span> is demonstrated).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plt1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.18</span>, <span class="fl">0.85</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_fivethirtyeight</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_fivethirtyeight</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>()
+
+plt2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, <span class="dt">y =</span> Petal.Width, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_fivethirtyeight</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_fivethirtyeight</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Petal length (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Petal width (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>()
+
+<span class="kw">ggarrange</span>(plt1, plt2, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:graphics-plot5"></span>
+<img src="04-graphics_files/figure-html/graphics-plot5-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="70%" />
+<p class="caption">
+Figure 4.5: Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added.
+</p>
+</div>
+</div>
+<div id="bar-graphs" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Bar graphs</h3>
+<p>Bar graphs display the mean plus/minus some measure of variation around the mean—typically the standard error or the standard deviation. The mean±SE and mean±SD are typically used for normally-distributed data. Here I provide an example bar graph for one of the Iris data set’s variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first make nice labels for the facets because the default ones</span>
+<span class="co"># in the dataframe are not so nice; use the `labeller()` function</span>
+<span class="co"># to receive the new variable names defined here</span>
+facet.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Petal.Length =</span> <span class="st">&quot;Petal length&quot;</span>,
+                 <span class="dt">Petal.Width =</span> <span class="st">&quot;Petal width&quot;</span>,
+                 <span class="dt">Sepal.Length =</span> <span class="st">&quot;Sepal length&quot;</span>,
+                 <span class="dt">Sepal.Width =</span> <span class="st">&quot;Sepal width&quot;</span>)
+
+<span class="co"># start with the `iris.long` long data that were produced above</span>
+<span class="co"># we create summaries of mean and SD and squirt it directly</span>
+<span class="co"># into the ggplot functions</span>
+iris.long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Species, variable) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.size =</span> <span class="kw">mean</span>(size),
+            <span class="dt">sd.size =</span> <span class="kw">sd</span>(size)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> mean.size)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> mean.size <span class="op">-</span><span class="st"> </span>sd.size, <span class="dt">ymax =</span> mean.size <span class="op">+</span><span class="st"> </span>sd.size), <span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">variable =</span> facet.names)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Size (mm)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;A box plot...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;...of the Iris data&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:graphics-plot6"></span>
+<img src="04-graphics_files/figure-html/graphics-plot6-1.png" alt="Box plots of the mean ± SD of the four Iris variables." width="70%" />
+<p class="caption">
+Figure 4.6: Box plots of the mean ± SD of the four Iris variables.
+</p>
+</div>
+</div>
+<div id="density-graphs" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> Density graphs</h3>
+<p>Often when we are displaying a distribution of data we are interested in the “shape” of the data more than the actual count of values in a specific category, as shown by a standard histogram. When one wishes to more organically visualise the frequency of values in a sample set a density graphs is used. These may also be thought of as smooth histograms. These work well with histograms and rug plots, as we may see in the figure below. It is important to note with density plots that they show the relative density of the distribution along the Y axis, and <em>not</em> the counts of the data. This can of course be changed, as seen below, but is not the default setting. Sometimes it can be informative to see how different the count and density distributions appear.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a normal density graph</span>
+dens1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;A vanilla density plot&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
+
+<span class="co"># a density and rug plot combo</span>
+dens2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_rug</span>(<span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;A density and rug plot&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
+
+<span class="co"># a relative frequency histogram overlayed with a density plot</span>
+dens3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),
+                 <span class="dt">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>,
+                 <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;turquoise&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Relative frequency with density&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
+
+<span class="co"># a normal frequency histogram with density overlayed</span>
+<span class="co"># note that the density curve must be adjusted by</span>
+<span class="co"># the number of data points times the bin width</span>
+dens4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful, <span class="kw">aes</span>(<span class="dt">x =</span> eruptions)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..count..),
+                 <span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;turquoise&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density.. <span class="op">*</span><span class="st"> </span><span class="kw">nrow</span>(datasets<span class="op">::</span>faithful) <span class="op">*</span><span class="st"> </span><span class="fl">0.2</span>), <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>,
+               <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Old Faithful data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Frequency with density&quot;</span>,
+       <span class="dt">x =</span> <span class="st">&quot;Eruption duration (min)&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_pubr</span>()
+
+<span class="kw">ggarrange</span>(dens1, dens2, dens3, dens4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:graphics-plot7"></span>
+<img src="04-graphics_files/figure-html/graphics-plot7-1.png" alt="A bevy of density graphs option based on the iris data. A) A lone density graph. B) A density graph accompanied by a rug plot. C) A histogram with a density graph overlay. D) A ridge plot." width="70%" />
+<p class="caption">
+Figure 4.7: A bevy of density graphs option based on the iris data. A) A lone density graph. B) A density graph accompanied by a rug plot. C) A histogram with a density graph overlay. D) A ridge plot.
+</p>
+</div>
+</div>
+<div id="violin-plots" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> Violin plots</h3>
+<p>The density graph is not limited to it’s use with histograms. We may combine this concept with box plots, too. These are known as violin plots and are very useful when we want to show the distribution of multiple categories of the same variable alongside one another. Violin plots may show the same information as box plots but take things one step further by allowing the shape of the boxplot to also show the distribution of the data within the sample set. We will use the <code>iris</code> data below to highlight the different types of violin plots one may use.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A basic violin plot</span>
+vio1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Basic violin plot&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
+
+<span class="co"># Aviolin plot showing the quartiles as lines</span>
+vio2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>, <span class="dt">draw_quantiles =</span> <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Violin plot with quartiles&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
+
+<span class="co"># Box plots nested within violin plots</span>
+vio3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;grey30&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Box plots nested within violin plots&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
+
+<span class="co"># Boxes in violins with the raw data jittered about</span>
+vio4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_pubclean</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Iris data&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Violins, boxes, and jittered data&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sepal length (mm)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))
+
+<span class="kw">ggarrange</span>(vio1, vio2, vio3, vio4, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">labels =</span> <span class="st">&quot;AUTO&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:graphics-plot8"></span>
+<img src="04-graphics_files/figure-html/graphics-plot8-1.png" alt="Variations of violin plots." width="70%" />
+<p class="caption">
+Figure 4.8: Variations of violin plots.
+</p>
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="4-1-qualitative-data-1.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-3-exercises-1.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

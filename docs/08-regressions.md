@@ -112,8 +112,7 @@ ggplot(data = faithful, aes(x = waiting, y = eruptions)) +
        y = "Eruption duration (minutes)")
 ```
 
-
-\includegraphics[width=0.7\linewidth]{08-regressions_files/figure-latex/lm-plot1-1} 
+<img src="08-regressions_files/figure-html/lm-plot1-1.svg" width="70%" />
 
 ### Predicting from the linear model
 
@@ -196,8 +195,7 @@ ggplot(data = rand.df, aes(x = x, y = y)) +
        y = "Y (dependent variable)")
 ```
 
-
-\includegraphics[width=0.7\linewidth]{08-regressions_files/figure-latex/lm-plot2-1} 
+<img src="08-regressions_files/figure-html/lm-plot2-1.svg" width="70%" />
 
 
 <!-- insert a graph of a random relationship of y on x (a fitted line will have have a slope of 0 and the intercept will equal the mean, and the r2 will be 0) -->

@@ -197,7 +197,7 @@ The interpretation of the concepts of mean and median are fairly straight forwar
 \begin{center}
 \includegraphics[width=0.7\linewidth]{figures/Standard_deviation_diagram.png}
 \end{center}
-\caption{The proportions of data representation by the standard deviation. Credit: wikipedia/Standard_deviation}
+\caption{Caption here.}
 \end{figure}
 
 Like the mean, $S$ is affected by extreme values and outliers, so before we attach $S$ as a summary statistic to describe some data, we need to ensure that the data are in fact normally distributed. We will talk about how to do this in Chapter 6, where we will go over the numerous ways to check the assumption of normality. When the data are found to be non-normal, we need to find appropriate ways to express the spread of the data. Enter the quartiles.
