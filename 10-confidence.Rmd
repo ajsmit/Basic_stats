@@ -170,9 +170,3 @@ The results of our Wilcox rank sum test, unsurprisingly, support the output of `
 Load a new dataset and create a Harrell plot from it based on values of your choosing. What does the Harrell plot show?
 
 ### Exercise 2
-
-<<<<<<< HEAD
-
-=======
-Check the results of the Harrell plot with the appropriate statistical test.
->>>>>>> 4d75edf0c3bf178c6dd91c7b8f4a14de43e83f3a
