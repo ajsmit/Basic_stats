@@ -10,15 +10,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-<<<<<<< HEAD
 A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. If we were to repeaqtedly sample the same population ove and over and calculated a mean every time, the 95% CI indicates the range that 95% of those means would fall into.
-=======
-One use of confidence intervals (CI) is to tell us within what range we may be (95\%) certain to find the true mean from which any sample has been taken. When we use CI to compare different sample sets we take that range to show us how confident we may be that the effect between these two things is significantly different from zero.
 
 ## Calculating confidence
-
-To calculate a confidence interval for a single sample set requires three things:  
->>>>>>> 4d75edf0c3bf178c6dd91c7b8f4a14de43e83f3a
 
 ```{r}
 Input <- ("
@@ -55,26 +49,17 @@ data <- read.table(textConnection(Input),header = TRUE)
 summary(data)
 ```
 
-<<<<<<< HEAD
-=======
-Once we know these things we must then use the following formula to calculate the CI from a normal distribution:
-
->>>>>>> 4d75edf0c3bf178c6dd91c7b8f4a14de43e83f3a
 ```{r}
 library(rcompanion)
 # ungrouped data is indicated with a 1 on the right side of the formula, or the group = NULL argument.
 groupwiseMean(Steps ~ 1,data = data, conf = 0.95, digits = 3)
 
-<<<<<<< HEAD
 # one-way data
 groupwiseMean(Steps ~ Sex, data = data, conf = 0.95,digits = 3)
 
 # two-way data
 groupwiseMean(Steps ~ Teacher + Sex, data = data, conf = 0.95,digits = 3)
 ```
-=======
-With the CI known, we then subtract/add it from the sample mean in order to find the upper and lower limits:
->>>>>>> 4d75edf0c3bf178c6dd91c7b8f4a14de43e83f3a
 
 ```{r}
 # by bootstrapping
