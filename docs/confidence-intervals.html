@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Basic Statistics</title>
+  <title>Chapter 10 Confidence intervals | Basic Statistics</title>
   <meta name="description" content="A Book about Basic Statistics.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Basic Statistics" />
+  <meta property="og:title" content="Chapter 10 Confidence intervals | Basic Statistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="figures/NSFW.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="ajsmit/Basic_stats" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Basic Statistics" />
+  <meta name="twitter:title" content="Chapter 10 Confidence intervals | Basic Statistics" />
   
   <meta name="twitter:description" content="A Book about Basic Statistics." />
   <meta name="twitter:image" content="figures/NSFW.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-26">
+<meta name="date" content="2019-04-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -270,7 +297,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.6.1" data-path="correlations.html"><a href="correlations.html#exercise-1-5"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence intervals</a></li>
+<li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence intervals</a><ul>
+<li class="chapter" data-level="10.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#calculating-confidence"><i class="fa fa-check"></i><b>10.1</b> Calculating confidence</a></li>
+<li class="chapter" data-level="10.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#ci-of-compared-means"><i class="fa fa-check"></i><b>10.2</b> CI of compared means</a></li>
+<li class="chapter" data-level="10.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#harrell-plots"><i class="fa fa-check"></i><b>10.3</b> Harrell plots</a></li>
+<li class="chapter" data-level="10.4" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercises-6"><i class="fa fa-check"></i><b>10.4</b> Exercises</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercise-1-6"><i class="fa fa-check"></i><b>10.4.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="10.4.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercise-2-2"><i class="fa fa-check"></i><b>10.4.2</b> Exercise 2</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
 <li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#backgroud"><i class="fa fa-check"></i><b>11.1</b> Backgroud</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality-1"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
@@ -282,11 +317,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#arcsine-transform"><i class="fa fa-check"></i><b>11.2.2</b> Arcsine transform</a></li>
 <li class="chapter" data-level="11.2.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#cube-root"><i class="fa fa-check"></i><b>11.2.3</b> Cube root</a></li>
 <li class="chapter" data-level="11.2.4" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#square-root-transform"><i class="fa fa-check"></i><b>11.2.4</b> Square root transform</a></li>
-<li class="chapter" data-level="11.2.5" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>11.2.5</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-6"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-6"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
-<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-2"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-7"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-7"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-3"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>12</b> Linear mixed models</a><ul>
@@ -302,8 +336,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.3.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>12.3.4</b> Kruskal-Wallis Test</a></li>
 <li class="chapter" data-level="12.3.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#generalised-linear-models-glm"><i class="fa fa-check"></i><b>12.3.5</b> Generalised linear models (GLM)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-7"><i class="fa fa-check"></i><b>12.4</b> Exercises</a></li>
-<li class="chapter" data-level="12.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-7"><i class="fa fa-check"></i><b>12.5</b> Exercise 1</a></li>
+<li class="chapter" data-level="12.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-8"><i class="fa fa-check"></i><b>12.4</b> Exercises</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-8"><i class="fa fa-check"></i><b>12.5</b> Exercise 1</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="chi-squared.html"><a href="chi-squared.html"><i class="fa fa-check"></i><b>13</b> Chi-squared</a></li>
 </ul>
@@ -326,7 +360,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="confidence-intervals" class="section level1">
 <h1><span class="header-section-number">Chapter 10</span> Confidence intervals</h1>
 <p>A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. If we were to repeaqtedly sample the same population ove and over and calculated a mean every time, the 95% CI indicates the range that 95% of those means would fall into.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Input &lt;-<span class="st"> </span>(<span class="st">&quot;</span>
+<div id="calculating-confidence" class="section level2">
+<h2><span class="header-section-number">10.1</span> Calculating confidence</h2>
+<pre class="sourceCode r"><code class="sourceCode r">Input &lt;-<span class="st"> </span>(<span class="st">&quot;</span>
 <span class="st">Student  Sex     Teacher  Steps  Rating</span>
 <span class="st">a        female  Jacob    8000   7</span>
 <span class="st">b        female  Jacob    9000  10</span>
@@ -357,7 +393,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">&quot;</span>)
 
 data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">textConnection</span>(Input),<span class="dt">header =</span> <span class="ot">TRUE</span>)
-<span class="kw">summary</span>(data)</code></pre></div>
+<span class="kw">summary</span>(data)</code></pre>
 <pre><code>R&gt;     Student       Sex       Teacher       Steps           Rating      
 R&gt;  a      : 1   female:15   Donald: 9   Min.   : 5000   Min.   : 4.000  
 R&gt;  b      : 1   male  :11   Jacob :10   1st Qu.: 7000   1st Qu.: 7.000  
@@ -366,18 +402,18 @@ R&gt;  d      : 1                           Mean   : 7692   Mean   : 7.615
 R&gt;  e      : 1                           3rd Qu.: 8750   3rd Qu.: 9.000  
 R&gt;  f      : 1                           Max.   :10000   Max.   :10.000  
 R&gt;  (Other):20</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rcompanion)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rcompanion)
 <span class="co"># ungrouped data is indicated with a 1 on the right side of the formula, or the group = NULL argument.</span>
-<span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,<span class="dt">data =</span> data, <span class="dt">conf =</span> <span class="fl">0.95</span>, <span class="dt">digits =</span> <span class="dv">3</span>)</code></pre></div>
+<span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,<span class="dt">data =</span> data, <span class="dt">conf =</span> <span class="fl">0.95</span>, <span class="dt">digits =</span> <span class="dv">3</span>)</code></pre>
 <pre><code>R&gt;    .id  n Mean Conf.level Trad.lower Trad.upper
 R&gt; 1 &lt;NA&gt; 26 7690       0.95       7170       8210</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># one-way data</span>
-<span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span>Sex, <span class="dt">data =</span> data, <span class="dt">conf =</span> <span class="fl">0.95</span>,<span class="dt">digits =</span> <span class="dv">3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># one-way data</span>
+<span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span>Sex, <span class="dt">data =</span> data, <span class="dt">conf =</span> <span class="fl">0.95</span>,<span class="dt">digits =</span> <span class="dv">3</span>)</code></pre>
 <pre><code>R&gt;      Sex  n Mean Conf.level Trad.lower Trad.upper
 R&gt; 1 female 15 8200       0.95       7530       8870
 R&gt; 2   male 11 7000       0.95       6260       7740</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># two-way data</span>
-<span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span>Teacher <span class="op">+</span><span class="st"> </span>Sex, <span class="dt">data =</span> data, <span class="dt">conf =</span> <span class="fl">0.95</span>,<span class="dt">digits =</span> <span class="dv">3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># two-way data</span>
+<span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span>Teacher <span class="op">+</span><span class="st"> </span>Sex, <span class="dt">data =</span> data, <span class="dt">conf =</span> <span class="fl">0.95</span>,<span class="dt">digits =</span> <span class="dv">3</span>)</code></pre>
 <pre><code>R&gt;   Teacher    Sex n Mean Conf.level Trad.lower Trad.upper
 R&gt; 1  Donald female 5 8200       0.95       6360      10000
 R&gt; 2  Donald   male 4 7000       0.95       5700       8300
@@ -385,7 +421,7 @@ R&gt; 3   Jacob female 6 8000       0.95       6520       9480
 R&gt; 4   Jacob   male 4 7000       0.95       4400       9600
 R&gt; 5   Sadam female 4 8500       0.95       7580       9420
 R&gt; 6   Sadam   male 3 7000       0.95       4520       9480</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># by bootstrapping</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># by bootstrapping</span>
 <span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span>Sex,
               <span class="dt">data =</span> data,
               <span class="dt">conf =</span> <span class="fl">0.95</span>,
@@ -396,11 +432,11 @@ R&gt; 6   Sadam   male 3 7000       0.95       4520       9480</code></pre>
               <span class="dt">normal =</span> <span class="ot">FALSE</span>,
               <span class="dt">basic =</span> <span class="ot">FALSE</span>,
               <span class="dt">percentile =</span> <span class="ot">FALSE</span>,
-              <span class="dt">bca =</span> <span class="ot">TRUE</span>)</code></pre></div>
+              <span class="dt">bca =</span> <span class="ot">TRUE</span>)</code></pre>
 <pre><code>R&gt;      Sex  n Mean Boot.mean Conf.level Bca.lower Bca.upper
-R&gt; 1 female 15 8200      8200       0.95      7530      8670
+R&gt; 1 female 15 8200      8200       0.95      7470      8670
 R&gt; 2   male 11 7000      7000       0.95      6270      7550</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span>Teacher <span class="op">+</span><span class="st"> </span>Sex,
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">groupwiseMean</span>(Steps <span class="op">~</span><span class="st"> </span>Teacher <span class="op">+</span><span class="st"> </span>Sex,
               <span class="dt">data =</span> data,
               <span class="dt">conf =</span> <span class="fl">0.95</span>,
               <span class="dt">digits =</span> <span class="dv">3</span>,
@@ -410,15 +446,121 @@ R&gt; 2   male 11 7000      7000       0.95      6270      7550</code></pre>
               <span class="dt">normal =</span> <span class="ot">FALSE</span>,
               <span class="dt">basic =</span> <span class="ot">FALSE</span>,
               <span class="dt">percentile =</span> <span class="ot">FALSE</span>,
-              <span class="dt">bca =</span> <span class="ot">TRUE</span>)</code></pre></div>
+              <span class="dt">bca =</span> <span class="ot">TRUE</span>)</code></pre>
 <pre><code>R&gt;   Teacher    Sex n Mean Boot.mean Conf.level Bca.lower Bca.upper
-R&gt; 1  Donald female 5 8200      8190       0.95      6800      9000
-R&gt; 2  Donald   male 4 7000      7000       0.95      6000      7500
-R&gt; 3   Jacob female 6 8000      8010       0.95      6830      8830
-R&gt; 4   Jacob   male 4 7000      6990       0.95      5500      8000
+R&gt; 1  Donald female 5 8200      8200       0.95      6800      9000
+R&gt; 2  Donald   male 4 7000      7000       0.95      6250      7500
+R&gt; 3   Jacob female 6 8000      8000       0.95      6830      8830
+R&gt; 4   Jacob   male 4 7000      7010       0.95      5500      8000
 R&gt; 5   Sadam female 4 8500      8500       0.95      8000      8750
 R&gt; 6   Sadam   male 3 7000      7000       0.95      6000      7670</code></pre>
+<p>These upper and lower limits may then be used easily within a figure.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load libraries</span>
+<span class="kw">library</span>(tidyverse)
 
+<span class="co"># Create dummy data</span>
+r_dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">value =</span> <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>),
+                    <span class="dt">sample =</span> <span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">20</span>))
+
+<span class="co"># Create basic plot</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> r_dat, <span class="kw">aes</span>(<span class="dt">x =</span> sample, <span class="dt">y =</span> value)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="kw">mean</span>(value) <span class="op">-</span><span class="st"> </span><span class="kw">sd</span>(value), <span class="dt">ymax =</span> <span class="kw">mean</span>(value) <span class="op">+</span><span class="st"> </span><span class="kw">sd</span>(value))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">colour =</span> <span class="st">&quot;firebrick1&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="10-confidence_files/figure-html/unnamed-chunk-4-1.svg" alt="A very basic figure showing confidence intervals (CI) for a random normal distribution." width="70%" />
+<p class="caption">
+Figure 10.1: A very basic figure showing confidence intervals (CI) for a random normal distribution.
+</p>
+</div>
+<blockquote>
+<p><strong>Task:</strong> How would we apply this to more than one sample set? Do so now.</p>
+</blockquote>
+</div>
+<div id="ci-of-compared-means" class="section level2">
+<h2><span class="header-section-number">10.2</span> CI of compared means</h2>
+<p>AS stated above, we may also use CI to investigate the difference in means between two or more sample sets of data. We have already seen this in Chapter 7, ANOVA, but we shall look at it again here with our now expanded understanding of the concept.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First calculate ANOVA of seapl length of different iris species</span>
+iris_aov &lt;-<span class="st"> </span><span class="kw">aov</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris)
+
+<span class="co"># Then run a Tukey test</span>
+iris_Tukey &lt;-<span class="st"> </span><span class="kw">TukeyHSD</span>(iris_aov)
+
+<span class="co"># Lastly use base R to quickly plot the results</span>
+<span class="kw">plot</span>(iris_Tukey)</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="10-confidence_files/figure-html/unnamed-chunk-5-1.svg" alt="Results of a post-hoc Tukey test showing the confidence interval for the effect size between each group." width="70%" />
+<p class="caption">
+Figure 10.2: Results of a post-hoc Tukey test showing the confidence interval for the effect size between each group.
+</p>
+</div>
+<blockquote>
+<p><strong>Task:</strong> Judging from the figure above, which species have significantly different sepal lengths?</p>
+</blockquote>
+</div>
+<div id="harrell-plots" class="section level2">
+<h2><span class="header-section-number">10.3</span> Harrell plots</h2>
+<p>The most complete use of CI that we have seen to date is the Harrell plot. This type of figure shows the distributions of each sample set in the data as boxplots in a lower panel. In the panel above those boxplots it then lays out the results of a post-hoc Tukey test. This very cleanly shows both the raw data as well as high level statistical results of the comparisons of those data. Thanks to the magic of the Internet we may create these figures with a single line of code. This does however require that we load several new libraries.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The easy creation of these figures has quite a few dependencies</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(lsmeans)
+<span class="kw">library</span>(Hmisc)
+<span class="kw">library</span>(broom)
+<span class="kw">library</span>(car)
+<span class="kw">library</span>(data.table)
+<span class="kw">library</span>(cowplot)
+<span class="kw">source</span>(<span class="st">&quot;data/fit_model.R&quot;</span>)
+<span class="kw">source</span>(<span class="st">&quot;data/make_formula_str.R&quot;</span>)
+<span class="kw">source</span>(<span class="st">&quot;data/HarrellPlot.R&quot;</span>)
+
+<span class="co"># Load data</span>
+ecklonia &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/ecklonia.csv&quot;</span>)
+
+<span class="co"># Create Harrell Plot</span>
+<span class="kw">HarrellPlot</span>(<span class="dt">x =</span> <span class="st">&quot;site&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;stipe_length&quot;</span>, <span class="dt">data =</span> ecklonia, <span class="dt">short =</span> T)[<span class="dv">1</span>]</code></pre>
+<pre><code>R&gt; $gg</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="10-confidence_files/figure-html/unnamed-chunk-6-1.svg" alt="Harrell plot showing the distributions of stipe lengths (cm) of the kelp _Ecklonia maxima_ at two different sites in the bottom panel. The top panel shows the confidence interval of the effect of the difference between these two sample sets based on a post-hoc Tukey test." width="70%" />
+<p class="caption">
+Figure 10.3: Harrell plot showing the distributions of stipe lengths (cm) of the kelp <em>Ecklonia maxima</em> at two different sites in the bottom panel. The top panel shows the confidence interval of the effect of the difference between these two sample sets based on a post-hoc Tukey test.
+</p>
+</div>
+<blockquote>
+<p><strong>Task:</strong> There are a lot of settings for <code>HarrePlot()</code>, what do some of them do?</p>
+</blockquote>
+<p>The above figure shows that the CI of the difference between stipe lengths (cm) at the two sites does not cross 0. This means that there is a significant difference between these two sample sets. But let’s run a statistical test anyway to check the results.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># assumptions</span>
+ecklonia <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(site) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">stipe_length_var =</span> <span class="kw">var</span>(stipe_length),
+            <span class="dt">stipe_length_Norm =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(stipe_length)[<span class="dv">2</span>]))</code></pre>
+<pre><code>R&gt; # A tibble: 2 x 3
+R&gt;   site           stipe_length_var stipe_length_Norm
+R&gt;   &lt;chr&gt;                     &lt;dbl&gt;             &lt;dbl&gt;
+R&gt; 1 Batsata Rock             14683.            0.0128
+R&gt; 2 Boulders Beach            4970.            0.0589</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We fail both assumptions...</span>
+
+<span class="co"># non-parametric test</span>
+<span class="kw">wilcox.test</span>(stipe_length <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> ecklonia)</code></pre>
+<pre><code>R&gt; 
+R&gt;  Wilcoxon rank sum test with continuity correction
+R&gt; 
+R&gt; data:  stipe_length by site
+R&gt; W = 146, p-value = 0.001752
+R&gt; alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>The results of our Wilcox rank sum test, unsurprisingly, support the output of <code>HarrelPlot()</code>.</p>
+</div>
+<div id="exercises-6" class="section level2">
+<h2><span class="header-section-number">10.4</span> Exercises</h2>
+<div id="exercise-1-6" class="section level3">
+<h3><span class="header-section-number">10.4.1</span> Exercise 1</h3>
+<p>Load a new dataset and create a Harrell plot from it based on values of your choosing. What does the Harrell plot show?</p>
+</div>
+<div id="exercise-2-2" class="section level3">
+<h3><span class="header-section-number">10.4.2</span> Exercise 2</h3>
+
+</div>
+</div>
 </div>
             </section>
 
@@ -446,7 +588,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -456,6 +598,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -472,8 +618,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

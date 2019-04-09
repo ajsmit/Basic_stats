@@ -162,8 +162,6 @@ If you have negative numbers, you obviously cannot take the square root, and in 
 
 The back transformation is to square the number.
 
-### 
-
 ## Exercises
 
 ### Exercise 1

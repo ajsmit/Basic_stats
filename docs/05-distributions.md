@@ -130,6 +130,14 @@ library(fitdistrplus)
 ## Loading required package: survival
 ```
 
+```
+## Loading required package: npsurv
+```
+
+```
+## Loading required package: lsei
+```
+
 ```r
 library(logspline)
 
@@ -174,12 +182,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  6.811353   max:  17.94468 
-## median:  13.14573 
-## mean:  13.00014 
-## estimated sd:  2.072014 
-## estimated skewness:  -0.2067601 
-## estimated kurtosis:  3.447086
+## min:  8.234155   max:  19.13087 
+## median:  12.68158 
+## mean:  12.87995 
+## estimated sd:  1.889267 
+## estimated skewness:  0.2677673 
+## estimated kurtosis:  3.656304
 ```
 
 <img src="05-distributions_files/figure-html/dist-plot2-1.svg" width="672" />
@@ -197,12 +205,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  0.007471428   max:  0.9779237 
-## median:  0.5765924 
-## mean:  0.5461938 
-## estimated sd:  0.2956347 
-## estimated skewness:  -0.2558881 
-## estimated kurtosis:  1.882409
+## min:  0.001748776   max:  0.998208 
+## median:  0.565699 
+## mean:  0.5424293 
+## estimated sd:  0.2859536 
+## estimated skewness:  -0.222194 
+## estimated kurtosis:  1.903102
 ```
 
 <img src="05-distributions_files/figure-html/dist-plot3-1.svg" width="672" />
@@ -220,12 +228,12 @@ descdist(y, discrete = FALSE)
 ```
 ## summary statistics
 ## ------
-## min:  0.003817688   max:  7.600519 
-## median:  0.9800161 
-## mean:  1.448086 
-## estimated sd:  1.554647 
-## estimated skewness:  1.715048 
-## estimated kurtosis:  6.066733
+## min:  0.02998446   max:  9.579291 
+## median:  1.071474 
+## mean:  1.677007 
+## estimated sd:  1.660634 
+## estimated skewness:  1.911995 
+## estimated kurtosis:  8.362931
 ```
 
 <img src="05-distributions_files/figure-html/dist-plot4-1.svg" width="672" />

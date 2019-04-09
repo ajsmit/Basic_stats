@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Basic Statistics</title>
+  <title>Chapter 9 Correlations | Basic Statistics</title>
   <meta name="description" content="A Book about Basic Statistics.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Basic Statistics" />
+  <meta property="og:title" content="Chapter 9 Correlations | Basic Statistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="figures/NSFW.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="ajsmit/Basic_stats" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Basic Statistics" />
+  <meta name="twitter:title" content="Chapter 9 Correlations | Basic Statistics" />
   
   <meta name="twitter:description" content="A Book about Basic Statistics." />
   <meta name="twitter:image" content="figures/NSFW.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-26">
+<meta name="date" content="2019-04-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="confidence-intervals.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -270,7 +297,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.6.1" data-path="correlations.html"><a href="correlations.html#exercise-1-5"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence intervals</a></li>
+<li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence intervals</a><ul>
+<li class="chapter" data-level="10.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#calculating-confidence"><i class="fa fa-check"></i><b>10.1</b> Calculating confidence</a></li>
+<li class="chapter" data-level="10.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#ci-of-compared-means"><i class="fa fa-check"></i><b>10.2</b> CI of compared means</a></li>
+<li class="chapter" data-level="10.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#harrell-plots"><i class="fa fa-check"></i><b>10.3</b> Harrell plots</a></li>
+<li class="chapter" data-level="10.4" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercises-6"><i class="fa fa-check"></i><b>10.4</b> Exercises</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercise-1-6"><i class="fa fa-check"></i><b>10.4.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="10.4.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercise-2-2"><i class="fa fa-check"></i><b>10.4.2</b> Exercise 2</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
 <li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#backgroud"><i class="fa fa-check"></i><b>11.1</b> Backgroud</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality-1"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
@@ -282,11 +317,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#arcsine-transform"><i class="fa fa-check"></i><b>11.2.2</b> Arcsine transform</a></li>
 <li class="chapter" data-level="11.2.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#cube-root"><i class="fa fa-check"></i><b>11.2.3</b> Cube root</a></li>
 <li class="chapter" data-level="11.2.4" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#square-root-transform"><i class="fa fa-check"></i><b>11.2.4</b> Square root transform</a></li>
-<li class="chapter" data-level="11.2.5" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>11.2.5</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-6"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-6"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
-<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-2"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-7"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-7"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-3"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>12</b> Linear mixed models</a><ul>
@@ -302,8 +336,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.3.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>12.3.4</b> Kruskal-Wallis Test</a></li>
 <li class="chapter" data-level="12.3.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#generalised-linear-models-glm"><i class="fa fa-check"></i><b>12.3.5</b> Generalised linear models (GLM)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-7"><i class="fa fa-check"></i><b>12.4</b> Exercises</a></li>
-<li class="chapter" data-level="12.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-7"><i class="fa fa-check"></i><b>12.5</b> Exercise 1</a></li>
+<li class="chapter" data-level="12.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-8"><i class="fa fa-check"></i><b>12.4</b> Exercises</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-8"><i class="fa fa-check"></i><b>12.5</b> Exercise 1</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="chi-squared.html"><a href="chi-squared.html"><i class="fa fa-check"></i><b>13</b> Chi-squared</a></li>
 </ul>
@@ -332,30 +366,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>linearity</li>
 <li>normality of distribution</li>
 <li>homoscedasticity</li>
-<li>level (type) of measurement</li>
+<li>level (type) of measurement
+<ul>
 <li>Continuous data (Pearson correlation)</li>
 <li>Ordinal data (Spearman correlation)</li>
+</ul></li>
 </ul>
 <p>In order to investigate correlations in biological data lets load the <code>ecklonia</code> dataset.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load libraries</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load libraries</span>
 <span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(ggpubr)
 <span class="kw">library</span>(corrplot)
 
 <span class="co"># Load data</span>
-ecklonia &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/ecklonia.csv&quot;</span>)</code></pre></div>
+ecklonia &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/ecklonia.csv&quot;</span>)</code></pre>
 <p>We will also create a subsetted version of our data by removing all of the categorical variables. If we have a dataframe where each column represents pair-wise continuous/ordinal measurements with all of the other columns we may very quickly and easily perform a much wider range of correlation analyses.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ecklonia_sub &lt;-<span class="st"> </span>ecklonia <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>species, <span class="op">-</span><span class="st"> </span>site, <span class="op">-</span><span class="st"> </span>ID)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ecklonia_sub &lt;-<span class="st"> </span>ecklonia <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>species, <span class="op">-</span><span class="st"> </span>site, <span class="op">-</span><span class="st"> </span>ID)</code></pre>
 <div id="pearson-correlation" class="section level2">
 <h2><span class="header-section-number">9.1</span> Pearson correlation</h2>
 <p>When the values we are comparing are continuous, we may use a Pearson test. This is the default and so requires little work on our end. The resulting statistic from this test is known as the correlation coefficient.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Perform correlation analysis on two specific variables</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Perform correlation analysis on two specific variables</span>
   <span class="co"># Note that we do not need the final two arguments in this function to be stated</span>
   <span class="co"># as they are the defaut settings.</span>
   <span class="co"># They are only shown here to illustrate that they exist.</span>
 <span class="kw">cor.test</span>(<span class="dt">x =</span> ecklonia<span class="op">$</span>stipe_length, ecklonia<span class="op">$</span>frond_length,
-    <span class="dt">use =</span> <span class="st">&quot;everything&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</code></pre></div>
+    <span class="dt">use =</span> <span class="st">&quot;everything&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</code></pre>
 <pre><code>R&gt; 
 R&gt;  Pearson&#39;s product-moment correlation
 R&gt; 
@@ -368,8 +404,8 @@ R&gt; sample estimates:
 R&gt;       cor 
 R&gt; 0.6524911</code></pre>
 <p>Above we have tested the correlation between the length of <em>Ecklonia maxima</em> stipes and the length of their fronds. A perfect positive (negative) relationship would produce a value of 1 (-1), whereas no relationship would produce a value of 0. The result above, <code>cor = 0.65</code> is relatively strong. That being said, should our dataset contain multiple variables, as <code>ecklonia</code> does, we may investigate all of the correlations simultaneously. Remember that in order to do so we want to ensure that we may perform the same test on each of our paired variables. In this case we will use <code>ecklonia_sub</code> as we know that it contains only continuous data and so are appropriate for use with a Pearson test. By default R will use all of the data we give it and perform a Pearson test so we do not need to specify any further arguments. Note however that this will only output the correlation coefficients, and does not produce a full test of each correlation. This will however be useful for us to have just now.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ecklonia_pearson &lt;-<span class="st"> </span><span class="kw">cor</span>(ecklonia_sub)
-ecklonia_pearson</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ecklonia_pearson &lt;-<span class="st"> </span><span class="kw">cor</span>(ecklonia_sub)
+ecklonia_pearson</code></pre>
 <pre><code>R&gt;                      stipe_length stipe_diameter frond_length     digits
 R&gt; stipe_length            1.0000000      0.5853577   0.65249111 0.24273818
 R&gt; stipe_diameter          0.5853577      1.0000000   0.39032107 0.24098021
@@ -407,11 +443,11 @@ R&gt; epiphyte_length       0.4392029      1.00000000</code></pre>
 <div id="spearman-rank-correlation" class="section level2">
 <h2><span class="header-section-number">9.2</span> Spearman rank correlation</h2>
 <p>When the data we want to compare are not continuous, but rather ordinal, we will need to use a Spearman test. This is not often a test one uses in biology because we tend to want to compare continuous data within categories. In the code below we will add a column of ordinal data to our <code>ecklonia</code> data to so that we may look at this test.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create ordinal data</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create ordinal data</span>
 ecklonia<span class="op">$</span>length &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">cut</span>((ecklonia<span class="op">$</span>stipe_length<span class="op">+</span>ecklonia<span class="op">$</span>frond_length), <span class="dt">breaks =</span> <span class="dv">3</span>))
 
 <span class="co"># Run test on any variable</span>
-<span class="kw">cor.test</span>(ecklonia<span class="op">$</span>length, ecklonia<span class="op">$</span>digits)</code></pre></div>
+<span class="kw">cor.test</span>(ecklonia<span class="op">$</span>length, ecklonia<span class="op">$</span>digits)</code></pre>
 <pre><code>R&gt; 
 R&gt;  Pearson&#39;s product-moment correlation
 R&gt; 
@@ -430,11 +466,11 @@ R&gt; 0.29239</code></pre>
 <div id="kendall-rank-correlation" class="section level2">
 <h2><span class="header-section-number">9.3</span> Kendall rank correlation</h2>
 <p>This test will work for both continuous and ordinal data. A sort of dealers choice of correlation tests. It’s main purpose is to allow us to perform a correlation on non-normally distributed data. Let’s look at the normality of our <code>ecklonia</code> variables and pull out those that are not normal in order to see how the results of this test may differ from our Pearson tests.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ecklonia_norm &lt;-<span class="st"> </span>ecklonia_sub <span class="op">%&gt;%</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r">ecklonia_norm &lt;-<span class="st"> </span>ecklonia_sub <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;variable&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(variable) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">variable_norm =</span> <span class="kw">as.numeric</span>(<span class="kw">shapiro.test</span>(value)[<span class="dv">2</span>]))
-ecklonia_norm</code></pre></div>
+ecklonia_norm</code></pre>
 <pre><code>R&gt; # A tibble: 9 x 2
 R&gt;   variable             variable_norm
 R&gt;   &lt;chr&gt;                        &lt;dbl&gt;
@@ -448,7 +484,7 @@ R&gt; 7 stipe_diameter             0.170
 R&gt; 8 stipe_length               0.213  
 R&gt; 9 stipe_mass                 0.817</code></pre>
 <p>From this analysis we may see that the values for primary blade length are not normally distributed. In order to make up for this violation of our assumption of normality we may use the Spearman test.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(ecklonia<span class="op">$</span>primary_blade_length, ecklonia<span class="op">$</span>primary_blade_width, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(ecklonia<span class="op">$</span>primary_blade_length, ecklonia<span class="op">$</span>primary_blade_width, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</code></pre>
 <pre><code>R&gt; 
 R&gt;  Kendall&#39;s rank correlation tau
 R&gt; 
@@ -462,7 +498,7 @@ R&gt; 0.3426171</code></pre>
 <div id="one-panel-visual" class="section level2">
 <h2><span class="header-section-number">9.4</span> One panel visual</h2>
 <p>As is the case with everything else we have learned thus far, a good visualisation can go a long way to help us understand what the statistics are doing. Below we visualise the stipe length to frond length relationship.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate Pearson r beforehand for plotting</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate Pearson r beforehand for plotting</span>
 r_print &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;r = &quot;</span>, 
                   <span class="kw">round</span>(<span class="kw">cor</span>(<span class="dt">x =</span> ecklonia<span class="op">$</span>stipe_length, ecklonia<span class="op">$</span>frond_length),<span class="dv">2</span>))
 
@@ -472,7 +508,7 @@ r_print &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;mediumorchid4&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_label</span>(<span class="dt">x =</span> <span class="dv">300</span>, <span class="dt">y =</span> <span class="dv">240</span>, <span class="dt">label =</span> r_print) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Stipe length (cm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frond length (cm)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_pubclean</span>()</code></pre></div>
+<span class="st">  </span><span class="kw">theme_pubclean</span>()</code></pre>
 <div class="figure"><span id="fig:corr-plot1"></span>
 <img src="09-correlations_files/figure-html/corr-plot1-1.svg" alt="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship." width="70%" />
 <p class="caption">
@@ -484,7 +520,7 @@ Figure 9.1: Scatterplot showing relationship between <em>Ecklonia maxima</em> st
 <div id="multiple-panel-visual" class="section level2">
 <h2><span class="header-section-number">9.5</span> Multiple panel visual</h2>
 <p>But why stop at one panel? It is relatively straightforward to quickly plot correlation results for all of our variables in one go. In order to show which variables correlate most with which other variables all at once, without creating chaos, we will create what is known as a heat map. This visualisation uses a range of colours, usually blue to red, to demonstrate where more of something is. In this case, we use it to show where more correlation is occurring between morphometric properties of the kelp <em>Ecklonia maxima</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">corrplot</span>(ecklonia_pearson, <span class="dt">method =</span> <span class="st">&quot;circle&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">corrplot</span>(ecklonia_pearson, <span class="dt">method =</span> <span class="st">&quot;circle&quot;</span>)</code></pre>
 <div class="figure"><span id="fig:corr-plot2"></span>
 <img src="09-correlations_files/figure-html/corr-plot2-1.svg" alt="Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive)." width="70%" />
 <p class="caption">
@@ -532,7 +568,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -542,6 +578,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -558,8 +598,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

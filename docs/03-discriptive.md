@@ -171,7 +171,7 @@ chicks %>%
 R> # A tibble: 1 x 1
 R>   med_wt
 R>    <dbl>
-R> 1   103.
+R> 1    103
 ```
 
 The median is therefore the value that separates the lower half of the sample data from the upper half. In normally distributed continuous data the median is equal to the mean. Comparable concepts to the median are the *1st* and *3rd quartiles*, which, respectively, separate the first quarter of the data from the last quarter---see later. The advantage of the median over the mean is that it is unaffected (i.e. not skewed) by extreme values or outliers, and it gives an idea of the typical value of the sample. The median is also used to provide a robust description of non-parametric data (see Chapter 4 for a discussion on normal data and other data distributions).
@@ -295,7 +295,7 @@ chicks %>%
 R> # A tibble: 1 x 5
 R>   min_wt qrt1_wt med_wt qrt3_wt max_wt
 R>    <dbl>   <dbl>  <dbl>   <dbl>  <dbl>
-R> 1    35.     63.   103.    103.   373.
+R> 1     35      63    103     103    373
 ```
 
 ```r
@@ -329,7 +329,7 @@ chicks %>%
 R> # A tibble: 1 x 2
 R>   lower_wt upper_wt
 R>      <dbl>    <dbl>
-R> 1      35.     373.
+R> 1       35      373
 ```
 
 Note that `range()` actually gives us the minimum and maximum values, and not the difference between them. To find the range value properly we must be a bit more clever:
@@ -352,7 +352,7 @@ chicks %>%
 R> # A tibble: 1 x 1
 R>   range_wt
 R>      <dbl>
-R> 1     338.
+R> 1      338
 ```
 
 ### Covariance
@@ -422,14 +422,14 @@ grp_stat
 
 ```
 R> # A tibble: 4 x 11
-R> # Groups:   Diet [?]
+R> # Groups:   Diet [4]
 R>   Diet   Time mean_wt med_wt sd_wt sum_wt min_wt qrt1_wt qrt3_wt max_wt
 R>   <fct> <dbl>   <dbl>  <dbl> <dbl>  <dbl>  <dbl>   <dbl>   <dbl>  <dbl>
-R> 1 1       21.    178.   166.  58.7  2844.    96.    138.    166.   305.
-R> 2 2       21.    215.   212.  78.1  2147.    74.    169.    212.   331.
-R> 3 3       21.    270.   281.  71.6  2703.   147.    229.    281.   373.
-R> 4 4       21.    239.   237.  43.4  2147.   196.    204.    237.   322.
-R> # ... with 1 more variable: n_wt <int>
+R> 1 1        21    178.   166   58.7   2844     96    138.    166     305
+R> 2 2        21    215.   212.  78.1   2147     74    169     212.    331
+R> 3 3        21    270.   281   71.6   2703    147    229     281     373
+R> 4 4        21    239.   237   43.4   2147    196    204     237     322
+R> # … with 1 more variable: n_wt <int>
 ```
 
 ### Displays of group summaries

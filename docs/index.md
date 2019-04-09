@@ -1,10 +1,10 @@
 --- 
 title: "Basic Statistics"
-subtitle: A primer in basic statistics for BCB (Hons) 2018
+subtitle: A primer in basic statistics for BCB (Hons) 2019
 author: "AJ Smit and Robert Schlegel"
 description: "A Book about Basic Statistics."
 thanks: Replication files are available on the author's GitHub account
-date: "2018-04-26"
+date: "2019-04-09"
 bibliography:
 - LaTeX/bibliography.bib
 - LaTeX/packages.bib

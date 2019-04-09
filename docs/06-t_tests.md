@@ -434,9 +434,9 @@ compare_means(dat ~ sample, data = r_two, method = "t.test", var.equal = TRUE)
 
 ```
 R> # A tibble: 1 x 8
-R>   .y.   group1 group2      p  p.adj p.format p.signif method
-R>   <chr> <chr>  <chr>   <dbl>  <dbl> <chr>    <chr>    <chr> 
-R> 1 dat   A      B      0.0580 0.0580 0.058    ns       T-test
+R>   .y.   group1 group2      p p.adj p.format p.signif method
+R>   <chr> <chr>  <chr>   <dbl> <dbl> <chr>    <chr>    <chr> 
+R> 1 dat   A      B      0.0580 0.058 0.058    ns       T-test
 ```
 
 Note above that in order to tell `compare_means()` to perform a *t*-test we feed it the argument `method = "t.test"`. The output is similar to that of the familiar `t.test()` function that we used earlier, but the output is more abbreviated and less useful. Typically, the output of the *t*-tests that we need to report in the results sections of our papers include the $t$-statistic, the $P$-value, and the degrees of freedom, $d.f.$, and these are absent from the `compare_means()` function's output.
@@ -455,7 +455,7 @@ compare_means(dat ~ sample, data = r_two, method = "t.test", var.equal = TRUE, a
 R> # A tibble: 1 x 8
 R>   .y.   group1 group2     p p.adj p.format p.signif method
 R>   <chr> <chr>  <chr>  <dbl> <dbl> <chr>    <chr>    <chr> 
-R> 1 dat   A      B      0.971 0.971 0.97     ns       T-test
+R> 1 dat   A      B      0.971  0.97 0.97     ns       T-test
 ```
 
 ```r
@@ -465,9 +465,9 @@ compare_means(dat ~ sample, data = r_two, method = "t.test", var.equal = TRUE, a
 
 ```
 R> # A tibble: 1 x 8
-R>   .y.   group1 group2      p  p.adj p.format p.signif method
-R>   <chr> <chr>  <chr>   <dbl>  <dbl> <chr>    <chr>    <chr> 
-R> 1 dat   A      B      0.0290 0.0290 0.029    *        T-test
+R>   .y.   group1 group2      p p.adj p.format p.signif method
+R>   <chr> <chr>  <chr>   <dbl> <dbl> <chr>    <chr>    <chr> 
+R> 1 dat   A      B      0.0290 0.029 0.029    *        T-test
 ```
 
 What do these results show? Is this surprising?
@@ -484,9 +484,9 @@ compare_means(dat ~ sample, data = r_two, method = "t.test")
 
 ```
 R> # A tibble: 1 x 8
-R>   .y.   group1 group2      p  p.adj p.format p.signif method
-R>   <chr> <chr>  <chr>   <dbl>  <dbl> <chr>    <chr>    <chr> 
-R> 1 dat   A      B      0.0584 0.0584 0.058    ns       T-test
+R>   .y.   group1 group2      p p.adj p.format p.signif method
+R>   <chr> <chr>  <chr>   <dbl> <dbl> <chr>    <chr>    <chr> 
+R> 1 dat   A      B      0.0584 0.058 0.058    ns       T-test
 ```
 
 ```r
@@ -496,9 +496,9 @@ compare_means(dat ~ sample, data = r_two, method = "t.test", alternative = "two.
 
 ```
 R> # A tibble: 1 x 8
-R>   .y.   group1 group2      p  p.adj p.format p.signif method
-R>   <chr> <chr>  <chr>   <dbl>  <dbl> <chr>    <chr>    <chr> 
-R> 1 dat   A      B      0.0584 0.0584 0.058    ns       T-test
+R>   .y.   group1 group2      p p.adj p.format p.signif method
+R>   <chr> <chr>  <chr>   <dbl> <dbl> <chr>    <chr>    <chr> 
+R> 1 dat   A      B      0.0584 0.058 0.058    ns       T-test
 ```
 
 ## Paired *t*-tests
@@ -514,9 +514,9 @@ compare_means(dat ~ sample, data = r_two, method = "t.test", paired = TRUE)
 
 ```
 R> # A tibble: 1 x 8
-R>   .y.   group1 group2      p  p.adj p.format p.signif method
-R>   <chr> <chr>  <chr>   <dbl>  <dbl> <chr>    <chr>    <chr> 
-R> 1 dat   A      B      0.0391 0.0391 0.039    *        T-test
+R>   .y.   group1 group2      p p.adj p.format p.signif method
+R>   <chr> <chr>  <chr>   <dbl> <dbl> <chr>    <chr>    <chr> 
+R> 1 dat   A      B      0.0391 0.039 0.039    *        T-test
 ```
 
 ## Comparison of two population proportions
@@ -827,9 +827,9 @@ compare_means(value ~ site, data = ecklonia_sub, method = "t.test", var.equal = 
 
 ```
 R> # A tibble: 1 x 8
-R>   .y.   group1         group2            p  p.adj p.format p.signif method
-R>   <chr> <chr>          <chr>         <dbl>  <dbl> <chr>    <chr>    <chr> 
-R> 1 value Boulders Beach Batsata Rock 0.0366 0.0366 0.037    *        T-test
+R>   .y.   group1         group2            p p.adj p.format p.signif method
+R>   <chr> <chr>          <chr>         <dbl> <dbl> <chr>    <chr>    <chr> 
+R> 1 value Boulders Beach Batsata Rock 0.0366 0.037 0.037    *        T-test
 ```
 
 ### Interpreting the results

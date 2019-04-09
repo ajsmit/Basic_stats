@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 ## Venue, date and time
 
-Basic Statistics is the second half of the BSc (Hons) Biostats core module, and will run from 12 April to 26 April 2018. This workshop will take place on Tuesdays from **13:00--17:00**, Thursdays from **10:40--17:00**, and Fridays from **08:30--17:00**. There will be an assignment due about six weeks after the end of this module, and it will provide the other half of the marks for the Biostats module. More on the assignment later.
+Basic Statistics is the second half of the BSc (Hons) Biostats core module, and will run from 8 April to 19 April 2019. This workshop will take place on Mondays and Tuesdays from **8:30--17:00**. There will be an assignment due about three weeks after the end of this module, as well as a test; these two marks will contribute 50% of the marks for the Biostats module. More on the assignment and test later.
 
 ## Course outline
 

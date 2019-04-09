@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Basic Statistics</title>
+  <title>Chapter 5 Distributions | Basic Statistics</title>
   <meta name="description" content="A Book about Basic Statistics.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Basic Statistics" />
+  <meta property="og:title" content="Chapter 5 Distributions | Basic Statistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="figures/NSFW.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="ajsmit/Basic_stats" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Basic Statistics" />
+  <meta name="twitter:title" content="Chapter 5 Distributions | Basic Statistics" />
   
   <meta name="twitter:description" content="A Book about Basic Statistics." />
   <meta name="twitter:image" content="figures/NSFW.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel">
 
 
-<meta name="date" content="2018-04-26">
+<meta name="date" content="2019-04-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="inferences-about-one-or-two-populations.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -270,7 +297,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.6.1" data-path="correlations.html"><a href="correlations.html#exercise-1-5"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence intervals</a></li>
+<li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence intervals</a><ul>
+<li class="chapter" data-level="10.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#calculating-confidence"><i class="fa fa-check"></i><b>10.1</b> Calculating confidence</a></li>
+<li class="chapter" data-level="10.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#ci-of-compared-means"><i class="fa fa-check"></i><b>10.2</b> CI of compared means</a></li>
+<li class="chapter" data-level="10.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#harrell-plots"><i class="fa fa-check"></i><b>10.3</b> Harrell plots</a></li>
+<li class="chapter" data-level="10.4" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercises-6"><i class="fa fa-check"></i><b>10.4</b> Exercises</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercise-1-6"><i class="fa fa-check"></i><b>10.4.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="10.4.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#exercise-2-2"><i class="fa fa-check"></i><b>10.4.2</b> Exercise 2</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><i class="fa fa-check"></i><b>11</b> Testing assumptions or: How I learned to stop worrying and transform the data</a><ul>
 <li class="chapter" data-level="11.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#backgroud"><i class="fa fa-check"></i><b>11.1</b> Backgroud</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#normality-1"><i class="fa fa-check"></i><b>11.1.1</b> Normality</a></li>
@@ -282,11 +317,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#arcsine-transform"><i class="fa fa-check"></i><b>11.2.2</b> Arcsine transform</a></li>
 <li class="chapter" data-level="11.2.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#cube-root"><i class="fa fa-check"></i><b>11.2.3</b> Cube root</a></li>
 <li class="chapter" data-level="11.2.4" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#square-root-transform"><i class="fa fa-check"></i><b>11.2.4</b> Square root transform</a></li>
-<li class="chapter" data-level="11.2.5" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#section"><i class="fa fa-check"></i><b>11.2.5</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-6"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-6"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
-<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-2"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="11.3" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercises-7"><i class="fa fa-check"></i><b>11.3</b> Exercises</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-1-7"><i class="fa fa-check"></i><b>11.3.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="11.3.2" data-path="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html"><a href="testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#exercise-2-3"><i class="fa fa-check"></i><b>11.3.2</b> Exercise 2</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html"><i class="fa fa-check"></i><b>12</b> Linear mixed models</a><ul>
@@ -302,8 +336,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.3.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>12.3.4</b> Kruskal-Wallis Test</a></li>
 <li class="chapter" data-level="12.3.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#generalised-linear-models-glm"><i class="fa fa-check"></i><b>12.3.5</b> Generalised linear models (GLM)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-7"><i class="fa fa-check"></i><b>12.4</b> Exercises</a></li>
-<li class="chapter" data-level="12.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-7"><i class="fa fa-check"></i><b>12.5</b> Exercise 1</a></li>
+<li class="chapter" data-level="12.4" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercises-8"><i class="fa fa-check"></i><b>12.4</b> Exercises</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-mixed-models.html"><a href="linear-mixed-models.html#exercise-1-8"><i class="fa fa-check"></i><b>12.5</b> Exercise 1</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="chi-squared.html"><a href="chi-squared.html"><i class="fa fa-check"></i><b>13</b> Chi-squared</a></li>
 </ul>
@@ -402,10 +436,12 @@ f(x;p)=
 <div id="finding-ones-data-distribution" class="section level2">
 <h2><span class="header-section-number">5.3</span> Finding one’s data distribution</h2>
 <p>data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does—there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only <em>compatible</em> with a certain distribution, and one can never answer the question “Does my data follow the distribution xy exactly?” as simply as providing a yes/no answer. So what now? How does one find one’s data distribution? We can use the <em>Cullen and Frey graph</em> function that lives in the <strong>fitdistrplus</strong> package. This graph tells us whether the skewness and kurtosis of our data are consistent with that of a particular distribution. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fitdistrplus)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fitdistrplus)</code></pre>
 <pre><code>## Loading required package: MASS</code></pre>
 <pre><code>## Loading required package: survival</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(logspline)
+<pre><code>## Loading required package: npsurv</code></pre>
+<pre><code>## Loading required package: lsei</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(logspline)
 
 <span class="co"># Generate log-normal data</span>
 y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,
@@ -419,7 +455,7 @@ y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50
 <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
 <span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(y)), <span class="dt">y =</span> y)
 <span class="kw">hist</span>(y)
-<span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>, <span class="dt">boot =</span> <span class="dv">100</span>)</code></pre></div>
+<span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>, <span class="dt">boot =</span> <span class="dv">100</span>)</code></pre>
 <pre><code>## summary statistics
 ## ------
 ## min:  16.62   max:  54.15 
@@ -429,53 +465,53 @@ y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50
 ## estimated skewness:  -0.551717 
 ## estimated kurtosis:  3.565162</code></pre>
 <p><img src="05-distributions_files/figure-html/dist-plot1-1.svg" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># normally distributed data</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># normally distributed data</span>
 y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">13</span>, <span class="dv">2</span>)
 <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
 <span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">y =</span> y)
 <span class="kw">hist</span>(y)
-<span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre>
 <pre><code>## summary statistics
 ## ------
-## min:  6.811353   max:  17.94468 
-## median:  13.14573 
-## mean:  13.00014 
-## estimated sd:  2.072014 
-## estimated skewness:  -0.2067601 
-## estimated kurtosis:  3.447086</code></pre>
+## min:  8.234155   max:  19.13087 
+## median:  12.68158 
+## mean:  12.87995 
+## estimated sd:  1.889267 
+## estimated skewness:  0.2677673 
+## estimated kurtosis:  3.656304</code></pre>
 <p><img src="05-distributions_files/figure-html/dist-plot2-1.svg" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># uniformly distributed data</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># uniformly distributed data</span>
 y &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">100</span>)
 <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
 <span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">y =</span> y)
 <span class="kw">hist</span>(y)
-<span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre>
 <pre><code>## summary statistics
 ## ------
-## min:  0.007471428   max:  0.9779237 
-## median:  0.5765924 
-## mean:  0.5461938 
-## estimated sd:  0.2956347 
-## estimated skewness:  -0.2558881 
-## estimated kurtosis:  1.882409</code></pre>
+## min:  0.001748776   max:  0.998208 
+## median:  0.565699 
+## mean:  0.5424293 
+## estimated sd:  0.2859536 
+## estimated skewness:  -0.222194 
+## estimated kurtosis:  1.903102</code></pre>
 <p><img src="05-distributions_files/figure-html/dist-plot3-1.svg" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># uniformly distributed data</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># uniformly distributed data</span>
 y &lt;-<span class="st"> </span><span class="kw">rexp</span>(<span class="dv">100</span>, <span class="fl">0.7</span>)
 <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
 <span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">y =</span> y)
 <span class="kw">hist</span>(y)
-<span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre>
 <pre><code>## summary statistics
 ## ------
-## min:  0.003817688   max:  7.600519 
-## median:  0.9800161 
-## mean:  1.448086 
-## estimated sd:  1.554647 
-## estimated skewness:  1.715048 
-## estimated kurtosis:  6.066733</code></pre>
+## min:  0.02998446   max:  9.579291 
+## median:  1.071474 
+## mean:  1.677007 
+## estimated sd:  1.660634 
+## estimated skewness:  1.911995 
+## estimated kurtosis:  8.362931</code></pre>
 <p><img src="05-distributions_files/figure-html/dist-plot4-1.svg" width="672" /></p>
 <p>There is also a whole bunch of other approaches to use to try and identify the data distribution. Let us start with the gold standard first: normal data. We will demonstrate some visualisation approaches. The one that you already know is a basic histogram; it tells us something about the distribution’s skewness, the tails, the mode(s) of the data, outliers, etc. Histograms can be compared to shapes associated with idealistic (simulated) distributions, as we will do here.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">m =</span> <span class="dv">13</span>, <span class="dt">sd =</span> <span class="dv">2</span>)
+<pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">m =</span> <span class="dv">13</span>, <span class="dt">sd =</span> <span class="dv">2</span>)
 <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
 <span class="co"># using some basic base graphics as ggplot2 is overkill;</span>
 <span class="co"># we can get a histogram using hist() statement</span>
@@ -487,12 +523,12 @@ z.norm &lt;-<span class="st"> </span>(y <span class="op">-</span><span class="st
 <span class="co"># make a qqplot</span>
 <span class="kw">qqnorm</span>(z.norm)
 <span class="co"># add a 45-degree reference line</span>
-<span class="kw">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>)</code></pre></div>
+<span class="kw">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>)</code></pre>
 <p><img src="05-distributions_files/figure-html/dist-plot5-1.svg" width="672" /></p>
 <p>Above we have also added a diagonal line to the qqplot. If the sampled data come from the population with the chosen distribution, the points should fall approximately along this reference line. The greater the departure from this reference line, the greater the evidence for the conclusion that the data set have come from a population with a different distribution.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># curve(dnorm(100, m = 10, sd = 2), from = 0, to = 20, main = &quot;Normal distribution&quot;)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># curve(dnorm(100, m = 10, sd = 2), from = 0, to = 20, main = &quot;Normal distribution&quot;)</span>
 <span class="co"># curve(dgamma(100, scale = 1.5, shape = 2), from = 0, to = 15, main = &quot;Gamma distribution&quot;)</span>
-<span class="co"># curve(dweibull(100, scale = 2.5, shape = 1.5), from = 0, to = 15, main = &quot;Weibull distribution&quot;)</span></code></pre></div>
+<span class="co"># curve(dweibull(100, scale = 2.5, shape = 1.5), from = 0, to = 15, main = &quot;Weibull distribution&quot;)</span></code></pre>
 </div>
 <div id="exercises-2" class="section level2">
 <h2><span class="header-section-number">5.4</span> Exercises</h2>
@@ -529,7 +565,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -539,6 +575,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -555,8 +595,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

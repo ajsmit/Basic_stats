@@ -50,7 +50,7 @@ compare_means(weight ~ Diet, data = filter(chicks, Time == 0, Diet %in% c(1, 2))
 R> # A tibble: 1 x 8
 R>   .y.    group1 group2     p p.adj p.format p.signif method  
 R>   <chr>  <chr>  <chr>  <dbl> <dbl> <chr>    <chr>    <chr>   
-R> 1 weight 1      2      0.235 0.235 0.23     ns       Wilcoxon
+R> 1 weight 1      2      0.235  0.23 0.23     ns       Wilcoxon
 ```
 
 What do our results show?
@@ -70,7 +70,7 @@ compare_means(weight ~ Diet, data = filter(chicks, Time == 0), method = "kruskal
 R> # A tibble: 1 x 6
 R>   .y.        p p.adj p.format p.signif method        
 R>   <chr>  <dbl> <dbl> <chr>    <chr>    <chr>         
-R> 1 weight 0.475 0.475 0.48     ns       Kruskal-Wallis
+R> 1 weight 0.475  0.48 0.48     ns       Kruskal-Wallis
 ```
 
 As with the ANOVA, this first step with the Kruskall-Wallis test is not the last. We must again run a post-hoc test on our results. This time we will need to use `pgirmess::kruskalmc()`, which means we will need to load a new library.

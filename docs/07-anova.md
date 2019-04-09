@@ -49,7 +49,7 @@ compare_means(weight ~ Diet, data = chicks_sub, method = "t.test")
 R> # A tibble: 1 x 8
 R>   .y.    group1 group2     p p.adj p.format p.signif method
 R>   <chr>  <chr>  <chr>  <dbl> <dbl> <chr>    <chr>    <chr> 
-R> 1 weight 1      2      0.218 0.218 0.22     ns       T-test
+R> 1 weight 1      2      0.218  0.22 0.22     ns       T-test
 ```
 
 As one may recall from the previous chapter, whenever we want to give a formula to a function in R, we use the `~`. The formula used above, `weight ~ Diet`, reads in plain English as "weight as a function of diet". This is perhaps easier to understand as "Y as a function of X". This means that we are assuming whatever is to the left of the `~` is the dependant variable, and whatever is to the right is the independent variable. We then tell `compare_means()` to run a *t*-test on our `chicks_sub` dataframe and it does the rest. We see in the output above that this function gives us a rather tidy read-out of the information we require to test a potential hypothesis. Let's take a moment to look through the help file for this function and see what all of this means. Did the Diet 1 and 2 produce significantly fatter birds?
@@ -355,17 +355,17 @@ snakes.summary
 R> # A tibble: 24 x 4
 R>    day   snake mean_openings sd_openings
 R>    <fct> <chr>         <dbl>       <dbl>
-R>  1 1     D1              85.          NA
-R>  2 1     D11             40.          NA
-R>  3 1     D12             65.          NA
-R>  4 1     D3             107.          NA
-R>  5 1     D5              61.          NA
-R>  6 1     D8              22.          NA
-R>  7 2     D1              58.          NA
-R>  8 2     D11             45.          NA
-R>  9 2     D12             27.          NA
-R> 10 2     D3              51.          NA
-R> # ... with 14 more rows
+R>  1 1     D1               85          NA
+R>  2 1     D11              40          NA
+R>  3 1     D12              65          NA
+R>  4 1     D3              107          NA
+R>  5 1     D5               61          NA
+R>  6 1     D8               22          NA
+R>  7 2     D1               58          NA
+R>  8 2     D11              45          NA
+R>  9 2     D12              27          NA
+R> 10 2     D3               51          NA
+R> # … with 14 more rows
 ```
 
 > **Task:** Something seems... off. What's going on here? Please explain this outcome.
@@ -387,7 +387,7 @@ R> # A tibble: 4 x 3
 R>   day   mean_openings sd_openings
 R>   <fct>         <dbl>       <dbl>
 R> 1 1              63.3        30.5
-R> 2 2              47.0        12.2
+R> 2 2              47          12.2
 R> 3 3              34.5        26.0
 R> 4 4              25.3        18.1
 ```
@@ -498,7 +498,7 @@ compare_means(weight ~ Diet, data = filter(chicks, Time == 0, Diet %in% c(1, 2))
 R> # A tibble: 1 x 8
 R>   .y.    group1 group2     p p.adj p.format p.signif method  
 R>   <chr>  <chr>  <chr>  <dbl> <dbl> <chr>    <chr>    <chr>   
-R> 1 weight 1      2      0.235 0.235 0.23     ns       Wilcoxon
+R> 1 weight 1      2      0.235  0.23 0.23     ns       Wilcoxon
 ```
 
 What do our results show?
@@ -518,7 +518,7 @@ compare_means(weight ~ Diet, data = filter(chicks, Time == 0), method = "kruskal
 R> # A tibble: 1 x 6
 R>   .y.        p p.adj p.format p.signif method        
 R>   <chr>  <dbl> <dbl> <chr>    <chr>    <chr>         
-R> 1 weight 0.475 0.475 0.48     ns       Kruskal-Wallis
+R> 1 weight 0.475  0.48 0.48     ns       Kruskal-Wallis
 ```
 
 As with the ANOVA, this first step with the Kruskall-Wallis test is not the last. We must again run a post-hoc test on our results. This time we will need to use `pgirmess::kruskalmc()`, which means we will need to load a new library.

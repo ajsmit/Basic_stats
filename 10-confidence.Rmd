@@ -99,7 +99,7 @@ r_dat <- data.frame(value = rnorm(n = 20, mean = 10, sd = 2),
 
 # Create basic plot
 ggplot(data = r_dat, aes(x = sample, y = value)) +
-  geom_errorbar(aes(ymin = lower, ymax = upper)) +
+  geom_errorbar(aes(ymin = mean(value) - sd(value), ymax = mean(value) + sd(value))) +
   geom_jitter(colour = "firebrick1")
 ```
 
@@ -128,6 +128,7 @@ The most complete use of CI that we have seen to date is the Harrell plot. This 
 
 ```{r, fig.cap="Harrell plot showing the distributions of stipe lengths (cm) of the kelp _Ecklonia maxima_ at two different sites in the bottom panel. The top panel shows the confidence interval of the effect of the difference between these two sample sets based on a post-hoc Tukey test."}
 # The easy creation of these figures has quite a few dependencies
+library(tidyverse)
 library(lsmeans)
 library(Hmisc)
 library(broom)

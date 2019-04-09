@@ -123,12 +123,12 @@ head(chicks)
 R> # A tibble: 6 x 4
 R>   weight  Time Chick Diet 
 R>    <dbl> <dbl> <ord> <fct>
-R> 1    42.    0. 1     1    
-R> 2    51.    2. 1     1    
-R> 3    59.    4. 1     1    
-R> 4    64.    6. 1     1    
-R> 5    76.    8. 1     1    
-R> 6    93.   10. 1     1
+R> 1     42     0 1     1    
+R> 2     51     2 1     1    
+R> 3     59     4 1     1    
+R> 4     64     6 1     1    
+R> 5     76     8 1     1    
+R> 6     93    10 1     1
 ```
 
 ```r
@@ -139,8 +139,8 @@ tail(chicks, n = 2)
 R> # A tibble: 2 x 4
 R>   weight  Time Chick Diet 
 R>    <dbl> <dbl> <ord> <fct>
-R> 1   264.   20. 50    4    
-R> 2   264.   21. 50    4
+R> 1    264    20 50    4    
+R> 2    264    21 50    4
 ```
 
 As an alternative to `head()`, you may also simply type the name of the object (here `chicks`) in the Console (or write it in the Source Editor if it is necessary to retain the function for future use) and the top portion of the tibble will be displayed, again trimmed to account for the width of the display.
