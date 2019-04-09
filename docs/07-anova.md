@@ -171,7 +171,7 @@ summary(aov(weight ~ Diet, data = filter(chicks, Time %in% c(2))))
 ```
 R>             Df Sum Sq Mean Sq F value  Pr(>F)   
 R> Diet         3  158.4   52.81   4.781 0.00555 **
-R> Residuals   46  508.2   11.05                   
+R> Residuals   46  508.1   11.05                   
 R> ---
 R> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
