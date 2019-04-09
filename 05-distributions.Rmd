@@ -877,20 +877,17 @@ p
 
 ### Paranormal distributions
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=0.7\linewidth]{figures/paranormal_distributions.jpeg}
-\end{center}
-\end{figure}
+```{r paranormal, echo = FALSE}
+knitr::include_graphics("figures/paranormal-distribution.jpg")
+```
 
 ## Finding one's data distribution
-data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does---there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only *compatible* with a certain distribution, and one can never answer the question "Does my data follow the distribution xy exactly?" as simply as providing a yes/no answer. So what now? How does one find one's data distribution? We can use the *Cullen and Frey graph* function that lives in the **fitdistrplus** package. This graph tells us whether the skewness and kurtosis of our data are consistent with that of a particular distribution. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.
+Data belonging to a sample will never exactly follow a specific distribution, even when the test for normality says it does---there will always be a small probability that they are non-normal and is in fact better described by some other distribution. In other words, data are only *compatible* with a certain distribution, and one can never answer the question "Does my data follow the distribution xy exactly?" as simply as providing a yes/no answer. So what now? How does one find one's data distribution? We can use the *Cullen and Frey graph* function that lives in the **fitdistrplus** package. This graph tells us whether the skewness and kurtosis of our data are consistent with that of a particular distribution. We will demonstrate by generating various data distributions and testing them using the Cullen and Frey graph.
 
 
-```{r dist-plot1}
+```{r dist-plot1, message=FALSE}
 library(fitdistrplus)
 library(logspline)
-
 # Generate log-normal data
 y <- c(37.50,46.79,48.30,46.04,43.40,39.25,38.49,49.51,40.38,36.98,40.00,
 38.49,37.74,47.92,44.53,44.91,44.91,40.00,41.51,47.92,36.98,43.40,
