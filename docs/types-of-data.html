@@ -423,7 +423,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="missing-values" class="section level3">
 <h3><span class="header-section-number">2.1.5</span> Missing values</h3>
-<p>Unfortunately, one of the most reliable aspects of any biological dataset is that it will contain some missing data. But how can something contain missing data? One could be forgiven for assuming that if the data are missing, then they obviously aren’t contained in the dataset. TO better understand this concept we must think back to the principles of tidy data. Every observation must be in a row, and every column in that row must contain a value. The combination of multiple observations then makes up our matrix of data. Because data are therefore presented in a two-dimensional format, any missing values from an observation will need to have an empty place-holder to ensure the consistency of the matrix. These are waht we are referring to when we speak of “missing values”. In R these appear as a <code>NA</code> in a dataframe and are slighlty lighter than the other values. These data are indicated in the Environment as <code>NA</code> and if a column contains only missing values it will be denoted as <code>&lt;NA&gt;</code>.</p>
+<p>Unfortunately, one of the most reliable aspects of any biological dataset is that it will contain some missing data. But how can something contain missing data? One could be forgiven for assuming that if the data are missing, then they obviously aren’t contained in the dataset. To better understand this concept we must think back to the principles of tidy data. Every observation must be in a row, and every column in that row must contain a value. The combination of multiple observations then makes up our matrix of data. Because data are therefore presented in a two-dimensional format, any missing values from an observation will need to have an empty place-holder to ensure the consistency of the matrix. These are waht we are referring to when we speak of “missing values”. In R these appear as a <code>NA</code> in a dataframe and are slighlty lighter than the other values. These data are indicated in the Environment as <code>NA</code> and if a column contains only missing values it will be denoted as <code>&lt;NA&gt;</code>.</p>
 </div>
 <div id="complex-numbers" class="section level3">
 <h3><span class="header-section-number">2.1.6</span> Complex numbers</h3>
@@ -497,6 +497,9 @@ R&gt;  3rd Qu.:163.8   3rd Qu.:16.00   17     : 12
 R&gt;  Max.   :373.0   Max.   :21.00   19     : 12          
 R&gt;                                  (Other):506</code></pre>
 <p>This will serve well as an introduction to the next chapter, which is about descriptive statistics. What are they, and how do we calculate them?</p>
+<blockquote>
+<p><strong>Task:</strong> Please find a few more ways in which one can scrutinise our data within R and/or RStudio.</p>
+</blockquote>
 
 </div>
 </div>

@@ -66,7 +66,7 @@ Right or wrong? True or false? Accept or reject? Black or white? Positive or neg
 As the name implies, these are not numbers. Rather, they are human words that have found their way into R for one reason or another. In biology we most commonly encounter character values when we have a list of things, such as sites or species. These values will often be used as categorical or ordinal data. 
 
 ### Missing values
-Unfortunately, one of the most reliable aspects of any biological dataset is that it will contain some missing data. But how can something contain missing data? One could be forgiven for assuming that if the data are missing, then they obviously aren't contained in the dataset. TO better understand this concept we must think back to the principles of tidy data. Every observation must be in a row, and every column in that row must contain a value. The combination of multiple observations then makes up our matrix of data. Because data are therefore presented in a two-dimensional format, any missing values from an observation will need to have an empty place-holder to ensure the consistency of the matrix. These are waht we are referring to when we speak of "missing values". In R these appear as a `NA` in a dataframe and are slighlty lighter than the other values. These data are indicated in the Environment as `NA` and if a column contains only missing values it will be denoted as `<NA>`.
+Unfortunately, one of the most reliable aspects of any biological dataset is that it will contain some missing data. But how can something contain missing data? One could be forgiven for assuming that if the data are missing, then they obviously aren't contained in the dataset. To better understand this concept we must think back to the principles of tidy data. Every observation must be in a row, and every column in that row must contain a value. The combination of multiple observations then makes up our matrix of data. Because data are therefore presented in a two-dimensional format, any missing values from an observation will need to have an empty place-holder to ensure the consistency of the matrix. These are waht we are referring to when we speak of "missing values". In R these appear as a `NA` in a dataframe and are slighlty lighter than the other values. These data are indicated in the Environment as `NA` and if a column contains only missing values it will be denoted as `<NA>`.
 
 ### Complex numbers
 
@@ -144,3 +144,5 @@ summary(chicks)
 ```
 
 This will serve well as an introduction to the next chapter, which is about descriptive statistics. What are they, and how do we calculate them?
+
+> **Task:** Please find a few more ways in which one can scrutinise our data within R and/or RStudio.

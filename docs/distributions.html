@@ -473,12 +473,12 @@ y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1
 <span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre>
 <pre><code>## summary statistics
 ## ------
-## min:  8.234155   max:  19.13087 
-## median:  12.68158 
-## mean:  12.87995 
-## estimated sd:  1.889267 
-## estimated skewness:  0.2677673 
-## estimated kurtosis:  3.656304</code></pre>
+## min:  7.485635   max:  17.30321 
+## median:  12.8528 
+## mean:  12.9804 
+## estimated sd:  1.847794 
+## estimated skewness:  -0.1312729 
+## estimated kurtosis:  2.944445</code></pre>
 <p><img src="05-distributions_files/figure-html/dist-plot2-1.svg" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># uniformly distributed data</span>
 y &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">100</span>)
@@ -488,12 +488,12 @@ y &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1
 <span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre>
 <pre><code>## summary statistics
 ## ------
-## min:  0.001748776   max:  0.998208 
-## median:  0.565699 
-## mean:  0.5424293 
-## estimated sd:  0.2859536 
-## estimated skewness:  -0.222194 
-## estimated kurtosis:  1.903102</code></pre>
+## min:  0.01462506   max:  0.9950969 
+## median:  0.490214 
+## mean:  0.4911397 
+## estimated sd:  0.2869243 
+## estimated skewness:  0.115019 
+## estimated kurtosis:  1.905874</code></pre>
 <p><img src="05-distributions_files/figure-html/dist-plot3-1.svg" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># uniformly distributed data</span>
 y &lt;-<span class="st"> </span><span class="kw">rexp</span>(<span class="dv">100</span>, <span class="fl">0.7</span>)
@@ -503,12 +503,12 @@ y &lt;-<span class="st"> </span><span class="kw">rexp</span>(<span class="dv">10
 <span class="kw">descdist</span>(y, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre>
 <pre><code>## summary statistics
 ## ------
-## min:  0.02998446   max:  9.579291 
-## median:  1.071474 
-## mean:  1.677007 
-## estimated sd:  1.660634 
-## estimated skewness:  1.911995 
-## estimated kurtosis:  8.362931</code></pre>
+## min:  0.005773297   max:  8.459215 
+## median:  0.9229496 
+## mean:  1.471829 
+## estimated sd:  1.529645 
+## estimated skewness:  1.788579 
+## estimated kurtosis:  7.069078</code></pre>
 <p><img src="05-distributions_files/figure-html/dist-plot4-1.svg" width="672" /></p>
 <p>There is also a whole bunch of other approaches to use to try and identify the data distribution. Let us start with the gold standard first: normal data. We will demonstrate some visualisation approaches. The one that you already know is a basic histogram; it tells us something about the distribution’s skewness, the tails, the mode(s) of the data, outliers, etc. Histograms can be compared to shapes associated with idealistic (simulated) distributions, as we will do here.</p>
 <pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">m =</span> <span class="dv">13</span>, <span class="dt">sd =</span> <span class="dv">2</span>)
