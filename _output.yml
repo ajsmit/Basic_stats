@@ -1,12 +1,3 @@
-bookdown::pdf_document2:
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: yes
-  toc: yes
-  toc_depth: 3
-  toc_unnumbered: no
-  fig_caption: yes
-  template: LaTeX/default-1.17.0.2.tex
 bookdown::gitbook:
   css: css/style.css
   dev: svglite

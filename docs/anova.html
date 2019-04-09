@@ -48,6 +48,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -461,7 +468,7 @@ R&gt; Residuals   46  58.50   1.272</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>))))</code></pre>
 <pre><code>R&gt;             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
 R&gt; Diet         3  158.4   52.81   4.781 0.00555 **
-R&gt; Residuals   46  508.1   11.05                   
+R&gt; Residuals   46  508.2   11.05                   
 R&gt; ---
 R&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">aov</span>(weight <span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> <span class="kw">filter</span>(chicks, Time <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>))))</code></pre>

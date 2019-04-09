@@ -24,6 +24,10 @@ tables: yes
 thanks: Replication files are available on the author's GitHub account
 always_allow_html: yes
 urlcolor: blue
+output: 
+  html_document: 
+    highlight: pygments
+    theme: cerulean
 ---
 
 # Preface {-}
