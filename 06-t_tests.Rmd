@@ -6,13 +6,14 @@ knitr::opts_chunk$set(
   comment = "R>", 
   warning = FALSE, 
   message = FALSE,
-  out.width = '70%'
+  out.width = '70%',
+  knitr::opts_chunk$set(cache = FALSE)
 )
 ```
 
 ```{r}
 library(tidyverse)
-library(plotly)
+# library(plotly)
 ```
 
 At the heart of many basic scientific inquiries is the simple question "Is A different from B?" The scientific notation for this question is:
@@ -30,7 +31,19 @@ More formally, one would say:
 
 <!-- AJS to insert more about frequentist probability, p-values and significance testing in here. -->
 
-Biologists typically define the probability of one in twenty (0.05) as the cutoff level to reject the null hypothesis.
+Biologists typically define the probability of one in twenty (0.05) as the cut-off level to reject the null hypothesis.
+
+## What are probabilities?
+
+The *P*-value (the significance level, $\alpha$) is the probability of finding the observed (or measured) outcome to be more extreme (*i.e.* very different) than that suggested by the null hypothesis ($H_{0}$). Typically, biologists set the *P*-value at $\alpha \leq 0.05$---in other words, the measured outcome of our experiment only has a 1 in 20 chance of being the same as that of the reference (or control) group. So, when the *P*-value is $\leq$ 0.05, for example, we say that there is a very good probability that our experimental treatment resulted in an outcome that is very different (we say statistically significantly different) from the measurement obtained from the group to which the treatment had not been applied---in this case we do not accept $H_{0}$ and by necessity $H_{1}$ becomes true.
+
+The choice of *P*-value at which we reject $H_{0}$ is arbitrary and exists by convention only. Traditionally, the 5% cut-off (*i.e.* less than 1 in 20 chance of being wrong or $P \leq 0.05$) is used in biology, but sometimes the threshold is set at 1% or 0.1% (0.01 or 0.001, respectively), particularly in the biomedical sciences where avoiding fasle positives or negatives could be a public health concern. However, more and more biologists shy away from the *P*-value as they argue that it can give a false sense of security. 
+
+We generally refer to $P \leq 0.05$ as being statistically significant. Statistically highly significant is seen at as $P \leq 0.001$. In the first instance there is a less than 1 in 20 chance that our experimental sample is not different from the reference group, and in the second instance there is a less than 1 in a 1000 chance tat they are the same. This says something about error rates: the $H_{0}$ may in fact be falsely accepted or rejected. A Type I error is the false rejection of the null hypothesis (*i.e.* in reality we should not be rejecting it, but the *P*-value suggests that we must). A Type II error, on the other hand, is the false acceptance of the null hypothesis (*i.e.* the P-value suggests we should not reject the $H_{0}$, but in fact we must). When a statistical test results in a *P*-value of, say, $P \leq 0.05$ we would conclude that our experimental sample is statistically different from the reference group, but probabilistically there is a 1 in 20 change that this outcome is incorrect (*i.e.* the difference was arrived at by random chance only).
+
+**To conclude, when $P \gt 0.05$ there is a lack of evidence to suggest that our experiment has had an influential effect of the hypothesised outcome. When $P \leq 0.05$, however, there is a good probability that the experiment (etc.) has had an effect.**
+
+## Is there a difference between two groups?
 
 To answer this fundamental question one often uses a *t*-test. There are several variations of *t*-tests, depending on the nature of our samples and the type of question being asked:
 
@@ -265,7 +278,7 @@ r_norm <- data.frame(dat = c(rnorm(n = 20, mean = 4, sd = 1),
 r_norm_swarm <- beeswarm(dat ~ sample, 
             data = r_norm, method = 'swarm', 
             do.plot = F, pwcol = sample)[, c(1, 2, 4, 6)]
-colnames(r_one_swarm) <- c("x", "y", "colour", "sample") 
+colnames(r_norm_swarm) <- c("x", "y", "colour", "sample") 
 
 beeswarm.plot <- ggplot(r_norm_swarm, aes(x, y))
 beeswarm.plot2 <- beeswarm.plot + geom_boxplot(aes(x, y,
@@ -474,7 +487,7 @@ compare_means(value ~ site, data = ecklonia_sub, method = "t.test", var.equal = 
 
 ### Interpreting the results
 
-We may reject the null hypothesis, that the stipe mass of kelps at Batsata Rock are not greater than at Boulders Beach, if our *t*-test returns a *p*-value $\leq$ 0.05. We must also pay attention to some of the other results from our *t*-test, specifically the *t*-value (t) and the degrees of freedom (df) as these are also needed when we are writing up our results. From all of the information above, we may accept the alternative hypothesis. But how do we write that up?
+We may reject the null hypothesis that the stipe mass of kelps at Batsata Rock are not greater than at Boulders Beach if our *t*-test returns a *p*-value $\leq$ 0.05. We must also pay attention to some of the other results from our *t*-test, specifically the *t*-value (t) and the degrees of freedom (df) as these are also needed when we are writing up our results. From all of the information above, we may accept the alternative hypothesis. But how do we write that up?
 
 ### Drawing conclusions
 

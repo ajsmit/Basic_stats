@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. If we were to repeaqtedly sample the same population ove and over and calculated a mean every time, the 95% CI indicates the range that 95% of those means would fall into.
+A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. If we were to repeatedly sample the same population over and over and calculated a mean every time, the 95% CI indicates the range that 95% of those means would fall into.
 
 ## Calculating confidence
 

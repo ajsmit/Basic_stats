@@ -423,13 +423,12 @@ grp_stat
 ```
 R> # A tibble: 4 x 11
 R> # Groups:   Diet [4]
-R>   Diet   Time mean_wt med_wt sd_wt sum_wt min_wt qrt1_wt qrt3_wt max_wt
-R>   <fct> <dbl>   <dbl>  <dbl> <dbl>  <dbl>  <dbl>   <dbl>   <dbl>  <dbl>
-R> 1 1        21    178.   166   58.7   2844     96    138.    166     305
-R> 2 2        21    215.   212.  78.1   2147     74    169     212.    331
-R> 3 3        21    270.   281   71.6   2703    147    229     281     373
-R> 4 4        21    239.   237   43.4   2147    196    204     237     322
-R> # … with 1 more variable: n_wt <int>
+R>   Diet   Time mean_wt med_wt sd_wt sum_wt min_wt qrt1_wt qrt3_wt max_wt  n_wt
+R>   <fct> <dbl>   <dbl>  <dbl> <dbl>  <dbl>  <dbl>   <dbl>   <dbl>  <dbl> <int>
+R> 1 1        21    178.   166   58.7   2844     96    138.    166     305    16
+R> 2 2        21    215.   212.  78.1   2147     74    169     212.    331    10
+R> 3 3        21    270.   281   71.6   2703    147    229     281     373    10
+R> 4 4        21    239.   237   43.4   2147    196    204     237     322     9
 ```
 
 ### Displays of group summaries
@@ -482,7 +481,7 @@ ggarrange(plt1, plt2, plt3, plt4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="03-discriptive_files/figure-html/descriptive-plot1-1.svg" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing whiskers indicating 1 ±SD. C) Box and whisker plot of the chicken mass data." width="70%" />
+<img src="03-discriptive_files/figure-html/descriptive-plot1-1.png" alt="A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing whiskers indicating 1 ±SD. C) Box and whisker plot of the chicken mass data." width="70%" />
 <p class="caption">(\#fig:descriptive-plot1)A) Scatterplot of the mean and raw chicken mass values. B) Bar graph of the chicken mass values, showing whiskers indicating 1 ±SD. C) Box and whisker plot of the chicken mass data.</p>
 </div>
 

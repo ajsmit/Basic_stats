@@ -135,8 +135,6 @@ animate_lm <- function() {
 system.time(saveVideo(animate_lm(), interval = 0.01, ani.width = 600, video.name = "figures/lm_rotate.mp4")) #~553 seconds
 ```
 
-
-
 We will demonstrate the principle behind a simple linear regression by using the built-in dataset `faithful`. According to the R help file for the data, the dataset describes the "Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA."
 
 ```{r faithful-head, echo=TRUE, include=TRUE}

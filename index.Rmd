@@ -19,7 +19,7 @@ lof: no
 lot: no
 papersize: A4
 site: bookdown::bookdown_site
-subtitle: A primer in basic statistics for BCB (Hons) 2019
+subtitle: A primer in basic statistics for BCB (Hons) 2020
 tables: yes
 thanks: Replication files are available on the author's GitHub account
 always_allow_html: yes
@@ -37,7 +37,8 @@ knitr::opts_chunk$set(
   comment = "R>", 
   warning = FALSE, 
   message = FALSE,
-  out.width = '70%'
+  out.width = '70%',
+  knitr::opts_chunk$set(cache = FALSE)
 )
 ```
 

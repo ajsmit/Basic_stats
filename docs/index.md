@@ -1,7 +1,7 @@
 --- 
 title: "Basic Statistics"
 author: "AJ Smit and Robert Schlegel"
-date: "2019-04-09"
+date: "2021-06-19"
 bibliography:
 - LaTeX/bibliography.bib
 - LaTeX/packages.bib
@@ -19,7 +19,7 @@ lof: no
 lot: no
 papersize: A4
 site: bookdown::bookdown_site
-subtitle: A primer in basic statistics for BCB (Hons) 2019
+subtitle: A primer in basic statistics for BCB (Hons) 2020
 tables: yes
 thanks: Replication files are available on the author's GitHub account
 always_allow_html: yes

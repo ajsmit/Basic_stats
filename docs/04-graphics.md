@@ -1,5 +1,12 @@
-# Graphical data displays
+---
+output:
+  html_document: default
+  pdf_document: default
+editor_options: 
+  chunk_output_type: console
+---
 
+# Graphical data displays
 
 
 
@@ -33,15 +40,14 @@ iris.cnt
 ```
 
 ```
-R> # A tibble: 3 x 3
-R>   Species        n  prop
-R>   <fct>      <int> <dbl>
-R> 1 setosa        50 0.333
-R> 2 versicolor    50 0.333
-R> 3 virginica     50 0.333
+R>      Species  n      prop
+R> 1     setosa 50 0.3333333
+R> 2 versicolor 50 0.3333333
+R> 3  virginica 50 0.3333333
 ```
 
 <!-- show example of frequency distribution bar graph -->
+
 
 ```r
 # a stacked bar graph with the cumulative sum of observations
@@ -83,7 +89,7 @@ ggarrange(plt1, plt2, plt3, plt4, nrow = 2, ncol = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/graphics-plot1-1.svg" alt="Examples of histograms for the built-in Iris data. A) A default frequency histogram showing the count of samples for each of the three species. B) A relative frequency histogram of the same data; here, the sum of counts of samples available for each of the three species is 1. C) A boring pie chart. D) A frequency histogram of raw data counts shown as a series of side-by-side bars." width="70%" />
+<img src="04-graphics_files/figure-html/graphics-plot1-1.png" alt="Examples of histograms for the built-in Iris data. A) A default frequency histogram showing the count of samples for each of the three species. B) A relative frequency histogram of the same data; here, the sum of counts of samples available for each of the three species is 1. C) A boring pie chart. D) A frequency histogram of raw data counts shown as a series of side-by-side bars." width="70%" />
 <p class="caption">(\#fig:graphics-plot1)Examples of histograms for the built-in Iris data. A) A default frequency histogram showing the count of samples for each of the three species. B) A relative frequency histogram of the same data; here, the sum of counts of samples available for each of the three species is 1. C) A boring pie chart. D) A frequency histogram of raw data counts shown as a series of side-by-side bars.</p>
 </div>
 
@@ -94,6 +100,7 @@ ggarrange(plt1, plt2, plt3, plt4, nrow = 2, ncol = 2, labels = "AUTO")
 As with discrete data, we have a choice of absolute (Fig. 4.2A) and relative (Fig. 4.2 B-C) frequency histograms. There's also the empirical cumulative distribution function (ECDF) (Fig. 4.2 D) that uses relative proportions, but in this instance it is the relative proportion that each individual observation has towards the sample. Since the purpose of frequency histograms is to count the number of times something takes place or occurs within a category, what do we do when we are faced with continuous data where no categories are available? We can create our own categories, called *bins*. See the Old Faithful data, for example. The eruptions last between 1.6 and 5.1 minutes. So, we create intervals of time spanning these times, and within each count the number of times an event lasts as long as denoted by the intervals. Here we might choose intervals of 1-2 minutes, 2-3 minutes, 3-4 minutes, 4-5 minutes, and 5-6 minutes. The **ggplot2** `geom_histogram()` function automatically creates the bins, but we may specify our own. It is best to explain these principles by example (see Figure 4.2 A-D).
 
 <!-- show example of numerical summary -->
+
 
 ```r
 # a normal frequency histogram, with count along y
@@ -139,7 +146,7 @@ ggarrange(hist1, hist2, hist3, hist4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/graphics-plot2-1.svg" alt="Example histograms for the Old Faithful data. A) A default frequency histogram with the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1." width="70%" />
+<img src="04-graphics_files/figure-html/graphics-plot2-1.png" alt="Example histograms for the Old Faithful data. A) A default frequency histogram with the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1." width="70%" />
 <p class="caption">(\#fig:graphics-plot2)Example histograms for the Old Faithful data. A) A default frequency histogram with the count of eruption times falling within the specified bins. B) A relative frequency histogram with bins adjusted to a width of 1 minute intervals; here, the sum of counts within each of the four bins is 1. C) Another relative frequency histogram, but with the bins adjusted to each be 0.5 minute increments; again the sum of counts represented by each bin is equal to 1.</p>
 </div>
 
@@ -164,7 +171,7 @@ ggplot(data = iris.long, aes(x = size)) +
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/graphics-plot3-1.svg" alt="Panelled grouped histograms for the four Iris variables." width="70%" />
+<img src="04-graphics_files/figure-html/graphics-plot3-1.png" alt="Panelled grouped histograms for the four Iris variables." width="70%" />
 <p class="caption">(\#fig:graphics-plot3)Panelled grouped histograms for the four Iris variables.</p>
 </div>
 
@@ -174,38 +181,66 @@ Box plots are sometimes called box-and-whisker plots. These graphs are a a graph
 
 From the `geom_boxplot` documentation, which says it best (type `?geom_boxplot`):
 
-"The lower and upper hinges correspond to the first and third quartiles (the 25th and 75th percentiles)." 
+"The lower and upper hinges correspond to the first and third quartiles (the 25th and 75th percentiles)."
 
-"The upper whisker extends from the hinge to the largest value no further than 1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 * IQR of the hinge. Data beyond the end of the whiskers are called 'outlying' points and are plotted individually."
+"The upper whisker extends from the hinge to the largest value no further than 1.5 \* IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 \* IQR of the hinge. Data beyond the end of the whiskers are called 'outlying' points and are plotted individually."
 
-"In a notched box plot, the notches extend 1.58 * IQR / sqrt(n). This gives a roughly 95% confidence interval for comparing medians."
+"In a notched box plot, the notches extend 1.58 \* IQR / sqrt(n). This gives a roughly 95% confidence interval for comparing medians."
 
 Here be examples:
 
 
 ```r
+library(ggsci) # for nice colours
+
 plt1 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
-  geom_boxplot(show.legend = FALSE, notch = FALSE) + theme_pubclean() +
+  geom_boxplot(show.legend = FALSE, notch = FALSE) +
+  scale_fill_npg() +
+  theme_linedraw() +
   labs(y = "Sepal length (mm)") +
   theme(axis.text.x = element_text(face = "italic"))
 
 plt2 <- ggplot(data = iris.long, aes(x = Species, y = size)) +
-  geom_boxplot(fill = "red", alpha = 0.4, notch = TRUE) +
-  geom_jitter(width = 0.1, shape = 21, colour = "blue", fill = NA, alpha = 0.2) +
+  geom_boxplot(alpha = 0.4, notch = TRUE) +
+  geom_jitter(width = 0.1, shape = 21, fill = NA, alpha = 0.2, aes(colour = as.factor(Species))) +
   facet_wrap(~variable, nrow = 1) +
-  labs(y = "Size (mm)") + theme_pubclean() +
-  theme(axis.text.x = element_text(face = "italic")) +
-  theme(axis.ticks.length=unit(-0.25, "cm"), axis.ticks.margin=unit(0.5, "cm"))
+  scale_color_npg() +
+  labs(y = "Size (mm)") +
+  theme_linedraw() +
+  theme(axis.text.x = element_text(face = "italic"))
 
 ggarrange(plt1, plt2, nrow = 2, ncol = 1, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/graphics-plot4-1.svg" alt="Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="70%" />
-<p class="caption">(\#fig:graphics-plot4)Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.</p>
+<img src="04-graphics_files/figure-html/graphics-plot4a-1.png" alt="Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates." width="70%" />
+<p class="caption">(\#fig:graphics-plot4a)Examples of box plots made for the Iris data. A) A default box plot for one of the variables only. B) A panelled collection of box plots, one for each of the four variables, with a scatterplot to indicate the spread of the actual replicates.</p>
 </div>
 
 Box-and-whisker plots have traditionally been used to display data that are not normally distributed, but I like to use them for any old data, even normal data. I prefer these over the old-fashioned bar graphs (as seen later in this section).
+
+There are many additional packages that can be used to create an assortment of plots suitable to represent summary statistics and various ways to visualise group differences. For example, the package [ggstatplot](https://github.com/IndrajeetPatil/ggstatsplot) has many great options, for example this *violin plot*:
+
+
+```r
+# for reproducibility
+library(ggstatsplot)
+set.seed(123)
+
+# plot
+ggstatsplot::ggbetweenstats(
+  data = iris,
+  x = Species,
+  y = Sepal.Length,
+  ylab = "Sepal Length (mm)",
+  title = "Distribution of sepal length across Iris species"
+)
+```
+
+<div class="figure">
+<img src="04-graphics_files/figure-html/graphics-plot4b-1.png" alt="Examples of violin plots made for the Iris data." width="70%" />
+<p class="caption">(\#fig:graphics-plot4b)Examples of violin plots made for the Iris data.</p>
+</div>
 
 The **ggpubr** package provides many convenience functions for the drawing of publication quality graphs, many of which include summaries of pairwise comparisons (e.g. in t-tests and ANOVAs). Please see [here](http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/) and [here](http://www.sthda.com/english/rpkgs/ggpubr/).
 
@@ -235,7 +270,7 @@ ggarrange(plt1, plt2, ncol = 2, nrow = 1, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/graphics-plot5-1.svg" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="70%" />
+<img src="04-graphics_files/figure-html/graphics-plot5-1.png" alt="Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added." width="70%" />
 <p class="caption">(\#fig:graphics-plot5)Examples of scatterplots made for the Iris data. A) A default scatter plot showing the relationship between petal length and width. B) The same as (A) but with a correlation line added.</p>
 </div>
 
@@ -269,13 +304,13 @@ iris.long %>%
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/graphics-plot6-1.svg" alt="Box plots of the mean ± SD of the four Iris variables." width="70%" />
+<img src="04-graphics_files/figure-html/graphics-plot6-1.png" alt="Box plots of the mean ± SD of the four Iris variables." width="70%" />
 <p class="caption">(\#fig:graphics-plot6)Box plots of the mean ± SD of the four Iris variables.</p>
 </div>
 
 ### Density graphs
 
-Often when we are displaying a distribution of data we are interested in the "shape" of the data more than the actual count of values in a specific category, as shown by a standard histogram. When one wishes to more organically visualise the frequency of values in a sample set a density graphs is used. These may also be thought of as smooth histograms. These work well with histograms and rug plots, as we may see in the figure below. It is important to note with density plots that they show the relative density of the distribution along the Y axis, and _not_ the counts of the data. This can of course be changed, as seen below, but is not the default setting. Sometimes it can be informative to see how different the count and density distributions appear.
+Often when we are displaying a distribution of data we are interested in the "shape" of the data more than the actual count of values in a specific category, as shown by a standard histogram. When one wishes to more organically visualise the frequency of values in a sample set a density graphs is used. These may also be thought of as smooth histograms. These work well with histograms and rug plots, as we may see in the figure below. It is important to note with density plots that they show the relative density of the distribution along the Y axis, and *not* the counts of the data. This can of course be changed, as seen below, but is not the default setting. Sometimes it can be informative to see how different the count and density distributions appear.
 
 
 ```r
@@ -324,7 +359,7 @@ ggarrange(dens1, dens2, dens3, dens4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/graphics-plot7-1.svg" alt="A bevy of density graphs option based on the iris data. A) A lone density graph. B) A density graph accompanied by a rug plot. C) A histogram with a density graph overlay. D) A ridge plot." width="70%" />
+<img src="04-graphics_files/figure-html/graphics-plot7-1.png" alt="A bevy of density graphs option based on the iris data. A) A lone density graph. B) A density graph accompanied by a rug plot. C) A histogram with a density graph overlay. D) A ridge plot." width="70%" />
 <p class="caption">(\#fig:graphics-plot7)A bevy of density graphs option based on the iris data. A) A lone density graph. B) A density graph accompanied by a rug plot. C) A histogram with a density graph overlay. D) A ridge plot.</p>
 </div>
 
@@ -373,7 +408,7 @@ ggarrange(vio1, vio2, vio3, vio4, ncol = 2, nrow = 2, labels = "AUTO")
 ```
 
 <div class="figure">
-<img src="04-graphics_files/figure-html/graphics-plot8-1.svg" alt="Variations of violin plots." width="70%" />
+<img src="04-graphics_files/figure-html/graphics-plot8-1.png" alt="Variations of violin plots." width="70%" />
 <p class="caption">(\#fig:graphics-plot8)Variations of violin plots.</p>
 </div>
 

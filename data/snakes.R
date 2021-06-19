@@ -1,6 +1,4 @@
-
-
-snakes <- read_csv("data/snakes.csv")
+snakes <- read.csv("data/snakes.csv")
 snakes$day = as.factor(snakes$day)
 
 snakes.aov <- aov(openings ~ as.factor(day) + snake, data = snakes)

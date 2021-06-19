@@ -31,8 +31,6 @@ To see an animation demonstrating this click [here](https://raw.githubuserconten
 
 
 
-
-
 We will demonstrate the principle behind a simple linear regression by using the built-in dataset `faithful`. According to the R help file for the data, the dataset describes the "Waiting time between eruptions and the duration of the eruption for the Old Faithful geyser in Yellowstone National Park, Wyoming, USA."
 
 
@@ -112,7 +110,7 @@ ggplot(data = faithful, aes(x = waiting, y = eruptions)) +
        y = "Eruption duration (minutes)")
 ```
 
-<img src="08-regressions_files/figure-html/lm-plot1-1.svg" width="70%" />
+<img src="08-regressions_files/figure-html/lm-plot1-1.png" width="70%" />
 
 ### Predicting from the linear model
 
@@ -195,7 +193,7 @@ ggplot(data = rand.df, aes(x = x, y = y)) +
        y = "Y (dependent variable)")
 ```
 
-<img src="08-regressions_files/figure-html/lm-plot2-1.svg" width="70%" />
+<img src="08-regressions_files/figure-html/lm-plot2-1.png" width="70%" />
 
 
 <!-- insert a graph of a random relationship of y on x (a fitted line will have have a slope of 0 and the intercept will equal the mean, and the r2 will be 0) -->

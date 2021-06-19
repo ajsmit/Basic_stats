@@ -6,7 +6,7 @@
 
 ```r
 library(tidyverse)
-library(plotly)
+# library(plotly)
 ```
 
 At the heart of many basic scientific inquiries is the simple question "Is A different from B?" The scientific notation for this question is:
@@ -24,7 +24,19 @@ More formally, one would say:
 
 <!-- AJS to insert more about frequentist probability, p-values and significance testing in here. -->
 
-Biologists typically define the probability of one in twenty (0.05) as the cutoff level to reject the null hypothesis.
+Biologists typically define the probability of one in twenty (0.05) as the cut-off level to reject the null hypothesis.
+
+## What are probabilities?
+
+The *P*-value (the significance level, $\alpha$) is the probability of finding the observed (or measured) outcome to be more extreme (*i.e.* very different) than that suggested by the null hypothesis ($H_{0}$). Typically, biologists set the *P*-value at $\alpha \leq 0.05$---in other words, the measured outcome of our experiment only has a 1 in 20 chance of being the same as that of the reference (or control) group. So, when the *P*-value is $\leq$ 0.05, for example, we say that there is a very good probability that our experimental treatment resulted in an outcome that is very different (we say statistically significantly different) from the measurement obtained from the group to which the treatment had not been applied---in this case we do not accept $H_{0}$ and by necessity $H_{1}$ becomes true.
+
+The choice of *P*-value at which we reject $H_{0}$ is arbitrary and exists by convention only. Traditionally, the 5% cut-off (*i.e.* less than 1 in 20 chance of being wrong or $P \leq 0.05$) is used in biology, but sometimes the threshold is set at 1% or 0.1% (0.01 or 0.001, respectively), particularly in the biomedical sciences where avoiding fasle positives or negatives could be a public health concern. However, more and more biologists shy away from the *P*-value as they argue that it can give a false sense of security. 
+
+We generally refer to $P \leq 0.05$ as being statistically significant. Statistically highly significant is seen at as $P \leq 0.001$. In the first instance there is a less than 1 in 20 chance that our experimental sample is not different from the reference group, and in the second instance there is a less than 1 in a 1000 chance tat they are the same. This says something about error rates: the $H_{0}$ may in fact be falsely accepted or rejected. A Type I error is the false rejection of the null hypothesis (*i.e.* in reality we should not be rejecting it, but the *P*-value suggests that we must). A Type II error, on the other hand, is the false acceptance of the null hypothesis (*i.e.* the P-value suggests we should not reject the $H_{0}$, but in fact we must). When a statistical test results in a *P*-value of, say, $P \leq 0.05$ we would conclude that our experimental sample is statistically different from the reference group, but probabilistically there is a 1 in 20 change that this outcome is incorrect (*i.e.* the difference was arrived at by random chance only).
+
+**To conclude, when $P \gt 0.05$ there is a lack of evidence to suggest that our experiment has had an influential effect of the hypothesised outcome. When $P \leq 0.05$, however, there is a good probability that the experiment (etc.) has had an effect.**
+
+## Is there a difference between two groups?
 
 To answer this fundamental question one often uses a *t*-test. There are several variations of *t*-tests, depending on the nature of our samples and the type of question being asked:
 
@@ -74,7 +86,7 @@ h
 ```
 
 <div class="figure">
-<img src="06-t_tests_files/figure-html/t-test-plot1-1.svg" alt="Interactive histogram showing two randomly generated normal distributions." width="70%" />
+<img src="06-t_tests_files/figure-html/t-test-plot1-1.png" alt="Interactive histogram showing two randomly generated normal distributions." width="70%" />
 <p class="caption">(\#fig:t-test-plot1)Interactive histogram showing two randomly generated normal distributions.</p>
 </div>
 
@@ -107,7 +119,7 @@ r_dat %>%
 ```
 R> # A tibble: 2 x 2
 R>   sample norm_dat
-R>   <fct>     <dbl>
+R>   <chr>     <dbl>
 R> 1 A         0.375
 R> 2 B         0.461
 ```
@@ -130,7 +142,7 @@ r_dat %>%
 ```
 R> # A tibble: 2 x 2
 R>   sample sample_var
-R>   <fct>       <dbl>
+R>   <chr>       <dbl>
 R> 1 A            8.72
 R> 2 B            3.97
 ```
@@ -166,7 +178,7 @@ r_dat %>%
 ```
 R> # A tibble: 2 x 3
 R>   sample sample_var sample_norm
-R>   <fct>       <dbl>       <dbl>
+R>   <chr>       <dbl>       <dbl>
 R> 1 A            8.72       0.375
 R> 2 B            3.97       0.461
 ```
@@ -261,7 +273,7 @@ ggplot(data = r_one, aes(y = dat, x = sample)) +
 ```
 
 <div class="figure">
-<img src="06-t_tests_files/figure-html/t-test-plot2-1.svg" alt="Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30." width="70%" />
+<img src="06-t_tests_files/figure-html/t-test-plot2-1.png" alt="Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30." width="70%" />
 <p class="caption">(\#fig:t-test-plot2)Boxplot of random normal data with. A hypothetical population mean of 20 is shown as a blue line, with the red line showing a mean of 30.</p>
 </div>
 
@@ -401,7 +413,7 @@ R> 	Two Sample t-test
 R> 
 R> data:  dat by sample
 R> t = -1.9544, df = 38, p-value = 0.05805
-R> alternative hypothesis: true difference in means is not equal to 0
+R> alternative hypothesis: true difference in means between group A and group B is not equal to 0
 R> 95 percent confidence interval:
 R>  -1.51699175  0.02670136
 R> sample estimates:
@@ -590,8 +602,7 @@ prop.test(mosquito)
 
 ```
 R> 
-R> 	2-sample test for equality of proportions with continuity
-R> 	correction
+R> 	2-sample test for equality of proportions with continuity correction
 R> 
 R> data:  mosquito
 R> X-squared = 3.5704, df = 1, p-value = 0.05882
@@ -617,8 +628,7 @@ prop.test(mosquito)
 
 ```
 R> 
-R> 	2-sample test for equality of proportions with continuity
-R> 	correction
+R> 	2-sample test for equality of proportions with continuity correction
 R> 
 R> data:  mosquito
 R> X-squared = 3.5704, df = 1, p-value = 0.05882
@@ -637,8 +647,7 @@ prop.test(mosquito, alternative = "two.sided")
 
 ```
 R> 
-R> 	2-sample test for equality of proportions with continuity
-R> 	correction
+R> 	2-sample test for equality of proportions with continuity correction
 R> 
 R> data:  mosquito
 R> X-squared = 3.5704, df = 1, p-value = 0.05882
@@ -660,8 +669,7 @@ prop.test(mosquito, alternative = "less")
 
 ```
 R> 
-R> 	2-sample test for equality of proportions with continuity
-R> 	correction
+R> 	2-sample test for equality of proportions with continuity correction
 R> 
 R> data:  mosquito
 R> X-squared = 3.5704, df = 1, p-value = 0.02941
@@ -680,8 +688,7 @@ prop.test(mosquito, alternative = "greater")
 
 ```
 R> 
-R> 	2-sample test for equality of proportions with continuity
-R> 	correction
+R> 	2-sample test for equality of proportions with continuity correction
 R> 
 R> data:  mosquito
 R> X-squared = 3.5704, df = 1, p-value = 0.9706
@@ -721,7 +728,7 @@ ggplot(data = ecklonia, aes(x = variable, y = value, fill = site)) +
 ```
 
 <div class="figure">
-<img src="06-t_tests_files/figure-html/t-test-plot5-1.svg" alt="Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
+<img src="06-t_tests_files/figure-html/t-test-plot5-1.png" alt="Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
 <p class="caption">(\#fig:t-test-plot5)Boxplots showing differences in morphometric properties of the kelp _Ecklonia maxima_ at two sites in False Bay.</p>
 </div>
 
@@ -747,7 +754,7 @@ ggplot(data = ecklonia_sub, aes(x = variable, y = value, fill = site)) +
 ```
 
 <div class="figure">
-<img src="06-t_tests_files/figure-html/t-test-plot6-1.svg" alt="Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
+<img src="06-t_tests_files/figure-html/t-test-plot6-1.png" alt="Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay." width="70%" />
 <p class="caption">(\#fig:t-test-plot6)Boxplots showing the difference in stipe mass (kg) of the kelp _Ecklonia maxima_ at two sites in False Bay.</p>
 </div>
 
@@ -812,7 +819,7 @@ R> 	Two Sample t-test
 R> 
 R> data:  value by site
 R> t = 1.8741, df = 24, p-value = 0.03657
-R> alternative hypothesis: true difference in means is greater than 0
+R> alternative hypothesis: true difference in means between group Batsata Rock and group Boulders Beach is greater than 0
 R> 95 percent confidence interval:
 R>  0.09752735        Inf
 R> sample estimates:
@@ -834,7 +841,7 @@ R> 1 value Boulders Beach Batsata Rock 0.0366 0.037 0.037    *        T-test
 
 ### Interpreting the results
 
-We may reject the null hypothesis, that the stipe mass of kelps at Batsata Rock are not greater than at Boulders Beach, if our *t*-test returns a *p*-value $\leq$ 0.05. We must also pay attention to some of the other results from our *t*-test, specifically the *t*-value (t) and the degrees of freedom (df) as these are also needed when we are writing up our results. From all of the information above, we may accept the alternative hypothesis. But how do we write that up?
+We may reject the null hypothesis that the stipe mass of kelps at Batsata Rock are not greater than at Boulders Beach if our *t*-test returns a *p*-value $\leq$ 0.05. We must also pay attention to some of the other results from our *t*-test, specifically the *t*-value (t) and the degrees of freedom (df) as these are also needed when we are writing up our results. From all of the information above, we may accept the alternative hypothesis. But how do we write that up?
 
 ### Drawing conclusions
 

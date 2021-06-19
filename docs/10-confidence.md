@@ -3,7 +3,7 @@
 
 
 
-A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. If we were to repeaqtedly sample the same population ove and over and calculated a mean every time, the 95% CI indicates the range that 95% of those means would fall into.
+A confidence interval (CI) tells us within what range we may be certain to find the true mean from which any sample has been taken. If we were to repeatedly sample the same population over and over and calculated a mean every time, the 95% CI indicates the range that 95% of those means would fall into.
 
 ## Calculating confidence
 
@@ -44,14 +44,20 @@ summary(data)
 ```
 
 ```
-R>     Student       Sex       Teacher       Steps           Rating      
-R>  a      : 1   female:15   Donald: 9   Min.   : 5000   Min.   : 4.000  
-R>  b      : 1   male  :11   Jacob :10   1st Qu.: 7000   1st Qu.: 7.000  
-R>  c      : 1               Sadam : 7   Median : 8000   Median : 8.000  
-R>  d      : 1                           Mean   : 7692   Mean   : 7.615  
-R>  e      : 1                           3rd Qu.: 8750   3rd Qu.: 9.000  
-R>  f      : 1                           Max.   :10000   Max.   :10.000  
-R>  (Other):20
+R>    Student              Sex              Teacher              Steps      
+R>  Length:26          Length:26          Length:26          Min.   : 5000  
+R>  Class :character   Class :character   Class :character   1st Qu.: 7000  
+R>  Mode  :character   Mode  :character   Mode  :character   Median : 8000  
+R>                                                           Mean   : 7692  
+R>                                                           3rd Qu.: 8750  
+R>                                                           Max.   :10000  
+R>      Rating      
+R>  Min.   : 4.000  
+R>  1st Qu.: 7.000  
+R>  Median : 8.000  
+R>  Mean   : 7.615  
+R>  3rd Qu.: 9.000  
+R>  Max.   :10.000
 ```
 
 
@@ -130,12 +136,12 @@ groupwiseMean(Steps ~ Teacher + Sex,
 
 ```
 R>   Teacher    Sex n Mean Boot.mean Conf.level Bca.lower Bca.upper
-R> 1  Donald female 5 8200      8190       0.95      6800      9000
+R> 1  Donald female 5 8200      8210       0.95      6600      9000
 R> 2  Donald   male 4 7000      7000       0.95      6250      7500
 R> 3   Jacob female 6 8000      8000       0.95      6830      8830
-R> 4   Jacob   male 4 7000      7000       0.95      5480      8000
+R> 4   Jacob   male 4 7000      6990       0.95      5000      8000
 R> 5   Sadam female 4 8500      8500       0.95      8000      8750
-R> 6   Sadam   male 3 7000      7000       0.95      6000      7670
+R> 6   Sadam   male 3 7000      7010       0.95      6000      7670
 ```
 These upper and lower limits may then be used easily within a figure.
 
@@ -155,7 +161,7 @@ ggplot(data = r_dat, aes(x = sample, y = value)) +
 ```
 
 <div class="figure">
-<img src="10-confidence_files/figure-html/unnamed-chunk-4-1.svg" alt="A very basic figure showing confidence intervals (CI) for a random normal distribution." width="70%" />
+<img src="10-confidence_files/figure-html/unnamed-chunk-4-1.png" alt="A very basic figure showing confidence intervals (CI) for a random normal distribution." width="70%" />
 <p class="caption">(\#fig:unnamed-chunk-4)A very basic figure showing confidence intervals (CI) for a random normal distribution.</p>
 </div>
 
@@ -178,7 +184,7 @@ plot(iris_Tukey)
 ```
 
 <div class="figure">
-<img src="10-confidence_files/figure-html/unnamed-chunk-5-1.svg" alt="Results of a post-hoc Tukey test showing the confidence interval for the effect size between each group." width="70%" />
+<img src="10-confidence_files/figure-html/unnamed-chunk-5-1.png" alt="Results of a post-hoc Tukey test showing the confidence interval for the effect size between each group." width="70%" />
 <p class="caption">(\#fig:unnamed-chunk-5)Results of a post-hoc Tukey test showing the confidence interval for the effect size between each group.</p>
 </div>
 
@@ -214,7 +220,7 @@ R> $gg
 ```
 
 <div class="figure">
-<img src="10-confidence_files/figure-html/unnamed-chunk-6-1.svg" alt="Harrell plot showing the distributions of stipe lengths (cm) of the kelp _Ecklonia maxima_ at two different sites in the bottom panel. The top panel shows the confidence interval of the effect of the difference between these two sample sets based on a post-hoc Tukey test." width="70%" />
+<img src="10-confidence_files/figure-html/unnamed-chunk-6-1.png" alt="Harrell plot showing the distributions of stipe lengths (cm) of the kelp _Ecklonia maxima_ at two different sites in the bottom panel. The top panel shows the confidence interval of the effect of the difference between these two sample sets based on a post-hoc Tukey test." width="70%" />
 <p class="caption">(\#fig:unnamed-chunk-6)Harrell plot showing the distributions of stipe lengths (cm) of the kelp _Ecklonia maxima_ at two different sites in the bottom panel. The top panel shows the confidence interval of the effect of the difference between these two sample sets based on a post-hoc Tukey test.</p>
 </div>
 

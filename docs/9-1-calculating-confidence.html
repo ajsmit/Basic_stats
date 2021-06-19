@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="9.1 Calculating confidence | Basic Statistics" />
+<meta property="og:type" content="book" />
+
+<meta property="og:image" content="/figures/NSFW.jpg" />
+<meta property="og:description" content="A Book about Basic Statistics." />
+<meta name="github-repo" content="ajsmit/Basic_stats" />
+
+<meta name="author" content="AJ Smit and Robert Schlegel" />
+
+<meta name="date" content="2021-06-19" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="A Book about Basic Statistics.">
+
+<title>9.1 Calculating confidence | Basic Statistics</title>
+
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+/* show arrow before summary tag as in bootstrap
+TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#preface">Preface</a></li>
+<li><a href="prerequisites.html#prerequisites">Prerequisites</a></li>
+<li><a href="1-introduction.html#introduction"><span class="toc-section-number">1</span> Introduction</a>
+<ul>
+<li><a href="1-1-venue-date-and-time.html#venue-date-and-time"><span class="toc-section-number">1.1</span> Venue, date and time</a></li>
+<li><a href="1-2-course-outline.html#course-outline"><span class="toc-section-number">1.2</span> Course outline</a></li>
+<li><a href="1-3-about-this-workshop.html#about-this-workshop"><span class="toc-section-number">1.3</span> About this Workshop</a></li>
+<li><a href="1-4-this-is-biology-why-more-r-coding.html#this-is-biology-why-more-r-coding"><span class="toc-section-number">1.4</span> This is biology: why more R coding?</a></li>
+<li><a href="1-5-installing-r-and-rstudio.html#installing-r-and-rstudio"><span class="toc-section-number">1.5</span> Installing R and RStudio</a></li>
+<li><a href="1-6-resources.html#resources"><span class="toc-section-number">1.6</span> Resources</a></li>
+<li><a href="1-7-style-and-code-conventions.html#style-and-code-conventions"><span class="toc-section-number">1.7</span> Style and code conventions</a></li>
+<li><a href="1-8-assessment-and-teaching-philosophy.html#assessment-and-teaching-philosophy"><span class="toc-section-number">1.8</span> Assessment and teaching philosophy</a></li>
+<li><a href="1-9-about-this-document.html#about-this-document"><span class="toc-section-number">1.9</span> About this document</a></li>
+</ul></li>
+<li><a href="2-types-of-data.html#types-of-data"><span class="toc-section-number">2</span> Types of data</a>
+<ul>
+<li><a href="2-1-data-classes.html#data-classes"><span class="toc-section-number">2.1</span> Data classes</a>
+<ul>
+<li><a href="2-1-data-classes.html#numerical-data"><span class="toc-section-number">2.1.1</span> Numerical data</a></li>
+<li><a href="2-1-data-classes.html#qualitative-data"><span class="toc-section-number">2.1.2</span> Qualitative data</a></li>
+<li><a href="2-1-data-classes.html#binary-data"><span class="toc-section-number">2.1.3</span> Binary data</a></li>
+<li><a href="2-1-data-classes.html#character-values"><span class="toc-section-number">2.1.4</span> Character values</a></li>
+<li><a href="2-1-data-classes.html#missing-values"><span class="toc-section-number">2.1.5</span> Missing values</a></li>
+<li><a href="2-1-data-classes.html#complex-numbers"><span class="toc-section-number">2.1.6</span> Complex numbers</a></li>
+</ul></li>
+<li><a href="2-2-viewing-our-data.html#viewing-our-data"><span class="toc-section-number">2.2</span> Viewing our data</a>
+<ul>
+<li><a href="2-2-viewing-our-data.html#from-the-environment-pane"><span class="toc-section-number">2.2.1</span> From the Environment pane</a></li>
+<li><a href="2-2-viewing-our-data.html#head-and-tail"><span class="toc-section-number">2.2.2</span> <code>head()</code> and <code>tail()</code></a></li>
+<li><a href="2-2-viewing-our-data.html#colnames"><span class="toc-section-number">2.2.3</span> <code>colnames()</code></a></li>
+<li><a href="2-2-viewing-our-data.html#summary"><span class="toc-section-number">2.2.4</span> <code>summary()</code></a></li>
+</ul></li>
+</ul></li>
+<li><a href="3-descriptive-statistics-central-tendency-and-dispersion.html#descriptive-statistics-central-tendency-and-dispersion"><span class="toc-section-number">3</span> Descriptive statistics: central tendency and dispersion</a>
+<ul>
+<li><a href="3-1-samples-and-populations.html#samples-and-populations"><span class="toc-section-number">3.1</span> Samples and populations</a></li>
+<li><a href="3-2-measures-of-central-tendency.html#measures-of-central-tendency"><span class="toc-section-number">3.2</span> Measures of central tendency</a>
+<ul>
+<li><a href="3-2-measures-of-central-tendency.html#the-mean"><span class="toc-section-number">3.2.1</span> The mean</a></li>
+<li><a href="3-2-measures-of-central-tendency.html#the-median"><span class="toc-section-number">3.2.2</span> The median</a></li>
+<li><a href="3-2-measures-of-central-tendency.html#skewness"><span class="toc-section-number">3.2.3</span> Skewness</a></li>
+<li><a href="3-2-measures-of-central-tendency.html#kurtosis"><span class="toc-section-number">3.2.4</span> Kurtosis</a></li>
+</ul></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#measures-of-variation-and-spread"><span class="toc-section-number">3.3</span> Measures of variation and spread</a>
+<ul>
+<li><a href="3-3-measures-of-variation-and-spread.html#the-variance-and-standard-deviation"><span class="toc-section-number">3.3.1</span> The variance and standard deviation</a></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#quantiles"><span class="toc-section-number">3.3.2</span> Quantiles</a></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#the-minimum-maximum-and-range"><span class="toc-section-number">3.3.3</span> The minimum, maximum and range</a></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#covariance"><span class="toc-section-number">3.3.4</span> Covariance</a></li>
+<li><a href="3-3-measures-of-variation-and-spread.html#correlation"><span class="toc-section-number">3.3.5</span> Correlation</a></li>
+</ul></li>
+<li><a href="3-4-missing-values-1.html#missing-values-1"><span class="toc-section-number">3.4</span> Missing values</a></li>
+<li><a href="3-5-descriptive-statistics-by-group.html#descriptive-statistics-by-group"><span class="toc-section-number">3.5</span> Descriptive statistics by group</a>
+<ul>
+<li><a href="3-5-descriptive-statistics-by-group.html#groupwise-summary-statistics"><span class="toc-section-number">3.5.1</span> Groupwise summary statistics</a></li>
+<li><a href="3-5-descriptive-statistics-by-group.html#displays-of-group-summaries"><span class="toc-section-number">3.5.2</span> Displays of group summaries</a></li>
+</ul></li>
+<li><a href="3-6-exercises.html#exercises"><span class="toc-section-number">3.6</span> Exercises</a>
+<ul>
+<li><a href="3-6-exercises.html#exercise-1"><span class="toc-section-number">3.6.1</span> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li><a href="4-graphical-data-displays.html#graphical-data-displays"><span class="toc-section-number">4</span> Graphical data displays</a>
+<ul>
+<li><a href="4-1-qualitative-data-1.html#qualitative-data-1"><span class="toc-section-number">4.1</span> Qualitative data</a></li>
+<li><a href="4-2-continuous-data-1.html#continuous-data-1"><span class="toc-section-number">4.2</span> Continuous data</a>
+<ul>
+<li><a href="4-2-continuous-data-1.html#frequency-distributions-histograms"><span class="toc-section-number">4.2.1</span> Frequency distributions (histograms)</a></li>
+<li><a href="4-2-continuous-data-1.html#box-plots"><span class="toc-section-number">4.2.2</span> Box plots</a></li>
+<li><a href="4-2-continuous-data-1.html#pairwise-scatter-plots"><span class="toc-section-number">4.2.3</span> Pairwise Scatter plots</a></li>
+<li><a href="4-2-continuous-data-1.html#bar-graphs"><span class="toc-section-number">4.2.4</span> Bar graphs</a></li>
+<li><a href="4-2-continuous-data-1.html#density-graphs"><span class="toc-section-number">4.2.5</span> Density graphs</a></li>
+<li><a href="4-2-continuous-data-1.html#violin-plots"><span class="toc-section-number">4.2.6</span> Violin plots</a></li>
+</ul></li>
+<li><a href="4-3-exercises-1.html#exercises-1"><span class="toc-section-number">4.3</span> Exercises</a>
+<ul>
+<li><a href="4-3-exercises-1.html#exercise-1-1"><span class="toc-section-number">4.3.1</span> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li><a href="5-inferences-about-one-or-two-populations.html#inferences-about-one-or-two-populations"><span class="toc-section-number">5</span> Inferences about one or two populations</a>
+<ul>
+<li><a href="5-1-what-are-probabilities.html#what-are-probabilities"><span class="toc-section-number">5.1</span> What are probabilities?</a></li>
+<li><a href="5-2-is-there-a-difference-between-two-groups.html#is-there-a-difference-between-two-groups"><span class="toc-section-number">5.2</span> Is there a difference between two groups?</a></li>
+<li><a href="5-3-assumptions.html#assumptions"><span class="toc-section-number">5.3</span> Assumptions</a>
+<ul>
+<li><a href="5-3-assumptions.html#normality"><span class="toc-section-number">5.3.1</span> Normality</a></li>
+<li><a href="5-3-assumptions.html#homoscedasticity"><span class="toc-section-number">5.3.2</span> Homoscedasticity</a></li>
+<li><a href="5-3-assumptions.html#two-for-one"><span class="toc-section-number">5.3.3</span> Two for one</a></li>
+</ul></li>
+<li><a href="5-4-one-sample-t-tests.html#one-sample-t-tests"><span class="toc-section-number">5.4</span> One-sample <em>t</em>-tests</a>
+<ul>
+<li><a href="5-4-one-sample-t-tests.html#one-sided-one-sample-t-tests"><span class="toc-section-number">5.4.1</span> One-sided one-sample <em>t</em>-tests</a></li>
+<li><a href="5-4-one-sample-t-tests.html#two-sided-one-sample-t-tests"><span class="toc-section-number">5.4.2</span> Two-sided one-sample <em>t</em>-tests</a></li>
+</ul></li>
+<li><a href="5-5-two-sample-t-tests.html#two-sample-t-tests"><span class="toc-section-number">5.5</span> Two-sample <em>t</em>-tests</a>
+<ul>
+<li><a href="5-5-two-sample-t-tests.html#one-sided-two-sample-t-tests"><span class="toc-section-number">5.5.1</span> One-sided two-sample <em>t</em>-tests</a></li>
+<li><a href="5-5-two-sample-t-tests.html#two-sided-two-sample-t-tests"><span class="toc-section-number">5.5.2</span> Two-sided two-sample <em>t</em>-tests</a></li>
+</ul></li>
+<li><a href="5-6-paired-t-tests.html#paired-t-tests"><span class="toc-section-number">5.6</span> Paired <em>t</em>-tests</a></li>
+<li><a href="5-7-comparison-of-two-population-proportions.html#comparison-of-two-population-proportions"><span class="toc-section-number">5.7</span> Comparison of two population proportions</a>
+<ul>
+<li><a href="5-7-comparison-of-two-population-proportions.html#one-sample-and-two-sample-tests"><span class="toc-section-number">5.7.1</span> One-sample and two-sample tests</a></li>
+<li><a href="5-7-comparison-of-two-population-proportions.html#one-sided-and-two-sided-tests"><span class="toc-section-number">5.7.2</span> One-sided and two-sided tests</a></li>
+</ul></li>
+<li><a href="5-8-a-t-test-workflow.html#a-t-test-workflow"><span class="toc-section-number">5.8</span> A <em>t</em>-test workflow</a>
+<ul>
+<li><a href="5-8-a-t-test-workflow.html#loading-data"><span class="toc-section-number">5.8.1</span> Loading data</a></li>
+<li><a href="5-8-a-t-test-workflow.html#visualising-data"><span class="toc-section-number">5.8.2</span> Visualising data</a></li>
+<li><a href="5-8-a-t-test-workflow.html#formulating-a-hypothesis"><span class="toc-section-number">5.8.3</span> Formulating a hypothesis</a></li>
+<li><a href="5-8-a-t-test-workflow.html#choosing-a-test"><span class="toc-section-number">5.8.4</span> Choosing a test</a></li>
+<li><a href="5-8-a-t-test-workflow.html#checking-assumptions"><span class="toc-section-number">5.8.5</span> Checking assumptions</a></li>
+<li><a href="5-8-a-t-test-workflow.html#running-an-analysis"><span class="toc-section-number">5.8.6</span> Running an analysis</a></li>
+<li><a href="5-8-a-t-test-workflow.html#interpreting-the-results"><span class="toc-section-number">5.8.7</span> Interpreting the results</a></li>
+<li><a href="5-8-a-t-test-workflow.html#drawing-conclusions"><span class="toc-section-number">5.8.8</span> Drawing conclusions</a></li>
+<li><a href="5-8-a-t-test-workflow.html#going-further"><span class="toc-section-number">5.8.9</span> Going further</a></li>
+</ul></li>
+<li><a href="5-9-exercises-2.html#exercises-2"><span class="toc-section-number">5.9</span> Exercises</a>
+<ul>
+<li><a href="5-9-exercises-2.html#exercise-1-2"><span class="toc-section-number">5.9.1</span> Exercise 1</a></li>
+<li><a href="5-9-exercises-2.html#exercise-2"><span class="toc-section-number">5.9.2</span> Exercise 2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="6-anova.html#anova"><span class="toc-section-number">6</span> ANOVA</a>
+<ul>
+<li><a href="6-1-remember-the-t-test.html#remember-the-t-test"><span class="toc-section-number">6.1</span> Remember the <em>t</em>-test</a></li>
+<li><a href="6-2-anova-1.html#anova-1"><span class="toc-section-number">6.2</span> ANOVA</a>
+<ul>
+<li><a href="6-2-anova-1.html#single-factor"><span class="toc-section-number">6.2.1</span> Single factor</a></li>
+<li><a href="6-2-anova-1.html#multiple-factors"><span class="toc-section-number">6.2.2</span> Multiple factors</a></li>
+<li><a href="6-2-anova-1.html#examples"><span class="toc-section-number">6.2.3</span> Examples</a></li>
+</ul></li>
+<li><a href="6-3-alternatives-to-anova.html#alternatives-to-anova"><span class="toc-section-number">6.3</span> Alternatives to ANOVA</a>
+<ul>
+<li><a href="6-3-alternatives-to-anova.html#wilcox-rank-sum-test"><span class="toc-section-number">6.3.1</span> Wilcox rank sum test</a></li>
+<li><a href="6-3-alternatives-to-anova.html#kruskall-wallis-rank-sum-test"><span class="toc-section-number">6.3.2</span> Kruskall-Wallis rank sum test</a></li>
+<li><a href="6-3-alternatives-to-anova.html#the-sa-time-data"><span class="toc-section-number">6.3.3</span> The SA time data</a></li>
+</ul></li>
+<li><a href="6-4-exercises-3.html#exercises-3"><span class="toc-section-number">6.4</span> Exercises</a>
+<ul>
+<li><a href="6-4-exercises-3.html#exercise-1-3"><span class="toc-section-number">6.4.1</span> Exercise 1</a></li>
+<li><a href="6-4-exercises-3.html#exercise-2-1"><span class="toc-section-number">6.4.2</span> Exercise 2</a></li>
+<li><a href="6-4-exercises-3.html#exercise-3"><span class="toc-section-number">6.4.3</span> Exercise 3</a></li>
+</ul></li>
+</ul></li>
+<li><a href="7-simple-linear-regressions.html#simple-linear-regressions"><span class="toc-section-number">7</span> Simple linear regressions</a>
+<ul>
+<li><a href="7-1-the-simple-linear-regression-equation.html#the-simple-linear-regression-equation"><span class="toc-section-number">7.1</span> The simple linear regression equation</a>
+<ul>
+<li><a href="7-1-the-simple-linear-regression-equation.html#the-intercept"><span class="toc-section-number">7.1.1</span> The intercept</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#the-regression-coefficient"><span class="toc-section-number">7.1.2</span> The regression coefficient</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#a-graph-of-the-linear-regression"><span class="toc-section-number">7.1.3</span> A graph of the linear regression</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#predicting-from-the-linear-model"><span class="toc-section-number">7.1.4</span> Predicting from the linear model</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#the-coefficient-of-determination-r2"><span class="toc-section-number">7.1.5</span> The coefficient of determination, <span class="math inline">\(r^{2}\)</span></a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#significance-test-for-linear-regression"><span class="toc-section-number">7.1.6</span> Significance test for linear regression</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#confidence-interval-for-linear-regression"><span class="toc-section-number">7.1.7</span> Confidence interval for linear regression</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#prediction-interval-for-linear-regression"><span class="toc-section-number">7.1.8</span> Prediction interval for linear regression</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#residual-plot"><span class="toc-section-number">7.1.9</span> Residual plot</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#standardised-residual"><span class="toc-section-number">7.1.10</span> Standardised residual</a></li>
+<li><a href="7-1-the-simple-linear-regression-equation.html#normal-probability-plot-of-residuals"><span class="toc-section-number">7.1.11</span> Normal probability plot of residuals</a></li>
+</ul></li>
+<li><a href="7-2-using-an-additional-categorical-variable.html#using-an-additional-categorical-variable"><span class="toc-section-number">7.2</span> Using an additional categorical variable</a></li>
+</ul></li>
+<li><a href="8-correlations.html#correlations"><span class="toc-section-number">8</span> Correlations</a>
+<ul>
+<li><a href="8-1-pearson-correlation.html#pearson-correlation"><span class="toc-section-number">8.1</span> Pearson correlation</a></li>
+<li><a href="8-2-spearman-rank-correlation.html#spearman-rank-correlation"><span class="toc-section-number">8.2</span> Spearman rank correlation</a></li>
+<li><a href="8-3-kendall-rank-correlation.html#kendall-rank-correlation"><span class="toc-section-number">8.3</span> Kendall rank correlation</a></li>
+<li><a href="8-4-one-panel-visual.html#one-panel-visual"><span class="toc-section-number">8.4</span> One panel visual</a></li>
+<li><a href="8-5-multiple-panel-visual.html#multiple-panel-visual"><span class="toc-section-number">8.5</span> Multiple panel visual</a></li>
+<li><a href="8-6-exercises-4.html#exercises-4"><span class="toc-section-number">8.6</span> Exercises</a>
+<ul>
+<li><a href="8-6-exercises-4.html#exercise-1-4"><span class="toc-section-number">8.6.1</span> Exercise 1</a></li>
+</ul></li>
+</ul></li>
+<li><a href="9-confidence-intervals.html#confidence-intervals"><span class="toc-section-number">9</span> Confidence intervals</a>
+<ul>
+<li><a href="9-1-calculating-confidence.html#calculating-confidence"><span class="toc-section-number">9.1</span> Calculating confidence</a></li>
+<li><a href="9-2-ci-of-compared-means.html#ci-of-compared-means"><span class="toc-section-number">9.2</span> CI of compared means</a></li>
+<li><a href="9-3-harrell-plots.html#harrell-plots"><span class="toc-section-number">9.3</span> Harrell plots</a></li>
+<li><a href="9-4-exercises-5.html#exercises-5"><span class="toc-section-number">9.4</span> Exercises</a>
+<ul>
+<li><a href="9-4-exercises-5.html#exercise-1-5"><span class="toc-section-number">9.4.1</span> Exercise 1</a></li>
+<li><a href="9-4-exercises-5.html#exercise-2-2"><span class="toc-section-number">9.4.2</span> Exercise 2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="10-testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data.html#testing-assumptions-or-how-i-learned-to-stop-worrying-and-transform-the-data"><span class="toc-section-number">10</span> Testing assumptions or: How I learned to stop worrying and transform the data</a>
+<ul>
+<li><a href="10-1-backgroud.html#backgroud"><span class="toc-section-number">10.1</span> Backgroud</a>
+<ul>
+<li><a href="10-1-backgroud.html#normality-1"><span class="toc-section-number">10.1.1</span> Normality</a></li>
+<li><a href="10-1-backgroud.html#homoscedasticity-1"><span class="toc-section-number">10.1.2</span> Homoscedasticity</a></li>
+<li><a href="10-1-backgroud.html#epic-fail.-now-what"><span class="toc-section-number">10.1.3</span> Epic fail. Now what?</a></li>
+</ul></li>
+<li><a href="10-2-transforming-data.html#transforming-data"><span class="toc-section-number">10.2</span> Transforming data</a>
+<ul>
+<li><a href="10-2-transforming-data.html#log-transform"><span class="toc-section-number">10.2.1</span> Log transform</a></li>
+<li><a href="10-2-transforming-data.html#arcsine-transform"><span class="toc-section-number">10.2.2</span> Arcsine transform</a></li>
+<li><a href="10-2-transforming-data.html#cube-root"><span class="toc-section-number">10.2.3</span> Cube root</a></li>
+<li><a href="10-2-transforming-data.html#square-root-transform"><span class="toc-section-number">10.2.4</span> Square root transform</a></li>
+</ul></li>
+<li><a href="10-3-exercises-6.html#exercises-6"><span class="toc-section-number">10.3</span> Exercises</a>
+<ul>
+<li><a href="10-3-exercises-6.html#exercise-1-6"><span class="toc-section-number">10.3.1</span> Exercise 1</a></li>
+<li><a href="10-3-exercises-6.html#exercise-2-3"><span class="toc-section-number">10.3.2</span> Exercise 2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="11-linear-mixed-models.html#linear-mixed-models"><span class="toc-section-number">11</span> Linear mixed models</a>
+<ul>
+<li><a href="11-1-wilcox-rank-sum-test-1.html#wilcox-rank-sum-test-1"><span class="toc-section-number">11.1</span> Wilcox rank sum test</a></li>
+<li><a href="11-2-kruskall-wallis-rank-sum-test-1.html#kruskall-wallis-rank-sum-test-1"><span class="toc-section-number">11.2</span> Kruskall-Wallis rank sum test</a>
+<ul>
+<li><a href="11-2-kruskall-wallis-rank-sum-test-1.html#single-factor-2"><span class="toc-section-number">11.2.1</span> Single factor</a></li>
+<li><a href="11-2-kruskall-wallis-rank-sum-test-1.html#multiple-factors-2"><span class="toc-section-number">11.2.2</span> Multiple factors</a></li>
+</ul></li>
+<li><a href="11-3-generalised-linear-models.html#generalised-linear-models"><span class="toc-section-number">11.3</span> Generalised linear models</a>
+<ul>
+<li><a href="11-3-generalised-linear-models.html#sign-test"><span class="toc-section-number">11.3.1</span> Sign Test</a></li>
+<li><a href="11-3-generalised-linear-models.html#wilcoxon-signed-rank-test"><span class="toc-section-number">11.3.2</span> Wilcoxon Signed-Rank Test</a></li>
+<li><a href="11-3-generalised-linear-models.html#mann-whitney-wilcoxon-test"><span class="toc-section-number">11.3.3</span> Mann-Whitney-Wilcoxon Test</a></li>
+<li><a href="11-3-generalised-linear-models.html#kruskal-wallis-test"><span class="toc-section-number">11.3.4</span> Kruskal-Wallis Test</a></li>
+<li><a href="11-3-generalised-linear-models.html#generalised-linear-models-glm"><span class="toc-section-number">11.3.5</span> Generalised linear models (GLM)</a></li>
+</ul></li>
+<li><a href="11-4-exercises-7.html#exercises-7"><span class="toc-section-number">11.4</span> Exercises</a></li>
+<li><a href="11-5-exercise-1-7.html#exercise-1-7"><span class="toc-section-number">11.5</span> Exercise 1</a></li>
+</ul></li>
+<li><a href="12-chi-squared.html#chi-squared"><span class="toc-section-number">12</span> Chi-squared</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="calculating-confidence" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Calculating confidence</h2>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="9-1-calculating-confidence.html#cb212-1" aria-hidden="true" tabindex="-1"></a>Input <span class="ot">&lt;-</span> (<span class="st">&quot;</span></span>
+<span id="cb212-2"><a href="9-1-calculating-confidence.html#cb212-2" aria-hidden="true" tabindex="-1"></a><span class="st">Student  Sex     Teacher  Steps  Rating</span></span>
+<span id="cb212-3"><a href="9-1-calculating-confidence.html#cb212-3" aria-hidden="true" tabindex="-1"></a><span class="st">a        female  Jacob    8000   7</span></span>
+<span id="cb212-4"><a href="9-1-calculating-confidence.html#cb212-4" aria-hidden="true" tabindex="-1"></a><span class="st">b        female  Jacob    9000  10</span></span>
+<span id="cb212-5"><a href="9-1-calculating-confidence.html#cb212-5" aria-hidden="true" tabindex="-1"></a><span class="st">c        female  Jacob   10000   9</span></span>
+<span id="cb212-6"><a href="9-1-calculating-confidence.html#cb212-6" aria-hidden="true" tabindex="-1"></a><span class="st">d        female  Jacob    7000   5</span></span>
+<span id="cb212-7"><a href="9-1-calculating-confidence.html#cb212-7" aria-hidden="true" tabindex="-1"></a><span class="st">e        female  Jacob    6000   4</span></span>
+<span id="cb212-8"><a href="9-1-calculating-confidence.html#cb212-8" aria-hidden="true" tabindex="-1"></a><span class="st">f        female  Jacob    8000   8</span></span>
+<span id="cb212-9"><a href="9-1-calculating-confidence.html#cb212-9" aria-hidden="true" tabindex="-1"></a><span class="st">g        male    Jacob    7000   6</span></span>
+<span id="cb212-10"><a href="9-1-calculating-confidence.html#cb212-10" aria-hidden="true" tabindex="-1"></a><span class="st">h        male    Jacob    5000   5</span></span>
+<span id="cb212-11"><a href="9-1-calculating-confidence.html#cb212-11" aria-hidden="true" tabindex="-1"></a><span class="st">i        male    Jacob    9000  10</span></span>
+<span id="cb212-12"><a href="9-1-calculating-confidence.html#cb212-12" aria-hidden="true" tabindex="-1"></a><span class="st">j        male    Jacob    7000   8</span></span>
+<span id="cb212-13"><a href="9-1-calculating-confidence.html#cb212-13" aria-hidden="true" tabindex="-1"></a><span class="st">k        female  Sadam    8000   7</span></span>
+<span id="cb212-14"><a href="9-1-calculating-confidence.html#cb212-14" aria-hidden="true" tabindex="-1"></a><span class="st">l        female  Sadam    9000   8</span></span>
+<span id="cb212-15"><a href="9-1-calculating-confidence.html#cb212-15" aria-hidden="true" tabindex="-1"></a><span class="st">m        female  Sadam    9000   8</span></span>
+<span id="cb212-16"><a href="9-1-calculating-confidence.html#cb212-16" aria-hidden="true" tabindex="-1"></a><span class="st">n        female  Sadam    8000   9</span></span>
+<span id="cb212-17"><a href="9-1-calculating-confidence.html#cb212-17" aria-hidden="true" tabindex="-1"></a><span class="st">o        male    Sadam    6000   5</span></span>
+<span id="cb212-18"><a href="9-1-calculating-confidence.html#cb212-18" aria-hidden="true" tabindex="-1"></a><span class="st">p        male    Sadam    8000   9</span></span>
+<span id="cb212-19"><a href="9-1-calculating-confidence.html#cb212-19" aria-hidden="true" tabindex="-1"></a><span class="st">q        male    Sadam    7000   6</span></span>
+<span id="cb212-20"><a href="9-1-calculating-confidence.html#cb212-20" aria-hidden="true" tabindex="-1"></a><span class="st">r        female  Donald   10000  10</span></span>
+<span id="cb212-21"><a href="9-1-calculating-confidence.html#cb212-21" aria-hidden="true" tabindex="-1"></a><span class="st">s        female  Donald    9000  10</span></span>
+<span id="cb212-22"><a href="9-1-calculating-confidence.html#cb212-22" aria-hidden="true" tabindex="-1"></a><span class="st">t        female  Donald    8000   8</span></span>
+<span id="cb212-23"><a href="9-1-calculating-confidence.html#cb212-23" aria-hidden="true" tabindex="-1"></a><span class="st">u        female  Donald    8000   7</span></span>
+<span id="cb212-24"><a href="9-1-calculating-confidence.html#cb212-24" aria-hidden="true" tabindex="-1"></a><span class="st">v        female  Donald    6000   7</span></span>
+<span id="cb212-25"><a href="9-1-calculating-confidence.html#cb212-25" aria-hidden="true" tabindex="-1"></a><span class="st">w        male    Donald    6000   8</span></span>
+<span id="cb212-26"><a href="9-1-calculating-confidence.html#cb212-26" aria-hidden="true" tabindex="-1"></a><span class="st">x        male    Donald    8000  10</span></span>
+<span id="cb212-27"><a href="9-1-calculating-confidence.html#cb212-27" aria-hidden="true" tabindex="-1"></a><span class="st">y        male    Donald    7000   7</span></span>
+<span id="cb212-28"><a href="9-1-calculating-confidence.html#cb212-28" aria-hidden="true" tabindex="-1"></a><span class="st">z        male    Donald    7000   7</span></span>
+<span id="cb212-29"><a href="9-1-calculating-confidence.html#cb212-29" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span>)</span>
+<span id="cb212-30"><a href="9-1-calculating-confidence.html#cb212-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb212-31"><a href="9-1-calculating-confidence.html#cb212-31" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="fu">textConnection</span>(Input),<span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb212-32"><a href="9-1-calculating-confidence.html#cb212-32" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code></pre></div>
+<pre><code>R&gt;    Student              Sex              Teacher              Steps      
+R&gt;  Length:26          Length:26          Length:26          Min.   : 5000  
+R&gt;  Class :character   Class :character   Class :character   1st Qu.: 7000  
+R&gt;  Mode  :character   Mode  :character   Mode  :character   Median : 8000  
+R&gt;                                                           Mean   : 7692  
+R&gt;                                                           3rd Qu.: 8750  
+R&gt;                                                           Max.   :10000  
+R&gt;      Rating      
+R&gt;  Min.   : 4.000  
+R&gt;  1st Qu.: 7.000  
+R&gt;  Median : 8.000  
+R&gt;  Mean   : 7.615  
+R&gt;  3rd Qu.: 9.000  
+R&gt;  Max.   :10.000</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="9-1-calculating-confidence.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rcompanion)</span>
+<span id="cb214-2"><a href="9-1-calculating-confidence.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ungrouped data is indicated with a 1 on the right side of the formula, or the group = NULL argument.</span></span>
+<span id="cb214-3"><a href="9-1-calculating-confidence.html#cb214-3" aria-hidden="true" tabindex="-1"></a><span class="fu">groupwiseMean</span>(Steps <span class="sc">~</span> <span class="dv">1</span>,<span class="at">data =</span> data, <span class="at">conf =</span> <span class="fl">0.95</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>R&gt;    .id  n Mean Conf.level Trad.lower Trad.upper
+R&gt; 1 &lt;NA&gt; 26 7690       0.95       7170       8210</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="9-1-calculating-confidence.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># one-way data</span></span>
+<span id="cb216-2"><a href="9-1-calculating-confidence.html#cb216-2" aria-hidden="true" tabindex="-1"></a><span class="fu">groupwiseMean</span>(Steps <span class="sc">~</span> Sex, <span class="at">data =</span> data, <span class="at">conf =</span> <span class="fl">0.95</span>,<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>R&gt;      Sex  n Mean Conf.level Trad.lower Trad.upper
+R&gt; 1 female 15 8200       0.95       7530       8870
+R&gt; 2   male 11 7000       0.95       6260       7740</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="9-1-calculating-confidence.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># two-way data</span></span>
+<span id="cb218-2"><a href="9-1-calculating-confidence.html#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="fu">groupwiseMean</span>(Steps <span class="sc">~</span> Teacher <span class="sc">+</span> Sex, <span class="at">data =</span> data, <span class="at">conf =</span> <span class="fl">0.95</span>,<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>R&gt;   Teacher    Sex n Mean Conf.level Trad.lower Trad.upper
+R&gt; 1  Donald female 5 8200       0.95       6360      10000
+R&gt; 2  Donald   male 4 7000       0.95       5700       8300
+R&gt; 3   Jacob female 6 8000       0.95       6520       9480
+R&gt; 4   Jacob   male 4 7000       0.95       4400       9600
+R&gt; 5   Sadam female 4 8500       0.95       7580       9420
+R&gt; 6   Sadam   male 3 7000       0.95       4520       9480</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="9-1-calculating-confidence.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># by bootstrapping</span></span>
+<span id="cb220-2"><a href="9-1-calculating-confidence.html#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="fu">groupwiseMean</span>(Steps <span class="sc">~</span> Sex,</span>
+<span id="cb220-3"><a href="9-1-calculating-confidence.html#cb220-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> data,</span>
+<span id="cb220-4"><a href="9-1-calculating-confidence.html#cb220-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf =</span> <span class="fl">0.95</span>,</span>
+<span id="cb220-5"><a href="9-1-calculating-confidence.html#cb220-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">digits =</span> <span class="dv">3</span>,</span>
+<span id="cb220-6"><a href="9-1-calculating-confidence.html#cb220-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">R =</span> <span class="dv">10000</span>,</span>
+<span id="cb220-7"><a href="9-1-calculating-confidence.html#cb220-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">boot =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb220-8"><a href="9-1-calculating-confidence.html#cb220-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">traditional =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb220-9"><a href="9-1-calculating-confidence.html#cb220-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">normal =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb220-10"><a href="9-1-calculating-confidence.html#cb220-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">basic =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb220-11"><a href="9-1-calculating-confidence.html#cb220-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">percentile =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb220-12"><a href="9-1-calculating-confidence.html#cb220-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">bca =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>R&gt;      Sex  n Mean Boot.mean Conf.level Bca.lower Bca.upper
+R&gt; 1 female 15 8200      8200       0.95      7470      8670
+R&gt; 2   male 11 7000      7000       0.95      6270      7550</code></pre>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="9-1-calculating-confidence.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groupwiseMean</span>(Steps <span class="sc">~</span> Teacher <span class="sc">+</span> Sex,</span>
+<span id="cb222-2"><a href="9-1-calculating-confidence.html#cb222-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> data,</span>
+<span id="cb222-3"><a href="9-1-calculating-confidence.html#cb222-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf =</span> <span class="fl">0.95</span>,</span>
+<span id="cb222-4"><a href="9-1-calculating-confidence.html#cb222-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">digits =</span> <span class="dv">3</span>,</span>
+<span id="cb222-5"><a href="9-1-calculating-confidence.html#cb222-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">R =</span> <span class="dv">10000</span>,</span>
+<span id="cb222-6"><a href="9-1-calculating-confidence.html#cb222-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">boot =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb222-7"><a href="9-1-calculating-confidence.html#cb222-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">traditional =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb222-8"><a href="9-1-calculating-confidence.html#cb222-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">normal =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb222-9"><a href="9-1-calculating-confidence.html#cb222-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">basic =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb222-10"><a href="9-1-calculating-confidence.html#cb222-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">percentile =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb222-11"><a href="9-1-calculating-confidence.html#cb222-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">bca =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>R&gt;   Teacher    Sex n Mean Boot.mean Conf.level Bca.lower Bca.upper
+R&gt; 1  Donald female 5 8200      8210       0.95      6600      9000
+R&gt; 2  Donald   male 4 7000      7000       0.95      6250      7500
+R&gt; 3   Jacob female 6 8000      8000       0.95      6830      8830
+R&gt; 4   Jacob   male 4 7000      6990       0.95      5000      8000
+R&gt; 5   Sadam female 4 8500      8500       0.95      8000      8750
+R&gt; 6   Sadam   male 3 7000      7010       0.95      6000      7670</code></pre>
+<p>These upper and lower limits may then be used easily within a figure.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="9-1-calculating-confidence.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb224-2"><a href="9-1-calculating-confidence.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb224-3"><a href="9-1-calculating-confidence.html#cb224-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-4"><a href="9-1-calculating-confidence.html#cb224-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dummy data</span></span>
+<span id="cb224-5"><a href="9-1-calculating-confidence.html#cb224-5" aria-hidden="true" tabindex="-1"></a>r_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">value =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb224-6"><a href="9-1-calculating-confidence.html#cb224-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sample =</span> <span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">20</span>))</span>
+<span id="cb224-7"><a href="9-1-calculating-confidence.html#cb224-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-8"><a href="9-1-calculating-confidence.html#cb224-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create basic plot</span></span>
+<span id="cb224-9"><a href="9-1-calculating-confidence.html#cb224-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> r_dat, <span class="fu">aes</span>(<span class="at">x =</span> sample, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb224-10"><a href="9-1-calculating-confidence.html#cb224-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> <span class="fu">mean</span>(value) <span class="sc">-</span> <span class="fu">sd</span>(value), <span class="at">ymax =</span> <span class="fu">mean</span>(value) <span class="sc">+</span> <span class="fu">sd</span>(value))) <span class="sc">+</span></span>
+<span id="cb224-11"><a href="9-1-calculating-confidence.html#cb224-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;firebrick1&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="10-confidence_files/figure-html/unnamed-chunk-4-1.png" alt="A very basic figure showing confidence intervals (CI) for a random normal distribution." width="70%" />
+<p class="caption">
+Figure 9.1: A very basic figure showing confidence intervals (CI) for a random normal distribution.
+</p>
+</div>
+<blockquote>
+<p><strong>Task:</strong> How would we apply this to more than one sample set? Do so now.</p>
+</blockquote>
+</div>
+<p style="text-align: center;">
+<a href="9-confidence-intervals.html"><button class="btn btn-default">Previous</button></a>
+<a href="9-2-ci-of-compared-means.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

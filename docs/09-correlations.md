@@ -202,7 +202,7 @@ ggplot(data = ecklonia, aes(x = stipe_length, y = frond_length)) +
 ```
 
 <div class="figure">
-<img src="09-correlations_files/figure-html/corr-plot1-1.svg" alt="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship." width="70%" />
+<img src="09-correlations_files/figure-html/corr-plot1-1.png" alt="Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship." width="70%" />
 <p class="caption">(\#fig:corr-plot1)Scatterplot showing relationship between _Ecklonia maxima_ stipe length (cm) and frond length (cm). The correlation coefficient (Pearson r) is shown in the top left corner. Note that the grey line running through the middle is a fitted linear model and is not generating the correlation value. Rather it is included to help visually demonstrate the strength of the relationship.</p>
 </div>
 
@@ -218,7 +218,7 @@ corrplot(ecklonia_pearson, method = "circle")
 ```
 
 <div class="figure">
-<img src="09-correlations_files/figure-html/corr-plot2-1.svg" alt="Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive)." width="70%" />
+<img src="09-correlations_files/figure-html/corr-plot2-1.png" alt="Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive)." width="70%" />
 <p class="caption">(\#fig:corr-plot2)Correlation plot showing the strength of all correlations between all variables as a scale from red (negative) to blue (positive).</p>
 </div>
 
