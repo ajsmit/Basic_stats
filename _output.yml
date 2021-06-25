@@ -1,31 +1,17 @@
 bookdown::gitbook:
-  css: css/style.css
-  dev: svglite
+  css: style.css
   split_by: chapter
   config:
-  toolbar:
-    position: fixed
-  edit: null
-  download: yes
-  search: yes
-  fontsettings:
-    theme: sepia
-    family: serif
-    size: 2
-  sharing:
-    github: yes
-    facebook: no
-    twitter: yes
-    google: yes
-    weibo: no
-    instapper: no
-    vk: no
-    all: ['google', 'twitter']
-bookdown::html_chapters:
-  css: [css/style.css, css/toc.css]
-tufte::tufte_html:
-  css: [css/style.css, css/toc.css]
-bookdown::tufte_html2:
-  css: [css/style.css, css/toc.css]
-bookdown::tufte_html_book:
-  css: [css/style.css, css/toc.css]
+    toc:
+      collapse: section
+      scroll_highlight: yes
+      sharing:
+        facebook: no
+        twitter: no
+        google: yes
+bookdown::pdf_book:
+  keep_tex: yes
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
