@@ -20,5 +20,5 @@ Basic_stats.Rproj
 .Rproj.user
 
 # Misc
-_private/
+/_private
 Basic_stats.code-workspace
