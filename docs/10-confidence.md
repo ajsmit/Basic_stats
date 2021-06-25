@@ -117,7 +117,7 @@ groupwiseMean(Steps ~ Sex,
 ```
 R>      Sex  n Mean Boot.mean Conf.level Bca.lower Bca.upper
 R> 1 female 15 8200      8200       0.95      7470      8670
-R> 2   male 11 7000      7000       0.95      6270      7540
+R> 2   male 11 7000      7000       0.95      6270      7550
 ```
 
 ```r

@@ -484,7 +484,7 @@ R&gt; 6   Sadam   male 3 7000       0.95       4520       9480</code></pre>
 <span id="cb220-12"><a href="confidence-intervals.html#cb220-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">bca =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>R&gt;      Sex  n Mean Boot.mean Conf.level Bca.lower Bca.upper
 R&gt; 1 female 15 8200      8200       0.95      7470      8670
-R&gt; 2   male 11 7000      7000       0.95      6270      7540</code></pre>
+R&gt; 2   male 11 7000      7000       0.95      6270      7550</code></pre>
 <div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="confidence-intervals.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groupwiseMean</span>(Steps <span class="sc">~</span> Teacher <span class="sc">+</span> Sex,</span>
 <span id="cb222-2"><a href="confidence-intervals.html#cb222-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> data,</span>
 <span id="cb222-3"><a href="confidence-intervals.html#cb222-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf =</span> <span class="fl">0.95</span>,</span>
