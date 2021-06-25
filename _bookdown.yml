@@ -1,8 +1,0 @@
-book_filename: "Basic_Statistics"
-chapter_name: "Chapter "
-repo: https://github.com/ajsmit/Basic_Statistics
-rmd_files: ["index.Rmd", "01-intro.Rmd", "02-data.Rmd", "03-discriptive.Rmd", "04-graphics.Rmd", "06-t_tests.Rmd", "07-anova.Rmd", "08-regressions.Rmd", "09-correlations.Rmd", "10-confidence.Rmd", "11-transformations.Rmd", "12-glm.Rmd", "13-chi_squared.Rmd"]
-clean: [packages.bib, bookdown.bbl]
-new_session: yes
-output_dir: "docs"
-delete_merged_file: true
