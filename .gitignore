@@ -17,6 +17,7 @@
 
 # RStudio files
 .Rproj.user/
+Basic_stats.Rproj/
 
 # produced vignettes
 vignettes/*.html
@@ -34,5 +35,5 @@ vignettes/*.pdf
 *.knit.md
 .Rproj.user
 
-# Resources
-_resources
+# Misc
+_private/
