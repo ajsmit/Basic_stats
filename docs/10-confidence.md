@@ -136,10 +136,10 @@ groupwiseMean(Steps ~ Teacher + Sex,
 
 ```
 R>   Teacher    Sex n Mean Boot.mean Conf.level Bca.lower Bca.upper
-R> 1  Donald female 5 8200      8190       0.95      6800      9000
-R> 2  Donald   male 4 7000      7000       0.95      6000      7500
-R> 3   Jacob female 6 8000      8000       0.95      6830      8830
-R> 4   Jacob   male 4 7000      7000       0.95      5500      8000
+R> 1  Donald female 5 8200      8200       0.95      6800      9000
+R> 2  Donald   male 4 7000      7000       0.95      6250      7500
+R> 3   Jacob female 6 8000      8010       0.95      6830      8830
+R> 4   Jacob   male 4 7000      7000       0.95      5000      8000
 R> 5   Sadam female 4 8500      8500       0.95      8000      8750
 R> 6   Sadam   male 3 7000      7000       0.95      6000      7670
 ```
