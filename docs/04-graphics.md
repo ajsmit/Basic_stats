@@ -165,7 +165,7 @@ ggplot(data = iris.long, aes(x = size)) +
   facet_wrap(~variable) +
   labs(title = "Iris data",
        subtitle = "Grouped frequency histogram",
-       x = "Size (mm)",
+       x = "Size (cm)",
        y = "Count") +
   theme_pubclean()
 ```
@@ -197,7 +197,7 @@ plt1 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) 
   geom_boxplot(show.legend = FALSE, notch = FALSE) +
   scale_fill_npg() +
   theme_linedraw() +
-  labs(y = "Sepal length (mm)") +
+  labs(y = "Sepal length (cm)") +
   theme(axis.text.x = element_text(face = "italic"))
 
 plt2 <- ggplot(data = iris.long, aes(x = Species, y = size)) +
@@ -205,7 +205,7 @@ plt2 <- ggplot(data = iris.long, aes(x = Species, y = size)) +
   geom_jitter(width = 0.1, shape = 21, fill = NA, alpha = 0.2, aes(colour = as.factor(Species))) +
   facet_wrap(~variable, nrow = 1) +
   scale_color_npg() +
-  labs(y = "Size (mm)") +
+  labs(y = "Size (cm)") +
   theme_linedraw() +
   theme(axis.text.x = element_text(face = "italic"))
 
@@ -232,7 +232,7 @@ ggstatsplot::ggbetweenstats(
   data = iris,
   x = Species,
   y = Sepal.Length,
-  ylab = "Sepal Length (mm)",
+  ylab = "Sepal Length (cm)",
   title = "Distribution of sepal length across Iris species"
 )
 ```
@@ -252,7 +252,7 @@ This graph shows the relationship between two (matched) continuous variables. Th
 ```r
 plt1 <- ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width, colour = Species)) +
   geom_point() +
-  labs(x = "Petal length (mm)", y = "Petal width (mm)") +
+  labs(x = "Petal length (cm)", y = "Petal width (cm)") +
   theme(legend.position = c(0.18, 0.85)) +
   scale_color_fivethirtyeight() +
   scale_fill_fivethirtyeight() + 
@@ -263,7 +263,7 @@ plt2 <- ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width, colour = Spec
   geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +
   scale_color_fivethirtyeight() +
   scale_fill_fivethirtyeight() +
-  labs(x = "Petal length (mm)", y = "Petal width (mm)") + 
+  labs(x = "Petal length (cm)", y = "Petal width (cm)") + 
   theme_pubclean()
 
 ggarrange(plt1, plt2, ncol = 2, nrow = 1, labels = "AUTO")
@@ -299,7 +299,7 @@ iris.long %>%
   geom_bar(stat = "identity") +
   geom_errorbar(aes(ymin = mean.size - sd.size, ymax = mean.size + sd.size), width = 0.2) +
   facet_wrap(~variable, labeller = labeller(variable = facet.names)) +
-  labs(y = "Size (mm)", title = "A box plot...", subtitle = "...of the Iris data") +
+  labs(y = "Size (cm)", title = "A box plot...", subtitle = "...of the Iris data") +
   theme(axis.text.x = element_text(face = "italic"))
 ```
 
@@ -374,7 +374,7 @@ vio1 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) 
   geom_violin() + 
   theme_pubclean() + theme(legend.position = "none") +
   labs(title = "Iris data",
-       subtitle = "Basic violin plot", y = "Sepal length (mm)") +
+       subtitle = "Basic violin plot", y = "Sepal length (cm)") +
   theme(axis.text.x = element_text(face = "italic"))
 
 # Aviolin plot showing the quartiles as lines
@@ -382,7 +382,7 @@ vio2 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) 
   geom_violin(show.legend = FALSE, draw_quantiles = c(0.25, 0.5, 0.75)) + 
   theme_pubclean() + theme(legend.position = "none") +
   labs(title = "Iris data",
-       subtitle = "Violin plot with quartiles", y = "Sepal length (mm)") +
+       subtitle = "Violin plot with quartiles", y = "Sepal length (cm)") +
   theme(axis.text.x = element_text(face = "italic"))
 
 # Box plots nested within violin plots
@@ -391,7 +391,7 @@ vio3 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, colour = Species)
   geom_boxplot(width = 0.1, colour = "grey30", fill = "white") +
   theme_pubclean() + theme(legend.position = "none") +
   labs(title = "Iris data",
-       subtitle = "Box plots nested within violin plots", y = "Sepal length (mm)") +
+       subtitle = "Box plots nested within violin plots", y = "Sepal length (cm)") +
   theme(axis.text.x = element_text(face = "italic"))
 
 # Boxes in violins with the raw data jittered about
@@ -401,7 +401,7 @@ vio4 <- ggplot(data = iris, aes(x = Species, y = Sepal.Length, colour = Species)
   geom_jitter(shape = 1, width = 0.1, colour = "red", alpha = 0.7, fill = NA) +
   theme_pubclean() + theme(legend.position = "none") +
   labs(title = "Iris data",
-       subtitle = "Violins, boxes, and jittered data", y = "Sepal length (mm)") +
+       subtitle = "Violins, boxes, and jittered data", y = "Sepal length (cm)") +
   theme(axis.text.x = element_text(face = "italic"))
 
 ggarrange(vio1, vio2, vio3, vio4, ncol = 2, nrow = 2, labels = "AUTO")

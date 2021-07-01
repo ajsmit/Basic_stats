@@ -24,7 +24,7 @@
 <meta name="author" content="AJ Smit and Robert Schlegel" />
 
 
-<meta name="date" content="2021-06-25" />
+<meta name="date" content="2021-07-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -483,8 +483,8 @@ R&gt; 6   Sadam   male 3 7000       0.95       4520       9480</code></pre>
 <span id="cb220-11"><a href="confidence-intervals.html#cb220-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">percentile =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb220-12"><a href="confidence-intervals.html#cb220-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">bca =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>R&gt;      Sex  n Mean Boot.mean Conf.level Bca.lower Bca.upper
-R&gt; 1 female 15 8200      8200       0.95      7470      8670
-R&gt; 2   male 11 7000      7000       0.95      6270      7550</code></pre>
+R&gt; 1 female 15 8200      8200       0.95      7530      8670
+R&gt; 2   male 11 7000      6990       0.95      6270      7550</code></pre>
 <div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="confidence-intervals.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groupwiseMean</span>(Steps <span class="sc">~</span> Teacher <span class="sc">+</span> Sex,</span>
 <span id="cb222-2"><a href="confidence-intervals.html#cb222-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> data,</span>
 <span id="cb222-3"><a href="confidence-intervals.html#cb222-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf =</span> <span class="fl">0.95</span>,</span>
@@ -498,10 +498,10 @@ R&gt; 2   male 11 7000      7000       0.95      6270      7550</code></pre>
 <span id="cb222-11"><a href="confidence-intervals.html#cb222-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">bca =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>R&gt;   Teacher    Sex n Mean Boot.mean Conf.level Bca.lower Bca.upper
 R&gt; 1  Donald female 5 8200      8200       0.95      6800      9000
-R&gt; 2  Donald   male 4 7000      7000       0.95      6250      7500
-R&gt; 3   Jacob female 6 8000      8010       0.95      6830      8830
+R&gt; 2  Donald   male 4 7000      7000       0.95      6000      7500
+R&gt; 3   Jacob female 6 8000      8000       0.95      6830      8830
 R&gt; 4   Jacob   male 4 7000      7000       0.95      5000      8000
-R&gt; 5   Sadam female 4 8500      8500       0.95      8000      8750
+R&gt; 5   Sadam female 4 8500      8510       0.95      8000      8750
 R&gt; 6   Sadam   male 3 7000      7000       0.95      6000      7670</code></pre>
 <p>These upper and lower limits may then be used easily within a figure.</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="confidence-intervals.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
