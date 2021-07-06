@@ -1,6 +1,5 @@
 # Inferences about one or two populations
 
-
 ```{r prelim-opts, echo=FALSE}
 knitr::opts_chunk$set(
   comment = "R>", 
@@ -18,14 +17,14 @@ library(tidyverse)
 
 At the heart of many basic scientific inquiries is the simple question "Is A different from B?" The scientific notation for this question is:
 
-* H0: Group A is not different from group B.
-* H1: Group A is different from group B.
+-   H0: Group A is not different from group B.
+-   H1: Group A is different from group B.
 
 More formally, one would say:
 
-1. $H_{0}: \bar{A} = \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} \neq \bar{B}$.
-2. $H_{0}: \bar{A} \leq \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} > \bar{B}$.
-3. $H_{0}: \bar{A} \geq \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} < \bar{B}$.
+1.  $H_{0}: \bar{A} = \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} \neq \bar{B}$.
+2.  $H_{0}: \bar{A} \leq \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} > \bar{B}$.
+3.  $H_{0}: \bar{A} \geq \bar{B}$ vs. the alternative hypothesis that $H_{a}: \bar{A} < \bar{B}$.
 
 > *NOTE:* Hypothesis 1 is a two-sided *t*-test and hypotheses 2 and 3 are one-sided tests.
 
@@ -37,36 +36,43 @@ Biologists typically define the probability of one in twenty (0.05) as the cut-o
 
 The *P*-value (the significance level, $\alpha$) is the probability of finding the observed (or measured) outcome to be more extreme (*i.e.* very different) than that suggested by the null hypothesis ($H_{0}$). Typically, biologists set the *P*-value at $\alpha \leq 0.05$---in other words, the measured outcome of our experiment only has a 1 in 20 chance of being the same as that of the reference (or control) group. So, when the *P*-value is $\leq$ 0.05, for example, we say that there is a very good probability that our experimental treatment resulted in an outcome that is very different (we say statistically significantly different) from the measurement obtained from the group to which the treatment had not been applied---in this case we do not accept $H_{0}$ and by necessity $H_{1}$ becomes true.
 
-The choice of *P*-value at which we reject $H_{0}$ is arbitrary and exists by convention only. Traditionally, the 5% cut-off (*i.e.* less than 1 in 20 chance of being wrong or $P \leq 0.05$) is used in biology, but sometimes the threshold is set at 1% or 0.1% (0.01 or 0.001, respectively), particularly in the biomedical sciences where avoiding fasle positives or negatives could be a public health concern. However, more and more biologists shy away from the *P*-value as they argue that it can give a false sense of security. 
+The choice of *P*-value at which we reject $H_{0}$ is arbitrary and exists by convention only. Traditionally, the 5% cut-off (*i.e.* less than 1 in 20 chance of being wrong or $P \leq 0.05$) is used in biology, but sometimes the threshold is set at 1% or 0.1% (0.01 or 0.001, respectively), particularly in the biomedical sciences where avoiding fasle positives or negatives could be a public health concern. However, more and more biologists shy away from the *P*-value as they argue that it can give a false sense of security.
 
 We generally refer to $P \leq 0.05$ as being statistically significant. Statistically highly significant is seen at as $P \leq 0.001$. In the first instance there is a less than 1 in 20 chance that our experimental sample is not different from the reference group, and in the second instance there is a less than 1 in a 1000 chance tat they are the same. This says something about error rates: the $H_{0}$ may in fact be falsely accepted or rejected. A Type I error is the false rejection of the null hypothesis (*i.e.* in reality we should not be rejecting it, but the *P*-value suggests that we must). A Type II error, on the other hand, is the false acceptance of the null hypothesis (*i.e.* the P-value suggests we should not reject the $H_{0}$, but in fact we must). When a statistical test results in a *P*-value of, say, $P \leq 0.05$ we would conclude that our experimental sample is statistically different from the reference group, but probabilistically there is a 1 in 20 change that this outcome is incorrect (*i.e.* the difference was arrived at by random chance only).
 
-**To conclude, when $P \gt 0.05$ there is a lack of evidence to suggest that our experiment has had an influential effect of the hypothesised outcome. When $P \leq 0.05$, however, there is a good probability that the experiment (etc.) has had an effect.**
+**To conclude, when** $P \gt 0.05$ there is a lack of evidence to suggest that our experiment has had an influential effect of the hypothesised outcome. When $P \leq 0.05$, however, there is a good probability that the experiment (etc.) has had an effect.
 
 ## Is there a difference between two groups?
 
 To answer this fundamental question one often uses a *t*-test. There are several variations of *t*-tests, depending on the nature of our samples and the type of question being asked:
 
-* **One-sample *t*-tests:** only one sample set of data that we wish to compare against a known population mean:
-  * one-sided one-sample *t*-tests
-  * two-sided one-sample *t*-tests
-* **Two-sample *t*-tests:** the means of two groups are compared against each other:
-  * independent sample *t*-tests
-    * one-sided two-sample *t*-tests
-    * two-sided two-sample *t*-tests
-  * paired sample *t*-tests
-    * one-sided
-    * two-sided
+-   **One-sample *t*-tests:** only one sample set of data that we wish to compare against a known population mean:
+
+    -   one-sided one-sample *t*-tests
+    -   two-sided one-sample *t*-tests
+
+-   **Two-sample *t*-tests:** the means of two groups are compared against each other:
+
+    -   independent sample *t*-tests
+
+        -   one-sided two-sample *t*-tests
+        -   two-sided two-sample *t*-tests
+
+    -   paired sample *t*-tests
+
+        -   one-sided
+        -   two-sided
 
 Before we cover each of these, we need to understand some of the assumptions behind *t*-tests. We shall cover that next.
 
 ## Assumptions
-Irrespective of the kind of *t*-test, we have to make a couple of important assumptions that are _not_ guaranteed to be true. In fact, these assumptions are often violated because real data, especially biological data, are messy. In order to use a *t*-test to determine if a significant difference between two sample sets of data exists we must first establish that:
 
-* the dependent variable must be continuous (i.e. it is measured at the interval or ratio level),
-* the observations in the groups being compared are independent of each other,
-* the data are **normally distributed**, and 
-* that the data are **homoscedastic**, and in particular, that there are no outliers.
+Irrespective of the kind of *t*-test, we have to make a couple of important assumptions that are *not* guaranteed to be true. In fact, these assumptions are often violated because real data, especially biological data, are messy. In order to use a *t*-test to determine if a significant difference between two sample sets of data exists we must first establish that:
+
+-   the dependent variable must be continuous (i.e. it is measured at the interval or ratio level),
+-   the observations in the groups being compared are independent of each other,
+-   the data are **normally distributed**, and
+-   that the data are **homoscedastic**, and in particular, that there are no outliers.
 
 <!-- Insert table showing what the consequences of not meeting the assumptions are. -->
 
@@ -91,13 +97,13 @@ h <- ggplot(data = r_dat, aes(x = dat, fill = sample)) +
 h
 ```
 
-Whereas histograms may be a pretty way to check the normality of our data, there is actually a statistical test for this, which is preferable to a visual inspection alone. But remember that you should _always_ visualise your data before performing any statistics on them. To check the normality of the data we use the Shapiro-Wilk test. This test produces a $W$ value and a _p_-value. We are only interested in the _p_-value as this is how we are to determine the normality of the data. The Shapiro–Wilk test tests the null hypothesis that a sample $x_{1},..., x_{n}$ comes from a normally distributed population. i.e. that the normality *does not* differ significantly from normal. If the _p_-value is __above__ 0.05 we may assume the data to be normally distributed. In order to demonstrate what the output of `shapiro.test()` looks like we will run it on all of the random data we generated.
+Whereas histograms may be a pretty way to check the normality of our data, there is actually a statistical test for this, which is preferable to a visual inspection alone. But remember that you should *always* visualise your data before performing any statistics on them. To check the normality of the data we use the Shapiro-Wilk test. This test produces a $W$ value and a *p*-value. We are only interested in the *p*-value as this is how we are to determine the normality of the data. The Shapiro--Wilk test tests the null hypothesis that a sample $x_{1},..., x_{n}$ comes from a normally distributed population. i.e. that the normality *does not* differ significantly from normal. If the *p*-value is **above** 0.05 we may assume the data to be normally distributed. In order to demonstrate what the output of `shapiro.test()` looks like we will run it on all of the random data we generated.
 
 ```{r}
 shapiro.test(r_dat$dat)
 ```
 
-Note that this shows that the data are _not_ normally distributed. This is because we have incorrectly run this function simultaneously on two different samples of data. To perform this test correctly, and in the tidy way, we need to select only the second piece of information from the `shapiro.test()` output and ensure that it is presented as a numeric value:
+Note that this shows that the data are *not* normally distributed. This is because we have incorrectly run this function simultaneously on two different samples of data. To perform this test correctly, and in the tidy way, we need to select only the second piece of information from the `shapiro.test()` output and ensure that it is presented as a numeric value:
 
 ```{r}
 # we use the square bracket notation to select only the p-value;
@@ -149,7 +155,7 @@ r_dat %>%
 
 Do these data meet our assumptions? How do we know this?
 
-Once we have tested our assumptions we may perform a *t*-test to ascertain whether or not our samples are significantly different from one another. The base R function for this is `t.test()`; however, by utilising the __`ggpubr`__ package we gain access to `compare_means()`, which allows us to perform any sort of test that compares sample sets of data and outputs the results as a dataframe. We will see throughout this and the following chapters why this is so useful.
+Once we have tested our assumptions we may perform a *t*-test to ascertain whether or not our samples are significantly different from one another. The base R function for this is `t.test()`; however, by utilising the **`ggpubr`** package we gain access to `compare_means()`, which allows us to perform any sort of test that compares sample sets of data and outputs the results as a dataframe. We will see throughout this and the following chapters why this is so useful.
 
 ```{r}
 library(ggpubr)
@@ -229,17 +235,15 @@ A two-sample *t*-test is used when we have samples from two different population
 
 In the case of samples that share the same variance we perform a classical *t*-test (otherwise known as Student's *t*-test); the equation to calculate the *t*-statistic is this one:
 
-$$t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}}{n}+\frac{S^{2}}{m}}}$$
-$\bar{A}$ and $\bar{B}$ are the means for groups $A$ and $B$, respectively; $n$ and $m$ are the sample sizes of the two sets of samples, respectively; and $S^{2}$ is the pooled variance, which is calculated as:
+$$t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}}{n}+\frac{S^{2}}{m}}}$$ $\bar{A}$ and $\bar{B}$ are the means for groups $A$ and $B$, respectively; $n$ and $m$ are the sample sizes of the two sets of samples, respectively; and $S^{2}$ is the pooled variance, which is calculated as:
 
-$$S^{2}=\frac{(n-1)S_{A}^{2}+(m-1)S_{B}^{2} }{n+m-2}$$
-The degrees of freedom, $d.f.$, in the equation for the shared variance is $n_{A}+n_{B}-2$.
+$$S^{2}=\frac{(n-1)S_{A}^{2}+(m-1)S_{B}^{2} }{n+m-2}$$ The degrees of freedom, $d.f.$, in the equation for the shared variance is $n_{A}+m_{B}-2$.
 
 When variances are unequal we perform the Welch's *t*-test; Welch's *t*-statistics is calculated as per this equation:
 
 $$t=\frac{\bar{A}-\bar{B}}{\sqrt{\frac{S^{2}_{A}}{n}+\frac{S^{2}_{B}}{m}}}$$
 
-Above, $S_{A}$ and $S_{B}$ are the variances of groups $A$ and $B$, respectively (see Section X). The degrees of freedom to use with Welch's *t*-test is obtained using the Welch–Satterthwaite equation as:
+Above, $S_{A}$ and $S_{B}$ are the variances of groups $A$ and $B$, respectively (see Section X). The degrees of freedom to use with Welch's *t*-test is obtained using the Welch--Satterthwaite equation as:
 
 $$d.f. = \frac{\left( \frac{S^{2}_{A}}{n}+\frac{S^{2}_{B}}{m} \right)^{2}}{\left( \frac{S^{4}_{A}}{n-1} + \frac{S^{4}_{B}}{m-1} \right)}$$
 
@@ -288,7 +292,6 @@ beeswarm.plot3 <- beeswarm.plot2 + geom_point() +
          labels = c("Sample A", "SampleB"), expand = c(0, 0.5))
 beeswarm.plot3
 ```
-
 
 > **TASK:** Create a visualisation to graphically demonstrate the outcome of this *t*-test.
 
@@ -439,28 +442,28 @@ ggplot(data = ecklonia_sub, aes(x = variable, y = value, fill = site)) +
 
 Now we have a more interesting comparison at hand. The question I think of when I look at these data is "Are the stipe masses at Batsata Rock greater than at Boulders Beach?". The hypothesis necessary to answer this question would look like this:
 
-* H0: Stipe mass at Batsata Rock **is not** greater than at Boulders Beach.
-* H1: Stipe mass at Batsata Rock **is** greater than at Boulders Beach.
+-   H0: Stipe mass at Batsata Rock **is not** greater than at Boulders Beach.
+-   H1: Stipe mass at Batsata Rock **is** greater than at Boulders Beach.
 
 Or more formally:
 
-* $H_{0}: \bar{A} \leq \bar{B}$ 
-* $H_{a}: \bar{A} > \bar{B}$.
+-   $H_{0}: \bar{A} \leq \bar{B}$
+-   $H_{a}: \bar{A} > \bar{B}$.
 
 Which test must we use for this hypothesis?
 
 ### Choosing a test
 
-Before we can pick the correct statistical test for our hypothesis, we need to be clear on what it is we are asking. Starting with the data being used is usually a good first step. As we may see in the above figure, we have two sample sets that we are comparing. Therefore, unsurprisingly, we will likely be using a *t*-test. But we're not done yet. How is it that we are comparing these two sample sets? Remember from the examples above that there are multiple different ways to compare two sets of data. For our hypothesis we want to see if the stipe mass at Batsata Rock is **greater than** the stipe mass at Boulders Beach, not just that they are different. Because of this we will need a one-sided *t*-test. But wait, there's more! We've zeroed in on which sort of test would be appropriate for our hypothesis, but before we run it we need to check our assumptions. 
+Before we can pick the correct statistical test for our hypothesis, we need to be clear on what it is we are asking. Starting with the data being used is usually a good first step. As we may see in the above figure, we have two sample sets that we are comparing. Therefore, unsurprisingly, we will likely be using a *t*-test. But we're not done yet. How is it that we are comparing these two sample sets? Remember from the examples above that there are multiple different ways to compare two sets of data. For our hypothesis we want to see if the stipe mass at Batsata Rock is **greater than** the stipe mass at Boulders Beach, not just that they are different. Because of this we will need a one-sided *t*-test. But wait, there's more! We've zeroed in on which sort of test would be appropriate for our hypothesis, but before we run it we need to check our assumptions.
 
 ### Checking assumptions
 
 In case we forgot, here are the assumptions for a *t*-test:
 
-* the dependent variable must be continuous (i.e. it is measured at the interval or ratio level),
-* the observations in the groups being compared are independent of each other,
-* the data are **normally distributed**, and 
-* that the data are **homoscedastic**, and in particular, that there are no outliers.
+-   the dependent variable must be continuous (i.e. it is measured at the interval or ratio level),
+-   the observations in the groups being compared are independent of each other,
+-   the data are **normally distributed**, and
+-   that the data are **homoscedastic**, and in particular, that there are no outliers.
 
 We know that the first two assumptions are met because our data are measurements of mass at two different sites. Before we can run our one-sided *t*-test we must meet the last two assumptions. Lucky us, we have a function tat will do that automagically.
 
@@ -491,9 +494,9 @@ We may reject the null hypothesis that the stipe mass of kelps at Batsata Rock a
 
 ### Drawing conclusions
 
-There are many ways to present ones findings. Style, without _too much_ flourish, is encouraged as long as certain necessary pieces of information are provided. The sentence below is a very minimalist example of how one may conclude this mini research project. A more thorough explanation would be desirable.
+There are many ways to present ones findings. Style, without *too much* flourish, is encouraged as long as certain necessary pieces of information are provided. The sentence below is a very minimalist example of how one may conclude this mini research project. A more thorough explanation would be desirable.
 
-> The stipe mass (kg) of the kelp _Ecklonia maxima_ was found to be significantly greater at Batsata Rock than at Boulders Beach (*p* = 0.03, *t* = 1.87, df = 24).
+> The stipe mass (kg) of the kelp *Ecklonia maxima* was found to be significantly greater at Batsata Rock than at Boulders Beach (*p* = 0.03, *t* = 1.87, df = 24).
 
 ### Going further
 
@@ -508,3 +511,4 @@ Find or create your own normally distributed data and think of a hypothesis you 
 ### Exercise 2
 
 Do the same as Exercise 1, but for probability data.
+

@@ -2,7 +2,7 @@
 title: "Basic Statistics"
 subtitle: "A primer in basic statistics for BCB (Hons)"
 author: "AJ Smit and Robert Schlegel"
-date: "2021-07-01"
+date: "2021-07-06"
 bibliography:
 - LaTeX/bibliography.bib
 - LaTeX/packages.bib
